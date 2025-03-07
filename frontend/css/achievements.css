@@ -1,0 +1,347 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-image: linear-gradient(rgba(69, 49, 49, 0.5), rgba(75, 50, 50, 0.5));
+    min-height: 100vh;
+    padding: 20px 20px;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 4.25rem;
+    height: 4.25rem;
+    background-image: url('../../images/umrt_logo.png');
+    background-size: cover;
+    margin-right: 5px;
+}
+
+.text {
+    font-size: 2.25rem;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #ff6b6b;
+}
+
+.team-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.team-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.9);
+    min-width: 150px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 0.5rem 0;
+    z-index: 10;
+}
+
+.team-dropdown:hover .team-dropdown-content {
+    display: block;
+}
+
+.dropdown-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.dropdown-link:hover {
+    background-color: #333;
+}
+
+.sponsor-btn {
+    background-color: #ff5252;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.sponsor-btn:hover {
+    background-color: #ff3838;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: #2d3748;
+    margin-bottom: 16px;
+}
+
+.header p {
+    font-size: 1.25rem;
+    color: #4a5568;
+}
+
+.timeline {
+    position: relative;
+    padding: 40px 0;
+}
+
+/* Timeline central line */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background: #3182ce;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 100%;
+    margin: 40px 0;
+}
+
+/* Timeline dots */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: #3182ce;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.timeline-content {
+    position: relative;
+    width: 45%;
+}
+
+.timeline-content.left {
+    float: left;
+}
+
+.timeline-content.right {
+    float: right;
+}
+
+.achievement-card {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.achievement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.achievement-card h3 {
+    font-size: 1.25rem;
+    color: #2d3748;
+    margin-bottom: 8px;
+}
+
+.achievement-card time {
+    display: block;
+    font-size: 0.875rem;
+    color: #3182ce;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.achievement-card p {
+    color: #4a5568;
+    font-size: 1rem;
+}
+
+/* Clear floats */
+.timeline-item::before {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    .timeline::after {
+        left: 31px;
+    }
+
+    .timeline-item {
+        padding-left: 80px;
+        padding-right: 0;
+    }
+
+    .timeline-item::after {
+        left: 31px;
+    }
+
+    .timeline-content {
+        width: 100%;
+        float: right;
+    }
+
+    .timeline-content.left,
+    .timeline-content.right {
+        float: right;
+    }
+
+    .achievement-card {
+        text-align: left;
+    }
+}
+
+.achievements-container {
+    max-width: 800px;
+    margin: 200px auto;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 40px;
+}
+
+.year-section {
+    margin-bottom: 30px;
+}
+
+.year-section h2 {
+    color: #e67e22;
+    margin-bottom: 10px;
+}
+
+.year-section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.year-section ul li {
+    margin-bottom: 10px;
+}
+
+/* Footer Styles */
+footer {
+    background-color: transparent; /* Dark background color */
+    color: #ecf0f1; /* Light text color */
+    padding: 20px; /* Adds padding inside the footer */
+    text-align: center; /* Centers the content */
+    font-family: Arial, sans-serif; /* Font family */
+}
+
+/* Footer Content Container */
+.footer-content {
+    max-width: 1200px; /* Limits the width of the footer content */
+    margin: 0 auto; /* Centers the footer content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Adds space between logo and links */
+}
+
+/* Footer Logo */
+.footer-logo {
+    width: 100px; /* Adjust logo size */
+    height: 100px; /* Adjust logo size */
+    background-image: url('../../images/umrt_logo.png'); /* Adds logo image */
+    background-size: cover; /* Makes sure the image covers the entire area */
+    border-radius: 50%; /* Makes the logo circular */
+    margin-bottom: 20px; /* Adds space below the logo */
+}
+
+/* Footer Links Container */
+.footer-links {
+    display: flex;
+    flex-wrap: wrap; /* Allows links to wrap to the next line on small screens */
+    justify-content: center;
+    gap: 15px; /* Adds space between links */
+}
+
+/* Footer Link Styles */
+.footer-link {
+    color: #ecf0f1; /* Light text color */
+    text-decoration: none; /* Removes underline */
+    font-size: 1rem; /* Font size */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.footer-link:hover {
+    color: #e67e22; /* Changes color on hover */
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .footer-links {
+        flex-direction: column; /* Stacks links vertically on small screens */
+        align-items: center;
+    }
+}
