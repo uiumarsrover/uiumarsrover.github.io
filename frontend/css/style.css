@@ -1,0 +1,475 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: white;
+    background-color: black;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
+
+.background-1 {
+    background-image: url('../../images/Mask\ group.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 20px;
+    height: 100vh;
+    width: 100%;
+}
+
+/* Content container */
+.content {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url('../../images/sky.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: repeat;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 4.25rem;
+    height: 4.25rem;
+    background-image: url('../../images/umrt_logo.png');
+    background-size: cover;
+    margin-right: 5px;
+}
+
+.text {
+    font-size: 2.25rem;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background-image: url('../../images/navBarBackground.png');
+}
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #ff6b6b;
+}
+
+.team-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.team-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.9);
+    min-width: 150px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 0.5rem 0;
+    z-index: 10;
+}
+
+.team-dropdown:hover .team-dropdown-content {
+    display: block;
+}
+
+.dropdown-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.dropdown-link:hover {
+    background-color: #333;
+}
+
+.sponsor-btn {
+    background-color: #ff5252;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.sponsor-btn:hover {
+    background-color: #ff3838;
+}
+
+/* Main content */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    min-height: 60vh;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 1rem;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    max-width: 800px;
+    line-height: 1.2;
+}
+
+/* Sponsors */
+.sponsors {
+    position: relative;
+    bottom: 2.5rem;
+    left: 0;
+    right: 0;
+    padding: 1rem 2rem;
+}
+
+.sponsors-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.sponsor {
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.sponsor:hover {
+    opacity: 1;
+}
+
+.sponsor img {
+    height: 32px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .title {
+        font-size: 1.75rem;
+    }
+
+    .mars {
+        width: 400px;
+        height: 400px;
+    }
+
+    .sun {
+        width: 70px;
+        height: 70px;
+    }
+
+    .sponsors-container {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+}
+
+.sub-container {
+    text-align: center;
+    padding: 50px;
+}
+
+.header h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.team-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.team-photo {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.achievements {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.achievement {
+    text-align: center;
+}
+
+.achievement h2 {
+    font-size: 36px;
+    margin: 0;
+}
+
+.achievement p {
+    margin: 5px 0;
+}
+
+.meet-team-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.meet-team-button:hover {
+    background-color: #555;
+}
+
+
+/* Background Image */
+.background-2 {
+    background-image: url('../../images/mars2.png');
+    z-index: -1;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row; /* Change to row for side-by-side layout */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px; /* Adds space between the content and image */
+    padding: 20px; /* Adds padding around the container */
+}
+
+/* Content Container */
+.content-1 {
+    margin: 10px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black background */
+    backdrop-filter: blur(3px); /* Background blur effect */
+    border-radius: 10px;
+    max-width: 600px; /* Limits the width of the content */
+}
+
+/* Heading Styles */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#placeholder-text {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 64px;
+    font-weight:bold;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+/* Paragraph Styles */
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Join Button Styles */
+.join-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #ff5722; /* Orange color for the button */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.join-button:hover {
+    background-color: #e64a19; /* Darker orange on hover */
+}
+
+/* Image Placeholder */
+.image-placeholder {
+    background-image: url('../../images/Group.png');
+    background-size: cover; /* Ensures the image covers the placeholder */
+    background-position: center;
+    width: 763px;
+    height: 470px;
+    border-radius: 10px; /* Adds rounded corners to the image */
+}
+
+.background-3{
+    background-image: url('../../images/Earth.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 20px;
+    height: 100vh;
+    width: 100%;
+}
+
+.hold-content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    min-height: 60vh;
+}
+
+.content-2{
+    margin: 10px;
+    padding: 20px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2.8rem;
+    font-weight: bold;
+    /* background-color: rgba(0, 0, 0, 0.4); Semi-transparent black background */
+    /* backdrop-filter: blur(3px); Background blur effect */
+    border-radius: 10px;
+    max-width: 600px; /* Limits the width of the content */
+    
+}
+
+.content-3{
+    margin: 10px;
+    padding: 20px;
+    font-size: 1.8rem;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black background */
+    backdrop-filter: blur(3px); /* Background blur effect */
+    border-radius: 10px;
+    max-width: 600px; /* Limits the width of the content */
+}
+
+.background-4{
+    background-image: url('../../images/Mask\ group1.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 20px;
+    height: 100vh;
+    width: 100%;
+}
+
+/* Container for the button */
+.background-4 {
+    position: relative; /* Makes the container a reference for absolute positioning */
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center; /* Centers the button horizontally */
+    align-items: flex-end; /* Aligns the button to the bottom */
+    padding-bottom: 20px; /* Adds some space from the bottom */
+}
+
+/* Button Styles */
+.btn {
+    padding: 1.1em 2em;
+    background: none;
+    border: 2px solid #fff;
+    font-size: 15px;
+    color: #131313;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    border-radius: 12px;
+    background-color: #ecd448;
+    font-weight: bolder;
+    box-shadow: 0 2px 0 2px #000;
+    text-decoration: none; /* Removes underline from the link */
+    margin-bottom: 6rem;
+}
+
+.btn a {
+    text-decoration: none; /* Removes underline from the link text */
+    color: inherit; /* Inherits the color from the button */
+}
+
+.btn:before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 120%;
+    background-color: #ff6700;
+    top: 50%;
+    transform: skewX(30deg) translate(-150%, -50%);
+    transition: all 0.5s;
+}
+
+.btn:hover {
+    background-color: #4cc9f0;
+    color: #fff;
+    box-shadow: 0 2px 0 2px #0d3b66;
+}
+
+.btn:hover::before {
+    transform: skewX(30deg) translate(150%, -50%);
+    transition-delay: 0.1s;
+}
+
+.btn:active {
+    transform: scale(0.9);
+}
