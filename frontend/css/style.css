@@ -130,7 +130,7 @@ nav {
     background-color: #ff3838;
 }
 
-/* Main content */
+/* Main Container */
 main {
     flex: 1;
     display: flex;
@@ -140,19 +140,49 @@ main {
     text-align: center;
     padding: 2rem;
     min-height: 60vh;
+    color: #fff; /* White text for contrast */
 }
 
+/* Subtitle Animation */
 .subtitle {
     font-size: 1.25rem;
     letter-spacing: 0.2em;
     margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(20px) scale(0.95); /* Start slightly below and smaller */
+    animation: fadeInUp 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s forwards;
 }
 
+/* Title Animation */
 .title {
     font-size: 2.5rem;
     font-weight: bold;
     max-width: 800px;
     line-height: 1.2;
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    animation: fadeInUp 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s forwards;
+    background: linear-gradient(45deg, #ff7e5f, #feb47b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: font-size 0.9s ease, background 0.9s ease; /* Add font-size transition */
+}
+
+/* Hover Effect for Title */
+.title:hover {
+    font-size: 2.6rem; /* Increase font size on hover */
+}
+
+/* Keyframes for Fade-In, Slide-Up, and Scale Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 /* Sponsors */
