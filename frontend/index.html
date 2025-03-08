@@ -12,12 +12,12 @@
 
     <div class="content">
         <!-- Navigation bar -->
-        <nav class="navbar">
+        <nav class="navbar montserrat">
 
             <div class="logo-container">
                 <div class="logo"></div>
                 <div class="text">
-                    <a href="../frontend/index.html" class="nav-link">UMRT</a>
+                    <a href="../frontend/index.html" class="nav-link akira">UMRT</a>
                 </div>
             </div>
 
@@ -76,30 +76,49 @@
 
         <!-- Page 2 -->
         <div class="sub-container">
-            <div class="achievements">
-                <div class="achievement">
-                    <h2>1<sup>st</sup></h2>
-                    <p>In ASIA</p>
-                    <p>URC 2022</p>
-                </div>
-                <div class="line"></div>
-                <div class="achievement">
-                    <h2>3<sup>rd</sup></h2>
-                    <p>In World</p>
-                    <p>ARC 2022</p>
-                </div>
-            </div>
+
             <div class="team-section">
-                <img class="team-photo" src="../images/team_pic.jpg" alt="Team Photo" height="400" width="900" />
-                
+                <img class="team-photo gradient-mask" src="../images/team_pic.jpg" alt="Team Photo" height="400" width="900" />
+                <div class="achievements">
+                    <div class="achievement" style="text-align: right;">
+                        <h2 class="akira" style="font-size: 4em;">1st</h2>
+                        <p class="montserrat">In ASIA</p>
+                        <p class="montserrat">URC 2022, 2023 & 2024</p>
+                    </div>
+                    <div class="achievement" style="text-align: left;">
+                        <h2 class="akira" style="font-size: 4em;">3rd</h2>
+                        <p class="montserrat">In World</p>
+                        <p class="montserrat">ARC 2022</p>
+                    </div>
+                </div>
             </div>
-            <a class="meet-team-button" href="#">Meet The Team!</a>
+            <br>
+            <a class="button-5" href="#">See All Achievements</a>
         </div>
 
         <!-- Page 3 -->
         <div class="background-2">
-            <div class="content-1">
-                <h1>OUR VISION</h1>
+            <div class="placeholder">
+                <h2 id="placeholder-text" class="akira" style="font-size: 3em;text-align: left;">WE DREAM AT THE COSMIC SCALE</h2>
+                <!-- Image Placeholder -->
+                <div class="carousel-container">
+                    <div class="carousel-slides">
+                        <img src="../images/team_2022_1.jpg" alt="Slide 1">
+                        <img src="../images/team_2023_1.jpg" alt="Slide 2">
+                        <img src="../images/team_2023_2.jpg" alt="Slide 3">
+                        <img src="../images/team_2023_3.jpg" alt="Slide 4">
+                        <img src="../images/team_2023_4.jpg" alt="Slide 5">
+                        <img src="../images/team_2024_1.jpg" alt="Slide 6">
+                    </div>
+                    <button class="prev">&#10094;</button>
+                    <button class="next">&#10095;</button>
+                </div>
+            
+                <div class="dots"></div>
+            </div>
+
+            <div class="content-1" style="text-align: justify;">
+                <h1 class="akira">OUR VISION</h1>
                 <p>We are a team of students passionate about designing and building the next generation of Mars and
                     Lunar rovers.</p>
                 <p>We are a team of students passionate about designing and building the next generation of Mars and
@@ -109,12 +128,6 @@
                 <hr>
                 <a href="#" class="join-button">JOIN OUR JOURNEY!</a>
 
-            </div>
-            <div class="placeholder">
-                <h2 id="placeholder-text">WE DREAM AT THE COSMIC SCALE</h2>
-                <!-- Image Placeholder -->
-                <div class="image-placeholder">
-                </div>
             </div>
         </div>
 
@@ -167,5 +180,60 @@
     </footer>
     
 </body>
+
+<script>
+    let slideIndex = 0;
+    const slides = document.querySelector(".carousel-slides");
+    const totalSlides = slides.querySelectorAll("img").length;
+    const dotsContainer = document.querySelector(".dots");
+
+    // Generate dots dynamically
+    for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement("span");
+        dot.classList.add("dot");
+        dot.setAttribute("onclick", `currentSlide(${i})`);
+        dotsContainer.appendChild(dot);
+    }
+
+    const dots = document.querySelectorAll(".dot");
+
+    function showSlide(index) {
+        if (index >= totalSlides) slideIndex = 0;
+        if (index < 0) slideIndex = totalSlides - 1;
+
+        slides.style.transform = `translateX(${-slideIndex * 100}%)`;
+
+        dots.forEach(dot => dot.classList.remove("active"));
+        dots[slideIndex].classList.add("active");
+    }
+
+    function nextSlide() {
+        slideIndex++;
+        showSlide(slideIndex);
+    }
+
+    function prevSlide() {
+        slideIndex--;
+        showSlide(slideIndex);
+    }
+
+    function currentSlide(index) {
+        slideIndex = index;
+        showSlide(slideIndex);
+    }
+
+    function autoSlide() {
+        nextSlide();
+        setTimeout(autoSlide, 3000);
+    }
+
+    document.querySelector(".prev").addEventListener("click", prevSlide);
+    document.querySelector(".next").addEventListener("click", nextSlide);
+
+    showSlide(slideIndex);
+    setTimeout(autoSlide, 3000);
+</script>
+
+
 
 </html>
