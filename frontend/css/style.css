@@ -15,10 +15,6 @@
   font-family: "Montserrat", sans-serif;
 }
 
-main {
-  font-family: "AkiraExpanded", sans-serif;
-}
-
 .gradient-mask {
   /* Apply a mask gradient to fade top and bottom */
   -webkit-mask-image: linear-gradient(to bottom,
@@ -72,7 +68,7 @@ body {
 }
 
 /* Navigation */
-nav {
+/* nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -164,7 +160,7 @@ nav {
 
 .sponsor-btn:hover {
   background-color: #ff3838;
-}
+} */
 
 /* Main Container */
 main {
@@ -174,12 +170,12 @@ main {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 2rem;
+  padding: 8rem 2rem 2rem 2rem;
   min-height: 60vh;
   color: #fff;
+  font-family: "AkiraExpanded", sans-serif;
   /* White text for contrast */
 }
-
 
 
 /* Subtitle Animation */
