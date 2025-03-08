@@ -272,6 +272,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 20px;
 }
 
 .team-photo {
@@ -283,7 +284,8 @@ main {
 .achievements {
     display: flex;
     justify-content: center;
-    gap: 50px;
+    gap: 10vw;
+    height: 20vh;
 }
 
 .achievement {
@@ -330,6 +332,12 @@ main {
     text-align: center;
     gap: 20px; /* Adds space between the content and image */
     padding: 20px; /* Adds padding around the container */
+}
+.line{
+    border: 1px solid white;
+    height: 85%;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 /* Content Container */
@@ -385,8 +393,11 @@ p {
     background-image: url('../../images/Group.png');
     background-size: cover; /* Ensures the image covers the placeholder */
     background-position: center;
-    width: 763px;
-    height: 470px;
+    /* width: 763px; */
+    /* height: 470px; */
+    width: 50vw;
+    height: 32vw;
+    
     border-radius: 10px; /* Adds rounded corners to the image */
 }
 
