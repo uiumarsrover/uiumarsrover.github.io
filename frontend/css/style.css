@@ -67,101 +67,6 @@ body {
   background-repeat: repeat;
 }
 
-/* Navigation */
-/* nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 2rem;
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-}
-
-.logo {
-  width: 4.25rem;
-  height: 4.25rem;
-  background-image: url("../../images/umrt_logo.png");
-  background-size: cover;
-  margin-right: 5px;
-}
-
-.text {
-  font-size: 2.25rem;
-  font-family: Arial, sans-serif;
-  font-weight: bold;
-}
-
-.navbar {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  background-image: url("../../images/navBarBackground.png");
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-.nav-link {
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.nav-link:hover {
-  color: #ff6b6b;
-}
-
-.team-dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.team-dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.9);
-  min-width: 150px;
-  border: 1px solid #333;
-  border-radius: 4px;
-  padding: 0.5rem 0;
-  z-index: 10;
-}
-
-.team-dropdown:hover .team-dropdown-content {
-  display: block;
-}
-
-.dropdown-link {
-  display: block;
-  padding: 0.5rem 1rem;
-  color: white;
-  text-decoration: none;
-  transition: background-color 0.3s;
-}
-
-.dropdown-link:hover {
-  background-color: #333;
-}
-
-.sponsor-btn {
-  background-color: #ff5252;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: background-color 0.3s;
-}
-
-.sponsor-btn:hover {
-  background-color: #ff3838;
-} */
-
 /* Main Container */
 main {
   flex: 1;
@@ -264,16 +169,6 @@ main {
 
   .title {
     font-size: 1.75rem;
-  }
-
-  .mars {
-    width: 400px;
-    height: 400px;
-  }
-
-  .sun {
-    width: 70px;
-    height: 70px;
   }
 
   .sponsors-container {
@@ -575,14 +470,14 @@ p {
   height: 120%;
   background-color: #ff6700;
   top: 50%;
-  transform: skewX(30deg) translate(-150%, -50%);
+  transform: skewX(90deg) translate(-150%, -50%);
   transition: all 0.5s;
 }
 
 .btn:hover {
-  background-color: #4cc9f0;
+  background-color: #03556e;
   color: #fff;
-  box-shadow: 0 2px 0 2px #0d3b66;
+  box-shadow: 0 2px 0 2px #06335d;
 }
 
 .btn:hover::before {
@@ -647,7 +542,6 @@ footer {
 /* Footer Link Styles */
 .footer-link {
   color: #ecf0f1;
-  /* Light text color */
   text-decoration: none;
   /* Removes underline */
   font-size: 1rem;
