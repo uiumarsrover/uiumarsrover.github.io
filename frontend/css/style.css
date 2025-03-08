@@ -10,6 +10,7 @@
 .akira {
   font-family: "AkiraExpanded", sans-serif;
 }
+
 .montserrat {
   font-family: "Montserrat", sans-serif;
 }
@@ -20,20 +21,16 @@ main {
 
 .gradient-mask {
   /* Apply a mask gradient to fade top and bottom */
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 1) 30%,
-    rgba(0, 0, 0, 1) 70%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 1) 30%,
-    rgba(0, 0, 0, 1) 70%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  -webkit-mask-image: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 1) 30%,
+      rgba(0, 0, 0, 1) 70%,
+      rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 1) 30%,
+      rgba(0, 0, 0, 1) 70%,
+      rgba(0, 0, 0, 0) 100%);
 }
 
 /* Reset and base styles */
@@ -107,6 +104,7 @@ nav {
   gap: 2rem;
   background-image: url("../../images/navBarBackground.png");
 }
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -178,7 +176,8 @@ main {
   text-align: center;
   padding: 2rem;
   min-height: 60vh;
-  color: #fff; /* White text for contrast */
+  color: #fff;
+  /* White text for contrast */
 }
 
 
@@ -189,7 +188,8 @@ main {
   letter-spacing: 0.2em;
   margin-bottom: 1rem;
   opacity: 0;
-  transform: translateY(20px) scale(0.95); /* Start slightly below and smaller */
+  transform: translateY(20px) scale(0.95);
+  /* Start slightly below and smaller */
   animation: fadeInUp 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s forwards;
 }
 
@@ -205,12 +205,14 @@ main {
   background: linear-gradient(45deg, #ff7e5f, #feb47b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  transition: font-size 0.9s ease, background 0.9s ease; /* Add font-size transition */
+  transition: font-size 0.9s ease, background 0.9s ease;
+  /* Add font-size transition */
 }
 
 /* Hover Effect for Title */
 .title:hover {
-  font-size: 2.6rem; /* Increase font size on hover */
+  font-size: 2.6rem;
+  /* Increase font size on hover */
 }
 
 /* Keyframes for Fade-In, Slide-Up, and Scale Animation */
@@ -219,6 +221,7 @@ main {
     opacity: 0;
     transform: translateY(20px) scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -352,7 +355,7 @@ main {
   color: #fff;
   cursor: pointer;
   display: inline-flex;
-  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: 600;
   justify-content: center;
@@ -397,12 +400,15 @@ main {
   height: 100vh;
   width: 100%;
   display: flex;
-  flex-direction: row; /* Change to row for side-by-side layout */
+  flex-direction: row;
+  /* Change to row for side-by-side layout */
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 20px; /* Adds space between the content and image */
-  padding: 2em; /* Adds padding around the container */
+  gap: 20px;
+  /* Adds space between the content and image */
+  padding: 2em;
+  /* Adds padding around the container */
 }
 
 /* Content Container */
@@ -410,9 +416,11 @@ main {
   margin: 10px;
   padding: 20px;
   /* background-color: rgba(0, 0, 0, 0.4); Semi-transparent black background */
-  backdrop-filter: blur(3px); /* Background blur effect */
+  backdrop-filter: blur(3px);
+  /* Background blur effect */
   border-radius: 10px;
-  max-width: 600px; /* Limits the width of the content */
+  max-width: 600px;
+  /* Limits the width of the content */
 }
 
 /* Heading Styles */
@@ -441,7 +449,8 @@ p {
   padding: 10px 20px;
   font-size: 1.2rem;
   color: white;
-  background-color: #ff5722; /* Orange color for the button */
+  background-color: #ff5722;
+  /* Orange color for the button */
   border: none;
   border-radius: 5px;
   text-decoration: none;
@@ -449,17 +458,20 @@ p {
 }
 
 .join-button:hover {
-  background-color: #e64a19; /* Darker orange on hover */
+  background-color: #e64a19;
+  /* Darker orange on hover */
 }
 
 /* Image Placeholder */
 .image-placeholder {
   background-image: url("../../images/Group.png");
-  background-size: cover; /* Ensures the image covers the placeholder */
+  background-size: cover;
+  /* Ensures the image covers the placeholder */
   background-position: center;
   width: 763px;
   height: 470px;
-  border-radius: 10px; /* Adds rounded corners to the image */
+  border-radius: 10px;
+  /* Adds rounded corners to the image */
 }
 
 .background-3 {
@@ -491,17 +503,21 @@ p {
   /* background-color: rgba(0, 0, 0, 0.4); Semi-transparent black background */
   /* backdrop-filter: blur(3px); Background blur effect */
   border-radius: 10px;
-  max-width: 600px; /* Limits the width of the content */
+  max-width: 600px;
+  /* Limits the width of the content */
 }
 
 .content-3 {
   margin: 10px;
   padding: 20px;
   font-size: 1.8rem;
-  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black background */
-  backdrop-filter: blur(3px); /* Background blur effect */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Semi-transparent black background */
+  backdrop-filter: blur(3px);
+  /* Background blur effect */
   border-radius: 10px;
-  max-width: 600px; /* Limits the width of the content */
+  max-width: 600px;
+  /* Limits the width of the content */
 }
 
 .background-4 {
@@ -516,12 +532,17 @@ p {
 
 /* Container for the button */
 .background-4 {
-  position: relative; /* Makes the container a reference for absolute positioning */
-  height: 100vh; /* Full viewport height */
+  position: relative;
+  /* Makes the container a reference for absolute positioning */
+  height: 100vh;
+  /* Full viewport height */
   display: flex;
-  justify-content: center; /* Centers the button horizontally */
-  align-items: flex-end; /* Aligns the button to the bottom */
-  padding-bottom: 20px; /* Adds some space from the bottom */
+  justify-content: center;
+  /* Centers the button horizontally */
+  align-items: flex-end;
+  /* Aligns the button to the bottom */
+  padding-bottom: 20px;
+  /* Adds some space from the bottom */
 }
 
 /* Button Styles */
@@ -539,13 +560,16 @@ p {
   background-color: #ecd448;
   font-weight: bolder;
   box-shadow: 0 2px 0 2px #000;
-  text-decoration: none; /* Removes underline from the link */
+  text-decoration: none;
+  /* Removes underline from the link */
   margin-bottom: 6rem;
 }
 
 .btn a {
-  text-decoration: none; /* Removes underline from the link text */
-  color: inherit; /* Inherits the color from the button */
+  text-decoration: none;
+  /* Removes underline from the link text */
+  color: inherit;
+  /* Inherits the color from the button */
 }
 
 .btn:before {
@@ -576,120 +600,145 @@ p {
 
 /* Footer Styles */
 footer {
-  background-color: transparent; /* Dark background color */
-  color: #ecf0f1; /* Light text color */
-  padding: 0px 20px 40px 20px; /* Padding for top/bottom and left/right */
-  font-family: Arial, sans-serif; /* Font family */
+  background-color: transparent;
+  /* Dark background color */
+  color: #ecf0f1;
+  /* Light text color */
+  padding: 0px 20px 40px 20px;
+  /* Padding for top/bottom and left/right */
+  font-family: Arial, sans-serif;
+  /* Font family */
 }
 
 /* Footer Content Container */
 .footer-content {
-  max-width: 1200px; /* Limits the width of the footer content */
-  margin: 0 auto; /* Centers the footer content */
+  max-width: 1200px;
+  /* Limits the width of the footer content */
+  margin: 0 auto;
+  /* Centers the footer content */
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px; /* Adds space between child elements */
+  gap: 20px;
+  /* Adds space between child elements */
   background: transparent;
 }
 
 /* Footer Logo */
 .footer-logo {
-  width: 200px; /* Adjust logo size */
-  height: 200px; /* Adjust logo size */
-  background-image: url("../../images/umrt_logo.png"); /* Logo image */
-  background-size: cover; /* Ensures the image covers the logo */
-  border-radius: 50%; /* Makes the logo circular */
+  width: 200px;
+  /* Adjust logo size */
+  height: 200px;
+  /* Adjust logo size */
+  background-image: url("../../images/umrt_logo.png");
+  /* Logo image */
+  background-size: cover;
+  /* Ensures the image covers the logo */
+  border-radius: 50%;
+  /* Makes the logo circular */
 }
 
 /* Footer Links Container */
 .footer-links {
   display: flex;
-  flex-wrap: wrap; /* Allows links to wrap to the next line */
+  flex-wrap: wrap;
+  /* Allows links to wrap to the next line */
   justify-content: center;
-  gap: 15px; /* Adds space between links */
+  gap: 15px;
+  /* Adds space between links */
 }
 
 /* Footer Link Styles */
 .footer-link {
-  color: #ecf0f1; /* Light text color */
-  text-decoration: none; /* Removes underline */
-  font-size: 1rem; /* Font size */
-  transition: color 0.3s ease; /* Smooth color transition on hover */
+  color: #ecf0f1;
+  /* Light text color */
+  text-decoration: none;
+  /* Removes underline */
+  font-size: 1rem;
+  /* Font size */
+  transition: color 0.3s ease;
+  /* Smooth color transition on hover */
 }
 
 .footer-link:hover {
-  color: #e67e22; /* Changes color on hover */
+  color: #e67e22;
+  /* Changes color on hover */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .footer-links {
-    flex-direction: column; /* Stacks links vertically on small screens */
+    flex-direction: column;
+    /* Stacks links vertically on small screens */
     align-items: center;
   }
 }
 
 
-
-
 .carousel-container {
-    position: relative;
-    max-width: 800px;
-    margin: auto;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .carousel-slides {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
 }
 
 .carousel-slides img {
-    width: 100%;
-    border-radius: 10px;
+  width: 100%;
+  border-radius: 10px;
 }
 
 /* Navigation Buttons */
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 18px;
-    border-radius: 5px;
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 5px;
 }
 
-.prev { left: 10px; }
-.next { right: 10px; }
+.prev {
+  left: 10px;
+}
 
-.prev:hover, .next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+.next {
+  right: 10px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Dots for Indicators */
 .dots {
-    text-align: center;
-    margin-top: 10px;
+  text-align: center;
+  margin-top: 10px;
 }
 
 .dot {
-    height: 10px;
-    width: 10px;
-    margin: 5px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  height: 10px;
+  width: 10px;
+  margin: 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .active {
-    background-color: #717171;
+  background-color: #717171;
 }

@@ -11,7 +11,6 @@ body {
 header {
     background: linear-gradient(135deg, #2c3e50, #1a1a1a);
     color: #fff;
-    padding: 20px;
     text-align: center;
 }
 
@@ -20,20 +19,99 @@ header h1 {
     font-size: 2.5rem;
 }
 
-header nav {
-    margin-top: 10px;
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
 }
 
-.year-link {
-    color: #fff;
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 4.25rem;
+    height: 4.25rem;
+    background-image: url("../../images/umrt_logo.png");
+    background-size: cover;
+    margin-right: 5px;
+}
+
+.text {
+    font-size: 2.25rem;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background-image: url("../../images/navBarBackground.png");
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: white;
     text-decoration: none;
-    margin: 0 10px;
-    font-size: 1.1rem;
-    transition: color 0.3s ease;
+    transition: color 0.3s;
 }
 
-.year-link:hover {
-    color: #e67e22;
+.nav-link:hover {
+    color: #ff6b6b;
+}
+
+.team-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.team-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.9);
+    min-width: 150px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 0.5rem 0;
+    z-index: 10;
+}
+
+.team-dropdown:hover .team-dropdown-content {
+    display: block;
+}
+
+.dropdown-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.dropdown-link:hover {
+    background-color: #333;
+}
+
+.sponsor-btn {
+    background-color: #ff5252;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.sponsor-btn:hover {
+    background-color: #ff3838;
 }
 
 /* Main Content Styles */
@@ -41,89 +119,146 @@ main {
     padding: 20px;
 }
 
-.team-section {
-    margin-bottom: 40px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.hold-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
-.team-section h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #2c3e50;
-}
-
-.sub-team {
-    margin-bottom: 20px;
-}
-
-.sub-team h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #e67e22;
-}
-
-.member {
-    display: inline-block;
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 18rem;
+    padding: 20px 1px;
+    margin: 10px 0;
     text-align: center;
-    margin: 10px;
-    width: 150px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 10px 15px -3px rgba(33, 150, 243, .4), 0 4px 6px -4px rgba(33, 150, 243, .4);
+    border-radius: 10px;
+    background-color: #6B6ECC;
+    background: linear-gradient(45deg, #04051dea 0%, #2b566e 100%);
 }
 
-.member img {
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-    border: 3px solid #e67e22;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+.content {
+    padding: 20px;
+    width: 100%; /* Ensure content takes full width */
 }
 
-.member img:hover {
-    transform: scale(1.1);
-    border-color: #2c3e50;
+.content .year {
+    color: white;
+    font-weight: 800;
+    font-size: 4rem;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.42);
 }
 
-.member p {
+.content .description {
+    color: rgba(255, 255, 255, 0.6);
     margin-top: 10px;
+    font-size: 14px;
+    width: 100%; /* Ensure description takes full width */
+    height: 200px; /* Set a fixed height for the description container */
+    overflow: hidden; /* Hide any overflow */
+    position: relative; /* For positioning the image */
+    border-radius: 10px; /* Match card border radius */
+}
+
+.content .description img.team-photo {
+    width: 100%; /* Make image fill the container width */
+    height: 100%; /* Make image fill the container height */
+    object-fit: cover; /* Ensure the image covers the container without distortion */
+    border-radius: 10px; /* Match card border radius */
+}
+
+.content .title {
+    font-weight: 800;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.64);
+    margin-top: 10px;
+    font-size: 3rem;
+    letter-spacing: 1px;
+}
+
+a {
+    text-decoration: none; /* Removes underline from all links */
+}
+
+
+/* Footer Styles */
+footer {
+    background-color: transparent;
+    /* Dark background color */
+    color: #ecf0f1;
+    /* Light text color */
+    padding: 0px 20px 40px 20px;
+    /* Padding for top/bottom and left/right */
+    font-family: Arial, sans-serif;
+    /* Font family */
+}
+
+/* Footer Content Container */
+.footer-content {
+    max-width: 1200px;
+    /* Limits the width of the footer content */
+    margin: 0 auto;
+    /* Centers the footer content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    /* Adds space between child elements */
+    background: transparent;
+}
+
+/* Footer Logo */
+.footer-logo {
+    width: 200px;
+    /* Adjust logo size */
+    height: 200px;
+    /* Adjust logo size */
+    background-image: url("../../images/umrt_logo.png");
+    /* Logo image */
+    background-size: cover;
+    /* Ensures the image covers the logo */
+    border-radius: 50%;
+    /* Makes the logo circular */
+}
+
+/* Footer Links Container */
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows links to wrap to the next line */
+    justify-content: center;
+    gap: 15px;
+    /* Adds space between links */
+}
+
+/* Footer Link Styles */
+.footer-link {
+    color: #0d4655;
+    /* Light text color */
+    text-decoration: none;
+    /* Removes underline */
     font-size: 1rem;
-    color: #333;
+    /* Font size */
+    transition: color 0.3s ease;
+    /* Smooth color transition on hover */
+}
+
+.footer-link:hover {
+    color: #e67e22;
+    /* Changes color on hover */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 2rem;
-    }
-
-    .year-link {
-        font-size: 1rem;
-    }
-
-    .team-section h2 {
-        font-size: 1.75rem;
-    }
-
-    .sub-team h3 {
-        font-size: 1.25rem;
-    }
-
-    .member {
-        width: 120px;
-    }
-
-    .member p {
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .member {
-        width: 100px;
-    }
-
-    .member p {
-        font-size: 0.8rem;
+    .footer-links {
+        flex-direction: column;
+        /* Stacks links vertically on small screens */
+        align-items: center;
     }
 }
