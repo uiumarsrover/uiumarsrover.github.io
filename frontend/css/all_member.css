@@ -15,7 +15,9 @@ body {
 
 .team-page {
     padding: 20px;
-    max-width: 1200px;
+    background-image: url("../../images/pexels-blaque-x.jpg");
+    background-size: cover;
+    background-attachment: scroll;
     margin: 0 auto;
 }
 
@@ -27,12 +29,12 @@ body {
 
 .team-leader h2 {
     font-size: 2rem;
-    color: #2c3e50;
+    color: #152e49;
     margin-bottom: 20px;
 }
 
 .leader-card {
-    background-color: #fff;
+    background-color: #eae5e59e;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -55,7 +57,7 @@ body {
 
 .leader-info p {
     font-size: 1rem;
-    color: #666;
+    color: #4c4c4c;
 }
 
 /* Sub Team Leaders Section */
@@ -65,7 +67,7 @@ body {
 
 .sub-team-leaders h2 {
     font-size: 2rem;
-    color: #2c3e50;
+    color: #d0d5dbdb;
     margin-bottom: 20px;
     text-align: center;
 }
@@ -77,7 +79,7 @@ body {
 }
 
 .sub-leader-card {
-    background-color: #fff;
+    background-color: #94929270;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -93,13 +95,13 @@ body {
 
 .sub-leader-info h3 {
     font-size: 1.25rem;
-    color: #e67e22;
+    color: #ec7c18;
     margin-bottom: 10px;
 }
 
 .sub-leader-info p {
     font-size: 1rem;
-    color: #666;
+    color: #dcdcdcfa;
 }
 
 /* Team Members Section */
@@ -109,7 +111,7 @@ body {
 
 .team-members h2 {
     font-size: 2rem;
-    color: #2c3e50;
+    color: #ffffffbf;
     margin-bottom: 20px;
     text-align: center;
 }
@@ -121,7 +123,7 @@ body {
 }
 
 .member-card {
-    background-color: #fff;
+    background-color: #6563637d;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -143,7 +145,7 @@ body {
 
 .member-info p {
     font-size: 1rem;
-    color: #666;
+    color: #dfdcdcd1;
 }
 
 /* Responsive Design */
