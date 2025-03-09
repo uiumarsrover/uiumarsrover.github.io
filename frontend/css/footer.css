@@ -1,0 +1,121 @@
+/* Footer Styles */
+footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 0px 20px 30px 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Footer Content Container */
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Footer Logo */
+.footer-logo {
+    width: 200px;
+    height: 200px;
+    background-image: url("../../images/umrt_logo.png");
+    background-size: cover;
+    border-radius: 50%;
+}
+
+/* Footer Main Container (About + Links) */
+.footer-main {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 40px;
+}
+
+/* About Section */
+.about {
+    flex: 1;
+    max-width: 400px;
+}
+
+.about h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #e67e22;
+}
+
+.about p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ecf0f1;
+}
+
+.contact-info {
+    margin-top: 15px;
+}
+
+.contact-info p {
+    font-size: 1rem;
+    color: #ecf0f1;
+    margin: 5px 0;
+}
+
+.social-links {
+    margin-top: 15px;
+}
+
+.social-links a {
+    color: #e67e22;
+    text-decoration: none;
+    margin-right: 10px;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #ff6b6b;
+}
+
+/* Footer Links */
+.footer-links {
+    flex: 1;
+    max-width: 400px;
+}
+
+.footer-links h3,
+.contact-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #e67e22;
+}
+
+.footer-links a {
+    display: block;
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 1rem;
+    margin: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #ff6b6b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-main {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about,
+    .footer-links {
+        max-width: 100%;
+    }
+
+    .footer-links {
+        margin-top: 20px;
+    }
+}
