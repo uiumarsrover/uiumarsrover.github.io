@@ -11,6 +11,7 @@ body {
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
+    scroll-behavior: smooth;
 }
 
 .team-page {
@@ -29,12 +30,12 @@ body {
 
 .team-leader h2 {
     font-size: 2rem;
-    color: #152e49;
+    color: #d8dadc;
     margin-bottom: 20px;
 }
 
 .leader-card {
-    background-color: #eae5e59e;
+    background-color: #a4a4a478;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -58,7 +59,7 @@ body {
 
 .leader-info p {
     font-size: 1rem;
-    color: #4c4c4c;
+    color: #dadada;
 }
 
 /* Sub Team Leaders Section */
