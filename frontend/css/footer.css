@@ -56,43 +56,51 @@ footer {
     color: #ecf0f1;
 }
 
+.contact-info {
+    margin-top: 15px;
+}
+
 .contact-info h3 {
     font-size: 1.5rem;
     margin-bottom: 10px;
     color: #e67e22;
 }
 
-.contact-info {
-    margin-top: 15px;
-}
-
-.contact-info p {
-    font-size: 1rem;
-    color: #ecf0f1;
-    margin: 5px 0;
-}
-
-.email {
-    color: #e67e22;
+.contact-item {
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    color: #e3e2e1;
     text-decoration: none;
+    margin-bottom: 2vb;
     transition: color 0.3s ease;
 }
 
+.contact-item i {
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+.contact-item:hover {
+    color: #ff6b6b;
+}
+
 .social-links {
-    margin-top: 15px;
+    margin-top: 1.2rem;
+    display: flex;
+    gap: 1.2rem;
 }
 
 .social-links a {
-    color: #e67e22;
-    text-decoration: none;
-    margin-right: 10px;
-    font-size: 1rem;
+    font-size: 1.5rem;
+    color: #d9d4cf;
     transition: color 0.3s ease;
 }
 
 .social-links a:hover {
     color: #ff6b6b;
 }
+
 
 /* Footer Links */
 .footer-links {
