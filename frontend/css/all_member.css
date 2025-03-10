@@ -51,8 +51,9 @@ body {
 
 .leader-info h3 {
     font-size: 1.5rem;
-    color: #e67e22;
+    color: #ffffff;
     margin-bottom: 10px;
+    text-shadow: 4px 3px 9px #0000006e;
 }
 
 .leader-info p {
