@@ -14,7 +14,7 @@ body {
 }
 
 .team-page {
-    padding: 20px;
+    padding: 2% 4% 2% 4%;
     background-image: url("../../images/pexels-blaque-x.jpg");
     background-size: cover;
     background-attachment: scroll;
@@ -146,6 +146,38 @@ body {
 .member-info p {
     font-size: 1rem;
     color: #dfdcdcd1;
+}
+
+/* Parallax Effect */
+.team-page {
+    background-image: url("../../images/pexels-blaque-x.jpg");
+    background-size: cover;
+    background-attachment: fixed; /* This creates the parallax effect */
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh; /* Ensure the background covers the entire viewport */
+    position: relative;
+    z-index: 1;
+}
+
+/* Overlay to improve readability */
+.team-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+    z-index: -1;
+}
+
+/* Ensure content is above the overlay */
+.team-leader,
+.sub-team-leaders,
+.team-members {
+    position: relative;
+    z-index: 2;
 }
 
 /* Responsive Design */
