@@ -38,6 +38,10 @@ nav {
     margin-right: 5px;
 }
 
+.akira {
+    font-family: "AkiraExpanded", sans-serif;
+}
+
 .text {
     font-size: 2.25rem;
     font-family: Arial, sans-serif;
@@ -104,11 +108,6 @@ nav {
 
 .sponsor-btn:hover {
     background-color: #ff3838;
-}
-
-.akira {
-    font-family: "mars", sans-serif;
-    font-size: bold;
 }
 
 /* Responsive styles */
