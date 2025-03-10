@@ -7,6 +7,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: "mars";
+    src: url(../../font/Mars.woff) format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* Navigation */
 nav {
     display: flex;
@@ -100,7 +107,8 @@ nav {
 }
 
 .akira {
-    font-family: "AkiraExpanded", sans-serif;
+    font-family: "mars", sans-serif;
+    font-size: bold;
 }
 
 /* Responsive styles */

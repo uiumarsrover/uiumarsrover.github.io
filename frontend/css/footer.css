@@ -35,7 +35,7 @@ footer {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    gap: 40px;
+    gap: 13%;
 }
 
 /* About Section */
@@ -56,6 +56,12 @@ footer {
     color: #ecf0f1;
 }
 
+.contact-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #e67e22;
+}
+
 .contact-info {
     margin-top: 15px;
 }
@@ -64,6 +70,12 @@ footer {
     font-size: 1rem;
     color: #ecf0f1;
     margin: 5px 0;
+}
+
+.email {
+    color: #e67e22;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .social-links {
@@ -88,9 +100,9 @@ footer {
     max-width: 400px;
 }
 
-.footer-links h3,
-.contact-info h3 {
+.footer-links h3 {
     font-size: 1.5rem;
+    text-shadow: 0px 2px 3px black;
     margin-bottom: 10px;
     color: #e67e22;
 }
