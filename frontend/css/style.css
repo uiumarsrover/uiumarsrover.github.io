@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+}
 
 @font-face {
   font-family: "AkiraExpanded";
@@ -7,9 +10,6 @@
   font-style: normal;
 }
 
-.montserrat {
-  font-family: "Montserrat", sans-serif;
-}
 
 .gradient-mask {
   /* Apply a mask gradient to fade top and bottom */

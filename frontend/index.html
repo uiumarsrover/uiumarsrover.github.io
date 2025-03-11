@@ -409,7 +409,7 @@
     const mainContent = document.getElementById("mainContent");
 
     let index = 0;
-    let typingSpeed = 50;
+    let typingSpeed = 25;
     function typeMessage(message, callback) {
       let i = 0;
       const interval = setInterval(() => {
@@ -418,7 +418,7 @@
         if (i === message.length) {
           clearInterval(interval);
           loadingScreen.innerHTML += "<br>";
-          setTimeout(callback, 500);
+          setTimeout(callback, 300);
         }
       }, typingSpeed);
     }
@@ -433,7 +433,7 @@
         setTimeout(() => {
           document.querySelector(".loading-container").style.display = "none";
           mainContent.classList.remove("hidden");
-        }, 1000);
+        }, 400);
       }
     }
 
