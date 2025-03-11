@@ -1,230 +1,116 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 /* General Styles */
 body {
-  font-family: 'Montserrat', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  background-color: #020202;
   color: #333;
-  scroll-behavior: smooth;
 }
 
-.team-page {
-  padding: 2% 4% 2% 4%;
-  background-image: url("../images/pexels-blaque-x.jpg");
-  background-size: cover;
-  background-attachment: scroll;
-  margin: 0 auto;
-}
-
-/* Team Leader Section */
-.team-leader {
+/* Header Styles */
+header {
+  background: linear-gradient(135deg, #2c3e50, #1a1a1a);
+  color: #fff;
   text-align: center;
-  margin-bottom: 40px;
 }
 
-.team-leader h2 {
-  font-size: 2rem;
-  color: #d8dadc;
-  margin-bottom: 20px;
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
 }
 
-.leader-card {
-  background-color: #a4a4a478;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+/* Main Content Styles */
+main {
   padding: 20px;
-  display: inline-block;
-  text-align: center;
 }
 
-.leader-photo {
-  /* width: 150px; */
-  height: 285px;
-  /* border-radius: 50%; */
-  margin-bottom: 15px;
-}
-
-.leader-info h3 {
-  font-size: 1.5rem;
-  color: #ffffff;
-  margin-bottom: 10px;
-  text-shadow: 4px 3px 9px #0000006e;
-}
-
-.leader-info p {
-  font-size: 1rem;
-  color: #dadada;
-}
-
-/* Sub Team Leaders Section */
-.sub-team-leaders {
-  margin-bottom: 40px;
-}
-
-.sub-team-leaders h2 {
-  font-size: 2rem;
-  color: #d0d5dbdb;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.sub-leaders-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+.hold-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-image: url("../images/sky.png");
+  background-size: cover;
   gap: 20px;
 }
 
-.sub-leader-card {
-  background-color: #94929270;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 18rem;
+  padding: 20px 1px;
+  margin: 10px 0;
   text-align: center;
-}
-
-.sub-leader-photo {
-  /* width: 120px; */
-  height: 310px;
-  /* border-radius: 50%; */
-  margin-bottom: 15px;
-}
-
-.sub-leader-info h3 {
-  font-size: 1.25rem;
-  color: #ec7c18;
-  margin-bottom: 10px;
-}
-
-.sub-leader-info p {
-  font-size: 1rem;
-  color: #dcdcdcfa;
-}
-
-/* Team Members Section */
-.team-members {
-  margin-bottom: 40px;
-}
-
-.team-members h2 {
-  font-size: 2rem;
-  color: #ffffffbf;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.members-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-}
-
-.member-card {
-  background-color: #6563637d;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  text-align: center;
-}
-
-.member-photo {
-  /* width: 100px; */
-  height: 250px;
-  /* border-radius: 50%; */
-  margin-bottom: 15px;
-}
-
-.member-info h3 {
-  font-size: 1.25rem;
-  color: #e67e22;
-  margin-bottom: 10px;
-}
-
-.member-info p {
-  font-size: 1rem;
-  color: #dfdcdcd1;
-}
-
-/* Parallax Effect */
-.team-page {
-  background-image: url("../images/pexels-blaque-x.jpg");
-  background-size: cover;
-  background-attachment: fixed; /* This creates the parallax effect */
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh; /* Ensure the background covers the entire viewport */
   position: relative;
-  z-index: 1;
+  cursor: pointer;
+  box-shadow: 0 10px 15px -3px rgba(33, 150, 243, 0.4),
+    0 4px 6px -4px rgba(33, 150, 243, 0.4);
+  border-radius: 10px;
+  background-color: #6b6ecc;
+  background: linear-gradient(45deg, #04051dea 0%, #2b566e 100%);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
 }
 
-/* Overlay to improve readability */
-.team-page::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
-  z-index: -1;
+.card:hover {
+  transform: translateY(-10px); /* Lift the card slightly on hover */
+  box-shadow: 0 15px 20px -5px rgba(155, 191, 222, 0.6),
+    0 6px 10px -5px rgba(33, 150, 243, 0.6); /* Enhance shadow on hover */
 }
 
-/* Ensure content is above the overlay */
-.team-leader,
-.sub-team-leaders,
-.team-members {
-  position: relative;
-  z-index: 2;
+.content {
+  padding: 20px;
+  width: 100%; /* Ensure content takes full width */
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .leader-card,
-  .sub-leader-card,
-  .member-card {
-    padding: 15px;
-  }
-
-  .leader-photo {
-    width: 120px;
-    height: 120px;
-  }
-
-  .sub-leader-photo {
-    width: 100px;
-    height: 100px;
-  }
-
-  .member-photo {
-    width: 80px;
-    height: 80px;
-  }
-}
-
-@media (max-width: 480px) {
-  .sub-leaders-grid,
-  .members-grid {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  }
-}
-
-.team-member-page-title {
-  font-family: "AkiraExpanded";
+.content .year {
   color: white;
-  font-size: 3em;
-  text-align: center;
-  padding: 31px;
+  font-weight: 800;
+  font-size: 4rem;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.42);
+  transition: color 0.3s ease; /* Smooth color transition for hover */
+}
 
-  text-shadow: 0 1px 0 hsl(174, 5%, 80%), 0 2px 0 hsl(174, 5%, 75%),
-    0 3px 0 hsl(174, 5%, 70%), 0 4px 0 hsl(174, 5%, 66%),
-    0 5px 0 hsl(174, 5%, 64%), 0 6px 0 hsl(174, 5%, 62%),
-    0 7px 0 hsl(174, 5%, 61%), 0 8px 0 hsl(174, 5%, 60%),
-    0 0 5px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.2),
-    0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.2),
-    0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.3);
+.card:hover .year {
+  color: #e67e22; /* Change year color on hover */
+}
+
+.content .description {
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 10px;
+  font-size: 14px;
+  width: 100%; /* Ensure description takes full width */
+  height: 200px; /* Set a fixed height for the description container */
+  overflow: hidden; /* Hide any overflow */
+  position: relative; /* For positioning the image */
+  border-radius: 10px; /* Match card border radius */
+}
+
+.content .description img.team-photo {
+  width: 100%; /* Make image fill the container width */
+  height: 100%; /* Make image fill the container height */
+  object-fit: cover; /* Ensure the image covers the container without distortion */
+  border-radius: 10px; /* Match card border radius */
+  transition: transform 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.card:hover .description img.team-photo {
+  transform: scale(1.1); /* Zoom in the image on hover */
+}
+
+.content .title {
+  font-weight: 800;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.64);
+  margin-top: 10px;
+  font-size: 3rem;
+  letter-spacing: 1px;
+  transition: color 0.3s ease; /* Smooth color transition for hover */
+}
+
+.card:hover .title {
+  color: #ffffff; /* Change title color on hover */
+}
+
+a {
+  text-decoration: none; /* Removes underline from all links */
 }
