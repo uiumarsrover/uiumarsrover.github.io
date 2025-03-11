@@ -93,8 +93,9 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     background-color: rgba(70, 69, 69, 0.4);
-    backdrop-filter: blur(3px);
-    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    margin-bottom: 20px;
 }
 
 .achievement-card:hover {
@@ -109,22 +110,24 @@
 }
 
 .achievement-card h3 {
-    font-size: 1.25rem;
+    font-size: 1.55rem;
     color: #cfcfcf;
-    margin-bottom: 8px;
+    margin-bottom: 2px;
 }
 
 .achievement-card time {
     display: block;
-    font-size: 0.875rem;
+    font-size: 0.90rem;
     color: #a8a9ab;
     font-weight: 500;
-    margin-bottom: 8px;
+    margin-bottom: 9px;
 }
 
 .achievement-card p {
     color: #f4fcea;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: justify;
 }
 
 /* Clear floats */

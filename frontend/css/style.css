@@ -41,14 +41,14 @@ body {
   position: relative;
 }
 
-.background-1 {
+/* .background-1 {
   background-image: url("../../images/Mask\ group.png");
   background-position: center center;
   background-repeat: no-repeat;
   top: 20px;
   height: 100vh;
   width: 100%;
-}
+} */
 
 /* Content container */
 .content {
@@ -157,37 +157,6 @@ main {
   object-fit: contain;
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
-  .nav-links {
-    gap: 1rem;
-  }
-
-  .title {
-    font-size: 1.75rem;
-  }
-
-  .sponsors-container {
-    gap: 1rem;
-  }
-}
-
-@media (max-width: 640px) {
-  nav {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .nav-links {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .title {
-    font-size: 1.5rem;
-  }
-}
-
 .sub-container {
   text-align: center;
   padding: 50px;
@@ -212,8 +181,11 @@ main {
 
 .achievements {
   display: flex;
-  justify-content: center;
   gap: 50px;
+}
+
+.position {
+  font-size: 3rem;
 }
 
 .achievement {
@@ -229,8 +201,6 @@ main {
   margin: 5px 0;
 }
 
-
-/* CSS */
 .button-5 {
   align-items: center;
   background-clip: padding-box;
@@ -284,7 +254,6 @@ main {
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -301,7 +270,7 @@ main {
 /* Content Container */
 .content-1 {
   margin: 10px;
-  padding: 20px;
+  padding: 2em 0em 2em 2em;
   /* background-color: rgba(0, 0, 0, 0.4); Semi-transparent black background */
   backdrop-filter: blur(3px);
   /* Background blur effect */
@@ -361,14 +330,17 @@ p {
   /* Adds rounded corners to the image */
 }
 
+/* General Styles */
 .background-3 {
   background-image: url("../../images/Earth.png");
   background-position: center center;
-  background-size: cover;
+  background-size: auto;
   background-repeat: no-repeat;
-  top: 20px;
   height: 100vh;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hold-content {
@@ -379,6 +351,9 @@ p {
   text-align: center;
   padding: 2rem;
   min-height: 60vh;
+  width: 90%; /* Ensure content doesn't overflow on small screens */
+  max-width: 1200px; /* Limit maximum width for large screens */
+  margin: 0 auto; /* Center the content */
 }
 
 .content-2 {
@@ -387,11 +362,9 @@ p {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 2.8rem;
   font-weight: bold;
-  /* background-color: rgba(0, 0, 0, 0.4); Semi-transparent black background */
-  /* backdrop-filter: blur(3px); Background blur effect */
   border-radius: 10px;
   max-width: 600px;
-  /* Limits the width of the content */
+  color: #fff; /* Ensure text is readable */
 }
 
 .content-3 {
@@ -399,12 +372,77 @@ p {
   padding: 20px;
   font-size: 1.8rem;
   background-color: rgba(0, 0, 0, 0.4);
-  /* Semi-transparent black background */
   backdrop-filter: blur(3px);
-  /* Background blur effect */
   border-radius: 10px;
   max-width: 600px;
-  /* Limits the width of the content */
+  color: #fff; /* Ensure text is readable */
+}
+
+.join-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #e67e22;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.join-button:hover {
+  background-color: #d35400;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hold-content {
+    flex-direction: column; /* Stack content vertically on tablets */
+    padding: 1rem;
+  }
+
+  .content-2,
+  .content-3 {
+    max-width: 100%; /* Allow full width on smaller screens */
+    font-size: 2.2rem; /* Adjust font size for tablets */
+  }
+
+  .content-3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-2 {
+    font-size: 2rem; /* Adjust font size for smaller tablets */
+  }
+
+  .content-3 {
+    font-size: 1.3rem;
+  }
+
+  .join-button {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-2 {
+    font-size: 1.8rem; /* Adjust font size for mobile */
+    padding: 10px;
+  }
+
+  .content-3 {
+    font-size: 1.1rem;
+    padding: 10px;
+  margin: 5px;
+  }
+
+  .join-button {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
 }
 
 .background-4 {
@@ -412,24 +450,13 @@ p {
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  top: 20px;
-  height: 100vh;
   width: 100%;
-}
-
-/* Container for the button */
-.background-4 {
   position: relative;
-  /* Makes the container a reference for absolute positioning */
   height: 100vh;
-  /* Full viewport height */
   display: flex;
   justify-content: center;
-  /* Centers the button horizontally */
   align-items: flex-end;
-  /* Aligns the button to the bottom */
   padding-bottom: 20px;
-  /* Adds some space from the bottom */
 }
 
 /* Button Styles */
@@ -551,4 +578,35 @@ p {
 
 .active {
   background-color: #717171;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .sponsors-container {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
 }
