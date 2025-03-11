@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: "AkiraExpanded";
-  src: url("../../font/Akira\ Expanded\ Demo.otf") format("opentype");
+  src: url("../font/Akira\ Expanded\ Demo.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
@@ -57,7 +57,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-image: url("../../images/sky.png");
+  background-image: url("../images/sky.png");
   background-position: center center;
   background-size: cover;
   background-repeat: repeat;
@@ -249,7 +249,7 @@ main {
 
 /* Background Image */
 .background-2 {
-  background-image: url("../../images/mars2.png");
+  background-image: url("../images/mars2.png");
   z-index: -1;
   background-position: center center;
   background-size: cover;
@@ -320,7 +320,7 @@ p {
 
 /* Image Placeholder */
 .image-placeholder {
-  background-image: url("../../images/Group.png");
+  background-image: url("../images/Group.png");
   background-size: cover;
   /* Ensures the image covers the placeholder */
   background-position: center;
@@ -332,7 +332,7 @@ p {
 
 /* General Styles */
 .background-3 {
-  background-image: url("../../images/Earth.png");
+  background-image: url("../images/Earth.png");
   background-position: center center;
   background-size: auto;
   background-repeat: no-repeat;
@@ -446,7 +446,7 @@ p {
 }
 
 .background-4 {
-  background-image: url("../../images/Mask\ group1.png");
+  background-image: url("../images/Mask\ group1.png");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
