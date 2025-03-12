@@ -246,7 +246,8 @@ main {
   transform: translateY(0);
 }
 
-/* General Styles */
+
+/* Background Image */
 .background-2 {
   background-image: url("../images/mars2.png");
   z-index: -1;
@@ -255,23 +256,27 @@ main {
   background-repeat: no-repeat;
   width: 100%;
   display: flex;
-  flex-direction: row; /* Side-by-side layout for desktop */
+  flex-direction: row;
+  /* Change to row for side-by-side layout */
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 20px; /* Space between content and carousel */
-  padding: 2em; /* Padding around the container */
+  gap: 20px;
+  /* Adds space between the content and image */
+  padding: 2em;
+  /* Adds padding around the container */
 }
 
 /* Content Container */
 .content-1 {
   margin: 10px;
-  padding: 2em;
+  padding: 2em 0em 2em 2em;
+  /* background-color: rgba(0, 0, 0, 0.4); Semi-transparent black background */
   backdrop-filter: blur(3px);
+  /* Background blur effect */
   border-radius: 10px;
-  max-width: 600px; /* Limits the width of the content */
-  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
-  color: white; /* Ensure text is readable */
+  max-width: 600px;
+  /* Limits the width of the content */
 }
 
 /* Heading Styles */
@@ -281,9 +286,9 @@ h1 {
 }
 
 #placeholder-text {
-  font-size: 3rem; /* Adjusted for responsiveness */
+  font-size: 64px;
   font-weight: bold;
-  margin-top: 20px;
+  margin-top: 40px;
   margin-bottom: 20px;
 }
 
@@ -300,7 +305,8 @@ p {
   padding: 10px 20px;
   font-size: 1.2rem;
   color: white;
-  background-color: #ff5722; /* Orange color for the button */
+  background-color: #ff5722;
+  /* Orange color for the button */
   border: none;
   border-radius: 5px;
   text-decoration: none;
@@ -308,7 +314,8 @@ p {
 }
 
 .join-button:hover {
-  background-color: #e64a19; /* Darker orange on hover */
+  background-color: #e64a19;
+  /* Darker orange on hover */
 }
 
 /* Image Placeholder */
@@ -320,129 +327,7 @@ p {
   width: 763px;
   height: 470px;
   border-radius: 10px;
-}
-
-/* Navigation Buttons */
-.prev,
-.next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  font-size: 18px;
-  border-radius: 5px;
-}
-
-.prev {
-  left: 10px;
-}
-
-.next {
-  right: 10px;
-}
-
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Dots for Indicators */
-.dots {
-  text-align: center;
-  margin-top: 10px;
-}
-
-.dot {
-  height: 10px;
-  width: 10px;
-  margin: 5px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .background-2 {
-    flex-direction: column; /* Stack content vertically on tablets */
-    padding: 1em;
-  }
-
-  .content-1 {
-    max-width: 100%; /* Allow full width on smaller screens */
-    padding: 1em;
-  }
-
-  #placeholder-text {
-    font-size: 2.5rem; /* Adjust font size for tablets */
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  p {
-    font-size: 1.1rem;
-  }
-
-  .join-button {
-    font-size: 1rem;
-    padding: 8px 16px;
-  }
-}
-
-@media (max-width: 768px) {
-  #placeholder-text {
-    font-size: 2rem; /* Adjust font size for smaller tablets */
-  }
-
-  h1 {
-    font-size: 1.8rem;
-  }
-
-  p {
-    font-size: 1rem;
-  }
-
-  .join-button {
-    font-size: 0.9rem;
-    padding: 6px 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  #placeholder-text {
-    font-size: 1.5rem; /* Adjust font size for mobile */
-  }
-
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  p {
-    font-size: 0.9rem;
-  }
-
-  .join-button {
-    font-size: 0.8rem;
-    padding: 5px 10px;
-  }
-
-  .carousel-container {
-    max-width: 100%; /* Ensure carousel fits on small screens */
-  }
-
-  .prev,
-  .next {
-    padding: 8px 12px; /* Smaller buttons for mobile */
-    font-size: 14px;
-  }
+  /* Adds rounded corners to the image */
 }
 
 /* General Styles */
@@ -625,6 +510,70 @@ p {
 
 .btn:active {
   transform: scale(0.9);
+}
+
+.carousel-container {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slides img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Navigation Buttons */
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Dots for Indicators */
+.dots {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  margin: 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .active {
