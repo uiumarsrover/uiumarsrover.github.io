@@ -1,118 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="images/umrt_logo.ico" type="image/x-icon" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
-    <title>UMRT - UIU Mars Rover Team</title>
-    <link rel="stylesheet" href="css/navbar.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/footer.css" />
-    <!-- <link rel="stylesheet" href="../frontend/stylee3.css"> -->
-    <style>
-      .loading-container {
-        margin: 0;
-        padding: 0;
-        background: black;
-        color: orange;
-        font-family: "Courier New", monospace;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        overflow: hidden;
-      }
-      .loading-container {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 20px;
-      }
-      .loading-screen {
-        text-align: left;
-        white-space: pre-line;
-        font-size: 1.5rem;
-        text-shadow: 0 0 5px orange, 0 0 10px orange;
-      }
-      .hidden {
-        display: none;
-      }
-      .cursor {
-        display: inline-block;
-        width: 10px;
-        height: 20px;
-        background: orange;
-        animation: blink 1s infinite;
-      }
-      @keyframes blink {
-        50% {
-          opacity: 0;
-        }
-      }
-    </style>
-  </head>
 
-  <body>
-    <div class="loading-container">
-      <div class="loading-screen" id="loadingScreen"></div>
-      <span id="cursor" class="cursor"></span>
-    </div>
-    <div class="hidden" id="mainContent">
-      <div class="content">
-        <!-- Navigation bar -->
-        <nav class="navbar montserrat">
-          <div class="logo-container">
-            <div class="logo"></div>
-            <div class="text">
-              <a href="index.html" class="nav-link akira">UMRT</a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="images/umrt_logo.ico" type="image/x-icon" />
+  <!-- link to lode for icon in footer section -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <title>UMRT - UIU Mars Rover Team</title>
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <!-- <link rel="stylesheet" href="../frontend/stylee3.css"> -->
+  <style>
+    .loading-container {
+      margin: 0;
+      padding: 0;
+      background: black;
+      color: orange;
+      font-family: "Courier New", monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .loading-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+    }
+
+    .loading-screen {
+      text-align: left;
+      white-space: pre-line;
+      font-size: 1.5rem;
+      text-shadow: 0 0 5px orange, 0 0 10px orange;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      height: 20px;
+      background: orange;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="loading-container">
+    <div class="loading-screen" id="loadingScreen"></div>
+    <span id="cursor" class="cursor"></span>
+  </div>
+  <div class="hidden" id="mainContent">
+    <div class="content">
+      <!-- Navigation bar -->
+      <nav class="navbar montserrat">
+        <div class="logo-container">
+          <div class="logo"></div>
+          <div class="text">
+            <a href="index.html" class="nav-link akira">UMRT</a>
+          </div>
+        </div>
+
+        <div class="nav-links">
+          <a href="projects/projects.html" class="nav-link">Projects</a>
+          <a href="achievements/achievements.html" class="nav-link">Achievements</a>
+          <a href="our_mission/our_mission.html" class="nav-link">Our Mission</a>
+
+          <div class="team-dropdown">
+            <a href="#" class="nav-link">Team ▼</a>
+            <div class="team-dropdown-content">
+              <a href="/frontend/advisors/advisors.html" class="dropdown-link">Advisors</a>
+              <a href="/frontend/director/director.html" class="dropdown-link">Director</a>
+              <a href="../frontend/team/member.html" class="dropdown-link">Members</a>
+              <a href="../frontend/team/leadership.html" class="dropdown-link">Leadership</a>
+              <a href="/team/join" class="dropdown-link">Join Us</a>
             </div>
           </div>
 
-          <div class="nav-links">
-            <a href="projects/projects.html" class="nav-link">Projects</a>
-            <a href="achievements/achievements.html" class="nav-link"
-              >Achievements</a
-            >
-            <a href="our_mission/our_mission.html" class="nav-link"
-              >Our Mission</a
-            >
-
-                <div class="team-dropdown">
-                    <a href="#" class="nav-link">Team ▼</a>
-                    <div class="team-dropdown-content">
-                        <a href="" class="dropdown-link">Advisors</a>
-                        <a href="../frontend/team/member.html" class="dropdown-link">Members</a>
-                        <a href="../frontend/team/leadership.html" class="dropdown-link">Leadership</a>
-                        <a href="/team/join" class="dropdown-link">Join Us</a>
-                    </div>
-                </div>
-
-                <a href="/frontend/sponsor/sponsor.html" class="sponsor-btn">Become Sponsor!</a>
-            </div>
-        </nav>
-
-        <!-- Page 1 -->
-        <div id="threejs-section" style="position: relative; width: 100%; height: 100vh; overflow: hidden;">
-            <!-- Three.js Canvas will be inserted here by JavaScript -->
-            <div id="threejs-text"
-                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; z-index: 1; color: white;">
-                <h2 class="subtitle">UIU MARS ROVER TEAM</h2>
-                <h1 class="title">UMRT, THE NEWBORN CONVICTION OF SHAPING UNATTAINABILITY ABOUT MARS.</h1>
-            </div>
+          <a href="/frontend/sponsor/sponsor.html" class="sponsor-btn">Become Sponsor!</a>
         </div>
+      </nav>
 
-        <!-- Include Three.js and your script -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r73/three.min.js"></script>
-        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/141228/OrbitControls.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5.1/dat.gui.min.js"></script>
-        <script src="scripts/scipt.js"></script>
+      <!-- Page 1 -->
+      <div id="threejs-section" style="position: relative; width: 100%; height: 100vh; overflow: hidden;">
+        <!-- Three.js Canvas will be inserted here by JavaScript -->
+        <div id="threejs-text"
+          style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; z-index: 1; color: white;">
+          <h2 class="subtitle">UIU MARS ROVER TEAM</h2>
+          <h1 class="title">UMRT, THE NEWBORN CONVICTION OF SHAPING UNATTAINABILITY ABOUT MARS.</h1>
+        </div>
+      </div>
 
-        <!-- Sponsors List -->
-        <!-- <div class="sponsors">
+      <!-- Include Three.js and your script -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r73/three.min.js"></script>
+      <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/141228/OrbitControls.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5.1/dat.gui.min.js"></script>
+      <script src="scripts/scipt.js"></script>
+
+      <!-- Sponsors List -->
+      <!-- <div class="sponsors">
                 <div class="sponsors-container">
                     <div class="sponsor">
                         <img src="/placeholder.svg?height=32&width=80" alt="Uber">
@@ -134,289 +135,266 @@
                     </div>
                 </div>
             </div> -->
-      </div>
-
-      <!-- Page 2 -->
-      <div class="sub-container">
-        <div class="team-section">
-          <img
-            class="team-photo gradient-mask"
-            src="images/team_pic.jpg"
-            alt="Team Photo"
-            height="400"
-            width="900"
-          />
-          <div class="achievements">
-            <div class="achievement" style="text-align: right">
-              <h2 class="position akira">1<sup>st</sup></h2>
-              <p class="montserrat">In ASIA</p>
-              <p class="montserrat">URC 2022,<br />2023 & 2024</p>
-            </div>
-            <div class="achievement" style="text-align: left">
-              <h2 class="position akira">3<sup>rd</sup></h2>
-              <p class="montserrat">In World</p>
-              <p class="montserrat">ARC 2022</p>
-            </div>
-          </div>
-        </div>
-        <br />
-        <a class="button-5" href="achievements/achievements.html"
-          >See All Achievements</a
-        >
-      </div>
-
-      <!-- Page 3 -->
-      <div class="background-2">
-        <div class="placeholder">
-          <h2
-            id="placeholder-text"
-            class="akira"
-            style="font-size: 3em; text-align: left"
-          >
-            WE DREAM AT THE COSMIC SCALE
-          </h2>
-
-          <!-- Image Placeholder -->
-          <div class="carousel-container">
-            <div class="carousel-slides">
-              <img src="images/team_2022_1.jpg" alt="Slide 1" />
-              <img src="images/team_2023_1.jpg" alt="Slide 2" />
-              <img src="images/team_2023_2.jpg" alt="Slide 3" />
-              <img src="images/team_2023_3.jpg" alt="Slide 4" />
-              <img src="images/team_2023_4.jpg" alt="Slide 5" />
-              <img src="images/team_2024_1.jpg" alt="Slide 6" />
-            </div>
-            <button class="prev">&#10094;</button>
-            <button class="next">&#10095;</button>
-          </div>
-
-          <div class="dots"></div>
-        </div>
-
-        <div class="content-1" style="text-align: justify">
-          <h1 class="akira">OUR VISION</h1>
-          <p>
-            We are a team of students passionate about designing and building
-            the next generation of Mars and Lunar rovers.
-          </p>
-          <p>
-            We are a team of students passionate about designing and building
-            the next generation of Mars and Lunar rovers. We are a team of
-            students passionate about designing and building the next generation
-            of Mars and Lunar rovers.
-          </p>
-          <p>
-            We are a team of students passionate about designing and building
-            the next.
-          </p>
-          <hr />
-          <a href="#" class="join-button">JOIN OUR JOURNEY!</a>
-        </div>
-      </div>
-
-      <!-- Page 4 -->
-      <div class="background-3">
-        <div class="hold-content">
-          <div class="content-2">Media Out Storm After URC 2023</div>
-          <div class="content-3">
-            We are a team of students passionate about designing and building
-            the next generation of Mars and Lunar rovers. We are a team of
-            students passionate about designing and building the next generation
-            of Mars and Lunar rovers.
-
-            <div class="content-4">
-              <br /><br />
-              We are a team of students passionate about designi ?
-              <br />
-              <a href="#" class="join-button">JOIN OUR JOURNEY!</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Page 5 -->
-      <div class="background-4">
-        <div class="container-4">
-            <button class="btn">
-                <a href="./sponsor/sponsor.html">Become Sponsor!</a>
-            </button>
-        </div>
-      </div>
-
-      <!-- Footer -->
-      <footer>
-        <div class="footer-content">
-          <!-- Logo at the top center -->
-          <div class="footer-logo"></div>
-
-          <!-- About and Links Container -->
-          <div class="footer-main">
-            <!-- About Section -->
-            <div class="about">
-              <h3>About UMRT</h3>
-              <p>
-                The UIU Mars Rover Team (UMRT) is a group of passionate students
-                dedicated to designing and building the next generation of Mars
-                and Lunar rovers. We aim to push the boundaries of space
-                exploration and innovation.
-              </p>
-            </div>
-
-            <!-- Contact Information -->
-            <div class="contact-info">
-              <h3>Contact with us</h3>
-
-              <a href="tel:+8801796992356" class="contact-item">
-                <i class="fas fa-phone"></i> +880 1796-992356
-              </a>
-
-              <a href="mailto:marsrover@uiu.ac.bd" class="contact-item">
-                <i class="fas fa-envelope"></i> marsrover@uiu.ac.bd
-              </a>
-
-              <div class="social-links">
-                <a href="https://www.facebook.com/UIUMRT" target="_blank"
-                  ><i class="fab fa-facebook"></i
-                ></a>
-                <a
-                  href="https://www.linkedin.com/company/uiu-mars-rover-team-umrt/"
-                  target="_blank"
-                  ><i class="fab fa-linkedin"></i
-                ></a>
-                <a href="https://www.youtube.com/@uiumarsrover" target="_blank"
-                  ><i class="fab fa-youtube"></i
-                ></a>
-                <a href="https://x.com/uiumarsrover" target="_blank"
-                  ><i class="fab fa-x-twitter"></i
-                ></a>
-                <a
-                  href="https://www.instagram.com/uiumarsrover/"
-                  target="_blank"
-                  ><i class="fab fa-instagram"></i
-                ></a>
-              </div>
-            </div>
-
-                <!-- Existing Links -->
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <a href="../frontend/projects/projects.html" class="footer-link">Projects</a>
-                    <a href="../frontend/achievements/achievements.html" class="footer-link">Achievements</a>
-                    <a href="../frontend/our_mission/our_mission.html" class="footer-link">Our Mission</a>
-                    <a href="../frontend/team/member.html" class="footer-link">Members</a>
-                    <a href="../frontend/team/leadership.html" class="footer-link">Leadership</a>
-                    <a href="/team/join" class="footer-link">Join Us</a>
-                    <a href="/frontend/sponsor/sponsor.html" class="footer-link">Become Sponsor!</a>
-                </div>
-            </div>
-        </div>
-      </footer>
     </div>
-  </body>
 
-  <script>
-    let slideIndex = 0;
-    const slides = document.querySelector(".carousel-slides");
-    const totalSlides = slides.querySelectorAll("img").length;
-    const dotsContainer = document.querySelector(".dots");
+    <!-- Page 2 -->
+    <div class="sub-container">
+      <div class="team-section">
+        <img class="team-photo gradient-mask" src="images/team_pic.jpg" alt="Team Photo" height="400" width="900" />
+        <div class="achievements">
+          <div class="achievement" style="text-align: right">
+            <h2 class="position akira">1<sup>st</sup></h2>
+            <p class="montserrat">In ASIA</p>
+            <p class="montserrat">URC 2022,<br />2023 & 2024</p>
+          </div>
+          <div class="achievement" style="text-align: left">
+            <h2 class="position akira">3<sup>rd</sup></h2>
+            <p class="montserrat">In World</p>
+            <p class="montserrat">ARC 2022</p>
+          </div>
+        </div>
+      </div>
+      <br />
+      <a class="button-5" href="achievements/achievements.html">See All Achievements</a>
+    </div>
 
-    // Generate dots dynamically
-    for (let i = 0; i < totalSlides; i++) {
-      const dot = document.createElement("span");
-      dot.classList.add("dot");
-      dot.setAttribute("onclick", `currentSlide(${i})`);
-      dotsContainer.appendChild(dot);
-    }
+    <!-- Page 3 -->
+    <div class="background-2">
+      <div class="placeholder">
+        <h2 id="placeholder-text" class="akira" style="font-size: 3em; text-align: left">
+          WE DREAM AT THE COSMIC SCALE
+        </h2>
 
-    const dots = document.querySelectorAll(".dot");
+        <!-- Image Placeholder -->
+        <div class="carousel-container">
+          <div class="carousel-slides">
+            <img src="images/team_2022_1.jpg" alt="Slide 1" />
+            <img src="images/team_2023_1.jpg" alt="Slide 2" />
+            <img src="images/team_2023_2.jpg" alt="Slide 3" />
+            <img src="images/team_2023_3.jpg" alt="Slide 4" />
+            <img src="images/team_2023_4.jpg" alt="Slide 5" />
+            <img src="images/team_2024_1.jpg" alt="Slide 6" />
+          </div>
+          <button class="prev">&#10094;</button>
+          <button class="next">&#10095;</button>
+        </div>
 
-    function showSlide(index) {
-      if (index >= totalSlides) slideIndex = 0;
-      if (index < 0) slideIndex = totalSlides - 1;
+        <div class="dots"></div>
+      </div>
 
-      slides.style.transform = `translateX(${-slideIndex * 100}%)`;
+      <div class="content-1" style="text-align: justify">
+        <h1 class="akira">OUR VISION</h1>
+        <p>
+          We are a team of students passionate about designing and building
+          the next generation of Mars and Lunar rovers.
+        </p>
+        <p>
+          We are a team of students passionate about designing and building
+          the next generation of Mars and Lunar rovers. We are a team of
+          students passionate about designing and building the next generation
+          of Mars and Lunar rovers.
+        </p>
+        <p>
+          We are a team of students passionate about designing and building
+          the next.
+        </p>
+        <hr />
+        <a href="#" class="join-button">JOIN OUR JOURNEY!</a>
+      </div>
+    </div>
 
-      dots.forEach((dot) => dot.classList.remove("active"));
-      dots[slideIndex].classList.add("active");
-    }
+    <!-- Page 4 -->
+    <div class="background-3">
+      <div class="hold-content">
+        <div class="content-2">Media Out Storm After URC 2023</div>
+        <div class="content-3">
+          We are a team of students passionate about designing and building
+          the next generation of Mars and Lunar rovers. We are a team of
+          students passionate about designing and building the next generation
+          of Mars and Lunar rovers.
 
-    function nextSlide() {
-      slideIndex++;
-      showSlide(slideIndex);
-    }
+          <div class="content-4">
+            <br /><br />
+            We are a team of students passionate about designi ?
+            <br />
+            <a href="#" class="join-button">JOIN OUR JOURNEY!</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    function prevSlide() {
-      slideIndex--;
-      showSlide(slideIndex);
-    }
+    <!-- Page 5 -->
+    <div class="background-4">
+      <div class="container-4">
+        <button class="btn">
+          <a href="./sponsor/sponsor.html">Become Sponsor!</a>
+        </button>
+      </div>
+    </div>
 
-    function currentSlide(index) {
-      slideIndex = index;
-      showSlide(slideIndex);
-    }
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <!-- Logo at the top center -->
+        <div class="footer-logo"></div>
 
-    function autoSlide() {
-      nextSlide();
-      setTimeout(autoSlide, 3000);
-    }
+        <!-- About and Links Container -->
+        <div class="footer-main">
+          <!-- About Section -->
+          <div class="about">
+            <h3>About UMRT</h3>
+            <p>
+              The UIU Mars Rover Team (UMRT) is a group of passionate students
+              dedicated to designing and building the next generation of Mars
+              and Lunar rovers. We aim to push the boundaries of space
+              exploration and innovation.
+            </p>
+          </div>
 
-    document.querySelector(".prev").addEventListener("click", prevSlide);
-    document.querySelector(".next").addEventListener("click", nextSlide);
+          <!-- Contact Information -->
+          <div class="contact-info">
+            <h3>Contact with us</h3>
 
+            <a href="tel:+8801796992356" class="contact-item">
+              <i class="fas fa-phone"></i> +880 1796-992356
+            </a>
+
+            <a href="mailto:marsrover@uiu.ac.bd" class="contact-item">
+              <i class="fas fa-envelope"></i> marsrover@uiu.ac.bd
+            </a>
+
+            <div class="social-links">
+              <a href="https://www.facebook.com/UIUMRT" target="_blank"><i class="fab fa-facebook"></i></a>
+              <a href="https://www.linkedin.com/company/uiu-mars-rover-team-umrt/" target="_blank"><i class="fab fa-linkedin"></i></a>
+              <a href="https://www.youtube.com/@uiumarsrover" target="_blank"><i class="fab fa-youtube"></i></a>
+              <a href="https://x.com/uiumarsrover" target="_blank"><i class="fab fa-x-twitter"></i></a>
+              <a href="https://www.instagram.com/uiumarsrover/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+
+          <!-- Existing Links -->
+          <div class="footer-links">
+            <h3>Quick Links</h3>
+            <a href="/frontend/projects/projects.html" class="footer-link">Projects</a>
+            <a href="/frontend/achievements/achievements.html" class="footer-link">Achievements</a>
+            <a href="/frontend/our_mission/our_mission.html" class="footer-link">Our Mission</a>
+            <a href="/frontend/advisors/advisors.html" class="footer-link">Advisors</a>
+            <a href="/frontend/director/director.html" class="footer-link">Director</a>
+            <a href="/frontend/team/member.html" class="footer-link">Members</a>
+            <a href="/frontend/team/leadership.html" class="footer-link">Leadership</a>
+            <a href="/team/join" class="footer-link">Join Us</a>
+            <a href="/frontend/sponsor/sponsor.html" class="footer-link">Become Sponsor!</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+
+<script>
+  let slideIndex = 0;
+  const slides = document.querySelector(".carousel-slides");
+  const totalSlides = slides.querySelectorAll("img").length;
+  const dotsContainer = document.querySelector(".dots");
+
+  // Generate dots dynamically
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    dot.setAttribute("onclick", `currentSlide(${i})`);
+    dotsContainer.appendChild(dot);
+  }
+
+  const dots = document.querySelectorAll(".dot");
+
+  function showSlide(index) {
+    if (index >= totalSlides) slideIndex = 0;
+    if (index < 0) slideIndex = totalSlides - 1;
+
+    slides.style.transform = `translateX(${-slideIndex * 100}%)`;
+
+    dots.forEach((dot) => dot.classList.remove("active"));
+    dots[slideIndex].classList.add("active");
+  }
+
+  function nextSlide() {
+    slideIndex++;
     showSlide(slideIndex);
+  }
+
+  function prevSlide() {
+    slideIndex--;
+    showSlide(slideIndex);
+  }
+
+  function currentSlide(index) {
+    slideIndex = index;
+    showSlide(slideIndex);
+  }
+
+  function autoSlide() {
+    nextSlide();
     setTimeout(autoSlide, 3000);
-  </script>
+  }
+
+  document.querySelector(".prev").addEventListener("click", prevSlide);
+  document.querySelector(".next").addEventListener("click", nextSlide);
+
+  showSlide(slideIndex);
+  setTimeout(autoSlide, 3000);
+</script>
 
 
-  <script>
-    const loadingMessages = [
-      "Initializing Core System...",
-      "Establishing connection to mission control...",
-      "Orbiting Mars...",
-      "Initializing Thrusters...",
-      "Adjusting descent trajectory...",
-      "Deploying landing gear...",
-    ];
-    const loadingScreen = document.getElementById("loadingScreen");
-    const cursor = document.getElementById("cursor");
-    const mainContent = document.getElementById("mainContent");
+<script>
+  const loadingMessages = [
+    "Initializing Core System...",
+    "Establishing connection to mission control...",
+    "Orbiting Mars...",
+    "Initializing Thrusters...",
+    "Adjusting descent trajectory...",
+    "Deploying landing gear...",
+  ];
+  const loadingScreen = document.getElementById("loadingScreen");
+  const cursor = document.getElementById("cursor");
+  const mainContent = document.getElementById("mainContent");
 
-    let index = 0;
-    let typingSpeed = 25;
-    function typeMessage(message, callback) {
-      let i = 0;
-      const interval = setInterval(() => {
-        loadingScreen.innerHTML += message[i];
-        i++;
-        if (i === message.length) {
-          clearInterval(interval);
-          loadingScreen.innerHTML += "<br>";
-          setTimeout(callback, 300);
-        }
-      }, typingSpeed);
-    }
-
-    function startLoadingSequence() {
-      if (index < loadingMessages.length) {
-        typeMessage(loadingMessages[index], () => {
-          index++;
-          startLoadingSequence();
-        });
-      } else {
-        setTimeout(() => {
-          document.querySelector(".loading-container").style.display = "none";
-          mainContent.classList.remove("hidden");
-        }, 400);
+  let index = 0;
+  let typingSpeed = 25;
+  function typeMessage(message, callback) {
+    let i = 0;
+    const interval = setInterval(() => {
+      loadingScreen.innerHTML += message[i];
+      i++;
+      if (i === message.length) {
+        clearInterval(interval);
+        loadingScreen.innerHTML += "<br>";
+        setTimeout(callback, 300);
       }
+    }, typingSpeed);
+  }
+
+  function startLoadingSequence() {
+    if (index < loadingMessages.length) {
+      typeMessage(loadingMessages[index], () => {
+        index++;
+        startLoadingSequence();
+      });
+    } else {
+      setTimeout(() => {
+        document.querySelector(".loading-container").style.display = "none";
+        mainContent.classList.remove("hidden");
+      }, 400);
     }
+  }
 
-    // Monitor if the website loads before text sequence completes
-    window.addEventListener("load", () => {
-      if (index < loadingMessages.length) {
-        typingSpeed = 5; // Speed up animation if site loads quickly
-      }
-    });
+  // Monitor if the website loads before text sequence completes
+  window.addEventListener("load", () => {
+    if (index < loadingMessages.length) {
+      typingSpeed = 5; // Speed up animation if site loads quickly
+    }
+  });
 
-    startLoadingSequence();
-  </script>
+  startLoadingSequence();
+</script>
+
 </html>

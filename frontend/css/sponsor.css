@@ -5,7 +5,6 @@
 
 body {
     font-family: Arial, sans-serif;
-    text-align: center;
     background-image: url('/frontend/images/sky.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -320,7 +319,7 @@ td ul li {
     margin-bottom: 20px;
 }
 .partner p {
-    font-size: 1.1em;
+    font-size: 1.2em;
     margin-bottom: 15px;
     color:rgb(241, 249, 249);
     font-weight: 550;
@@ -340,9 +339,9 @@ td ul li {
 .contact-details {
     background-color: #e5e5e5e0;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
+    text-align: center;
     width: 90%;
     margin: 20px auto; /* Center the container */
     font-family: Arial, sans-serif; /* Set font for the container */
