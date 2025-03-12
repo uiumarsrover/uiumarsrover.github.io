@@ -31,8 +31,8 @@ nav {
 }
 
 .logo {
-    width: 4.25rem;
-    height: 4.25rem;
+    width: 2.75rem;
+    height: 2.75rem;
     background-image: url("../../images/umrt_logo.png");
     background-size: cover;
     margin-right: 5px;
@@ -175,7 +175,7 @@ nav {
     }
 
     .nav-link {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
     }
 
     .sponsor-btn {

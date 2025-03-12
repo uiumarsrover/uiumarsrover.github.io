@@ -23,8 +23,8 @@ footer {
 
 /* Footer Logo */
 .footer-logo {
-    width: 200px;
-    height: 200px;
+    width: 130px;
+    height: 130px;
     background-image: url("../../images/umrt_logo.png");
     background-size: cover;
     border-radius: 50%;
