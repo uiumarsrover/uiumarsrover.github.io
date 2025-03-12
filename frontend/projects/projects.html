@@ -19,7 +19,7 @@
         /* justify-content: center; */
         /* align-items: center; */
         /* min-height: 100vh; */
-        /* background-color: #f5f5f5; */
+        background-color: #000;
       }
 
       .container {
@@ -27,7 +27,7 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 20px;
-        padding: 20px;
+        padding: 63px 20px;
         align-items: center;
         flex-direction: row;
         background: currentColor;
@@ -42,6 +42,12 @@
         width: calc(25% - 15px);
         min-width: 250px;
         box-shadow: 2px 2px 20px 1px #a34b32d6;
+      }
+
+      .card {
+        text-decoration: none; /* Remove underline */
+        color: inherit; /* Keep default text color */
+        display: block; /* Ensure it behaves like a div */
       }
 
       .card:hover {
@@ -97,6 +103,14 @@
         text-align: center;
         background-color: black;
       }
+
+      .sub-title {
+        background: black;
+        color: white;
+        font-family: "Montserrat";
+        padding: 1px 22px;
+        font-size: 1.6rem;
+      }
     </style>
   </head>
   <body>
@@ -118,24 +132,28 @@
           >Our Mission</a
         >
 
-            <div class="team-dropdown">
-                <a href="#" class="nav-link">Team ▼</a>
-                <div class="team-dropdown-content">
-                    <a href="/frontend/advisors/advisors.html" class="dropdown-link">Advisors</a>
-                    <a href="/frontend/director/director.html" class="dropdown-link">Director</a>
-                    <a href="/frontend/team/member.html" class="dropdown-link">Members</a>
-                    <a href="../team/leadership.html" class="dropdown-link">Leadership</a>
-                    <a href="/team/join" class="dropdown-link">Join Us</a>
-                </div>
-            </div>
+        <div class="team-dropdown">
+          <a href="#" class="nav-link">Team ▼</a>
+          <div class="team-dropdown-content">
+            <a href="" class="dropdown-link">Advisors</a>
+            <a href="../team/member.html" class="dropdown-link">Members</a>
+            <a href="../team/leadership.html" class="dropdown-link"
+              >Leadership</a
+            >
+            <a href="/team/join" class="dropdown-link">Join Us</a>
+          </div>
+        </div>
 
         <a href="/sponsor" class="sponsor-btn">Become Sponsor!</a>
       </div>
     </nav>
 
     <h1 class="akira title-page">Our Projects</h1>
+    <br />
+
+    <h3 class="sub-title">ROVERS</h3>
     <div class="container">
-      <div class="card">
+      <a href="axios-details.html" class="card">
         <img src="../images/axios.jpg" alt="Card Image" />
         <div class="card-content">
           <div class="card-title montserrat">AXIOS</div>
@@ -143,8 +161,9 @@
             4th Generation UIU Mars Rover
           </div>
         </div>
-      </div>
-      <div class="card">
+      </a>
+
+      <a href="yggdrasil-details.html" class="card">
         <img src="../images/yggdrasil.jpg" alt="Card Image" />
         <div class="card-content">
           <div class="card-title montserrat">YGGDRASIL</div>
@@ -152,8 +171,9 @@
             3rd Generation UIU Mars Rover
           </div>
         </div>
-      </div>
-      <div class="card">
+      </a>
+
+      <a href="telos-details.html" class="card">
         <img src="../images/telos.jpg" alt="Card Image" />
         <div class="card-content">
           <div class="card-title montserrat">TELOS</div>
@@ -161,16 +181,39 @@
             2nd Generation UIU Mars Rover
           </div>
         </div>
-      </div>
-      <div class="card">
-        <img src="../images/maven2.jpg" alt="Card Image" />
+      </a>
+
+      <a href="maven-details.html" class="card">
+        <img src="../images/maven.jpg" alt="Card Image" />
         <div class="card-content">
           <div class="card-title montserrat">MAVEN</div>
           <div class="card-description montserrat">
             1st Generation UIU Mars Rover
           </div>
         </div>
-      </div>
+      </a>
+    </div>
+
+    <h3 class="sub-title">UAVs</h3>
+    <div class="container">
+      <a href="yggdrasil-details.html" class="card">
+        <img src="../images/yggdrasil.jpg" alt="Card Image" />
+        <div class="card-content">
+          <div class="card-title montserrat">MAARC</div>
+          <div class="card-description montserrat">
+            2nd Generation UIU Mars Rover Assistant UAV with AXIOS
+          </div>
+        </div>
+      </a>
+      <a href="yggdrasil-details.html" class="card">
+        <img src="../images/yggdrasil.jpg" alt="Card Image" />
+        <div class="card-content">
+          <div class="card-title montserrat">ICARUS</div>
+          <div class="card-description montserrat">
+            1st Generation UIU Mars Rover Assistant UAV with TELOS
+          </div>
+        </div>
+      </a>
     </div>
 
     <!-- Footer -->
