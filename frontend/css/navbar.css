@@ -2,17 +2,22 @@
 
 @font-face {
     font-family: "AkiraExpanded";
-    src: url("../../font/Akira\ Expanded\ Demo.otf") format("opentype");
+    src: url("../font/Akira\ Expanded\ Demo.otf") format("opentype");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: "mars";
-    src: url(../../font/Mars.woff) format("woff");
+    src: url(../font/Mars.woff) format("woff");
     font-weight: normal;
     font-style: normal;
 }
+
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
 
 /* Navigation */
 nav {
@@ -20,9 +25,10 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 2rem;
-    background-image: url("../../images/navBarBackground.png");
-    background-size: cover;
+    /* background-image: url("../images/navBarBackground.png"); */
+    /* background-size: cover; */
     background-position: center;
+    background-color: #0c0c0c;
 }
 
 .logo-container {
@@ -31,9 +37,9 @@ nav {
 }
 
 .logo {
-    width: 2.75rem;
-    height: 2.75rem;
-    background-image: url("../../images/umrt_logo.png");
+    width: 4.25rem;
+    height: 4.25rem;
+    background-image: url("../images/umrt_logo.png");
     background-size: cover;
     margin-right: 5px;
 }

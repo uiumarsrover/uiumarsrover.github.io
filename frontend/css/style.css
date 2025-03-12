@@ -1,15 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+}
 
 @font-face {
   font-family: "AkiraExpanded";
-  src: url("../../font/Akira\ Expanded\ Demo.otf") format("opentype");
+  src: url("../font/Akira\ Expanded\ Demo.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
-.montserrat {
-  font-family: "Montserrat", sans-serif;
-}
 
 .gradient-mask {
   /* Apply a mask gradient to fade top and bottom */
@@ -57,7 +57,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-image: url("../../images/sky.png");
+  background-image: url("../images/sky.png");
   background-position: center center;
   background-size: cover;
   background-repeat: repeat;
@@ -248,7 +248,8 @@ main {
 
 /* General Styles */
 .background-2 {
-  background-image: url("../../images/mars2.png");
+  background-image: url("../images/mars2.png");
+  z-index: -1;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -310,24 +311,14 @@ p {
   background-color: #e64a19; /* Darker orange on hover */
 }
 
-/* Carousel Container */
-.carousel-container {
-  position: relative;
-  max-width: 800px;
-  width: 100%; /* Ensure it fits within the container */
-  margin: auto;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.carousel-slides {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.carousel-slides img {
-  width: 100%;
+/* Image Placeholder */
+.image-placeholder {
+  background-image: url("../images/Group.png");
+  background-size: cover;
+  /* Ensures the image covers the placeholder */
+  background-position: center;
+  width: 763px;
+  height: 470px;
   border-radius: 10px;
 }
 
@@ -456,7 +447,7 @@ p {
 
 /* General Styles */
 .background-3 {
-  background-image: url("../../images/Earth.png");
+  background-image: url("../images/Earth.png");
   background-position: center center;
   background-size: auto;
   background-repeat: no-repeat;
@@ -570,7 +561,7 @@ p {
 }
 
 .background-4 {
-  background-image: url("../../images/Mask\ group1.png");
+  background-image: url("../images/Mask\ group1.png");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
