@@ -1,16 +1,4 @@
-.title-page {
-    color: white;
-    padding: 22px 0px;
-    text-align: center;
-    background-color: black;
-    font-size: 12em;
-    background-image: url(../images/axios.jpg);
-    background-size: cover;
-    background-position-x: -3px;
-    background-position-y: -592px;
-    height: 280px;
-    text-shadow: 9px 11px 0px #00000038;
-  }
+
   .image-container {
     position: relative;
     display: inline-block;
