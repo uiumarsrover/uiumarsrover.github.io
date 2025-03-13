@@ -43,6 +43,27 @@
       </div>
     </nav>
 
+    <div class="floating-navbar">
+      <a href="#about-us" class="nav-item">
+        <i class="fas fa-info-circle"></i> <span>About Us</span>
+      </a>
+      <a href="#our-success" class="nav-item">
+        <i class="fas fa-trophy"></i> <span>Our Success</span>
+      </a>
+      <a href="#campaigns" class="nav-item">
+        <i class="fas fa-bullhorn"></i> <span>Campaigns</span>
+      </a>
+      <a href="#budget" class="nav-item">
+        <i class="fas fa-dollar-sign"></i> <span>Budget</span>
+      </a>
+      <a href="#packages" class="nav-item">
+        <i class="fas fa-box"></i> <span>Packages</span>
+      </a>
+      <a href="#contact" class="nav-item">
+        <i class="fas fa-phone"></i> <span>Contact</span>
+      </a>
+    </div>
+
     <!-- Page 1 -->
     <div class="background-1">
       <h2 class="subtitle">
@@ -54,7 +75,7 @@
       </h1>
     </div>
 
-    <div class="about-us">
+    <div class="about-us" id="about-us">
       <h1>ABOUT US</h1>
       <div class="image-grid">
         <img src="/frontend/images/team_2022_1.jpg" alt="Team Photo 1">
@@ -73,7 +94,7 @@
     </div>
     <br>
 
-    <div class="our-success">
+    <div class="our-success" id="our-success">
       <h1>OUR SUCCESS</h1>
       <div class="success-grid">
         <div class="success-item">
@@ -101,28 +122,27 @@
           <p>Placed <span class="highlight">1<sup>st</sup></span> in Asia</p>
         </div>
       </div>
-
     </div>
 
     <br>
-    <div class="media-outreach">
-      <h1>MEDIA OUTREACH</h1>
-
-      <div class="media-photo">
-        <img src="/frontend/images/google_tour.jpg" alt="Team Photo 1">
-        <img src="/frontend/images/prothomAlo1.jpg" alt="Team Photo 2">
-        <img src="/frontend/images/BusinessStandard.png" alt="Team Photo 3">
-        <img src="/frontend/images/AlokDia.jpg" alt="Team Photo 4">
-        <img src="/frontend/images/prothomAlo.jpg" alt="Team Photo 5">
-        <img src="/frontend/images/kalBela.jpg" alt="Team Photo 6">
-        <img src="/frontend/images/2024urc.png" alt="Team Photo 7">
-        <img src="/frontend/images/team_2023_3.jpg" alt="Team Photo 8">
-        <img src="/frontend/images/affil_2022.jpg" alt="Team Photo 9">
+      <div class="media-outreach">
+        <h1>MEDIA OUTREACH</h1>
+        <div class="media-photo">
+          <img src="/frontend/images/google_tour.jpg" alt="Team Photo 1">
+          <img src="/frontend/images/prothomAlo1.jpg" alt="Team Photo 2">
+          <img src="/frontend/images/BusinessStandard.png" alt="Team Photo 3">
+          <img src="/frontend/images/AlokDia.jpg" alt="Team Photo 4">
+          <img src="/frontend/images/prothomAlo.jpg" alt="Team Photo 5">
+          <img src="/frontend/images/kalBela.jpg" alt="Team Photo 6">
+          <img src="/frontend/images/2024urc.png" alt="Team Photo 7">
+          <img src="/frontend/images/team_2023_3.jpg" alt="Team Photo 8">
+          <img src="/frontend/images/affil_2022.jpg" alt="Team Photo 9">
+        </div>
       </div>
-    </div>
 
     <br>
-    <div class="media-outreach">
+
+    <div class="media-outreach" id="campaigns">
       <h1>CAMPAIGNS</h1>
 
       <div class="media-photo">
@@ -137,6 +157,7 @@
 
 
     <div class="budget-container">
+      <div id="budget">
       <h1>BUDGET</h1>
       <h2>Logistic Budget for Rover Fabrication</h2>
 
@@ -388,10 +409,10 @@
         </tfoot>
 
       </table>
-
+      </div>
       <br>
       <br>
-
+      <div id="packages">
       <h1>PACKAGES</h1>
       <table>
         <thead>
@@ -465,6 +486,7 @@
         </tbody>
       </table>
     </div>
+    </div>
 
 
     <div class="partner">
@@ -513,7 +535,7 @@
     </div>
 
 
-    <div class="contact-details">
+    <div class="contact-details" id="contact">
       <h1>SHORT CONTACT DETAILS</h1>
 
       <h2>COMPETITION NAME:</h2>
@@ -609,6 +631,9 @@
       </div>
     </footer>
   </div>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
