@@ -455,8 +455,47 @@ p {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   padding-bottom: 20px;
+}
+
+.container-4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+}
+
+.header-title {
+  font-size: 2.5rem;
+  color: #fff;
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-shadow: 3px 5px 8px black;
+  margin-bottom: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Logos Container */
+.logos-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem; /* Space between logos */
+  position: absolute;
+  top: 20%; /* Center logos vertically */
+  left: 50%; /* Center logos horizontally */
+  transform: translate(-50%, -50%);
+}
+
+.logos {
+  width: 100px; /* Set a fixed width */
+  height: 100px; /* Set a fixed height */
+  object-fit: contain; /* Ensures the image scales proportionally within the fixed dimensions */
 }
 
 /* Button Styles */
@@ -467,7 +506,10 @@ p {
   font-size: 15px;
   color: #131313;
   cursor: pointer;
-  position: relative;
+  position: absolute;
+  bottom: 6rem;
+  left: 50%;
+  transform: translateX(-50%);
   overflow: hidden;
   transition: all 0.3s;
   border-radius: 12px;
@@ -475,15 +517,11 @@ p {
   font-weight: bolder;
   box-shadow: 0 2px 0 2px #000;
   text-decoration: none;
-  /* Removes underline from the link */
-  margin-bottom: 6rem;
 }
 
 .btn a {
   text-decoration: none;
-  /* Removes underline from the link text */
   color: inherit;
-  /* Inherits the color from the button */
 }
 
 .btn:before {
@@ -510,6 +548,59 @@ p {
 
 .btn:active {
   transform: scale(0.9);
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .header-title {
+    font-size: 2rem; /* Slightly smaller font size */
+  }
+
+  .logos {
+    width: 80px; /* Smaller logos */
+    height: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-title {
+    font-size: 1.75rem; /* Smaller font size for tablets */
+    margin-bottom: 1.5rem;
+  }
+
+  .logos-container {
+    gap: 2rem; /* Reduce gap between logos */
+    top: 25%; /* Adjust vertical position */
+  }
+
+  .logos {
+    width: 70px; /* Even smaller logos */
+    height: 70px;
+  }
+
+  .btn {
+    padding: 1em 1.5em; /* Smaller button padding */
+    font-size: 14px;
+    bottom: 4rem; /* Adjust button position */
+  }
+}
+
+@media (max-width: 480px) {
+  .header-title {
+    font-size: 1.5rem; /* Smaller font size for mobile */
+    margin-bottom: 1rem;
+  }
+
+  .logos-container {
+    flex-direction: column; /* Stack logos vertically */
+    gap: 1.5rem; /* Reduce gap between logos */
+    top: 30%; /* Adjust vertical position */
+  }
+
+  .logos {
+    width: 60px; /* Smallest logos */
+    height: 60px;
+  }
 }
 
 .carousel-container {
