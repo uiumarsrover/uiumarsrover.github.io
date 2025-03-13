@@ -4,7 +4,7 @@ let scene = new THREE.Scene();
 let aspect = window.innerWidth / window.innerHeight;
 let camera = new THREE.PerspectiveCamera(55, aspect, 0.1, 1500);
 let cameraRotation = 0;
-let cameraRotationSpeed = 0.001;
+let cameraRotationSpeed = 0.002;
 let cameraAutoRotation = true;
 let orbitControls = new THREE.OrbitControls(camera);
 
@@ -114,7 +114,7 @@ let createPlanet = function (options) {
 // Create Mars
 let mars = createPlanet({
   surface: {
-    size: 0.5,
+    size: 0.7,
     material: {
       bumpScale: 0.05,
       specular: new THREE.Color('grey'),
@@ -127,7 +127,7 @@ let mars = createPlanet({
     }
   },
   atmosphere: {
-    size: 0.003,
+    size: 0.004,
     material: { opacity: 0.8 },
     textures: {
       map: '../frontend/scripts/Asset/cloud_map.png',
