@@ -293,7 +293,7 @@ h1 {
 }
 
 /* Paragraph Styles */
-p {
+.content-1 p {
   font-size: 1.2rem;
   line-height: 1.6;
   margin-bottom: 20px;
@@ -332,6 +332,8 @@ p {
 
 /* General Styles */
 .background-3 {
+  position: relative; /* Ensure the moving photos are positioned relative to this container */
+  overflow: hidden; /* Hide overflowing content */
   background-image: url("../images/Earth.png");
   background-position: center center;
   background-size: auto;
@@ -339,21 +341,20 @@ p {
   height: 100vh;
   width: 100%;
   display: flex;
+  flex-direction: column; /* Stack content vertically */
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* Align content to the top */
 }
 
-.hold-content {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem;
-  min-height: 60vh;
-  width: 90%; /* Ensure content doesn't overflow on small screens */
-  max-width: 1200px; /* Limit maximum width for large screens */
-  margin: 0 auto; /* Center the content */
+.background-3::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20%; /* Adjust the height of the gradient overlay */
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); /* Gradient overlay */
+  z-index: 1; /* Ensure the overlay is above the background image */
 }
 
 .content-2 {
@@ -369,84 +370,93 @@ p {
 
 .content-3 {
   margin: 10px;
-  padding: 20px;
-  font-size: 1.8rem;
-  background-color: rgba(0, 0, 0, 0.4);
+  padding: 1em 0em 1em 1em;
   backdrop-filter: blur(3px);
   border-radius: 10px;
   max-width: 600px;
-  color: #fff; /* Ensure text is readable */
 }
 
-.join-button {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px 20px;
+.content-3 p {
   font-size: 1.2rem;
-  color: #fff;
-  background-color: #e67e22;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
+  line-height: 1.4;
+  text-align: left;
 }
 
-.join-button:hover {
-  background-color: #d35400;
+.text-content {
+  position: relative;
+  font-family: Montserrat;
+  z-index: 1; /* Bring text content to the front */
+  text-align: center;
+  display: flex;
+  max-width: 1200px; /* Limit width for better readability */
+  width: 90%;
+  margin-bottom: 20px; /* Space between text and photos */
+  padding-top: 10px;
+}
+
+.moving-photos {
+  position: absolute;
+  z-index: 2;
+  top: 66%; /* Start photos below the text */
+  left: 0;
+  width: 200%; /* Double width to allow seamless looping */
+  height: auto; /* Adjust height automatically */
+  display: flex;
+  align-items: center;
+  animation: scrollPhotos 20s linear infinite; /* Animation for scrolling */
+}
+
+.moving-photos img {
+  width: 200px; /* Adjust based on your design */
+  height: auto;
+  margin-right: 20px; /* Space between photos */
+  border-radius: 10px; /* Optional: Add rounded corners */
+}
+
+@keyframes scrollPhotos {
+  0% {
+    transform: translateX(0); /* Start from the left */
+  }
+  100% {
+    transform: translateX(-50%); /* Move to the left by 50% */
+  }
+}
+
+.hold-content {
+  position: relative;
+  z-index: 1; /* Bring content to the front */
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-  .hold-content {
-    flex-direction: column; /* Stack content vertically on tablets */
-    padding: 1rem;
+  .moving-photos {
+    top: 60%;
   }
 
-  .content-2,
-  .content-3 {
-    max-width: 100%; /* Allow full width on smaller screens */
-    font-size: 2.2rem; /* Adjust font size for tablets */
-  }
-
-  .content-3 {
-    font-size: 1.5rem;
+  .moving-photos img {
+    width: 150px; 
   }
 }
 
 @media (max-width: 768px) {
-  .content-2 {
-    font-size: 2rem; /* Adjust font size for smaller tablets */
+  .moving-photos {
+    top: 66%;
   }
-
-  .content-3 {
-    font-size: 1.3rem;
-  }
-
-  .join-button {
-    font-size: 1rem;
-    padding: 8px 16px;
+  .moving-photos img {
+    width: 120px;
   }
 }
-
 @media (max-width: 480px) {
-  .content-2 {
-    font-size: 1.8rem; /* Adjust font size for mobile */
-    padding: 10px;
+  .moving-photos {
+    top: 79%;
   }
-
-  .content-3 {
-    font-size: 1.1rem;
-    padding: 10px;
-  margin: 5px;
-  }
-
-  .join-button {
-    font-size: 0.9rem;
-    padding: 6px 12px;
+  .moving-photos img {
+    width: 100px;
   }
 }
 
 .background-4 {
-  background-image: url("../images/Mask\ group1.png");
+  background-image: url("../images/Mask group1.png");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -459,6 +469,17 @@ p {
   padding-bottom: 20px;
 }
 
+.background-4::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20%; /* Adjust the height of the gradient overlay */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); /* Gradient overlay */
+  z-index: 1; /* Ensure the overlay is above the background image */
+}
+
 .container-4 {
   display: flex;
   flex-direction: column;
@@ -466,6 +487,7 @@ p {
   justify-content: center;
   height: 100%;
   position: relative;
+  z-index: 2;
 }
 
 .header-title {

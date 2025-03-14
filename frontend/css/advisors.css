@@ -4,8 +4,12 @@
     box-sizing: border-box;
 }
 
+.content {
+    background-color: black;
+}
+
 .container {
-    background-color: #fff;
+    background-color: #00000000;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -23,7 +27,7 @@
 
 h1 {
     text-align: center;
-    color: #333;
+    color: #cdcdcd;
     margin-bottom: 20px;
 }
 
@@ -34,7 +38,7 @@ h1 {
     padding: 15px;
     border: 1px solid #ddd;
     border-radius: 8px;
-    background-color: #f9f9f9;
+    background-color: #ffffffd6;
 }
 
 .advisor-photo {
