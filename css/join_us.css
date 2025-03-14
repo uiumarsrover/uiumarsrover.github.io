@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
 /* Recruitment Section */
 .recruitment-section {
     padding: 2rem;
