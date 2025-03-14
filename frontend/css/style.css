@@ -515,7 +515,7 @@ h1 {
 }
 
 .logos {
-  width: 100px; /* Set a fixed width */
+  width: 260px; /* Set a fixed width */
   height: 100px; /* Set a fixed height */
   object-fit: contain; /* Ensures the image scales proportionally within the fixed dimensions */
 }
