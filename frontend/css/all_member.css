@@ -22,6 +22,64 @@ body {
   margin: 0 auto;
 }
 
+/* Team Member Navigation Bar */
+.team-member-nav {
+  background-color: transparent; /* Semi-transparent dark blue background */
+  backdrop-filter: blur(10px); /* Blur effect */
+  padding: 10px 20px; /* Add some padding */
+  width: fit-content; /* Adjust width to fit content */
+  margin-left: auto; /* Center the bar horizontally */
+  margin-right: auto; /* Center the bar horizontally */
+}
+
+.team-member-nav ul {
+  list-style-type: none; /* Remove bullet points */
+  margin: 0;
+  padding: 0;
+  display: flex; /* Display links horizontally */
+  justify-content: center; /* Center the links */
+  gap: 20px; /* Add space between links */
+}
+
+.team-member-nav ul li {
+  display: inline-block; /* Display list items inline */
+}
+
+.team-member-nav ul li a {
+  text-decoration: none; /* Remove underline */
+  color: #fff; /* White text color */
+  font-size: 16px; /* Font size */
+  font-weight: 500; /* Medium font weight */
+  padding: 8px 16px; /* Add padding for clickable area */
+  border-radius: 4px; /* Rounded corners for links */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+  background-color: transparent; /* Semi-transparent light blue background */
+  width: fit-content; /* Adjust width to fit text */
+}
+
+.team-member-nav ul li a:hover {
+  background-color: rgba(0, 158, 219, 0.7); /* More opaque light blue background on hover */
+  color: #fff; /* White text color on hover */
+}
+
+.team-member-nav ul li a.active {
+  background-color: rgba(0, 158, 219, 0.7); /* More opaque light blue background for active link */
+  color: #fff; /* White text color for active link */
+}
+
+@media (max-width: 768px) {
+  .team-member-nav ul {
+      flex-direction: column; /* Stack links vertically */
+      align-items: center; /* Center links */
+      gap: 10px; /* Reduce gap between links */
+  }
+
+  .team-member-nav ul li a {
+      padding: 8px 12px; /* Reduce padding for smaller screens */
+      font-size: 14px; /* Reduce font size */
+  }
+}
+
 /* Team Leader Section */
 .team-leader {
   text-align: center;
