@@ -1,11 +1,11 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    background-image: url("/images/rover_2023_1.jpg");
+    background-image: url("../images/rover_2023_1.jpg");
 }
 
 .director-header {
@@ -19,11 +19,11 @@ body {
     gap: 30px;
 }
 
-.director-header h1{
+.director-header h1 {
     font-size: 3rem;
 }
 
-.director-header h2{
+.director-header h2 {
     font-size: 2rem;
 }
 
@@ -80,4 +80,80 @@ body {
 
 .director-info a:hover {
     text-decoration: underline;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For tablets and smaller desktops */
+@media (max-width: 768px) {
+    .director-header {
+        padding: 10% 5% 12% 5%;
+    }
+
+    .director-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .director-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    .director {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .director-photo {
+        flex: 0 0 120px;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .director-info h2 {
+        font-size: 1.3em;
+    }
+
+    .director-info p {
+        font-size: 0.95em;
+    }
+}
+
+/* For mobile devices */
+@media (max-width: 480px) {
+    .director-header {
+        padding: 15% 5% 20% 5%;
+    }
+
+    .director-header h1 {
+        font-size: 2rem;
+    }
+
+    .director-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .director {
+        padding: 10px;
+    }
+
+    .director-photo {
+        flex: 0 0 100px;
+    }
+
+    .director-info h2 {
+        font-size: 1.2em;
+    }
+
+    .director-info p {
+        font-size: 0.9em;
+    }
 }

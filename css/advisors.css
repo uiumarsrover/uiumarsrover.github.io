@@ -74,3 +74,61 @@ h1 {
 .advisor-info a:hover {
     text-decoration: underline;
 }
+
+/* Media Queries for Responsiveness */
+
+/* For tablets and smaller desktops */
+@media (max-width: 768px) {
+    .advisors-heading h1 {
+        font-size: 2.5rem;
+        margin: 10% auto;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    .advisor {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .advisor-photo {
+        flex: 0 0 120px;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .advisor-info h2 {
+        font-size: 1.3em;
+    }
+}
+
+/* For mobile devices */
+@media (max-width: 480px) {
+    .advisors-heading h1 {
+        font-size: 2rem;
+        margin: 15% auto;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .advisor {
+        padding: 10px;
+    }
+
+    .advisor-photo {
+        flex: 0 0 100px;
+    }
+
+    .advisor-info h2 {
+        font-size: 1.2em;
+    }
+
+    .advisor-info p {
+        font-size: 0.9em;
+    }
+}

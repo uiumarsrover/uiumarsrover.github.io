@@ -257,30 +257,22 @@ main {
   width: 100%;
   display: flex;
   flex-direction: row;
-  /* Change to row for side-by-side layout */
   justify-content: center;
   align-items: center;
   text-align: center;
   gap: 20px;
-  /* Adds space between the content and image */
   padding: 2em;
-  /* Adds padding around the container */
 }
 
-/* Content Container */
 .content-1 {
   margin: 10px;
-  padding: 2em 0em 2em 2em;
-  /* background-color: rgba(0, 0, 0, 0.4); Semi-transparent black background */
+  padding: 2em;
   backdrop-filter: blur(3px);
-  /* Background blur effect */
   border-radius: 10px;
   max-width: 600px;
-  /* Limits the width of the content */
 }
 
-/* Heading Styles */
-h1 {
+.placeholder h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
 }
@@ -292,21 +284,18 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* Paragraph Styles */
 .content-1 p {
   font-size: 1.2rem;
   line-height: 1.6;
   margin-bottom: 20px;
 }
 
-/* Join Button Styles */
 .join-button {
   display: inline-block;
   padding: 10px 20px;
   font-size: 1.2rem;
   color: white;
   background-color: #ff5722;
-  /* Orange color for the button */
   border: none;
   border-radius: 5px;
   text-decoration: none;
@@ -315,35 +304,88 @@ h1 {
 
 .join-button:hover {
   background-color: #e64a19;
-  /* Darker orange on hover */
 }
 
-/* Image Placeholder */
-.image-placeholder {
-  background-image: url("../images/Group.png");
-  background-size: cover;
-  /* Ensures the image covers the placeholder */
-  background-position: center;
-  width: 763px;
-  height: 470px;
-  border-radius: 10px;
-  /* Adds rounded corners to the image */
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .background-2 {
+    flex-direction: column;
+    padding: 1em;
+  }
+
+  .content-1 {
+    max-width: 100%;
+    padding: 1em;
+  }
+
+  #placeholder-text {
+    font-size: 48px;
+  }
 }
+
+@media (max-width: 768px) {
+  #placeholder-text {
+    font-size: 36px;
+  }
+
+  .content-1 h1 {
+    font-size: 2rem;
+  }
+
+  .content-1 p {
+    font-size: 1rem;
+  }
+
+  .join-button {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  #placeholder-text {
+    font-size: 24px;
+  }
+
+  .content-1 h1 {
+    font-size: 1.5rem;
+  }
+
+  .content-1 p {
+    font-size: 0.9rem;
+  }
+
+  .join-button {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+
+  .prev, .next {
+    padding: 5px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+}
+
 
 /* General Styles */
 .background-3 {
-  position: relative; /* Ensure the moving photos are positioned relative to this container */
-  overflow: hidden; /* Hide overflowing content */
+  position: relative;
+  overflow: hidden;
   background-image: url("../images/Earth.png");
   background-position: center center;
-  background-size: auto;
+  /* background-size: cover; */
   background-repeat: no-repeat;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   display: flex;
-  flex-direction: column; /* Stack content vertically */
+  flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Align content to the top */
+  justify-content: flex-start;
+  padding: 20px;
 }
 
 .background-3::before {
@@ -352,9 +394,22 @@ h1 {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 20%; /* Adjust the height of the gradient overlay */
-  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); /* Gradient overlay */
-  z-index: 1; /* Ensure the overlay is above the background image */
+  height: 20%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  z-index: 1;
+}
+
+.text-content {
+  position: relative;
+  font-family: Montserrat;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  justify-content: space-between; /* Space between content-2 and content-3 */
+  max-width: 1200px;
+  width: 90%;
+  margin-bottom: 20px;
+  padding-top: 10px;
 }
 
 .content-2 {
@@ -365,15 +420,19 @@ h1 {
   font-weight: bold;
   border-radius: 10px;
   max-width: 600px;
-  color: #fff; /* Ensure text is readable */
+  color: #fff;
+  text-align: left; /* Align text to the left */
+  flex: 1; /* Allow it to take available space */
 }
 
 .content-3 {
   margin: 10px;
-  padding: 1em 0em 1em 1em;
+  padding: 1em;
   backdrop-filter: blur(3px);
   border-radius: 10px;
   max-width: 600px;
+  width: 100%; /* Ensure it takes full width on smaller screens */
+  flex: 1; /* Allow it to take available space */
 }
 
 .content-3 p {
@@ -382,79 +441,121 @@ h1 {
   text-align: left;
 }
 
-.text-content {
-  position: relative;
-  font-family: Montserrat;
-  z-index: 1; /* Bring text content to the front */
-  text-align: center;
-  display: flex;
-  max-width: 1200px; /* Limit width for better readability */
-  width: 90%;
-  margin-bottom: 20px; /* Space between text and photos */
-  padding-top: 10px;
-}
-
 .moving-photos {
   position: absolute;
   z-index: 2;
-  top: 66%; /* Start photos below the text */
+  bottom: 0; /* Position at the bottom */
   left: 0;
-  width: 200%; /* Double width to allow seamless looping */
-  height: auto; /* Adjust height automatically */
+  width: 200%;
+  height: auto;
   display: flex;
   align-items: center;
-  animation: scrollPhotos 20s linear infinite; /* Animation for scrolling */
+  animation: scrollPhotos 20s linear infinite;
 }
 
 .moving-photos img {
-  width: 200px; /* Adjust based on your design */
+  width: 200px;
   height: auto;
-  margin-right: 20px; /* Space between photos */
-  border-radius: 10px; /* Optional: Add rounded corners */
+  margin-right: 20px;
+  border-radius: 10px;
 }
 
 @keyframes scrollPhotos {
   0% {
-    transform: translateX(0); /* Start from the left */
+    transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%); /* Move to the left by 50% */
+    transform: translateX(-50%);
   }
 }
 
-.hold-content {
-  position: relative;
-  z-index: 1; /* Bring content to the front */
+.join-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: white;
+  background-color: #ff5722;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 20px;
+}
+
+.join-button:hover {
+  background-color: #e64a19;
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
-  .moving-photos {
-    top: 60%;
+@media (max-width: 1200px) {
+  .content-2 {
+    font-size: 2.5rem;
+  }
+
+  .content-3 p {
+    font-size: 1.1rem;
   }
 
   .moving-photos img {
-    width: 150px; 
+    width: 180px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .content-2 {
+    font-size: 2.2rem;
+  }
+
+  .content-3 p {
+    font-size: 1rem;
+  }
+
+  .moving-photos img {
+    width: 150px;
   }
 }
 
 @media (max-width: 768px) {
-  .moving-photos {
-    top: 66%;
+  .text-content {
+    flex-direction: column; /* Stack content vertically on smaller screens */
   }
+
+  .content-2 {
+    font-size: 2rem;
+    text-align: center; /* Center text for smaller screens */
+  }
+
+  .content-3 p {
+    font-size: 0.9rem;
+  }
+
+  .moving-photos {
+    position: relative; /* Move images below the content */
+    top: auto;
+    bottom: auto;
+    margin-top: 20px; /* Add space between content and images */
+  }
+
   .moving-photos img {
     width: 120px;
   }
 }
+
 @media (max-width: 480px) {
-  .moving-photos {
-    top: 79%;
+  .content-2 {
+    font-size: 1.8rem;
   }
+
+  .content-3 p {
+    font-size: 0.8rem;
+  }
+
   .moving-photos img {
     width: 100px;
+    margin-right: 10px;
   }
 }
 
+/* General Styles */
 .background-4 {
   background-image: url("../images/Mask group1.png");
   background-position: center center;
@@ -462,11 +563,11 @@ h1 {
   background-repeat: no-repeat;
   width: 100%;
   position: relative;
-  height: 100vh;
+  min-height: 100vh; /* Use min-height for flexibility */
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 20px;
+  padding: 20px; /* Add padding for better spacing */
 }
 
 .background-4::before {
@@ -475,31 +576,21 @@ h1 {
   top: 0;
   left: 0;
   width: 100%;
-  height: 20%; /* Adjust the height of the gradient overlay */
+  height: 20%;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); /* Gradient overlay */
-  z-index: 1; /* Ensure the overlay is above the background image */
+  z-index: 1;
 }
 
 .container-4 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between; /* Space between logos and button */
   height: 100%;
+  width: 100%; /* Ensure it takes full width */
   position: relative;
   z-index: 2;
-}
-
-.header-title {
-  font-size: 2.5rem;
-  color: #fff;
-  text-align: center;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  text-shadow: 3px 5px 8px black;
-  margin-bottom: 2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  gap: 2rem; /* Add gap between logos and button */
 }
 
 /* Logos Container */
@@ -508,16 +599,13 @@ h1 {
   justify-content: center;
   align-items: center;
   gap: 3rem; /* Space between logos */
-  position: absolute;
-  top: 20%; /* Center logos vertically */
-  left: 50%; /* Center logos horizontally */
-  transform: translate(-50%, -50%);
+  margin-top: 2rem; /* Add margin to push logos down slightly */
 }
 
 .logos {
-  width: 260px; /* Set a fixed width */
+  width: 200px; /* Set a fixed width */
   height: 100px; /* Set a fixed height */
-  object-fit: contain; /* Ensures the image scales proportionally within the fixed dimensions */
+  object-fit: contain; /* Ensures the image scales proportionally */
 }
 
 /* Button Styles */
@@ -528,44 +616,22 @@ h1 {
   font-size: 15px;
   color: #131313;
   cursor: pointer;
-  position: absolute;
-  bottom: 6rem;
-  left: 50%;
-  transform: translateX(-50%);
   overflow: hidden;
   transition: all 0.3s;
   border-radius: 12px;
   background-color: #ecd448;
   font-weight: bolder;
   box-shadow: 0 2px 0 2px #000;
-  text-decoration: none;
-}
-
-.btn a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.btn:before {
-  content: "";
-  position: absolute;
-  width: 100px;
-  height: 120%;
-  background-color: #ff6700;
-  top: 50%;
-  transform: skewX(90deg) translate(-150%, -50%);
-  transition: all 0.5s;
+  text-decoration: none; /* Remove underline from link */
+  display: inline-block; /* Ensure the link behaves like a button */
+  text-align: center; /* Center text inside the button */
+  margin-bottom: 2rem; /* Add margin to push button up slightly */
 }
 
 .btn:hover {
-  background-color: #03556e;
+  background-color: #0b3e4d;
   color: #fff;
-  box-shadow: 0 2px 0 2px #06335d;
-}
-
-.btn:hover::before {
-  transform: skewX(30deg) translate(150%, -50%);
-  transition-delay: 0.1s;
+  box-shadow: 0 2px 0 2px #0d3b66;
 }
 
 .btn:active {
@@ -574,54 +640,47 @@ h1 {
 
 /* Responsive Styles */
 @media (max-width: 1200px) {
-  .header-title {
-    font-size: 2rem; /* Slightly smaller font size */
+  .logos {
+    width: 180px; /* Slightly smaller logos */
+    height: 90px;
   }
 
-  .logos {
-    width: 80px; /* Smaller logos */
-    height: 80px;
+  .btn {
+    padding: 1em 1.8em; /* Slightly smaller button padding */
+    font-size: 14px;
   }
 }
 
 @media (max-width: 768px) {
-  .header-title {
-    font-size: 1.75rem; /* Smaller font size for tablets */
-    margin-bottom: 1.5rem;
-  }
-
   .logos-container {
     gap: 2rem; /* Reduce gap between logos */
-    top: 25%; /* Adjust vertical position */
   }
 
   .logos {
-    width: 70px; /* Even smaller logos */
-    height: 70px;
+    width: 150px; /* Smaller logos */
+    height: 80px;
   }
 
   .btn {
     padding: 1em 1.5em; /* Smaller button padding */
     font-size: 14px;
-    bottom: 4rem; /* Adjust button position */
   }
 }
 
 @media (max-width: 480px) {
-  .header-title {
-    font-size: 1.5rem; /* Smaller font size for mobile */
-    margin-bottom: 1rem;
-  }
-
   .logos-container {
-    flex-direction: column; /* Stack logos vertically */
+    flex-direction: column; /* Stack logos vertically on small screens */
     gap: 1.5rem; /* Reduce gap between logos */
-    top: 30%; /* Adjust vertical position */
   }
 
   .logos {
-    width: 60px; /* Smallest logos */
+    width: 120px; /* Smallest logos */
     height: 60px;
+  }
+
+  .btn {
+    padding: 0.8em 1.2em; /* Smallest button padding */
+    font-size: 13px;
   }
 }
 

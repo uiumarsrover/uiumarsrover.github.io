@@ -24,59 +24,88 @@ body {
 
 /* Team Member Navigation Bar */
 .team-member-nav {
-  background-color: transparent; /* Semi-transparent dark blue background */
-  backdrop-filter: blur(10px); /* Blur effect */
-  padding: 10px 20px; /* Add some padding */
-  width: fit-content; /* Adjust width to fit content */
-  margin-left: auto; /* Center the bar horizontally */
-  margin-right: auto; /* Center the bar horizontally */
+  background-color: transparent;
+  /* Semi-transparent dark blue background */
+  backdrop-filter: blur(10px);
+  /* Blur effect */
+  padding: 10px 20px;
+  /* Add some padding */
+  width: fit-content;
+  /* Adjust width to fit content */
+  margin-left: auto;
+  /* Center the bar horizontally */
+  margin-right: auto;
+  /* Center the bar horizontally */
 }
 
 .team-member-nav ul {
-  list-style-type: none; /* Remove bullet points */
+  list-style-type: none;
+  /* Remove bullet points */
   margin: 0;
   padding: 0;
-  display: flex; /* Display links horizontally */
-  justify-content: center; /* Center the links */
-  gap: 20px; /* Add space between links */
+  display: flex;
+  /* Display links horizontally */
+  justify-content: center;
+  /* Center the links */
+  gap: 20px;
+  /* Add space between links */
 }
 
 .team-member-nav ul li {
-  display: inline-block; /* Display list items inline */
+  display: inline-block;
+  /* Display list items inline */
 }
 
 .team-member-nav ul li a {
-  text-decoration: none; /* Remove underline */
-  color: #fff; /* White text color */
-  font-size: 16px; /* Font size */
-  font-weight: 500; /* Medium font weight */
-  padding: 8px 16px; /* Add padding for clickable area */
-  border-radius: 4px; /* Rounded corners for links */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
-  background-color: transparent; /* Semi-transparent light blue background */
-  width: fit-content; /* Adjust width to fit text */
+  text-decoration: none;
+  /* Remove underline */
+  color: #fff;
+  /* White text color */
+  font-size: 16px;
+  /* Font size */
+  font-weight: 500;
+  /* Medium font weight */
+  padding: 8px 16px;
+  /* Add padding for clickable area */
+  border-radius: 4px;
+  /* Rounded corners for links */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  /* Smooth hover effect */
+  background-color: transparent;
+  /* Semi-transparent light blue background */
+  width: fit-content;
+  /* Adjust width to fit text */
 }
 
 .team-member-nav ul li a:hover {
-  background-color: rgba(0, 158, 219, 0.7); /* More opaque light blue background on hover */
-  color: #fff; /* White text color on hover */
+  background-color: rgba(0, 158, 219, 0.7);
+  /* More opaque light blue background on hover */
+  color: #fff;
+  /* White text color on hover */
 }
 
 .team-member-nav ul li a.active {
-  background-color: rgba(0, 158, 219, 0.7); /* More opaque light blue background for active link */
-  color: #fff; /* White text color for active link */
+  background-color: rgba(0, 158, 219, 0.7);
+  /* More opaque light blue background for active link */
+  color: #fff;
+  /* White text color for active link */
 }
 
 @media (max-width: 768px) {
   .team-member-nav ul {
-      flex-direction: column; /* Stack links vertically */
-      align-items: center; /* Center links */
-      gap: 10px; /* Reduce gap between links */
+    flex-direction: column;
+    /* Stack links vertically */
+    align-items: center;
+    /* Center links */
+    gap: 10px;
+    /* Reduce gap between links */
   }
 
   .team-member-nav ul li a {
-      padding: 8px 12px; /* Reduce padding for smaller screens */
-      font-size: 14px; /* Reduce font size */
+    padding: 8px 12px;
+    /* Reduce padding for smaller screens */
+    font-size: 14px;
+    /* Reduce font size */
   }
 }
 
@@ -92,19 +121,30 @@ body {
   margin-bottom: 20px;
 }
 
+.leader-container {
+  display: flex;
+  justify-content: center;
+  /* Center the cards horizontally */
+  gap: 20px;
+  /* Space between the cards */
+  flex-wrap: wrap;
+  /* Allow wrapping for smaller screens */
+}
+
 .leader-card {
   background-color: #a4a4a478;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  display: inline-block;
   text-align: center;
+  flex: 1;
+  /* Allow cards to grow and take equal space */
+  max-width: 300px;
+  /* Limit the maximum width of each card */
 }
 
 .leader-photo {
-  /* width: 150px; */
   height: 285px;
-  /* border-radius: 50%; */
   margin-bottom: 15px;
 }
 
@@ -212,10 +252,12 @@ body {
 .team-page {
   background-image: url("../images/pexels-blaque-x.jpg");
   background-size: cover;
-  background-attachment: fixed; /* This creates the parallax effect */
+  background-attachment: fixed;
+  /* This creates the parallax effect */
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 100vh; /* Ensure the background covers the entire viewport */
+  min-height: 100vh;
+  /* Ensure the background covers the entire viewport */
   position: relative;
   z-index: 1;
 }
@@ -228,7 +270,8 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Adjust opacity as needed */
   z-index: -1;
 }
 
@@ -242,29 +285,43 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+
   .leader-card,
   .sub-leader-card,
   .member-card {
     padding: 15px;
   }
 
+  .leader-container {
+    flex-direction: column;
+    /* Stack cards vertically on smaller screens */
+    align-items: center;
+    /* Center cards horizontally */
+  }
+
+  .leader-card {
+    max-width: 100%;
+    /* Allow cards to take full width on smaller screens */
+  }
+
   .leader-photo {
-    width: 120px;
-    height: 120px;
+    width: 95px;
+    height: 117px;
   }
 
   .sub-leader-photo {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 110px;
   }
 
   .member-photo {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 110px;
   }
 }
 
 @media (max-width: 480px) {
+
   .sub-leaders-grid,
   .members-grid {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -274,7 +331,7 @@ body {
 .team-member-page-title {
   font-family: "AkiraExpanded";
   color: white;
-  font-size: 3em;
+  font-size: 2em;
   text-align: center;
   padding: 31px;
 
@@ -286,4 +343,3 @@ body {
     0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.2),
     0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.3);
 }
-
