@@ -1,275 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects</title>
-  <link rel="icon" href="../images/umrt_logo.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link rel="stylesheet" href="../css/navbar.css" />
-  <link rel="stylesheet" href="../css/projects.css" />
-  <link rel="stylesheet" href="../css/footer.css" />
-  <style>
-    body {
-      /* font-family: Arial, sans-serif; */
-      /* display: flex; */
-      /* justify-content: center; */
-      /* align-items: center; */
-      /* min-height: 100vh; */
-      background-color: #000;
-    }
-
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 63px 20px;
-      align-items: center;
-      flex-direction: row;
-      background: currentColor;
-    }
-
-    .card {
-      background-image: linear-gradient(45deg, #e97c5d, #98472e);
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s;
-      width: calc(25% - 15px);
-      min-width: 250px;
-      box-shadow: 2px 2px 20px 1px #a34b32d6;
-    }
-
-    .card {
-      text-decoration: none;
-      /* Remove underline */
-      color: inherit;
-      /* Keep default text color */
-      display: block;
-      /* Ensure it behaves like a div */
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card img {
-      width: 100%;
-      /* height: 150px; */
-      object-fit: cover;
-    }
-
-    .card-content {
-      padding: 15px;
-      text-align: center;
-      /* background: transparent; */
-    }
-
-    .card-title {
-      font-size: 1.2rem;
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: white;
-      font-family: Montserrat;
-    }
-
-    .card-description {
-      font-size: 0.9rem;
-      color: #ffffff;
-    }
-
-    @media (max-width: 1024px) {
-      .card {
-        width: calc(33.33% - 20px);
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-D50Y94CB7B"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
       }
-    }
+      gtag("js", new Date());
 
-    @media (max-width: 768px) {
-      .card {
-        width: calc(50% - 20px);
+      gtag("config", "G-D50Y94CB7B");
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects</title>
+    <link rel="icon" href="../images/umrt_logo.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/navbar.css" />
+    <link rel="stylesheet" href="../css/projects.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    <style>
+      body {
+        /* font-family: Arial, sans-serif; */
+        /* display: flex; */
+        /* justify-content: center; */
+        /* align-items: center; */
+        /* min-height: 100vh; */
+        background-color: #000;
       }
-    }
 
-    @media (max-width: 480px) {
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 63px 20px;
+        align-items: center;
+        flex-direction: row;
+        background: currentColor;
+      }
+
       .card {
+        background-image: linear-gradient(45deg, #e97c5d, #98472e);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+        width: calc(25% - 15px);
+        min-width: 250px;
+        box-shadow: 2px 2px 20px 1px #a34b32d6;
+      }
+
+      .card {
+        text-decoration: none;
+        /* Remove underline */
+        color: inherit;
+        /* Keep default text color */
+        display: block;
+        /* Ensure it behaves like a div */
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .card img {
         width: 100%;
+        /* height: 150px; */
+        object-fit: cover;
       }
-    }
 
-    .title-page {
-      color: white;
-      padding: 20px 0px;
-      text-align: center;
-      background-color: black;
-    }
+      .card-content {
+        padding: 15px;
+        text-align: center;
+        /* background: transparent; */
+      }
 
-    .sub-title {
-      background: black;
-      color: white;
-      font-family: "Montserrat";
-      padding: 1px 22px;
-      font-size: 1.6rem;
-    }
-  </style>
-</head>
+      .card-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: white;
+        font-family: Montserrat;
+      }
 
-<body>
-  <!-- Navigation bar -->
-  <nav class="navbar montserrat">
-    <div class="logo-container">
-      <div class="logo"></div>
-      <div class="text">
-        <a href="../index.html" class="nav-link akira">UMRT</a>
-      </div>
-    </div>
+      .card-description {
+        font-size: 0.9rem;
+        color: #ffffff;
+      }
 
-    <div class="nav-links">
-      <a href="../projects/projects.html" class="nav-link">Projects</a>
-      <a href="../achievements/achievements.html" class="nav-link">Achievements</a>
-      <a href="../our_mission/our_mission.html" class="nav-link">Our Mission</a>
+      @media (max-width: 1024px) {
+        .card {
+          width: calc(33.33% - 20px);
+        }
+      }
 
-      <div class="team-dropdown">
-        <a href="#" class="nav-link">Team ▼</a>
-        <div class="team-dropdown-content">
-          <a href="../advisors/advisors.html" class="dropdown-link">Advisors</a>
-          <a href="../director/director.html" class="dropdown-link">Director</a>
-          <a href="../team/member.html" class="dropdown-link">Members</a>
-          <a href="../team/leadership.html" class="dropdown-link">Leadership</a>
-          <a href="../team/join_us.html" class="dropdown-link">Join Us</a>
+      @media (max-width: 768px) {
+        .card {
+          width: calc(50% - 20px);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .card {
+          width: 100%;
+        }
+      }
+
+      .title-page {
+        color: white;
+        padding: 20px 0px;
+        text-align: center;
+        background-color: black;
+      }
+
+      .sub-title {
+        background: black;
+        color: white;
+        font-family: "Montserrat";
+        padding: 1px 22px;
+        font-size: 1.6rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navigation bar -->
+    <nav class="navbar montserrat">
+      <div class="logo-container">
+        <div class="logo"></div>
+        <div class="text">
+          <a href="../index.html" class="nav-link akira">UMRT</a>
         </div>
       </div>
 
-      <a href="../sponsor/sponsor.html" class="sponsor-btn">Become Sponsor!</a>
-    </div>
-  </nav>
+      <div class="nav-links">
+        <a href="../projects/projects.html" class="nav-link">Projects</a>
+        <a href="../achievements/achievements.html" class="nav-link"
+          >Achievements</a
+        >
+        <a href="../our_mission/our_mission.html" class="nav-link"
+          >Our Mission</a
+        >
 
-  <h1 class="akira title-page">Our Projects</h1>
-  <br />
-
-  <h3 class="sub-title">ROVERS</h3>
-  <div class="container">
-    <a href="axios-details.html" class="card">
-      <img src="../images/axios.jpg" alt="Card Image" />
-      <div class="card-content">
-        <div class="card-title montserrat">AXIOS</div>
-        <div class="card-description montserrat">
-          4th Generation UIU Mars Rover
-        </div>
-      </div>
-    </a>
-
-    <a href="yggdrasil-details.html" class="card">
-      <img src="../images/yggdrasil.jpg" alt="Card Image" />
-      <div class="card-content">
-        <div class="card-title montserrat">YGGDRASIL</div>
-        <div class="card-description montserrat">
-          3rd Generation UIU Mars Rover
-        </div>
-      </div>
-    </a>
-
-    <a href="telos-details.html" class="card">
-      <img src="../images/telos.jpg" alt="Card Image" />
-      <div class="card-content">
-        <div class="card-title montserrat">TELOS</div>
-        <div class="card-description montserrat">
-          2nd Generation UIU Mars Rover
-        </div>
-      </div>
-    </a>
-
-    <a href="maven-details.html" class="card">
-      <img src="../images/maven.jpg" alt="Card Image" />
-      <div class="card-content">
-        <div class="card-title montserrat">MAVEN</div>
-        <div class="card-description montserrat">
-          1st Generation UIU Mars Rover
-        </div>
-      </div>
-    </a>
-  </div>
-
-  <h3 class="sub-title">UAVs</h3>
-  <div class="container">
-    <a href="#" class="card">
-      <img src="../images/MAARC.png" alt="Card Image" />
-      <div class="card-content">
-        <div class="card-title montserrat">MAARC</div>
-        <div class="card-description montserrat">
-          2nd Generation UIU Mars Rover Assistant UAV with AXIOS
-        </div>
-      </div>
-    </a>
-    <a href="#" class="card">
-      <img src="../images/ICARUS.png" alt="Card Image" />
-      <div class="card-content">
-        <div class="card-title montserrat">ICARUS</div>
-        <div class="card-description montserrat">
-          1st Generation UIU Mars Rover Assistant UAV with TELOS
-        </div>
-      </div>
-    </a>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <!-- Logo at the top center -->
-      <div class="footer-logo"></div>
-
-      <!-- About and Links Container -->
-      <div class="footer-main">
-        <!-- About Section -->
-        <div class="about">
-          <h3>About UMRT</h3>
-          <p>
-            The UIU Mars Rover Team (UMRT) is a group of passionate students
-            dedicated to designing and building the next generation of Mars
-            and Lunar rovers. We aim to push the boundaries of space
-            exploration and innovation.
-          </p>
-        </div>
-
-        <!-- Contact Information -->
-        <div class="contact-info">
-          <h3>Contact with us</h3>
-
-          <a href="tel:+8801796992356" class="contact-item">
-            <i class="fas fa-phone"></i> +880 1796-992356
-          </a>
-
-          <a href="mailto:marsrover@uiu.ac.bd" class="contact-item">
-            <i class="fas fa-envelope"></i> marsrover@uiu.ac.bd
-          </a>
-
-          <div class="social-links">
-            <a href="https://www.facebook.com/UIUMRT" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.linkedin.com/company/uiu-mars-rover-team-umrt/" target="_blank"><i
-                class="fab fa-linkedin"></i></a>
-            <a href="https://www.youtube.com/@uiumarsrover" target="_blank"><i class="fab fa-youtube"></i></a>
-            <a href="https://x.com/uiumarsrover" target="_blank"><i class="fab fa-x-twitter"></i></a>
-            <a href="https://www.instagram.com/uiumarsrover/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <div class="team-dropdown">
+          <a href="#" class="nav-link">Team ▼</a>
+          <div class="team-dropdown-content">
+            <a href="../advisors/advisors.html" class="dropdown-link"
+              >Advisors</a
+            >
+            <a href="../director/director.html" class="dropdown-link"
+              >Director</a
+            >
+            <a href="../team/member.html" class="dropdown-link">Members</a>
+            <a href="../team/leadership.html" class="dropdown-link"
+              >Leadership</a
+            >
+            <a href="../team/join_us.html" class="dropdown-link">Join Us</a>
           </div>
         </div>
 
-        <!-- Existing Links -->
-        <div class="footer-links">
-          <h3>Quick Links</h3>
-          <a href="../projects/projects.html" class="footer-link">Projects</a>
-          <a href="../achievements/achievements.html" class="footer-link">Achievements</a>
-          <a href="../our_mission/our_mission.html" class="footer-link">Our Mission</a>
-          <a href="../advisors/advisors.html" class="footer-link">Advisors</a>
-          <a href="../director/director.html" class="footer-link">Director</a>
-          <a href="../team/member.html" class="footer-link">Members</a>
-          <a href="../team/leadership.html" class="footer-link">Leadership</a>
-          <a href="../team/join_us.html" class="footer-link">Join Us</a>
-          <a href="../sponsor/sponsor.html" class="footer-link">Become Sponsor!</a>
+        <a href="../sponsor/sponsor.html" class="sponsor-btn"
+          >Become Sponsor!</a
+        >
+      </div>
+    </nav>
+
+    <h1 class="akira title-page">Our Projects</h1>
+    <br />
+
+    <h3 class="sub-title">ROVERS</h3>
+    <div class="container">
+      <a href="axios-details.html" class="card">
+        <img src="../images/axios.jpg" alt="Card Image" />
+        <div class="card-content">
+          <div class="card-title montserrat">AXIOS</div>
+          <div class="card-description montserrat">
+            4th Generation UIU Mars Rover
+          </div>
+        </div>
+      </a>
+
+      <a href="yggdrasil-details.html" class="card">
+        <img src="../images/yggdrasil.jpg" alt="Card Image" />
+        <div class="card-content">
+          <div class="card-title montserrat">YGGDRASIL</div>
+          <div class="card-description montserrat">
+            3rd Generation UIU Mars Rover
+          </div>
+        </div>
+      </a>
+
+      <a href="telos-details.html" class="card">
+        <img src="../images/telos.jpg" alt="Card Image" />
+        <div class="card-content">
+          <div class="card-title montserrat">TELOS</div>
+          <div class="card-description montserrat">
+            2nd Generation UIU Mars Rover
+          </div>
+        </div>
+      </a>
+
+      <a href="maven-details.html" class="card">
+        <img src="../images/maven.jpg" alt="Card Image" />
+        <div class="card-content">
+          <div class="card-title montserrat">MAVEN</div>
+          <div class="card-description montserrat">
+            1st Generation UIU Mars Rover
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <h3 class="sub-title">UAVs</h3>
+    <div class="container">
+      <a href="#" class="card">
+        <img src="../images/MAARC.png" alt="Card Image" />
+        <div class="card-content">
+          <div class="card-title montserrat">MAARC</div>
+          <div class="card-description montserrat">
+            2nd Generation UIU Mars Rover Assistant UAV with AXIOS
+          </div>
+        </div>
+      </a>
+      <a href="#" class="card">
+        <img src="../images/ICARUS.png" alt="Card Image" />
+        <div class="card-content">
+          <div class="card-title montserrat">ICARUS</div>
+          <div class="card-description montserrat">
+            1st Generation UIU Mars Rover Assistant UAV with TELOS
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <!-- Logo at the top center -->
+        <div class="footer-logo"></div>
+
+        <!-- About and Links Container -->
+        <div class="footer-main">
+          <!-- About Section -->
+          <div class="about">
+            <h3>About UMRT</h3>
+            <p>
+              The UIU Mars Rover Team (UMRT) is a group of passionate students
+              dedicated to designing and building the next generation of Mars
+              and Lunar rovers. We aim to push the boundaries of space
+              exploration and innovation.
+            </p>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="contact-info">
+            <h3>Contact with us</h3>
+
+            <a href="tel:+8801796992356" class="contact-item">
+              <i class="fas fa-phone"></i> +880 1796-992356
+            </a>
+
+            <a href="mailto:marsrover@uiu.ac.bd" class="contact-item">
+              <i class="fas fa-envelope"></i> marsrover@uiu.ac.bd
+            </a>
+
+            <div class="social-links">
+              <a href="https://www.facebook.com/UIUMRT" target="_blank"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/company/uiu-mars-rover-team-umrt/"
+                target="_blank"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a href="https://www.youtube.com/@uiumarsrover" target="_blank"
+                ><i class="fab fa-youtube"></i
+              ></a>
+              <a href="https://x.com/uiumarsrover" target="_blank"
+                ><i class="fab fa-x-twitter"></i
+              ></a>
+              <a href="https://www.instagram.com/uiumarsrover/" target="_blank"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- Existing Links -->
+          <div class="footer-links">
+            <h3>Quick Links</h3>
+            <a href="../projects/projects.html" class="footer-link">Projects</a>
+            <a href="../achievements/achievements.html" class="footer-link"
+              >Achievements</a
+            >
+            <a href="../our_mission/our_mission.html" class="footer-link"
+              >Our Mission</a
+            >
+            <a href="../advisors/advisors.html" class="footer-link">Advisors</a>
+            <a href="../director/director.html" class="footer-link">Director</a>
+            <a href="../team/member.html" class="footer-link">Members</a>
+            <a href="../team/leadership.html" class="footer-link">Leadership</a>
+            <a href="../team/join_us.html" class="footer-link">Join Us</a>
+            <a href="../sponsor/sponsor.html" class="footer-link"
+              >Become Sponsor!</a
+            >
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
-</body>
-
+    </footer>
+  </body>
 </html>
