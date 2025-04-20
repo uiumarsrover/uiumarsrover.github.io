@@ -35,9 +35,9 @@
 
 .video-card {
     background: white;
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 9px rgba(0, 0, 1, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -92,12 +92,15 @@
     color: #333;
     cursor: pointer;
     transition: color 0.3s ease;
-    text-decoration: none !important; /* Removes underline */
     display: block; /* Ensures proper spacing */
+}
+.video-link {
+    text-decoration: none;
+    color: inherit; /* Inherit color from parent */
 }
 
 .video-title:hover {
-    color: #3c91ed;
+    color: #054e98;
 }
 
 .video-actions {
@@ -121,11 +124,11 @@
 
 .share-options {
     position: absolute;
-    bottom: 100%;
+    bottom: 80%;
     left: 1rem;
     background: white;
-    border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 1, 0.2);
     padding: 0.5rem;
     display: none;
     z-index: 10;
@@ -143,8 +146,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     color: white;
     transition: transform 0.2s ease;
