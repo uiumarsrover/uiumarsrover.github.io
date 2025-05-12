@@ -25,87 +25,58 @@ body {
 /* Team Member Navigation Bar */
 .team-member-nav {
   background-color: transparent;
-  /* Semi-transparent dark blue background */
   backdrop-filter: blur(10px);
-  /* Blur effect */
   padding: 10px 20px;
-  /* Add some padding */
   width: fit-content;
-  /* Adjust width to fit content */
   margin-left: auto;
-  /* Center the bar horizontally */
   margin-right: auto;
-  /* Center the bar horizontally */
 }
 
 .team-member-nav ul {
   list-style-type: none;
-  /* Remove bullet points */
   margin: 0;
   padding: 0;
   display: flex;
-  /* Display links horizontally */
   justify-content: center;
-  /* Center the links */
   gap: 20px;
-  /* Add space between links */
 }
 
 .team-member-nav ul li {
   display: inline-block;
-  /* Display list items inline */
 }
 
 .team-member-nav ul li a {
   text-decoration: none;
-  /* Remove underline */
   color: #fff;
-  /* White text color */
   font-size: 16px;
-  /* Font size */
   font-weight: 500;
-  /* Medium font weight */
   padding: 8px 16px;
-  /* Add padding for clickable area */
   border-radius: 4px;
-  /* Rounded corners for links */
   transition: background-color 0.3s ease, color 0.3s ease;
-  /* Smooth hover effect */
   background-color: transparent;
-  /* Semi-transparent light blue background */
   width: fit-content;
-  /* Adjust width to fit text */
 }
 
 .team-member-nav ul li a:hover {
   background-color: rgba(0, 158, 219, 0.7);
-  /* More opaque light blue background on hover */
   color: #fff;
-  /* White text color on hover */
 }
 
 .team-member-nav ul li a.active {
   background-color: rgba(0, 158, 219, 0.7);
-  /* More opaque light blue background for active link */
   color: #fff;
-  /* White text color for active link */
 }
 
 @media (max-width: 768px) {
   .team-member-nav ul {
     flex-direction: column;
-    /* Stack links vertically */
     align-items: center;
-    /* Center links */
     gap: 10px;
-    /* Reduce gap between links */
   }
 
   .team-member-nav ul li a {
     padding: 8px 12px;
-    /* Reduce padding for smaller screens */
     font-size: 14px;
-    /* Reduce font size */
   }
 }
 
@@ -124,11 +95,8 @@ body {
 .leader-container {
   display: flex;
   justify-content: center;
-  /* Center the cards horizontally */
   gap: 20px;
-  /* Space between the cards */
   flex-wrap: wrap;
-  /* Allow wrapping for smaller screens */
 }
 
 .leader-card {
@@ -138,9 +106,7 @@ body {
   padding: 20px;
   text-align: center;
   flex: 1;
-  /* Allow cards to grow and take equal space */
   max-width: 300px;
-  /* Limit the maximum width of each card */
 }
 
 .leader-photo {
@@ -253,11 +219,9 @@ body {
   background-image: url("../images/pexels-blaque-x.jpg");
   background-size: cover;
   background-attachment: fixed;
-  /* This creates the parallax effect */
   background-position: center;
   background-repeat: no-repeat;
   min-height: 100vh;
-  /* Ensure the background covers the entire viewport */
   position: relative;
   z-index: 1;
 }
@@ -294,14 +258,11 @@ body {
 
   .leader-container {
     flex-direction: column;
-    /* Stack cards vertically on smaller screens */
     align-items: center;
-    /* Center cards horizontally */
   }
 
   .leader-card {
     max-width: 100%;
-    /* Allow cards to take full width on smaller screens */
   }
 
   .leader-photo {
@@ -311,17 +272,16 @@ body {
 
   .sub-leader-photo {
     width: 90px;
-    height: 110px;
+    height: 115px;
   }
 
   .member-photo {
     width: 90px;
-    height: 110px;
+    height: 115px;
   }
 }
 
 @media (max-width: 480px) {
-
   .sub-leaders-grid,
   .members-grid {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));

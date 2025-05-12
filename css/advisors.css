@@ -85,7 +85,7 @@ h1 {
     }
 
     .container {
-        padding: 15px;
+        padding: 5%;
     }
 
     .advisor {
@@ -109,11 +109,7 @@ h1 {
 @media (max-width: 480px) {
     .advisors-heading h1 {
         font-size: 2rem;
-        margin: 15% auto;
-    }
-
-    .container {
-        padding: 10px;
+        margin: 15% 5%;
     }
 
     .advisor {
