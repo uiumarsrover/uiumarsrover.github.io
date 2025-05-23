@@ -185,3 +185,14 @@ nav {
         font-size: 0.9rem;
     }
 }
+
+::selection {
+  background: rgba(250, 100, 0, 0.5);
+  color: #fff; /* White text for contrast */
+}
+
+/* For Firefox */
+::-moz-selection {
+  background: rgba(250, 100, 0, 0.5);
+  color: #fff;
+}
