@@ -946,3 +946,55 @@ main {
     font-size: 1.5rem;
   }
 }
+
+
+/* Celebration Banner Styles */
+.congrats-banner {
+  background: linear-gradient(90deg, #ff9800 0%, #ffd700 100%);
+  color: #222;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3rem;
+  text-align: center;
+  padding: 18px 10px 14px 10px;
+  margin: 0rem 1rem 0rem 1rem;
+  border-radius: 12px;
+  position: relative;
+  animation: popIn 1s cubic-bezier(.68,-0.55,.27,1.55);
+}
+.congrats-banner .highlight {
+  color: #d32f2f;
+  font-weight: bold;
+}
+.congrats-banner .confetti {
+  font-size: 1.5em;
+  margin: 0 8px;
+  animation: confettiMove 1.5s infinite alternate;
+}
+@keyframes popIn {
+  0% { transform: scale(0.7); opacity: 0; }
+  80% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); }
+}
+@keyframes confettiMove {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-8px) rotate(-10deg); }
+}
+
+.confetti-piece {
+  position: fixed;
+  top: -20px;
+  width: 10px;
+  height: 18px;
+  border-radius: 3px;
+  opacity: 0.85;
+  z-index: 9999;
+  pointer-events: none;
+  animation: confetti-fall linear forwards;
+}
+
+@keyframes confetti-fall {
+  to {
+    transform: translateY(110vh) rotateZ(360deg);
+    opacity: 0.7;
+  }
+}
