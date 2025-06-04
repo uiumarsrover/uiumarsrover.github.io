@@ -84,6 +84,7 @@
   </div>
   <div class="hidden" id="mainContent">
     <div class="content">
+
       <!-- Navigation bar -->
       <nav class="navbar montserrat">
         <div class="logo-container">
@@ -93,14 +94,25 @@
           </div>
         </div>
 
-        <div class="nav-links">
+        <!-- Hamburger menu icon for mobile -->
+        <div class="menu-icon" id="menuIcon">
+          <i class="fas fa-bars"></i>
+        </div>
+
+        <!-- Navigation links -->
+        <div class="nav-links" id="navLinks">
+          <!-- Close icon inside nav-links for mobile -->
+          <div class="close-icon" id="closeIcon">
+            <i class="fas fa-times"></i>
+          </div>
+          <a href="index.html" class="nav-link">Home</a>
           <a href="projects/projects.html" class="nav-link">Projects</a>
           <a href="achievements/achievements.html" class="nav-link">Achievements</a>
           <a href="video/videos.html" class="nav-link">Videos</a>
           <a href="our_mission/our_mission.html" class="nav-link">Our Mission</a>
 
           <div class="team-dropdown">
-            <a href="#" class="nav-link">Team ▼</a>
+            <a href="javascript:void(0);" class="nav-link" id="teamDropdownBtn">Team ▼</a>
             <div class="team-dropdown-content">
               <a href="advisors/advisors.html" class="dropdown-link">Advisors</a>
               <a href="director/director.html" class="dropdown-link">Director</a>
@@ -111,19 +123,24 @@
           </div>
 
           <a href="sponsor/sponsor.html" class="sponsor-btn">Become Sponsor!</a>
-
         </div>
       </nav>
 
-        <!-- Celebration Banner Start -->
-        <!-- ============================================================= -->
-        <div class="congrats-banner">
-          <span class="confetti">&#127881;</span>
-          <strong>Congratulations!</strong> UIU Mars Rover Team secured <span class="highlight">1<sup>st</sup> in Asia</span> and <span class="highlight">6<sup>th</sup> in the World</span> at <b>URC 2025</b>!
-          <span class="confetti">&#127881;</span>
+      <!-- ============================================================= -->
+      <!-- Celebration Banner Start -->
+      <div class="congrats-banner">
+        <span class="confetti">&#127881;</span>
+        <strong>Congratulations!</strong> UIU Mars Rover Team secured <span class="highlight">1<sup>st</sup> in
+          Asia</span> and <span class="highlight">6<sup>th</sup> in the World</span> at <b>URC 2025</b>!
+        <span class="confetti">&#127881;</span>
+        <br>
+        <div class="congrats-subline">
+          <strong>BEST SCIENCE TEAM AWARD</strong> with a perfect <span class="highlight">100 out of 100</span><strong>
+            Score!</strong>
         </div>
-        <!-- ============================================================= -->
-        <!-- Celebration Banner End -->
+      </div>
+      <!-- Celebration Banner End -->
+      <!-- ============================================================= -->
 
       <!-- Page 1 -->
       <div id="threejs-section" style="
@@ -185,17 +202,17 @@
     <!-- Page 2 -->
     <div class="sub-container">
       <div class="team-section">
-        <img class="team-photo gradient-mask" src="images/team_pic_2025.jpg" alt="Team Photo"/>
+        <img class="team-photo gradient-mask" src="images/team_pic_2025.jpg" alt="Team Photo" />
         <div class="achievements">
           <div class="achievement" style="text-align: right">
             <h2 class="position akira">1<sup>st</sup></h2>
             <p class="montserrat">In ASIA</p>
             <p class="montserrat">URC 2022,<br />2023, 2024 <br> & 2025</p>
           </div>
-          
+
           <!-- vertical line -->
           <div class="achievement vertical-line"></div>
-        
+
           <div class="achievement" style="text-align: left">
             <h2 class="position akira">3<sup>rd</sup></h2>
             <p class="montserrat">In World</p>
@@ -365,7 +382,8 @@
               <a href="https://www.facebook.com/UIUMRT" target="_blank">
                 <i class="fab fa-facebook"></i>
               </a>
-              <a href="https://www.linkedin.com/company/uiu-mars-rover-team-umrt/" target="_blank"><i class="fab fa-linkedin"></i>
+              <a href="https://www.linkedin.com/company/uiu-mars-rover-team-umrt/" target="_blank"><i
+                  class="fab fa-linkedin"></i>
               </a>
               <a href="https://www.youtube.com/@uiumarsrover" target="_blank">
                 <i class="fab fa-youtube"></i>
@@ -398,8 +416,10 @@
     </footer>
   </div>
 
+
+  <script src="scripts/navbar.js"></script>
   <script src="scripts/congratsAnimation.js"></script>
-  
+
 </body>
 
 <script>

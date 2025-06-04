@@ -33,14 +33,23 @@
       </div>
     </div>
 
-    <div class="nav-links">
+    <!-- Hamburger menu icon for mobile -->
+    <div class="menu-icon" id="menuIcon">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <div class="nav-links" id="navLinks">
+      <div class="close-icon" id="closeIcon">
+        <i class="fas fa-times"></i>
+      </div>
+      <a href="../../index.html" class="nav-link">Home</a>
       <a href="../../projects/projects.html" class="nav-link">Projects</a>
       <a href="../../achievements/achievements.html" class="nav-link">Achievements</a>
       <a href="../video/videos.html" class="nav-link">Videos</a>
       <a href="../../our_mission/our_mission.html" class="nav-link">Our Mission</a>
 
       <div class="team-dropdown">
-        <a href="#" class="nav-link">Team ▼</a>
+        <a href="javascript:void(0);" class="nav-link" id="teamDropdownBtn">Team ▼</a>
         <div class="team-dropdown-content">
           <a href="../../advisors/advisors.html" class="dropdown-link">Advisors</a>
           <a href="../../director/director.html" class="dropdown-link">Director</a>
@@ -319,6 +328,9 @@
       </div>
     </div>
   </footer>
+
+  <script src="../../scripts/navbar.js"></script>
+
 </body>
 
 </html>

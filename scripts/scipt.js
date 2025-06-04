@@ -276,15 +276,15 @@ render();
 // });
 
 
-document.onpointerdown = function(event) {
-  switch ( event.button ) {
-      case 0: console.log("Left Button is down."); 
-          break;
-      case 1: console.log("Middle Button is down."); 
-      //Beware this work not on mac with magic mouse!
-          break;
-      case 2: console.log("Right Button is down.");
-          break;
-  }
-}
+// document.onpointerdown = function(event) {
+//   switch ( event.button ) {
+//       case 0: console.log("Left Button is down."); 
+//           break;
+//       case 1: console.log("Middle Button is down."); 
+//       //Beware this work not on mac with magic mouse!
+//           break;
+//       case 2: console.log("Right Button is down.");
+//           break;
+//   }
+// }
 
