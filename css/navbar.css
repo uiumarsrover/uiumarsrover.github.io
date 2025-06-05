@@ -59,6 +59,11 @@ nav {
     font-family: "Montserrat", sans-serif;
 }
 
+/* Hide Home on desktop, show on mobile */
+.nav-home-mobile {
+    display: none;
+}
+
 .nav-link {
     color: white;
     text-decoration: none;
@@ -198,6 +203,10 @@ nav {
         right: 0;
     }
 
+    .nav-home-mobile {
+        display: block;
+    }
+
     .close-icon {
         display: block;
     }
@@ -206,7 +215,6 @@ nav {
     .nav-links .team-dropdown,
     .nav-links .sponsor-btn {
         width: 100%;
-        text-align: left;
     }
 
     .logo-container {
@@ -223,7 +231,7 @@ nav {
     .sponsor-btn {
         order: 1;
         margin-top: auto;
-        margin-bottom: 2rem;
+        margin-bottom: auto;
         width: calc(100% - 2rem);
         text-align: center;
     }
