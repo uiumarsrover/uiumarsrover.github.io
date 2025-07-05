@@ -39,11 +39,35 @@ if (container) {
 
   // Determine asset path based on current page location
   const currentPath = window.location.pathname;
-  const isInSubfolder = currentPath.includes('/team/') || currentPath.includes('/projects/') || 
-                        currentPath.includes('/achievements/') || currentPath.includes('/video/') || 
-                        currentPath.includes('/our_mission/') || currentPath.includes('/advisors/') || 
-                        currentPath.includes('/director/') || currentPath.includes('/sponsor/');
-  const assetPath = isInSubfolder ? '../scripts/Asset/' : 'scripts/Asset/';
+  
+  // Count the depth level by counting forward slashes after the domain
+  const pathParts = currentPath.split('/').filter(part => part !== '');
+  let depthLevel = 0;
+  
+  // Check if we're in a subfolder and determine depth
+  if (pathParts.length > 1) {
+    // Remove the HTML file name from the count
+    depthLevel = pathParts.length - 1;
+  }
+  
+  // Build the relative path based on depth
+  let assetPath = '';
+  if (depthLevel === 0) {
+    assetPath = 'scripts/Asset/';
+  } else if (depthLevel === 1) {
+    assetPath = '../scripts/Asset/';
+  } else if (depthLevel === 2) {
+    assetPath = '../../scripts/Asset/';
+  } else {
+    // For deeper nesting, add more "../" as needed
+    assetPath = '../'.repeat(depthLevel) + 'scripts/Asset/';
+  }
+  
+  // Debug log to help troubleshoot path issues
+  console.log('Current path:', currentPath);
+  console.log('Path parts:', pathParts);
+  console.log('Depth level:', depthLevel);
+  console.log('Asset path:', assetPath);
 
   // Load starfield texture for background
   const loader = new THREE.TextureLoader();
