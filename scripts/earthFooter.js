@@ -64,10 +64,12 @@ if (container) {
   }
   
   // Debug log to help troubleshoot path issues
+  /*
   console.log('Current path:', currentPath);
   console.log('Path parts:', pathParts);
   console.log('Depth level:', depthLevel);
   console.log('Asset path:', assetPath);
+  */
 
   // Load starfield texture for background
   const loader = new THREE.TextureLoader();
@@ -98,7 +100,7 @@ if (container) {
     shininess: 10,
     emissiveMap: nightMap,
     emissive: 0xffffff,
-    emissiveIntensity: 1.0
+    emissiveIntensity: 1.3
   });
   const earth = new THREE.Mesh(geometry, material);
   earth.position.y = -sphereRadius * 0.6; // Position Earth below center

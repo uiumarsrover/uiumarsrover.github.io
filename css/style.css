@@ -415,7 +415,7 @@ main {
   overflow: hidden;
   background-image: url("../images/Earth.png");
   background-position: center center;
-  /* background-size: cover; */
+  background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
   width: 100%;
@@ -717,7 +717,8 @@ main {
 
 /* General Styles */
 .background-4 {
-  background-image: url("../images/Mask group1.png");
+  /* background-image: url("../images/Mask group1.png"); */
+  background-image: url("../images/thumbnail_raw.jpg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -736,7 +737,7 @@ main {
   top: 0;
   left: 0;
   width: 100%;
-  height: 20%;
+  height: 15%;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); /* Gradient overlay */
   z-index: 1;
 }
@@ -745,12 +746,11 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between; /* Space between logos and button */
   height: 100%;
   width: 100%; /* Ensure it takes full width */
   position: relative;
   z-index: 2;
-  gap: 2rem; /* Add gap between logos and button */
+  gap: 3rem; /* Add gap between logos and button */
 }
 
 /* Logos Container */
