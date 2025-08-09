@@ -97,6 +97,60 @@ main {
   font-size: 3rem;
 }
 
+/* JOIN UMRT Button Styles */
+.join-umrt-container {
+  margin-top: 2rem;
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  animation: fadeInUp 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.5s forwards;
+}
+
+.join-umrt-btn {
+  display: inline-block;
+  padding: 16px 32px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(45deg, #ff6b35, #f7931e);
+  border: 3px solid transparent;
+  border-radius: 50px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.join-umrt-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s;
+}
+
+.join-umrt-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(255, 107, 53, 0.5);
+  background: linear-gradient(45deg, #ff5722, #ff9800);
+}
+
+.join-umrt-btn:hover::before {
+  left: 100%;
+}
+
+.join-umrt-btn:active {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(255, 107, 53, 0.4);
+}
+
 /* Keyframes for Fade-In, Slide-Up, and Scale Animation */
 @keyframes fadeInUp {
   from {
@@ -929,6 +983,13 @@ main {
   .sponsors-container {
     gap: 1rem;
   }
+
+  /* JOIN UMRT Button - Tablet */
+  .join-umrt-btn {
+    font-size: 1.1rem;
+    padding: 14px 28px;
+    letter-spacing: 1.5px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -944,6 +1005,17 @@ main {
 
   .title {
     font-size: 1.5rem;
+  }
+
+  /* JOIN UMRT Button - Mobile */
+  .join-umrt-btn {
+    font-size: 1rem;
+    padding: 12px 24px;
+    letter-spacing: 1px;
+  }
+
+  .join-umrt-container {
+    margin-top: 1.5rem;
   }
 }
 
