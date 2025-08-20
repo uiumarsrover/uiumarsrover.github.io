@@ -132,6 +132,28 @@
   </head>
 
   <body>
+<script>
+  // Adjustable scroll speed (pixels per frame)
+  let scrollSpeed = 1; 
+
+  function autoScroll() {
+    window.scrollBy(0, scrollSpeed);
+
+    // When reaching bottom, instantly jump back to top
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
+      window.scrollTo(0, 0);
+    }
+
+    requestAnimationFrame(autoScroll);
+  }
+
+  // Start scrolling once page loads
+  window.onload = function () {
+    autoScroll();
+  };
+</script>
+
+
     <!-- Navigation bar -->
     <nav class="navbar montserrat">
       <div class="logo-container">
@@ -186,6 +208,8 @@
     </nav>
 
     <h1 class="akira title-page">Our Projects</h1>
+    <br />
+    <a href="projects_autoscroll.html">autoScroll</a>
     <br />
 
     <h3 class="sub-title">ROVERS</h3>
