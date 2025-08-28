@@ -420,6 +420,15 @@ main {
     font-size: 36px;
   }
 
+  .sub-container{
+    padding: 18px;
+  }
+
+  .content-1 {
+    margin: 2px;
+    padding: .25em;
+  }
+
   .content-1 h1 {
     font-size: 2rem;
   }
