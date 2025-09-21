@@ -472,7 +472,7 @@ nav::before {
         pointer-events: none;
         z-index: -1;
     }
-    .nav-links.active {
+    .nav-links.open {
         right: 0;
     }
 
@@ -504,66 +504,10 @@ nav::before {
     
     /* Ensure mobile menu items have proper spacing */
     .nav-links .nav-link {
-        padding: 1rem 1.5rem;
+        padding: 0.75rem 1rem;
         margin: 0.25rem 0;
         border-radius: 8px;
         width: 100%;
-        min-height: 48px;
-        display: flex;
-        align-items: center;
-        font-size: 1.1rem;
-        font-weight: 500;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        transition: all 0.3s ease;
-    }
-    
-    .nav-links .nav-link:hover {
-        background: rgba(255, 107, 53, 0.1);
-        color: #ff6b35;
-        transform: translateX(10px);
-    }
-    
-    /* Mobile dropdown button styling */
-    .nav-links .competition-dropdown,
-    .nav-links .team-dropdown {
-        width: 100%;
-        margin: 0.25rem 0;
-    }
-    
-    .nav-links .competition-dropdown .nav-link,
-    .nav-links .team-dropdown .nav-link {
-        padding: 1rem 1.5rem;
-        margin: 0;
-        border-radius: 8px;
-        width: 100%;
-        min-height: 48px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 1.1rem;
-        font-weight: 500;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        transition: all 0.3s ease;
-        position: relative;
-    }
-    
-    .nav-links .competition-dropdown .nav-link:hover,
-    .nav-links .team-dropdown .nav-link:hover {
-        background: rgba(255, 107, 53, 0.1);
-        color: #ff6b35;
-        transform: translateX(10px);
-    }
-    
-    .nav-links .competition-dropdown .nav-link::after,
-    .nav-links .team-dropdown .nav-link::after {
-        content: '▼';
-        font-size: 0.8rem;
-        transition: transform 0.3s ease;
-    }
-    
-    .nav-links .competition-dropdown .nav-link.active::after,
-    .nav-links .team-dropdown .nav-link.active::after {
-        transform: rotate(180deg);
     }
 
     .sponsor-btn {
@@ -613,40 +557,9 @@ nav::before {
         -webkit-backdrop-filter: blur(10px);
     }
 
-    .team-dropdown-content.active,
-    .competition-dropdown-content.active {
+    .team-dropdown-content.mobile-open {
         display: block !important;
         animation: fadeIn .3s ease-in;
-        position: static;
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 8px;
-        margin-top: 0.5rem;
-        padding: 0.5rem 0;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .team-dropdown-content.active .dropdown-link,
-    .competition-dropdown-content.active .dropdown-link {
-        display: block;
-        padding: 0.8rem 1.5rem;
-        color: #ffffff;
-        text-decoration: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        transition: all 0.3s ease;
-        font-size: 0.95rem;
-    }
-    
-    .team-dropdown-content.active .dropdown-link:hover,
-    .competition-dropdown-content.active .dropdown-link:hover {
-        background: rgba(255, 107, 53, 0.1);
-        color: #ff6b35;
-        padding-left: 2rem;
-    }
-    
-    .team-dropdown-content.active .dropdown-link:last-child,
-    .competition-dropdown-content.active .dropdown-link:last-child {
-        border-bottom: none;
     }
 
     .competition-dropdown:hover .competition-dropdown-content {

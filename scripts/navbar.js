@@ -4,8 +4,6 @@ document.addEventListener("DOMContentLoaded", function() {
   const closeIcon = document.getElementById("closeIcon");
   const teamDropdownBtn = document.getElementById("teamDropdownBtn");
   const teamDropdownContent = document.querySelector(".team-dropdown-content");
-  const competitionDropdownBtn = document.getElementById("competitionDropdownBtn");
-  const competitionDropdownContent = document.querySelector(".competition-dropdown-content");
   const sponsorBtn = document.querySelector(".sponsor-btn");
   const MOBILE_BREAKPOINT = 970;
 
@@ -60,26 +58,18 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-  // Handle dropdown click (both team and competition)
-  function handleDropdownClick(e, dropdownContent, dropdownBtn) {
+  // Handle team dropdown click
+  function handleTeamDropdownClick(e) {
     if (window.innerWidth <= MOBILE_BREAKPOINT) {
       e.preventDefault();
       e.stopPropagation();
-      // Close all other dropdowns first
-      document.querySelectorAll('.team-dropdown-content, .competition-dropdown-content').forEach(dropdown => {
-        if (dropdown !== dropdownContent) {
+      // Close all other dropdowns first if needed
+      document.querySelectorAll('.dropdown-content').forEach(dropdown => {
+        if (dropdown !== teamDropdownContent) {
           dropdown.classList.remove("active");
         }
       });
-      // Remove active class from all dropdown buttons
-      document.querySelectorAll('.team-dropdown .nav-link, .competition-dropdown .nav-link').forEach(btn => {
-        btn.classList.remove("active");
-      });
-      
-      dropdownContent.classList.toggle("active");
-      if (dropdownContent.classList.contains("active")) {
-        dropdownBtn.classList.add("active");
-      }
+      teamDropdownContent.classList.toggle("active");
     }
   }
 
@@ -99,26 +89,16 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
-  // Team dropdown event listeners
   if (teamDropdownBtn && teamDropdownContent) {
     teamDropdownBtn.addEventListener("click", function (e) {
-      handleDropdownClick(e, teamDropdownContent, teamDropdownBtn);
+      if (window.innerWidth <= 970) {
+        e.preventDefault();
+        e.stopPropagation();
+        teamDropdownContent.classList.toggle("active");
+      }
     });
 
     teamDropdownContent.addEventListener("click", function (e) {
-      if (window.innerWidth <= 970) {
-        e.stopPropagation();
-      }
-    });
-  }
-
-  // Competition dropdown event listeners
-  if (competitionDropdownBtn && competitionDropdownContent) {
-    competitionDropdownBtn.addEventListener("click", function (e) {
-      handleDropdownClick(e, competitionDropdownContent, competitionDropdownBtn);
-    });
-
-    competitionDropdownContent.addEventListener("click", function (e) {
       if (window.innerWidth <= 970) {
         e.stopPropagation();
       }
@@ -130,14 +110,9 @@ document.addEventListener("DOMContentLoaded", function() {
     ensureEventsLink();
     if (window.innerWidth > MOBILE_BREAKPOINT) {
       toggleMobileMenu(false);
-      // Close all dropdowns when switching to desktop
-      document.querySelectorAll('.team-dropdown-content, .competition-dropdown-content').forEach(dropdown => {
-        dropdown.classList.remove("active");
-      });
-      // Remove active class from all dropdown buttons
-      document.querySelectorAll('.team-dropdown .nav-link, .competition-dropdown .nav-link').forEach(btn => {
-        btn.classList.remove("active");
-      });
+      if (teamDropdownContent) {
+        teamDropdownContent.classList.remove("active");
+      }
     }
   });
 });
