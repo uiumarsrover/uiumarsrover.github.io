@@ -74,6 +74,106 @@
         opacity: 0;
       }
     }
+
+    /* Announcement Banner Styles */
+    .announcement-banner {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      border-bottom: 2px solid rgba(255, 107, 53, 0.3);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .announcement-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .announcement-text {
+      color: #ffffff;
+      font-size: 1.2rem;
+      font-weight: 600;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .announcement-logos {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .announcement-label {
+      background: linear-gradient(45deg, #ff6b35, #f7931e);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+    }
+
+    .uiu-logo {
+      height: 50px;
+      width: auto;
+      filter: brightness(1.1) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+      transition: transform 0.3s ease;
+    }
+
+    .uiu-logo:hover {
+      transform: scale(1.05);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .announcement-banner {
+        padding: 1rem;
+      }
+      
+      .announcement-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .announcement-text {
+        font-size: 1rem;
+      }
+      
+      .announcement-logos {
+        gap: 1rem;
+      }
+      
+      .announcement-label {
+        padding: 0.6rem 1.2rem;
+        font-size: 1rem;
+      }
+      
+      .uiu-logo {
+        height: 40px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .announcement-banner {
+        padding: 0.8rem;
+      }
+      
+      .announcement-text {
+        font-size: 0.9rem;
+      }
+      
+      .announcement-label {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+      
+      .uiu-logo {
+        height: 35px;
+      }
+    }
   </style>
 </head>
 
@@ -148,6 +248,19 @@
         </div>
       </div>
       <!-- Celebration Banner End -->
+      <!-- ============================================================= -->
+
+      <!-- Announcement Banner Start -->
+      <div class="announcement-banner">
+        <div class="announcement-content">
+          <span class="announcement-text">Supported by</span>
+          <div class="announcement-logos">
+            <span class="announcement-label">CAIR</span>
+            <img src="images/uiu_logo.png" alt="UIU Logo" class="uiu-logo" />
+          </div>
+        </div>
+      </div>
+      <!-- Announcement Banner End -->
       <!-- ============================================================= -->
 
       <!-- Page 1 -->
