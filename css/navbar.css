@@ -142,6 +142,21 @@ nav::before {
     font-family: "Montserrat", sans-serif;
 }
 
+/* Desktop and Mobile Navigation */
+.desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-family: "Montserrat", sans-serif;
+}
+
+.mobile-nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.3rem;
+}
+
 /* Hide Home on desktop, show on mobile */
 .nav-home-mobile {
     display: none;
@@ -460,6 +475,16 @@ nav::before {
         padding: 1rem 1.5rem;
     }
 
+    /* Hide desktop nav on mobile */
+    .desktop-nav {
+        display: none;
+    }
+
+    /* Show mobile nav */
+    .mobile-nav {
+        display: flex;
+    }
+
     .nav-links {
         display: flex;
         flex-direction: column;
@@ -521,6 +546,97 @@ nav::before {
         width: 100%;
     }
 
+    /* Mobile navigation styling */
+    .mobile-nav-link {
+        padding: 0.9rem 1.2rem;
+        margin: 0.15rem 0;
+        border-radius: 10px;
+        width: 100%;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        font-size: 1rem;
+        font-weight: 500;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        position: relative;
+        background: rgba(255, 255, 255, 0.02);
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+    }
+
+    .mobile-nav-link:hover {
+        background: rgba(255, 107, 53, 0.15);
+        color: #ff6b35;
+        transform: translateX(8px);
+        border-color: rgba(255, 107, 53, 0.3);
+        box-shadow: 0 4px 12px rgba(255, 107, 53, 0.1);
+    }
+
+    .mobile-nav-link:active {
+        transform: translateX(4px) scale(0.98);
+        background: rgba(255, 107, 53, 0.2);
+    }
+
+    /* Mobile section styling */
+    .mobile-section {
+        margin: 0.5rem 0;
+        padding: 0.5rem 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-section-title {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #ff9900;
+        margin-bottom: 0.5rem;
+        padding: 0.5rem 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        background: rgba(255, 153, 0, 0.1);
+        border-radius: 8px;
+        border-left: 3px solid #ff6b35;
+    }
+
+    .mobile-sub-link {
+        padding: 0.8rem 1.2rem 0.8rem 2rem !important;
+        font-size: 0.95rem;
+        background: rgba(255, 255, 255, 0.01);
+        border-left: 2px solid rgba(255, 153, 0, 0.3);
+        margin-left: 0.5rem;
+    }
+
+    .mobile-sub-link:hover {
+        background: rgba(255, 107, 53, 0.1);
+        border-left-color: #ff6b35;
+        transform: translateX(4px);
+    }
+
+    .mobile-sponsor-btn {
+        order: 1;
+        margin-top: auto;
+        margin-bottom: 1.5rem;
+        width: calc(100% - 0.6rem);
+        text-align: center;
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
+        border-radius: 25px;
+        background: linear-gradient(45deg, #ff6b35, #f7931e);
+        box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+
+    .mobile-sponsor-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(255, 107, 53, 0.5);
+        color: white;
+    }
+
     .logo-container {
         flex: 1;
     }
@@ -562,60 +678,6 @@ nav::before {
         background: rgba(255, 107, 53, 0.2);
     }
     
-    /* Mobile dropdown button styling */
-    .nav-links .competition-dropdown,
-    .nav-links .team-dropdown {
-        width: 100%;
-        margin: 0.2rem 0;
-    }
-    
-    .nav-links .competition-dropdown .nav-link,
-    .nav-links .team-dropdown .nav-link {
-        padding: 0.9rem 1.2rem;
-        margin: 0;
-        border-radius: 10px;
-        width: 100%;
-        min-height: 48px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 1rem;
-        font-weight: 500;
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        position: relative;
-        background: rgba(255, 255, 255, 0.02);
-    }
-    
-    .nav-links .competition-dropdown .nav-link:hover,
-    .nav-links .team-dropdown .nav-link:hover {
-        background: rgba(255, 107, 53, 0.15);
-        color: #ff6b35;
-        transform: translateX(8px);
-        border-color: rgba(255, 107, 53, 0.3);
-        box-shadow: 0 4px 12px rgba(255, 107, 53, 0.1);
-    }
-    
-    .nav-links .competition-dropdown .nav-link:active,
-    .nav-links .team-dropdown .nav-link:active {
-        transform: translateX(4px) scale(0.98);
-        background: rgba(255, 107, 53, 0.2);
-    }
-    
-    .nav-links .competition-dropdown .nav-link::after,
-    .nav-links .team-dropdown .nav-link::after {
-        content: '▼';
-        font-size: 0.9rem;
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        color: rgba(255, 255, 255, 0.6);
-        margin-left: 0.5rem;
-    }
-    
-    .nav-links .competition-dropdown .nav-link.active::after,
-    .nav-links .team-dropdown .nav-link.active::after {
-        transform: rotate(180deg);
-        color: #ff6b35;
-    }
 
     .sponsor-btn {
         order: 1;
@@ -636,91 +698,6 @@ nav::before {
         box-shadow: 0 8px 25px rgba(255, 107, 53, 0.5);
     }
 
-    .competition-dropdown-content {
-        display: none !important;
-        position: static;
-        background: rgba(255, 153, 0, 0.1);
-        border: 1px solid rgba(255, 153, 0, 0.2);
-        border-radius: 8px;
-        box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.2);
-        width: 100%;
-        padding: 0.5rem 0;
-        margin-top: 0.5rem;
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-    }
-
-    .team-dropdown-content {
-        display: none !important;
-        position: static;
-        background: rgba(255, 153, 0, 0.1);
-        border: 1px solid rgba(255, 153, 0, 0.2);
-        border-radius: 8px;
-        box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.2);
-        width: 100%;
-        padding: 0.5rem 0;
-        margin-top: 0.5rem;
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-    }
-
-    .team-dropdown-content.active,
-    .competition-dropdown-content.active {
-        display: block !important;
-        animation: slideDownMobile 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        position: static;
-        background: rgba(255, 255, 255, 0.03);
-        border-radius: 12px;
-        margin-top: 0.5rem;
-        padding: 0.5rem 0;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-    }
-    
-    .team-dropdown-content.active .dropdown-link,
-    .competition-dropdown-content.active .dropdown-link {
-        display: block;
-        padding: 0.8rem 1.2rem;
-        color: rgba(255, 255, 255, 0.9);
-        text-decoration: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        font-size: 0.95rem;
-        font-weight: 400;
-        position: relative;
-        margin: 0.1rem 0.3rem;
-        border-radius: 8px;
-    }
-    
-    .team-dropdown-content.active .dropdown-link:hover,
-    .competition-dropdown-content.active .dropdown-link:hover {
-        background: rgba(255, 107, 53, 0.15);
-        color: #ff6b35;
-        transform: translateX(8px);
-        border-color: rgba(255, 107, 53, 0.2);
-        box-shadow: 0 2px 8px rgba(255, 107, 53, 0.1);
-    }
-    
-    .team-dropdown-content.active .dropdown-link:active,
-    .competition-dropdown-content.active .dropdown-link:active {
-        transform: translateX(4px) scale(0.98);
-        background: rgba(255, 107, 53, 0.2);
-    }
-    
-    .team-dropdown-content.active .dropdown-link:last-child,
-    .competition-dropdown-content.active .dropdown-link:last-child {
-        border-bottom: none;
-    }
-
-    .competition-dropdown:hover .competition-dropdown-content {
-        display: none;
-    }
-
-    .team-dropdown:hover .team-dropdown-content {
-        display: none;
-    }
 
     .menu-icon {
         display: flex !important;
@@ -815,23 +792,20 @@ nav::before {
         padding: 2rem 0.8rem 1.5rem 0.8rem;
     }
 
-    .nav-links .nav-link {
+    .mobile-nav-link {
         padding: 0.8rem 1rem;
         font-size: 0.95rem;
         min-height: 44px;
     }
 
-    .nav-links .competition-dropdown .nav-link,
-    .nav-links .team-dropdown .nav-link {
-        padding: 0.8rem 1rem;
-        font-size: 0.95rem;
-        min-height: 44px;
-    }
-
-    .team-dropdown-content.active .dropdown-link,
-    .competition-dropdown-content.active .dropdown-link {
-        padding: 0.7rem 1rem;
+    .mobile-sub-link {
+        padding: 0.7rem 1rem 0.7rem 1.8rem !important;
         font-size: 0.9rem;
+    }
+
+    .mobile-section-title {
+        font-size: 0.85rem;
+        padding: 0.4rem 1rem;
     }
 
     .text {
