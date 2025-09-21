@@ -44,16 +44,16 @@ document.addEventListener("DOMContentLoaded", function() {
   // Toggle mobile menu
   function toggleMobileMenu(open) {
     if (open) {
-      navLinks.classList.add("open");
+      navLinks.classList.add("active");
       menuIcon.classList.add("hide");
       document.body.classList.add("no-scroll");
     } else {
-      navLinks.classList.remove("open");
+      navLinks.classList.remove("active");
       menuIcon.classList.remove("hide");
       document.body.classList.remove("no-scroll");
       // Close dropdown when closing menu
       if (teamDropdownContent) {
-        teamDropdownContent.classList.remove("mobile-open");
+        teamDropdownContent.classList.remove("active");
       }
     }
   }
@@ -64,12 +64,12 @@ document.addEventListener("DOMContentLoaded", function() {
       e.preventDefault();
       e.stopPropagation();
       // Close all other dropdowns first if needed
-      document.querySelectorAll('.team-dropdown-content').forEach(dropdown => {
+      document.querySelectorAll('.dropdown-content').forEach(dropdown => {
         if (dropdown !== teamDropdownContent) {
-          dropdown.classList.remove("mobile-open");
+          dropdown.classList.remove("active");
         }
       });
-      teamDropdownContent.classList.toggle("mobile-open");
+      teamDropdownContent.classList.toggle("active");
     }
   }
 
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
   closeIcon.addEventListener("click", () => toggleMobileMenu(false));
   
   document.addEventListener("click", function(e) {
-    if (navLinks.classList.contains("open") && 
+    if (navLinks.classList.contains("active") && 
         !navLinks.contains(e.target) && 
         !menuIcon.contains(e.target)) {
       toggleMobileMenu(false);
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function() {
       if (window.innerWidth <= 970) {
         e.preventDefault();
         e.stopPropagation();
-        teamDropdownContent.classList.toggle("mobile-open");
+        teamDropdownContent.classList.toggle("active");
       }
     });
 
@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (window.innerWidth > MOBILE_BREAKPOINT) {
       toggleMobileMenu(false);
       if (teamDropdownContent) {
-        teamDropdownContent.classList.remove("mobile-open");
+        teamDropdownContent.classList.remove("active");
       }
     }
   });
