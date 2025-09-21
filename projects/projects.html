@@ -15,115 +15,14 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects</title>
+  <title>Projects - UMRT</title>
   <link rel="icon" href="../images/umrt_logo.ico" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" href="../css/navbar.css" />
   <link rel="stylesheet" href="../css/projects.css" />
   <link rel="stylesheet" href="../css/footer.css" />
-  <style>
-    body {
-      /* font-family: Arial, sans-serif; */
-      /* display: flex; */
-      /* justify-content: center; */
-      /* align-items: center; */
-      /* min-height: 100vh; */
-      background-color: #000;
-    }
-
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 63px 20px;
-      align-items: center;
-      flex-direction: row;
-      background: currentColor;
-    }
-
-    .card {
-      background-image: linear-gradient(45deg, #e97c5d, #98472e);
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s;
-      width: calc(25% - 15px);
-      min-width: 250px;
-      box-shadow: 2px 2px 20px 1px #a34b32d6;
-    }
-
-    .card {
-      text-decoration: none;
-      /* Remove underline */
-      color: inherit;
-      /* Keep default text color */
-      display: block;
-      /* Ensure it behaves like a div */
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card img {
-      width: 100%;
-      /* height: 150px; */
-      object-fit: cover;
-    }
-
-    .card-content {
-      padding: 15px;
-      text-align: center;
-      /* background: transparent; */
-    }
-
-    .card-title {
-      font-size: 1.2rem;
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: white;
-      font-family: Montserrat;
-    }
-
-    .card-description {
-      font-size: 0.9rem;
-      color: #ffffff;
-    }
-
-    @media (max-width: 1024px) {
-      .card {
-        width: calc(33.33% - 20px);
-      }
-    }
-
-    @media (max-width: 768px) {
-      .card {
-        width: calc(50% - 20px);
-      }
-    }
-
-    @media (max-width: 480px) {
-      .card {
-        width: 100%;
-      }
-    }
-
-    .title-page {
-      color: white;
-      padding: 20px 0px;
-      text-align: center;
-      background-color: black;
-    }
-
-    .sub-title {
-      background: black;
-      color: white;
-      font-family: "Montserrat";
-      padding: 1px 22px;
-      font-size: 1.6rem;
-    }
-  </style>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 
 <body>
@@ -166,82 +65,242 @@
     </div>
   </nav>
 
-  <h1 class="akira title-page">Our Projects</h1>
-  <br />
-  <br />
-
-  <!-- <video
-      src="../images/SAR_Final_Cut_Ekhon_Bole_Music_E_Lagbo_Na.mp4"
-      controls=""
-      autoplay=""
-      style="width: 100%"
-    ></video> -->
-  <br />
-
-  <h3 class="sub-title">ROVERS</h3>
-  <div class="container">
-    <a href="axios-details.html" class="card">
-      <img src="../images/axios.jpg" alt="Card Image" />
-      <div class="card-content">
-        <div class="card-title montserrat">AXIOS</div>
-        <div class="card-description montserrat">
-          4th Generation UIU Mars Rover
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-background">
+      <div class="hero-overlay"></div>
+      <div class="floating-particles"></div>
+    </div>
+    <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+      <h1 class="hero-title akira">Our Projects</h1>
+      <p class="hero-subtitle montserrat">Pushing the boundaries of space robotics and innovation</p>
+      <div class="hero-stats">
+        <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="stat-number">4</div>
+          <div class="stat-label">Mars Rovers</div>
+        </div>
+        <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+          <div class="stat-number">2</div>
+          <div class="stat-label">UAV Systems</div>
+      </div>
+        <div class="stat-item" data-aos="fade-up" data-aos-delay="600">
+          <div class="stat-number">6+</div>
+          <div class="stat-label">Years of Innovation</div>
         </div>
       </div>
-    </a>
+    </div>
+  </section>
 
-    <a href="yggdrasil-details.html" class="card">
-      <img src="../images/yggdrasil.jpg" alt="Card Image" />
+  <!-- Projects Overview -->
+  <section class="projects-overview">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2 class="section-title akira">Innovation Timeline</h2>
+        <p class="section-description montserrat">From our first rover to cutting-edge autonomous systems</p>
+      </div>
+      
+      <!-- Project Categories -->
+      <div class="project-categories">
+        <!-- Mars Rovers Section -->
+        <div class="category-section" data-aos="fade-up" data-aos-delay="200">
+          <div class="category-header">
+            <div class="category-icon">🚀</div>
+            <h3 class="category-title akira">Mars Rovers</h3>
+            <p class="category-description montserrat">Advanced robotic systems designed for extraterrestrial exploration</p>
+          </div>
+          
+          <div class="projects-grid">
+            <div class="project-card featured" data-aos="fade-up" data-aos-delay="300">
+              <div class="card-image">
+                <img src="../images/axios.jpg" alt="AXIOS Rover" />
+                <div class="card-overlay">
+                  <div class="generation-badge">4th Generation</div>
+                  <div class="status-badge">Active</div>
+                </div>
+              </div>
+              <div class="card-content">
+                <h4 class="project-name akira">AXIOS</h4>
+                <p class="project-description montserrat">Our most advanced Mars rover featuring cutting-edge autonomous navigation, scientific instrumentation, and modular design.</p>
+                <div class="project-features">
+                  <span class="feature-tag">Autonomous Navigation</span>
+                  <span class="feature-tag">Scientific Analysis</span>
+                  <span class="feature-tag">Modular Design</span>
+                </div>
+                <div class="card-actions">
+                  <a href="axios-details.html" class="learn-more-btn">Learn More</a>
+                  <div class="achievement-indicator">
+                    <i class="fas fa-trophy"></i>
+                    <span>ARC 2025 - 3rd Global</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+              <div class="card-image">
+                <img src="../images/yggdrasil.jpg" alt="YGGDRASIL Rover" />
+                <div class="card-overlay">
+                  <div class="generation-badge">3rd Generation</div>
+                  <div class="status-badge">Competition Ready</div>
+                </div>
+              </div>
+              <div class="card-content">
+                <h4 class="project-name akira">YGGDRASIL</h4>
+                <p class="project-description montserrat">Multi-purpose rover platform demonstrating versatility and reliability in various international challenges.</p>
+                <div class="project-features">
+                  <span class="feature-tag">Multi-Purpose</span>
+                  <span class="feature-tag">Reliable</span>
+                  <span class="feature-tag">Competition Proven</span>
+                </div>
+                <div class="card-actions">
+                  <a href="yggdrasil-details.html" class="learn-more-btn">Learn More</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="500">
+              <div class="card-image">
+                <img src="../images/telos.jpg" alt="TELOS Rover" />
+                <div class="card-overlay">
+                  <div class="generation-badge">2nd Generation</div>
+                  <div class="status-badge">Legacy</div>
+                </div>
+              </div>
+              <div class="card-content">
+                <h4 class="project-name akira">TELOS</h4>
+                <p class="project-description montserrat">Demonstrated exceptional engineering excellence, winning prestigious awards in international competitions.</p>
+                <div class="project-features">
+                  <span class="feature-tag">Engineering Excellence</span>
+                  <span class="feature-tag">Award Winning</span>
+                  <span class="feature-tag">Proven Design</span>
+                </div>
+                <div class="card-actions">
+                  <a href="#" class="learn-more-btn">Learn More</a>
+                  <div class="achievement-indicator">
+                    <i class="fas fa-medal"></i>
+                    <span>Material Selection Winner</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="600">
+              <div class="card-image">
+                <img src="../images/maven.jpg" alt="MAVEN Rover" />
+                <div class="card-overlay">
+                  <div class="generation-badge">1st Generation</div>
+                  <div class="status-badge">Foundation</div>
+                </div>
+              </div>
       <div class="card-content">
-        <div class="card-title montserrat">YGGDRASIL</div>
-        <div class="card-description montserrat">
-          3rd Generation UIU Mars Rover
+                <h4 class="project-name akira">MAVEN</h4>
+                <p class="project-description montserrat">Our pioneering rover that established the foundation for all future UMRT innovations and achievements.</p>
+                <div class="project-features">
+                  <span class="feature-tag">Pioneering</span>
+                  <span class="feature-tag">Foundation</span>
+                  <span class="feature-tag">Learning Platform</span>
+                </div>
+                <div class="card-actions">
+                  <a href="#" class="learn-more-btn">Learn More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- UAV Systems Section -->
+        <div class="category-section" data-aos="fade-up" data-aos-delay="700">
+          <div class="category-header">
+            <div class="category-icon">🛸</div>
+            <h3 class="category-title akira">UAV Systems</h3>
+            <p class="category-description montserrat">Autonomous aerial vehicles designed to assist and enhance rover operations</p>
+      </div>
+          
+          <div class="projects-grid">
+            <div class="project-card featured" data-aos="fade-up" data-aos-delay="800">
+              <div class="card-image">
+                <img src="../images/MAARC.png" alt="MAARC UAV" />
+                <div class="card-overlay">
+                  <div class="generation-badge">2nd Generation</div>
+                  <div class="status-badge">Active</div>
+                </div>
+              </div>
+              <div class="card-content">
+                <h4 class="project-name akira">MAARC</h4>
+                <p class="project-description montserrat">Advanced UAV system designed to work in perfect harmony with AXIOS rover, providing aerial reconnaissance and assistance.</p>
+                <div class="project-features">
+                  <span class="feature-tag">Aerial Reconnaissance</span>
+                  <span class="feature-tag">Rover Integration</span>
+                  <span class="feature-tag">Autonomous Flight</span>
+                </div>
+                <div class="card-actions">
+                  <a href="#" class="learn-more-btn">Learn More</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="900">
+              <div class="card-image">
+                <img src="../images/ICARUS.png" alt="ICARUS UAV" />
+                <div class="card-overlay">
+                  <div class="generation-badge">1st Generation</div>
+                  <div class="status-badge">Legacy</div>
+                </div>
+              </div>
+      <div class="card-content">
+                <h4 class="project-name akira">ICARUS</h4>
+                <p class="project-description montserrat">Our first UAV system that pioneered aerial assistance for rover operations, working alongside TELOS rover.</p>
+                <div class="project-features">
+                  <span class="feature-tag">Pioneering UAV</span>
+                  <span class="feature-tag">Rover Assistance</span>
+                  <span class="feature-tag">Aerial Support</span>
+                </div>
+                <div class="card-actions">
+                  <a href="#" class="learn-more-btn">Learn More</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </a>
+    </div>
+  </section>
 
-    <a href="#" class="card">
-      <img src="../images/telos.jpg" alt="Card Image" />
-      <div class="card-content">
-        <div class="card-title montserrat">TELOS</div>
-        <div class="card-description montserrat">
-          2nd Generation UIU Mars Rover
-        </div>
+  <!-- Innovation Highlights -->
+  <section class="innovation-highlights">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2 class="section-title akira">Innovation Highlights</h2>
+        <p class="section-description montserrat">Key technologies and breakthroughs that define our projects</p>
       </div>
-    </a>
-
-    <a href="#" class="card">
-      <img src="../images/maven.jpg" alt="Card Image" />
-      <div class="card-content">
-        <div class="card-title montserrat">MAVEN</div>
-        <div class="card-description montserrat">
-          1st Generation UIU Mars Rover
-        </div>
-      </div>
-    </a>
+      
+      <div class="highlights-grid">
+        <div class="highlight-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="highlight-icon">🧠</div>
+          <h3 class="highlight-title akira">Autonomous Navigation</h3>
+          <p class="highlight-description montserrat">Advanced AI algorithms enabling rovers to navigate complex terrain independently</p>
   </div>
 
-  <h3 class="sub-title">UAVs</h3>
-  <div class="container">
-    <a href="#" class="card">
-      <img src="../images/MAARC.png" alt="Card Image" />
-      <div class="card-content">
-        <div class="card-title montserrat">MAARC</div>
-        <div class="card-description montserrat">
-          2nd Generation UIU Mars Rover Assistant UAV with AXIOS
+        <div class="highlight-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="highlight-icon">🔬</div>
+          <h3 class="highlight-title akira">Scientific Instrumentation</h3>
+          <p class="highlight-description montserrat">State-of-the-art sensors and analysis tools for extraterrestrial research</p>
+        </div>
+        
+        <div class="highlight-card" data-aos="fade-up" data-aos-delay="600">
+          <div class="highlight-icon">⚡</div>
+          <h3 class="highlight-title akira">Modular Design</h3>
+          <p class="highlight-description montserrat">Flexible architecture allowing rapid prototyping and easy maintenance</p>
+      </div>
+        
+        <div class="highlight-card" data-aos="fade-up" data-aos-delay="800">
+          <div class="highlight-icon">🌍</div>
+          <h3 class="highlight-title akira">International Recognition</h3>
+          <p class="highlight-description montserrat">Consistent success in global competitions validating our engineering excellence</p>
         </div>
       </div>
-    </a>
-    <a href="#" class="card">
-      <img src="../images/ICARUS.png" alt="Card Image" />
-      <div class="card-content">
-        <div class="card-title montserrat">ICARUS</div>
-        <div class="card-description montserrat">
-          1st Generation UIU Mars Rover Assistant UAV with TELOS
-        </div>
-      </div>
-    </a>
   </div>
+  </section>
 
   <!-- Footer -->
   <footer>
@@ -328,6 +387,14 @@
 
   <script src="../scripts/earthFooter.js"></script>
   <script src="../scripts/navbar.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100
+    });
+  </script>
 </body>
 
 </html>

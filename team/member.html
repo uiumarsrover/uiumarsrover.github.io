@@ -15,12 +15,14 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Team Members</title>
+  <title>Team Members - UMRT</title>
   <link rel="icon" href="../images/umrt_logo.ico" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" href="../css/navbar.css" />
   <link rel="stylesheet" href="../css/member.css" />
   <link rel="stylesheet" href="../css/footer.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 
 <body>
@@ -57,7 +59,6 @@
           <a href="../team/member.html" class="dropdown-link">Members</a>
           <a href="../team/leadership.html" class="dropdown-link">Leadership</a>
           <a href="../team/join_us.html" class="dropdown-link">Join Us</a>
-          <a href="../team/asset.html" class="dropdown-link">Asset</a>
         </div>
       </div>
 
@@ -65,56 +66,147 @@
     </div>
   </nav>
 
-  <!-- cards -->
-  <main class="hold-cards montserrat">
-    <div class="card">
-      <div class="content">
-        <a href="../team/competition/team2025.html">
-          <div class="title">TEAM</div>
-          <div class="year">2025</div>
-          <div class="description">
-            <img src="../images/arc2025team.jpg" alt="team photo" class="team-photo" />
-          </div>
-        </a>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-background">
+      <div class="hero-overlay"></div>
+      <div class="floating-particles"></div>
+    </div>
+    <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+      <h1 class="hero-title akira">Our Team</h1>
+      <p class="hero-subtitle montserrat">Meet the brilliant minds behind UMRT's success</p>
+      <div class="hero-stats">
+        <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="stat-number">25+</div>
+          <div class="stat-label">Team Members</div>
+        </div>
+        <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+          <div class="stat-number">4</div>
+          <div class="stat-label">Years of Excellence</div>
+        </div>
+        <div class="stat-item" data-aos="fade-up" data-aos-delay="600">
+          <div class="stat-number">🏆</div>
+          <div class="stat-label">Global Champions</div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="card">
-      <div class="content">
-        <a href="../team/competition/team2024.html">
-          <div class="title">TEAM</div>
-          <div class="year">2024</div>
-          <div class="description">
-            <img src="../images/team_2024_1.jpg" alt="team photo" class="team-photo" />
-          </div>
-        </a>
+  <!-- Team Years Section -->
+  <section class="team-years-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2 class="section-title akira">Team Evolution</h2>
+        <p class="section-description montserrat">From our founding team to the current champions</p>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="content">
-        <a href="../team/competition/team2023.html">
-          <div class="title">TEAM</div>
-          <div class="year">2023</div>
-          <div class="description">
-            <img src="../images/team_2023_1.jpg" alt="team photo" class="team-photo" />
+      <div class="team-years-grid">
+        <!-- Team 2025 -->
+        <div class="team-year-card featured" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-image">
+            <img src="../images/arc2025team.jpg" alt="Team 2025" />
+            <div class="card-overlay">
+              <div class="year-badge">2025</div>
+              <div class="status-badge">Current Champions</div>
+            </div>
           </div>
-        </a>
-      </div>
-    </div>
+          <div class="card-content">
+            <h3 class="team-year-title akira">Team 2025</h3>
+            <p class="team-year-description montserrat">
+              Our current championship-winning team that secured 3rd place globally in ARC 2025 
+              and 6th place worldwide in URC 2025 with a perfect science score.
+            </p>
+            <div class="achievement-highlights">
+              <span class="achievement-tag">🏆 ARC 2025 - 3rd Global</span>
+              <span class="achievement-tag">🥉 URC 2025 - 6th Global</span>
+              <span class="achievement-tag">⭐ Perfect Science Score</span>
+            </div>
+            <div class="card-actions">
+              <a href="../team/competition/team2025.html" class="view-team-btn">View Team</a>
+            </div>
+          </div>
+        </div>
 
-    <div class="card">
-      <div class="content">
-        <a href="../team/competition/team2022.html">
-          <div class="title">TEAM</div>
-          <div class="year">2022</div>
-          <div class="description">
-            <img src="../images/team_2022_1.jpg" alt="team photo" class="team-photo" />
+        <!-- Team 2024 -->
+        <div class="team-year-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="card-image">
+            <img src="../images/team_2024_1.jpg" alt="Team 2024" />
+            <div class="card-overlay">
+              <div class="year-badge">2024</div>
+              <div class="status-badge">Asian Champions</div>
+            </div>
           </div>
-        </a>
+          <div class="card-content">
+            <h3 class="team-year-title akira">Team 2024</h3>
+            <p class="team-year-description montserrat">
+              The team that achieved 1st place in Asia for the third consecutive year 
+              and secured 5th place globally in URC 2024.
+            </p>
+            <div class="achievement-highlights">
+              <span class="achievement-tag">🥇 1st in Asia</span>
+              <span class="achievement-tag">5th Global URC</span>
+              <span class="achievement-tag">Consistent Excellence</span>
+            </div>
+            <div class="card-actions">
+              <a href="../team/competition/team2024.html" class="view-team-btn">View Team</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team 2023 -->
+        <div class="team-year-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="card-image">
+            <img src="../images/team_2023_1.jpg" alt="Team 2023" />
+            <div class="card-overlay">
+              <div class="year-badge">2023</div>
+              <div class="status-badge">Rising Stars</div>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3 class="team-year-title akira">Team 2023</h3>
+            <p class="team-year-description montserrat">
+              A breakthrough year with 9th place globally in URC 2023 and 
+              3rd place globally in ARC 2023, establishing our global presence.
+            </p>
+            <div class="achievement-highlights">
+              <span class="achievement-tag">9th Global URC</span>
+              <span class="achievement-tag">🥉 3rd Global ARC</span>
+              <span class="achievement-tag">Global Recognition</span>
+            </div>
+            <div class="card-actions">
+              <a href="../team/competition/team2023.html" class="view-team-btn">View Team</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team 2022 -->
+        <div class="team-year-card" data-aos="fade-up" data-aos-delay="500">
+          <div class="card-image">
+            <img src="../images/team_2022_1.jpg" alt="Team 2022" />
+            <div class="card-overlay">
+              <div class="year-badge">2022</div>
+              <div class="status-badge">Foundation</div>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3 class="team-year-title akira">Team 2022</h3>
+            <p class="team-year-description montserrat">
+              Our founding team that started the journey, achieving 13th place globally 
+              in URC 2022 and establishing UMRT's presence in international competitions.
+            </p>
+            <div class="achievement-highlights">
+              <span class="achievement-tag">13th Global URC</span>
+              <span class="achievement-tag">Foundation</span>
+              <span class="achievement-tag">First Steps</span>
+            </div>
+            <div class="card-actions">
+              <a href="../team/competition/team2022.html" class="view-team-btn">View Team</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </main>
+  </section>
 
   <!-- Footer -->
   <footer>
@@ -193,6 +285,14 @@
 
   <script src="../scripts/earthFooter.js"></script>
   <script src="../scripts/navbar.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100
+    });
+  </script>
 
 </body>
 

@@ -1,31 +1,53 @@
 * {
-    font-family: 'Montserrat';
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
-    line-height: 1.6;
-    color: #333;
-    background-image: url(../images/thumbnail_raw.jpg);
-    min-height: 100vh;
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
-    
+/* Import Montserrat font */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+@font-face {
+    font-family: "AkiraExpanded";
+    src: url("../font/Akira\ Expanded\ Demo.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
 }
 
-.main-container {
-    line-height: 1.6;
-    color: #333;
-    background-image: url(../images/thumbnail_raw.jpg);
-    min-height: 100vh;
-    background-attachment: fixed;
-    background-size: cover; /* Changed from 'contain' to 'cover' */
-    background-repeat: no-repeat;
+.montserrat {
+    font-family: "Montserrat", sans-serif;
 }
 
+.akira {
+    font-family: "AkiraExpanded", sans-serif;
+}
+
+/* Responsive body styles */
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: #000;
+    color: white;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Container */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Responsive body styles */
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: #000;
+    color: white;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Container */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -44,7 +66,6 @@ body{
     color: #ffffff;
     margin-bottom: 2%;
     text-shadow: -5px 2px 13px #00000040;
-    /* background: linear-gradient(0deg, transparent, #6d6d6d24, transparent); */
     width: 100%;
     border-radius: 40px;
     padding: 55px 7px 27px 7px;
@@ -56,210 +77,173 @@ body{
     color: #ffffff;
 }
 
-.timeline {
-    position: relative;
-    padding: 40px 0;
+
+
+/* Timeline positioning for left/right layout */
+.timeline-content.left {
+    margin-left: 0;
+    margin-right: auto;
+    max-width: 45%;
 }
 
-/* Timeline central line */
-.timeline::after {
+.timeline-content.right {
+    margin-left: auto;
+    margin-right: 0;
+    max-width: 45%;
+}
+
+/* Basic timeline styles */
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.timeline::before {
     content: '';
     position: absolute;
-    width: 5px;
-    background: #cb6a35;
+    left: 50%;
     top: 0;
     bottom: 0;
-    left: 50%;
+    width: 4px;
+    background: linear-gradient(180deg, #ff9900, #ff6600);
     transform: translateX(-50%);
     border-radius: 2px;
 }
 
 .timeline-item {
-    padding: 10px 40px;
+    margin-bottom: 3rem;
     position: relative;
-    width: 100%;
-    margin: 40px 0;
-}
-
-/* Timeline dots */
-.timeline-item::after {
-    content: '';
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    background-color: #031052;
-    border: 4px solid #fff;
-    border-radius: 50%;
-    top: 100%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
 }
 
 .timeline-content {
-    position: relative;
-    width: 45%;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(20, 20, 20, 0.9) 100%);
+    border-radius: 25px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 153, 0, 0.2);
+    transition: all 0.4s ease;
+    backdrop-filter: blur(20px);
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.timeline-content.left {
-    float: left;
-}
-
-.timeline-content.right {
-    float: right;
+.timeline-content:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 153, 0, 0.6);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 8px 20px rgba(255, 153, 0, 0.2);
 }
 
 .achievement-card {
-    padding: 24px;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: rgba(70, 69, 69, 0.4);
-    backdrop-filter: blur(5px);
-    border-radius: 20px;
-    margin-bottom: 20px;
-}
-
-.achievement-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-}
-
-.icon {
-    font-size: 2rem;
-    margin-bottom: 16px;
-    text-align: center;
+    background: transparent;
 }
 
 .achievement-card h3 {
-    font-size: 1.55rem;
-    color: #cfcfcf;
-    margin-bottom: 2px;
-    font-family: 'AkiraExpanded';
+    color: #ff9900;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
 }
 
 .achievement-card time {
-    display: block;
-    font-size: 0.90rem;
-    color: #a8a9ab;
-    font-weight: 500;
-    margin-bottom: 9px;
+    display: inline-block;
+    background: rgba(255, 153, 0, 0.1);
+    color: #ff9900;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255, 153, 0, 0.3);
 }
 
 .achievement-card p {
-    color: #f4fcea;
-    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
     line-height: 1.6;
-    text-align: justify;
+    font-size: 1rem;
 }
 
-/* Clear floats */
-.timeline-item::before {
-    content: '';
-    display: table;
-    clear: both;
+.card-photo {
+    width: 100%;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
 }
 
-/* Responsive design */
-@media screen and (max-width: 768px) {
-    .timeline::after {
-        left: 31px;
-    }
+.timeline-content:hover .card-photo {
+    transform: scale(1.02);
+}
 
-    .timeline-item {
-        padding-left: 80px;
-        padding-right: 0;
+/* Responsive timeline */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 2rem;
     }
+    
+    .timeline-content.left,
+    .timeline-content.right {
+        max-width: 100%;
+        margin: 0 1rem;
+    }
+}
 
-    .timeline-item::after {
-        left: 31px;
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-stats {
+        gap: 2rem;
+    }
+    
+    .stat-item {
+        padding: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+    }
+    
+    .timeline::before {
+        left: 2rem;
     }
 
     .timeline-content {
-        width: 100%;
-        float: right;
+        margin: 0 1rem;
+        padding: 1.5rem;
     }
-
-    .timeline-content.left,
-    .timeline-content.right {
-        float: right;
-    }
-
-    .achievement-card {
-        text-align: left;
-    }
-    .container {
-        padding-bottom: 85%;
+    
+    .achievement-card h3 {
+        font-size: 1.5rem;
     }
 }
 
-@media screen and (max-width: 480px) {
-    .timeline::after {
-        left: 10px;
-        /* Move the central line further to the left */
+@media (max-width: 480px) {
+    .hero-content {
+        padding: 1rem;
     }
-
-    .timeline-item {
-        padding-left: 40px;
-        /* Adjust padding for very small screens */
-        padding-right: 10px;
+    
+    .hero-stats {
+        gap: 1rem;
     }
-
-    .timeline-item::after {
-        left: 10px;
-        /* Move the dots further to the left */
+    
+    .stat-item {
+        padding: 0.8rem;
     }
-
-    .header h1 {
-        font-size: 1.5rem;
-        /* Smaller font size for very small screens */
-        padding: 20px 7px 10px 7px;
+    
+    .stat-number {
+        font-size: 2rem;
     }
-
-    .header p {
+    
+    .stat-label {
         font-size: 0.9rem;
-        /* Smaller font size for very small screens */
+    }
+    
+    .timeline-content {
+        margin: 0 0.5rem;
+        padding: 1rem;
     }
 
     .achievement-card h3 {
-        font-size: 1.1rem;
-        /* Smaller font size for very small screens */
+        font-size: 1.3rem;
     }
 
     .achievement-card p {
         font-size: 0.9rem;
-        /* Smaller font size for very small screens */
     }
-    .container {
-        padding-bottom: 85%;
-    }
-}
-
-.achievements-container {
-    max-width: 800px;
-    margin: 200px auto;
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: #b6afaf;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
-h1 {
-    text-align: center;
-    color: #2c3e50;
-    margin-bottom: 40px;
-}
-.year-section {
-    margin-bottom: 30px;
-}
-.year-section h2 {
-    color: #e67e22;
-    margin-bottom: 10px;
-}
-.year-section ul {
-    list-style-type: disc;
-    padding-left: 20px;
-}
-.year-section ul li {
-    margin-bottom: 10px;
 }

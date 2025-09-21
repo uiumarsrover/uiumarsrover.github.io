@@ -1,61 +1,124 @@
 
+  /* Rover Section Layout */
+  .rover-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+
   .image-container {
     position: relative;
     display: inline-block;
+    flex-shrink: 0;
   }
+
+  /* Modern Marker Styles */
   .marker {
     position: absolute;
-    width: 16px;
-    height: 16px;
-    background-color: white;
-    border: 3px solid #02a2ff;
-    border-radius: 50%;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
     transform: translate(-50%, -50%);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.2s;
-    opacity: 0.6;
-    z-index: 1;
+    z-index: 10;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  .marker:hover {
-    background-color: rgb(15, 93, 182);
-    opacity: 1;
-  }
-  .popup {
-    position: absolute;
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    display: none;
-    width: 200px;
-    top: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: left;
-    transition: 0.2s;
-    z-index: 2;
-  }
-  .popup img {
+
+  .marker-dot {
     width: 100%;
-    border-radius: 5px;
-    margin-bottom: 10px;
+    height: 100%;
+    background: linear-gradient(135deg, #ff6a00, #ff3e00);
+    border: 3px solid white;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(255, 106, 0, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
   }
-  .popup h3 {
-    margin: 0;
-    font-size: 16px;
-    color: #333;
+
+  .marker-dot::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
-  .popup p {
-    font-size: 14px;
-    color: #666;
+
+  .marker:hover .marker-dot {
+    transform: scale(1.3);
+    box-shadow: 0 6px 25px rgba(255, 106, 0, 0.6);
   }
-  .marker:hover .popup {
-    display: block;
+
+  .marker:hover .marker-dot::before {
     opacity: 1;
+  }
+
+  /* Part Description Card */
+  .part-description-card {
+    flex: 1;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    min-height: 200px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.7;
+    transform: translateY(20px);
+  }
+
+  .part-description-card.active {
+    opacity: 1;
+    transform: translateY(0);
+    background: linear-gradient(135deg, rgba(255, 106, 0, 0.1), rgba(255, 62, 0, 0.05));
+    border-color: rgba(255, 106, 0, 0.3);
+    box-shadow: 0 20px 40px rgba(255, 106, 0, 0.1);
+  }
+
+  .card-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .part-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ff6a00;
+    margin: 0 0 15px 0;
+    font-family: 'Akira Expanded Demo', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+  }
+
+  .part-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s ease;
+  }
+
+  .part-description-card.active .part-title {
+    color: #ff3e00;
+    text-shadow: 0 0 20px rgba(255, 62, 0, 0.3);
+  }
+
+  .part-description-card.active .part-description {
+    color: white;
+  }
+
+  /* Remove old popup styles */
+  .popup {
+    display: none !important;
   }
 
 
@@ -177,5 +240,77 @@
   @media (max-width: 480px) {
     .lightbox iframe {
       max-height: 300px; /* Even smaller height on very small devices */
+    }
+  }
+
+  /* Responsive Design for Rover Sections */
+  @media (max-width: 1024px) {
+    .rover-section {
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .part-description-card {
+      min-height: 150px;
+      padding: 20px;
+    }
+    
+    .part-title {
+      font-size: 20px;
+    }
+    
+    .part-description {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .rover-section {
+      gap: 15px;
+    }
+    
+    .part-description-card {
+      padding: 15px;
+      min-height: 120px;
+    }
+    
+    .part-title {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    
+    .part-description {
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    
+    .marker {
+      width: 16px;
+      height: 16px;
+    }
+    
+    .marker-dot {
+      border-width: 2px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .part-description-card {
+      padding: 12px;
+      min-height: 100px;
+    }
+    
+    .part-title {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+    
+    .part-description {
+      font-size: 12px;
+    }
+    
+    .marker {
+      width: 14px;
+      height: 14px;
     }
   }

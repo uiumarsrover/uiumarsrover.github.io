@@ -1,57 +1,49 @@
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
+/* Background with Earth image */
 .bg-container {
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: #000;
+    background-image: url('../images/Earth.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     overflow: hidden;
     z-index: -1;
 }
   
-.shape {
+/* Earth background overlay for better text readability */
+.bg-container::before {
+    content: '';
     position: absolute;
-    filter: blur(1vw);
-    opacity: 0.5;
-    box-shadow: 0 0 2vw 1vw currentColor;
-    animation-duration: 9s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
 }
-  
-/* Circle, square, rectangle styles */
-.shape.circle { border-radius: 50%; }
-.shape.square { border-radius: 0; }
-.shape.rectangle { border-radius: 10px; }
-  
-/* Floating animations */
-@keyframes float-up-right { 0% { transform: translate(0, 0); } 100% { transform: translate(3vw, -4vw); } }
-@keyframes float-up-left  { 0% { transform: translate(0, 0); } 100% { transform: translate(-4vw, -3vw); } }
-@keyframes float-down-right { 0% { transform: translate(0, 0); } 100% { transform: translate(4vw, 3vw); } }
-@keyframes float-down-left { 0% { transform: translate(0, 0); } 100% { transform: translate(-3vw, 4vw); } }
-  
-.float-up-right  { animation-name: float-up-right; }
-.float-up-left   { animation-name: float-up-left; }
-.float-down-right { animation-name: float-down-right; }
-.float-down-left { animation-name: float-down-left; }
   
 
 .container {
-    background-color: #00000000;
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 20px;
     border-radius: 8px;
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     max-width: 1000px;
     width: 100%;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
 }
 
 .advisors-heading h1 {
@@ -71,9 +63,12 @@ h1 {
     align-items: flex-start;
     margin-bottom: 20px;
     padding: 15px;
-    /* border: 1px solid #ddd; */
     border-radius: 8px;
-    background-color: #76767624;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 2;
 }
 
 .advisor-photo {
@@ -127,7 +122,6 @@ h1 {
     .advisor {
         flex-direction: column;
         align-items: center;
-        text-align: center;
     }
 
     .advisor-photo {

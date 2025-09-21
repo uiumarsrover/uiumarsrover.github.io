@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D50Y94CB7B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-D50Y94CB7B");
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <link rel="icon" href="images/umrt_logo.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <title>UMRT - UIU Mars Rover Team</title>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link rel="stylesheet" href="css/video-fade.css" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <style>
+    /* Featured Sections Styles */
+    .featured-sections {
+      padding: 6rem 2rem;
+      background: linear-gradient(180deg, #000 0%, #0a0a0a 50%, #000 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .featured-sections::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 20%, rgba(255, 153, 0, 0.05) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 80%, rgba(255, 107, 53, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .section-title {
+      color: #fff;
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 2;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #ff9900, transparent);
+      border-radius: 2px;
+    }
+    .featured-card {
+      width: 90%;
+      max-width: 1200px;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(20, 20, 20, 0.95) 100%);
+      border: 1px solid rgba(255, 153, 0, 0.2);
+      border-radius: 25px;
+      overflow: hidden;
+      display: flex;
+      margin: 1rem auto;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(255, 153, 0, 0.1);
+      transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .featured-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 153, 0, 0.1), transparent);
+      transition: left 0.8s ease;
+      z-index: 1;
+    }
+    .featured-card:hover {
+      transform: translateY(-15px) scale(1.02);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 12px 40px rgba(255, 153, 0, 0.2);
+      border-color: rgba(255, 153, 0, 0.4);
+    }
+    .featured-card:hover::before {
+      left: 100%;
+    }
+    .card-image {
+      flex: 1;
+      min-height: 350px;
+      overflow: hidden;
+      position: relative;
+      z-index: 2;
+    }
+    .card-image::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(0, 0, 0, 0.3) 0%, transparent 50%);
+      z-index: 1;
+    }
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      filter: brightness(0.9);
+    }
+    .featured-card:hover .card-image img {
+      transform: scale(1.1) rotate(2deg);
+      filter: brightness(1.1);
+    }
+    .card-content {
+      flex: 1;
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: linear-gradient(145deg, rgba(0,0,0,0.9), rgba(20,20,20,0.98));
+      position: relative;
+      z-index: 2;
+    }
+    .card-content h3 {
+      color: #ff9900;
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 20px rgba(255, 153, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+    .featured-card:hover .card-content h3 {
+      color: #ffaa33;
+      text-shadow: 0 0 30px rgba(255, 153, 0, 0.5);
+    }
+    .card-content p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+    }
+    .featured-card:hover .card-content p {
+      color: #fff;
+    }
+    .card-btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: linear-gradient(45deg, #ff9900, #ff6b35);
+      color: #000;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: bold;
+      text-transform: uppercase;
+      align-self: flex-start;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
+    }
+    .card-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.6s ease;
+    }
+    .card-btn:hover {
+      background: linear-gradient(45deg, #ffaa33, #ff7a4a);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255, 153, 0, 0.4);
+    }
+    .card-btn:hover::before {
+      left: 100%;
+    }
+    /* Card entrance animations */
+    .featured-card:nth-child(2) {
+      animation: slideInFromRight 0.8s ease-out 0.2s both;
+    }
+    .featured-card:nth-child(3) {
+      animation: slideInFromLeft 0.8s ease-out 0.4s both;
+    }
+    .featured-card:nth-child(4) {
+      animation: slideInFromBottom 0.8s ease-out 0.6s both;
+    }
+    /* Floating animation for cards */
+    .featured-card {
+      animation: float 6s ease-in-out infinite;
+    }
+    .featured-card:nth-child(2) {
+      animation: float 6s ease-in-out infinite, slideInFromRight 0.8s ease-out 0.2s both;
+      animation-delay: 0s, 0.2s;
+    }
+    .featured-card:nth-child(3) {
+      animation: float 6s ease-in-out infinite, slideInFromLeft 0.8s ease-out 0.4s both;
+      animation-delay: 0.5s, 0.4s;
+    }
+    .featured-card:nth-child(4) {
+      animation: float 6s ease-in-out infinite, slideInFromBottom 0.8s ease-out 0.6s both;
+      animation-delay: 1s, 0.6s;
+    }
+    @keyframes slideInFromRight {
+      from {
+        opacity: 0;
+        transform: translateX(100px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    @keyframes slideInFromLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-100px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    @keyframes slideInFromBottom {
+      from {
+        opacity: 0;
+        transform: translateY(100px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    /* Enhanced hover effects */
+    .featured-card:hover {
+      animation-play-state: paused;
+    }
+    @media (max-width: 768px) {
+      .featured-sections {
+        padding: 4rem 1rem;
+        gap: 3rem;
+      }
+      .section-title {
+        font-size: 2.2rem;
+      }
+      .featured-card {
+        flex-direction: column;
+        width: 95%;
+      }
+      .card-image {
+        min-height: 250px;
+      }
+      .card-content {
+        padding: 2rem;
+      }
+      .card-content h3 {
+        font-size: 1.8rem;
+      }
+      .card-content p {
+        font-size: 1rem;
+      }
+      .card-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .section-title {
+        font-size: 1.8rem;
+      }
+      .card-content {
+        padding: 1.5rem;
+      }
+      .card-content h3 {
+        font-size: 1.5rem;
+      }
+      .card-content p {
+        font-size: 0.95rem;
+      }
+    }
+    /* Video responsiveness improvements */
+    @media (max-width: 1024px) {
+      .video-section {
+        height: 90vh !important;
+      }
+      .video-text .title {
+        font-size: 2.2rem;
+      }
+      .video-text .subtitle {
+        font-size: 1.1rem;
+      }
+    }
+    @media (max-width: 768px) {
+      .video-section {
+        height: 85vh !important;
+      }
+      .video-text {
+        padding: 0 20px;
+      }
+      .video-text .title {
+        font-size: 1.8rem;
+        line-height: 1.3;
+      }
+      .video-text .subtitle {
+        font-size: 1rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .video-section {
+        height: 80vh !important;
+      }
+      .video-text {
+        padding: 0 15px;
+      }
+      .video-text .title {
+        font-size: 1.5rem;
+        line-height: 1.2;
+      }
+      .video-text .subtitle {
+        font-size: 0.9rem;
+      }
+    }
+    @media (max-width: 360px) {
+      .video-section {
+        height: 75vh !important;
+      }
+      .video-text .title {
+        font-size: 1.3rem;
+      }
+      .video-text .subtitle {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="preload" as="image" href="scripts/Asset/background.jpg" />
+  <link rel="preload" as="image" href="scripts/Asset/bump_map.png" />
+  <link rel="preload" as="image" href="scripts/Asset/cloud_map.png" />
+  <link rel="preload" as="image" href="scripts/Asset/map.jpg" />
+  <link rel="preload" as="image" href="scripts/Asset/rgb_sketchmap.jpg" />
+  </style>
+</head>
+<body>
+  <div id="mainContent">
+    <div class="content">
+      <nav class="navbar montserrat" data-aos="fade-down" data-aos-duration="800">
+        <div class="logo-container">
+          <div class="logo" data-aos="zoom-in" data-aos-delay="400"></div>
+          <div class="text">
+            <a href="index.html" class="nav-link akira" data-aos="fade-right" data-aos-delay="600">UMRT</a>
+          </div>
+        </div>
+        <div class="menu-icon" id="menuIcon">
+          <i class="fas fa-bars"></i>
+        </div>
+        <div class="nav-links" id="navLinks">
+          <div class="close-icon" id="closeIcon">
+            <i class="fas fa-times"></i>
+          </div>
+          <a href="index.html" class="nav-link nav-home-mobile">Home</a>
+          <a href="projects/projects.html" class="nav-link">Projects</a>
+          <a href="achievements/achievements.html" class="nav-link">Achievements</a>
+          <a href="video/videos.html" class="nav-link">Videos</a>
+          <a href="our_mission/our_mission.html" class="nav-link">Our Mission</a>
+          <div class="competition-dropdown">
+            <a href="javascript:void(0);" class="nav-link" id="competitionDropdownBtn">Competition ▼</a>
+            <div class="competition-dropdown-content">
+              <a href="competition/competition.html" class="dropdown-link">Overview</a>
+              <a href="competition/urc.html" class="dropdown-link">URC</a>
+              <a href="competition/arc.html" class="dropdown-link">ARC</a>
+              <a href="competition/erc.html" class="dropdown-link">ERC</a>
+            </div>
+          </div>
+          <div class="team-dropdown">
+            <a href="javascript:void(0);" class="nav-link" id="teamDropdownBtn">Team ▼</a>
+            <div class="team-dropdown-content">
+              <a href="advisors/advisors.html" class="dropdown-link">Advisors</a>
+              <a href="director/director.html" class="dropdown-link">Director</a>
+              <a href="team/member.html" class="dropdown-link">Members</a>
+              <a href="team/leadership.html" class="dropdown-link">Leadership</a>
+              <a href="team/join_us.html" class="dropdown-link">Join Us</a>
+            </div>
+          </div>
+          <a href="sponsor/sponsor.html" class="sponsor-btn">Become Sponsor!</a>
+        </div>
+      </nav>
+      <div class="video-section" style="
+            position: relative;
+            width: 100%;
+            height: 95vh;
+            overflow: hidden;
+          ">
+        <div class="video-wrapper">
+          <video id="marsVideo" autoplay muted playsinline style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                z-index: 0;
+                filter: brightness(0.7);
+              ">
+            <source src="video/Mars/Mars5.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div id="videoOverlay" class="video-fade-overlay"></div>
+        </div>
+                <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('marsVideo');
+            const overlay = document.getElementById('videoOverlay');
+            // Keep overlay hidden (transparent) throughout the video
+            overlay.classList.add('fade-out');
+            // Handle video ending - stop the video and keep it at the last frame
+            video.addEventListener('ended', function() {
+              // Pause the video to keep it at the last frame
+              video.pause();
+            });
+          });
+        </script>
+        <div class="video-text" style="
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              text-align: center;
+              z-index: 1;
+              color: white;
+              text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            ">
+          <h2 class="subtitle" data-aos="fade-down">UIU MARS ROVER TEAM</h2>
+          <h1 class="title" data-aos="fade-up" data-aos-delay="200">
+            UMRT, PIONEERING THE FUTURE OF MARS EXPLORATION
+          </h1>
+        </div>
+      </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r120/three.min.js"></script>
+      <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/141228/OrbitControls.js"></script>
+      <script src="scripts/scipt.js"></script>
+      <div class="sponsors" data-aos="fade-up">
+        <p class="sponsor-titel akira" data-aos="zoom-in" data-aos-duration="800">Research and Development Partner</p>
+        <div class="sponsors-container" data-aos="fade-up" data-aos-delay="200">
+          <div class="sponsor" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="300">
+            <a href="https://www.solidworks.com/" target="_blank" rel="noopener noreferrer">
+              <img src="/images/solidworks-logo.png" alt="SolidWorks" data-aos="zoom-in" data-aos-delay="400">
+            </a>
+          </div>
+          <div class="sponsor protospace" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="500">
+            <a href="https://protospacemfg.com/" target="_blank" rel="noopener noreferrer">
+              <img src="/images/protospace-logo.png" alt="Protospace" data-aos="zoom-in" data-aos-delay="600">
+            </a>
+          </div>
+          <div class="sponsor" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="700">
+            <a href="https://www.3ds.com/" target="_blank" rel="noopener noreferrer">
+              <img src="/images/Dassauly-systemes-logo.png" alt="Dassault Systèmes" data-aos="zoom-in" data-aos-delay="800">
+            </a>
+          </div>
+          <div class="sponsor" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="900">
+            <a href="https://www.dfrobot.com/" target="_blank" rel="noopener noreferrer">
+              <img src="/images/DFRobot-logo.png" alt="DFRobot" data-aos="zoom-in" data-aos-delay="1000">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sub-container" data-aos="fade-up">
+      <div class="team-section">
+        <img class="team-photo gradient-mask" src="images/team_pic_2025.jpg" alt="Team Photo" data-aos="zoom-in" data-aos-duration="1000" />
+        <div class="achievements" data-aos="fade-up" data-aos-delay="200">
+          <div class="achievement" style="text-align: right" data-aos="fade-right" data-aos-delay="400">
+            <h2 class="position akira" data-aos="zoom-in" data-aos-delay="600">1<sup>st</sup></h2>
+            <p class="montserrat" data-aos="fade-up" data-aos-delay="800">In ASIA</p>
+            <p class="montserrat">URC 2022,<br />2023, 2024 <br> & 2025</p>
+            <p class="montserrat">ARC 2025</p>
+          </div>
+          <div class="achievement vertical-line"></div>
+          <div class="achievement" style="text-align: left">
+            <h2 class="position akira">3<sup>rd</sup></h2>
+            <p class="montserrat">In World</p>
+            <p class="montserrat">ARC 2022,<br> 2025</p>
+          </div>
+        </div>
+      </div>
+      <br />
+      <a class="button-5" href="achievements/achievements.html">
+        See Achievements
+      </a>
+    </div>
+    <div class="featured-sections" data-aos="fade-up" data-aos-duration="1000">
+      <h2 class="section-title akira" data-aos="fade-down">EXPLORE OUR JOURNEY</h2>
+      <div class="featured-card" data-aos="fade-right" data-aos-delay="200">
+        <div class="card-image">
+          <img src="images/rover_2023_1.jpg" alt="Mars Rover Project">
+        </div>
+        <div class="card-content">
+          <h3 class="akira">🚀 Our Projects</h3>
+          <p>Discover our innovative Mars rover designs and technological breakthroughs. From mechanical engineering to autonomous systems, explore how we're pushing the boundaries of space exploration with cutting-edge robotics.</p>
+          <a href="projects/projects.html" class="card-btn">
+            <i class="fas fa-rocket"></i> Explore Projects
+          </a>
+        </div>
+      </div>
+      <div class="featured-card" data-aos="fade-left" data-aos-delay="400">
+        <div class="card-image">
+          <img src="images/team_URC25.jpg" alt="Team Achievements">
+        </div>
+        <div class="card-content">
+          <h3 class="akira">🏆 Our Achievements</h3>
+          <p>First in Asia at URC for four consecutive years (2022-2025). Perfect score in Science Mission. Leading Bangladesh's presence in global space robotics competitions with consistent excellence.</p>
+          <a href="achievements/achievements.html" class="card-btn">
+            <i class="fas fa-trophy"></i> View Achievements
+          </a>
+        </div>
+      </div>
+      <div class="featured-card" data-aos="fade-up" data-aos-delay="600">
+        <div class="card-image">
+          <img src="images/team_ARC25.jpg" alt="Competition Success">
+        </div>
+        <div class="card-content">
+          <h3 class="akira">🌍 Global Competitions</h3>
+          <p>Participating and excelling in prestigious international competitions like URC, ARC, and ERC. Representing Bangladesh on the global stage and building international partnerships in space robotics.</p>
+          <a href="competition/competition.html" class="card-btn">
+            <i class="fas fa-globe"></i> View Competitions
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="background-2" data-aos="fade-up">
+      <div class="placeholder">
+        <h2 id="placeholder-text" class="akira" style="font-size: 3em; text-align: left" data-aos="fade-right" data-aos-duration="1000">
+          WE DREAM AT THE COSMIC SCALE
+        </h2>
+        <div class="carousel-container" data-aos="fade-up" data-aos-delay="200">
+          <div class="carousel-slides" data-aos="zoom-in" data-aos-delay="400">
+            <img src="images/team_2022_1.jpg" alt="Slide 1" />
+            <img src="images/team_2023_1.jpg" alt="Slide 2" />
+            <img src="images/team_2023_2.jpg" alt="Slide 3" />
+            <img src="images/team_2023_3.jpg" alt="Slide 4" />
+            <img src="images/team_2024_1.jpg" alt="Slide 6" />
+            <img src="images/team_URC25.jpg" alt="Slide 7" />
+            <img src="images/team_ARC25.jpg" alt="Slide 8" />
+          </div>
+          <button class="prev">&#10094;</button>
+          <button class="next">&#10095;</button>
+        </div>
+        <div class="dots"></div>
+      </div>
+      <div class="content-1" style="text-align: justify" data-aos="fade-up">
+        <h1 class="akira" data-aos="fade-right">OUR VISION</h1>
+        <p data-aos="fade-left">
+          The UIU Mars Rover Team, consisting of over 25 members from diverse
+          educational backgrounds, is dedicated to advancing space robotics
+          research in Bangladesh. Their mission is to develop high-quality
+          robotic systems and showcase them in esteemed international
+          competitions.
+        </p>
+        <p>
+          This commitment has led them to secure first place among Asian teams
+          at the University Rover Challenge (URC) for three consecutive
+          years—2022, 2023, 2024, and 2025.
+        </p>
+        <p>
+          Their consistent excellence underscores their dedication to
+          elevating Bangladesh's presence in the global space robotics arena.
+        </p>
+        <hr />
+        <a href="team/join_us.html" class="join-button">JOIN OUR JOURNEY!</a>
+      </div>
+    </div>
+    <div class="background-3" data-aos="fade-up">
+      <div class="video-bg" aria-hidden="true">
+        <video id="visionVideo" autoplay muted loop playsinline>
+          <source src="video/Mars/Mars4.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div id="visionOverlay" class="video-fade-overlay"></div>
+      </div>
+      <div class="text-content" data-aos="fade-up" data-aos-delay="100">
+        <div class="content-2" data-aos="fade-right" data-aos-delay="200">Media Out Storm After URC 2023</div>
+        <div class="content-3" data-aos="fade-left" data-aos-delay="300">
+          <p>
+            UIU Mars Rover Team achieved significant recognition after
+            securing first place among Asian teams at the University Rover
+            Challenge (URC) 2023 and 2024. Competing against 37 global
+            finalists from 10 countries.
+          </p>
+        </div>
+        <div class="box">
+          <i class="fas fa-quote-left fa2"></i>
+          <div class="text">
+            <i class="fas fa-quote-right fa1"></i>
+            <div>
+              <h3>What Medias Said...</h3>
+              <p>
+                The team's dedication and innovation have not only brought
+                pride to their university but also highlighted Bangladesh's
+                growing prominence in the field of space exploration.
+                <i><img style="width: 186px" src="images/Logo_of_The_Daily_Star.svg_white.png"
+                    alt="The Daily Star" /></i>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="media_logos" data-aos="fade-up">
+        <img src="images/AlokDia_logo.jpg" alt="" data-aos="zoom-in" data-aos-delay="100" />
+        <img src="images/Jamuna_TV_logo.svg.png" alt="" data-aos="zoom-in" data-aos-delay="200" />
+        <img src="images/Logo_Daily_Kalbela.png" alt="" data-aos="zoom-in" data-aos-delay="300" />
+        <img src="images/Logo_of_The_Daily_Star.svg.png" alt="" data-aos="zoom-in" data-aos-delay="400" />
+        <img src="images/Naya_Diganta.svg.png" alt="" data-aos="zoom-in" data-aos-delay="500" />
+        <img src="images/NTV_(Bangladesh)_logo.svg.png" alt="" data-aos="zoom-in" data-aos-delay="600" />
+        <img src="images/Prothom_Alo_logo.svg.png" alt="" data-aos="zoom-in" data-aos-delay="700" />
+        <img src="images/The_Business_Standard_logo.svg" alt="" data-aos="zoom-in" data-aos-delay="800" />
+      </div>
+      <div class="moving-photos">
+        <img src="images/BusinessStandard.png" alt="Photo 1" />
+        <img src="images/AlokDia.jpg" alt="Photo 2" />
+        <img src="images/google_tour.jpg" alt="Photo 3" />
+        <img src="images/prothomAlo.jpg" alt="Photo 4" />
+        <img src="images/prothomAlo1.jpg" alt="Photo 5" />
+        <img src="images/ProthomAlo_URC25.jpg" alt="Photo 6" />
+        <img src="images/ProthomAlo_ARC25.jpg" alt="Photo 7" />
+        <img src="images/Alokdia_ARC25.jpg" alt="Photo 8" />
+        <img src="images/AjkerPotrika-ARC25.jpg" alt="Photo 9" />
+        <img src="images/BusinessStandard.png" alt="Photo 1" />
+        <img src="images/AlokDia.jpg" alt="Photo 2" />
+        <img src="images/google_tour.jpg" alt="Photo 3" />
+        <img src="images/prothomAlo.jpg" alt="Photo 4" />
+        <img src="images/prothomAlo1.jpg" alt="Photo 5" />
+        <img src="images/ProthomAlo_URC25.jpg" alt="Photo 6" />
+        <img src="images/ProthomAlo_ARC25.jpg" alt="Photo 7" />
+        <img src="images/Alokdia_ARC25.jpg" alt="Photo 8" />
+        <img src="images/AjkerPotrika-ARC25.jpg" alt="Photo 9" />
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const vid = document.getElementById('visionVideo');
+        const overlay = document.getElementById('visionOverlay');
+        const FADE_MS = 1500; // match CSS 1.5s
+        function fadeOutOverlay() {
+          overlay.classList.add('fade-out'); // opacity -> 0
+        }
+        function fadeInOverlay() {
+          overlay.classList.remove('fade-out'); // opacity -> 1
+        }
+        // On metadata load or play, ensure we start with overlay visible, then fade out
+        function scheduleFades() {
+          if (!vid.duration || !isFinite(vid.duration)) return;
+          // Start fade out immediately (beginning of loop)
+          fadeOutOverlay();
+          // Schedule fade in 1.5s before end
+          const timeBeforeEnd = Math.max(0, vid.duration - FADE_MS / 1000);
+          // Clear any existing handlers by resetting current handlers via a small mechanism
+          // We'll use timeupdate to trigger fade-in instead of setTimeout to remain robust
+        }
+        // Use timeupdate to trigger fade-in near the end and fade-out at start
+        vid.addEventListener('timeupdate', function() {
+          if (!vid.duration || !isFinite(vid.duration)) return;
+          const t = vid.currentTime;
+          const d = vid.duration;
+          // If within first FADE_MS seconds -> ensure overlay is fading out
+          if (t <= FADE_MS / 1000) {
+            fadeOutOverlay();
+            return;
+          }
+          // If within last FADE_MS seconds -> ensure overlay fades in
+          if (t >= d - FADE_MS / 1000) {
+            fadeInOverlay();
+            return;
+          }
+        });
+        // On loop (ended then play because loop attribute) some browsers may not fire 'ended'
+        // Ensure on 'play' we fade out (start of loop)
+        vid.addEventListener('play', function() {
+          // Small timeout to allow play to settle
+          setTimeout(() => fadeOutOverlay(), 50);
+        });
+        // When metadata loaded, schedule initial fade-out
+        vid.addEventListener('loadedmetadata', function() {
+          // Start with overlay visible, then fade out
+          fadeInOverlay();
+          // Slight delay to let overlay be visible for an instant, then fade out
+          setTimeout(fadeOutOverlay, 50);
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const vid2 = document.getElementById('background4Video');
+        const overlay2 = document.getElementById('background4Overlay');
+        const FADE_MS2 = 1500;
+        function fadeOutOverlay2() {
+          overlay2.classList.add('fade-out');
+        }
+        function fadeInOverlay2() {
+          overlay2.classList.remove('fade-out');
+        }
+        vid2.addEventListener('timeupdate', function() {
+          if (!vid2.duration || !isFinite(vid2.duration)) return;
+          const t = vid2.currentTime;
+          const d = vid2.duration;
+          if (t <= FADE_MS2 / 1000) {
+            fadeOutOverlay2();
+            return;
+          }
+          if (t >= d - FADE_MS2 / 1000) {
+            fadeInOverlay2();
+            return;
+          }
+        });
+        vid2.addEventListener('play', function() { setTimeout(() => fadeOutOverlay2(), 50); });
+        vid2.addEventListener('loadedmetadata', function() { fadeInOverlay2(); setTimeout(fadeOutOverlay2, 50); });
+      });
+    </script>
+    <div class="background-4" data-aos="fade-up" data-aos-duration="1000">
+      <div class="video-bg" aria-hidden="true">
+        <video id="background4Video" autoplay muted loop playsinline>
+          <source src="video/Mars/Mars.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div id="background4Overlay" class="video-fade-overlay"></div>
+      </div>
+      <div class="container-4" data-aos="zoom-in" data-aos-delay="200">
+        <div class="competition-cards-container" data-aos="fade-up" data-aos-delay="400">
+          <div class="competition-card arc-card" data-aos="flip-up" data-aos-delay="600" data-aos-duration="800">
+            <div class="card-header">
+              <img src="images/ARC_logo.png" alt="ARC Logo" class="competition-logo" />
+              <h3 class="competition-title">ARC</h3>
+              <p class="competition-subtitle">Anatolian Rover Challenge</p>
+            </div>
+            <div class="card-content">
+              <p class="competition-description">
+                Prestigious international robotics competition focusing on lunar exploration and space robotics.
+                Teams compete in tasks simulating lunar surface operations and astronaut assistance.
+              </p>
+              <div class="achievement-highlight">
+                <span class="achievement-badge">🏆 3rd Globally</span>
+                <span class="achievement-badge">🥇 1st in Asia</span>
+              </div>
+            </div>
+            <div class="card-footer">
+              <a href="competition/arc.html" class="learn-more-btn">Learn More</a>
+            </div>
+          </div>
+          <div class="competition-card urc-card" data-aos="flip-up" data-aos-delay="800" data-aos-duration="800">
+            <div class="card-header">
+              <img src="images/URC_logo.png" alt="URC Logo" class="competition-logo" />
+              <h3 class="competition-title">URC</h3>
+              <p class="competition-subtitle">University Rover Challenge</p>
+            </div>
+            <div class="card-content">
+              <p class="competition-description">
+                World's premier robotics competition for college students. Teams design and build Mars rovers
+                to compete in field tests simulating real Mars exploration missions.
+              </p>
+              <div class="achievement-highlight">
+                <span class="achievement-badge">🏆 1st in Asia</span>
+                <span class="achievement-badge">⭐ Perfect Score</span>
+              </div>
+            </div>
+            <div class="card-footer">
+              <a href="competition/urc.html" class="learn-more-btn">Learn More</a>
+            </div>
+          </div>
+          <div class="competition-card erc-card" data-aos="flip-up" data-aos-delay="1000" data-aos-duration="800">
+            <div class="card-header">
+              <img src="images/ERC_logo.png" alt="ERC Logo" class="competition-logo" />
+              <h3 class="competition-title">ERC</h3>
+              <p class="competition-subtitle">European Rover Challenge</p>
+            </div>
+            <div class="card-content">
+              <p class="competition-description">
+                Annual international robotics competition in Poland featuring Marsyard tasks that closely
+                mimic real NASA/ESA missions, including probing and presentation challenges.
+              </p>
+              <div class="achievement-highlight">
+                <span class="achievement-badge">🌍 Global Presence</span>
+                <span class="achievement-badge">🔬 Scientific Excellence</span>
+              </div>
+            </div>
+            <div class="card-footer">
+              <a href="competition/erc.html" class="learn-more-btn">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <a href="sponsor/sponsor.html" class="btn"
+           data-aos="zoom-in"
+           data-aos-delay="1200"
+           data-aos-duration="800"
+           data-aos-anchor-placement="center-bottom">Become Sponsor!</a>
+      </div>
+    </div>
+    <footer data-aos="fade-up">
+      <div id="footer-earth-container" data-aos="zoom-in"></div>
+      <div class="footer-content">
+        <div class="footer-logo" data-aos="zoom-in" data-aos-delay="200"></div>
+        <div class="footer-main" data-aos="fade-up" data-aos-delay="400">
+          <div class="about">
+            <h3>About UMRT</h3>
+            <p>
+              The UIU Mars Rover Team (UMRT) is a group of passionate students
+              dedicated to designing and building the next generation of Mars
+              and Lunar rovers. We aim to push the boundaries of space
+              exploration and innovation.
+            </p>
+          </div>
+          <div class="contact-info">
+            <h3>Contact with us</h3>
+            <a href="tel:+8801796992356" class="contact-item">
+              <i class="fas fa-phone"></i> 880 1796-992356
+            </a>
+            <a href="mailto:marsrover@uiu.ac.bd" class="contact-item">
+              <i class="fas fa-envelope"></i> marsrover@uiu.ac.bd
+            </a>
+            <div class="social-links">
+              <a href="https://www.facebook.com/UIUMRT" target="_blank">
+                <i class="fab fa-facebook"></i>
+              </a>
+              <a href="https://www.linkedin.com/company/uiu-mars-rover-team-umrt/" target="_blank"><i
+                  class="fab fa-linkedin"></i>
+              </a>
+              <a href="https://www.youtube.com/@uiumarsrover" target="_blank">
+                <i class="fab fa-youtube"></i>
+              </a>
+              <a href="https://x.com/uiumarsrover" target="_blank">
+                <i class="fab fa-x-twitter"></i>
+              </a>
+              <a href="https://www.instagram.com/uiumarsrover/" target="_blank">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+          <div class="footer-links">
+            <h3>Quick Links</h3>
+            <a href="projects/projects.html" class="footer-link">Projects</a>
+            <a href="achievements/achievements.html" class="footer-link">Achievements</a>
+            <a href="our_mission/our_mission.html" class="footer-link">Our Mission</a>
+            <a href="advisors/advisors.html" class="footer-link">Advisors</a>
+            <a href="director/director.html" class="footer-link">Director</a>
+            <a href="team/member.html" class="footer-link">Members</a>
+            <a href="team/leadership.html" class="footer-link">Leadership</a>
+            <a href="video/videos.html" class="footer-link">Videos</a>
+            <a href="team/join_us.html" class="footer-link">Join Us</a>
+            <a href="sponsor/sponsor.html" class="footer-link">Become Sponsor!</a>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="webmaster-link-container">
+          <a href="webmaster.html" class="webmaster-link">
+            <i class="fas fa-code"></i>
+            <span>Meet Our Webmasters</span>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="scripts/navbar.js"></script>
+  <script src="scripts/congratsAnimation.js"></script>
+  <script src="scripts/earthFooter.js"></script>
+</body>
+<script>
+  let slideIndex = 0;
+  const slides = document.querySelector(".carousel-slides");
+  const totalSlides = slides.querySelectorAll("img").length;
+  const dotsContainer = document.querySelector(".dots");
+  // Generate dots dynamically
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    dot.setAttribute("onclick", `currentSlide(${i})`);
+    dotsContainer.appendChild(dot);
+  }
+  const dots = document.querySelectorAll(".dot");
+  function showSlide(index) {
+    if (index >= totalSlides) slideIndex = 0;
+    if (index < 0) slideIndex = totalSlides - 1;
+    slides.style.transform = `translateX(${-slideIndex * 100}%)`;
+    dots.forEach((dot) => dot.classList.remove("active"));
+    dots[slideIndex].classList.add("active");
+  }
+  function nextSlide() {
+    slideIndex++;
+    showSlide(slideIndex);
+  }
+  function prevSlide() {
+    slideIndex--;
+    showSlide(slideIndex);
+  }
+  function currentSlide(index) {
+    slideIndex = index;
+    showSlide(slideIndex);
+  }
+  function autoSlide() {
+    nextSlide();
+    setTimeout(autoSlide, 3000);
+  }
+  document.querySelector(".prev").addEventListener("click", prevSlide);
+  document.querySelector(".next").addEventListener("click", nextSlide);
+  showSlide(slideIndex);
+  setTimeout(autoSlide, 3000);
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const movingPhotos = document.querySelector(".moving-photos");
+    // Function to duplicate photos for seamless looping
+    function duplicatePhotos() {
+      const photos = movingPhotos.innerHTML;
+      movingPhotos.innerHTML = photos; // Duplicate the photos
+    }
+    duplicatePhotos(); // Call the function to duplicate photos
+  });
+</script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: false,
+    offset: 100,
+    easing: 'ease-in-out',
+    delay: 100,
+    mirror: true,
+    anchorPlacement: 'top-bottom'
+  });
+</script>
+<script>
+  // Mobile-specific enhancements
+  document.addEventListener('DOMContentLoaded', function() {
+    // Detect mobile device
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if (isMobile) {
+      // Mobile-optimized AOS settings
+      AOS.refresh();
+      // Touch-friendly interactions
+      document.body.classList.add('mobile-device');
+      // Optimize video playback for mobile
+      const videos = document.querySelectorAll('video');
+      videos.forEach(video => {
+        video.setAttribute('playsinline', '');
+        video.setAttribute('webkit-playsinline', '');
+        video.setAttribute('muted', '');
+      });
+      // Mobile-optimized scroll behavior
+      let ticking = false;
+      function updateScroll() {
+        if (!ticking) {
+          requestAnimationFrame(function() {
+            // Smooth scroll updates for mobile
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }
+      window.addEventListener('scroll', updateScroll, { passive: true });
+      // Mobile-optimized touch events
+      document.addEventListener('touchstart', function() {}, { passive: true });
+      document.addEventListener('touchmove', function() {}, { passive: true });
+      // Mobile-optimized dropdown behavior
+      const dropdowns = document.querySelectorAll('.competition-dropdown, .team-dropdown');
+      dropdowns.forEach(dropdown => {
+        const dropdownBtn = dropdown.querySelector('[id$="DropdownBtn"]');
+        const dropdownContent = dropdown.querySelector('[class$="dropdown-content"]');
+        if (dropdownBtn && dropdownContent) {
+          dropdownBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const isOpen = dropdownContent.style.display === 'block';
+            // Close all other dropdowns
+            dropdowns.forEach(otherDropdown => {
+              const otherContent = otherDropdown.querySelector('[class$="dropdown-content"]');
+              if (otherContent) {
+                otherContent.style.display = 'none';
+              }
+            });
+            // Toggle current dropdown
+            dropdownContent.style.display = isOpen ? 'none' : 'block';
+          });
+        }
+      });
+    }
+  });
+</script>
+</html>

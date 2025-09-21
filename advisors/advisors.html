@@ -25,68 +25,76 @@
 
 <body>
 
-  <!-- Background shape and elements -->
-  <div class="bg-container">
-    <div class="shape circle float-up-right"
-      style="top: 18vh; left: 15vw; width: 8vw; height: 8vw; background: #4A90E2;"></div>
-    <div class="shape rectangle float-up-right"
-      style="top: 72vh; left: 60vw; width: 10vw; height: 5vw; background: #50E3C2;"></div>
-    <div class="shape square float-up-left"
-      style="top: 85vh; left: 90vw; width: 8vw; height: 8vw; background: #9013feb4;"></div>
-    <div class="shape circle float-up-right"
-      style="top: 80vh; left: 24vw; width: 9vw; height: 9vw; background: #F5A623;"></div>
-    <div class="shape rectangle float-up-left"
-      style="top: 22vh; left: 70vw; width: 10vw; height: 5vw; background: #E43636;"></div>
-    <div class="shape circle float-down-left"
-      style="top: 35vh; left: 85vw; width: 10vw; height: 10vw; background: #415E72;"></div>
-    <div class="shape square float-down-left"
-      style="top: 30vh; left: 40vw; width: 7vw; height: 7vw; background: #BB6653;"></div>
-    <div class="shape circle float-up-left"
-      style="top: 60vh; left: 3vw; width: 12vw; height: 12vw; background: #D0021B;"></div>
-  </div>
+  <!-- Background with Earth image -->
+  <div class="bg-container"></div>
 
 
   <div class="content">
     <!-- Navigation bar -->
     <nav class="navbar montserrat">
-      <div class="logo-container">
-        <div class="logo"></div>
-        <div class="text">
-          <a href="../index.html" class="nav-link akira">UMRT</a>
+    <div class="logo-container">
+      <div class="logo"></div>
+      <div class="text">
+        <a href="../index.html" class="nav-link akira">UMRT</a>
+      </div>
+    </div>
+    <!-- Hamburger menu icon for mobile -->
+    <div class="menu-icon" id="menuIcon">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <div class="nav-links" id="navLinks">
+      <div class="close-icon" id="closeIcon">
+        <i class="fas fa-times"></i>
+      </div>
+      <a href="../index.html" class="nav-link nav-home-mobile">Home</a>
+      <a href="../projects/projects.html" class="nav-link">Projects</a>
+      <a href="../achievements/achievements.html" class="nav-link">Achievements</a>
+      <a href="../video/videos.html" class="nav-link">Videos</a>
+      <a href="../our_mission/our_mission.html" class="nav-link">Our Mission</a>
+
+      <div class="team-dropdown">
+        <a href="javascript:void(0);" class="nav-link" id="teamDropdownBtn">Team ▼</a>
+        <div class="team-dropdown-content">
+          <a href="advisors.html" class="dropdown-link">Advisors</a>
+          <a href="../director/director.html" class="dropdown-link">Director</a>
+          <a href="../team/member.html" class="dropdown-link">Members</a>
+          <a href="../team/leadership.html" class="dropdown-link">Leadership</a>
+          <a href="../team/join_us.html" class="dropdown-link">Join Us</a>
         </div>
       </div>
-      <!-- Hamburger menu icon for mobile -->
-      <div class="menu-icon" id="menuIcon">
-        <i class="fas fa-bars"></i>
-      </div>
 
-      <div class="nav-links" id="navLinks">
-        <div class="close-icon" id="closeIcon">
-          <i class="fas fa-times"></i>
+      <a href="../sponsor/sponsor.html" class="sponsor-btn">Become Sponsor!</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-background">
+      <div class="hero-overlay"></div>
+      <div class="floating-particles"></div>
+    </div>
+    <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+   
+      <div class="hero-stats">
+        <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+        
         </div>
-        <a href="../index.html" class="nav-link nav-home-mobile">Home</a>
-        <a href="../projects/projects.html" class="nav-link">Projects</a>
-        <a href="../achievements/achievements.html" class="nav-link">Achievements</a>
-        <a href="../video/videos.html" class="nav-link">Videos</a>
-        <a href="../our_mission/our_mission.html" class="nav-link">Our Mission</a>
-
-        <div class="team-dropdown">
-          <a href="javascript:void(0);" class="nav-link" id="teamDropdownBtn">Team ▼</a>
-          <div class="team-dropdown-content">
-            <a href="advisors.html" class="dropdown-link">Advisors</a>
-            <a href="../director/director.html" class="dropdown-link">Director</a>
-            <a href="../team/member.html" class="dropdown-link">Members</a>
-            <a href="../team/leadership.html" class="dropdown-link">Leadership</a>
-            <a href="../team/join_us.html" class="dropdown-link">Join Us</a>
-          </div>
+        <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+        
+          
         </div>
-
-        <a href="../sponsor/sponsor.html" class="sponsor-btn">Become Sponsor!</a>
+        <div class="stat-item" data-aos="fade-up" data-aos-delay="600">
+          <div class="stat-number"></div>
+       
+        </div>
+              </div>
       </div>
-    </nav>
+    </div>
+  </div>
 
     <div class="advisors-heading">
-      <h1>Our Esteemed Advisors</h1>
+      <h1>Our Advisors</h1>
     </div>
 
     <!-- Advisors Section -->
@@ -120,9 +128,9 @@
         </div>
         <div class="advisor-info">
           <h2>Prof Dr. Md. Abul Kashem Mia</h2>
-          <p>Team Advisor</p>
+          <p>Ex-Team Advisor</p>
           <p>
-            Vice-Chancellor & Professor, United International
+            Ex-Vice-Chancellor in Charge & Professor, United International
             University
           </p>
           <p>
@@ -329,7 +337,6 @@
 
   <script src="../scripts/earthFooter.js"></script>
   <script src="../scripts/navbar.js"></script>
-
 </body>
 
 </html>

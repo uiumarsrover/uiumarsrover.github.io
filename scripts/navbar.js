@@ -7,6 +7,29 @@ document.addEventListener("DOMContentLoaded", function() {
   const sponsorBtn = document.querySelector(".sponsor-btn");
   const MOBILE_BREAKPOINT = 970;
 
+  // Ensure Events nav link exists across pages
+  function ensureEventsLink() {
+    if (!navLinks) return;
+    const existing = navLinks.querySelector('a.nav-link[href$="events/events.html"], a.nav-link[href$="events.html"]');
+    if (existing) return;
+    const eventsLink = document.createElement('a');
+    eventsLink.href = (window.location.pathname.includes('/events/') ? './events.html' : 'events/events.html');
+    eventsLink.className = 'nav-link';
+    eventsLink.textContent = 'Events';
+    // Place between Videos and Our Mission
+    const videosLink = navLinks.querySelector('a.nav-link[href$="video/videos.html"]');
+    const ourMissionLink = navLinks.querySelector('a.nav-link[href$="our_mission/our_mission.html"]');
+    if (ourMissionLink) {
+      navLinks.insertBefore(eventsLink, ourMissionLink);
+    } else if (videosLink && videosLink.nextSibling) {
+      navLinks.insertBefore(eventsLink, videosLink.nextSibling);
+    } else if (sponsorBtn && sponsorBtn.parentElement === navLinks) {
+      navLinks.insertBefore(eventsLink, sponsorBtn);
+    } else {
+      navLinks.appendChild(eventsLink);
+    }
+  }
+
   // Move sponsor button to bottom in mobile view
   function adjustSponsorButton() {
     if (window.innerWidth <= MOBILE_BREAKPOINT) {
@@ -52,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Initialize
   adjustSponsorButton();
+  ensureEventsLink();
 
   // Event listeners
   menuIcon.addEventListener("click", () => toggleMobileMenu(true));
@@ -83,6 +107,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   window.addEventListener("resize", function() {
     adjustSponsorButton();
+    ensureEventsLink();
     if (window.innerWidth > MOBILE_BREAKPOINT) {
       toggleMobileMenu(false);
       if (teamDropdownContent) {
