@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function() {
   const closeIcon = document.getElementById("closeIcon");
   const teamDropdownBtn = document.getElementById("teamDropdownBtn");
   const teamDropdownContent = document.querySelector(".team-dropdown-content");
+  const competitionDropdownBtn = document.getElementById("competitionDropdownBtn");
+  const competitionDropdownContent = document.querySelector(".competition-dropdown-content");
   const sponsorBtn = document.querySelector(".sponsor-btn");
   const MOBILE_BREAKPOINT = 970;
 
@@ -47,29 +49,80 @@ document.addEventListener("DOMContentLoaded", function() {
       navLinks.classList.add("active");
       menuIcon.classList.add("hide");
       document.body.classList.add("no-scroll");
+      
+      // Add opening animation
+      navLinks.style.animation = 'slideInRight 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards';
     } else {
-      navLinks.classList.remove("active");
-      menuIcon.classList.remove("hide");
-      document.body.classList.remove("no-scroll");
-      // Close dropdown when closing menu
-      if (teamDropdownContent) {
-        teamDropdownContent.classList.remove("active");
-      }
+      // Add closing animation
+      navLinks.style.animation = 'slideOutRight 0.3s ease-in forwards';
+      
+      setTimeout(() => {
+        navLinks.classList.remove("active");
+        navLinks.style.animation = '';
+        menuIcon.classList.remove("hide");
+        document.body.classList.remove("no-scroll");
+        
+        // Close all dropdowns when closing menu
+        document.querySelectorAll('.team-dropdown-content, .competition-dropdown-content').forEach(dropdown => {
+          dropdown.classList.remove("active");
+          dropdown.style.animation = '';
+        });
+        
+        // Remove active class from all dropdown buttons
+        document.querySelectorAll('.team-dropdown .nav-link, .competition-dropdown .nav-link').forEach(btn => {
+          btn.classList.remove("active");
+        });
+      }, 300);
     }
   }
 
-  // Handle team dropdown click
-  function handleTeamDropdownClick(e) {
+  // Handle dropdown click (both team and competition)
+  function handleDropdownClick(e, dropdownContent, dropdownBtn) {
     if (window.innerWidth <= MOBILE_BREAKPOINT) {
       e.preventDefault();
       e.stopPropagation();
-      // Close all other dropdowns first if needed
-      document.querySelectorAll('.dropdown-content').forEach(dropdown => {
-        if (dropdown !== teamDropdownContent) {
+      
+      // Close all other dropdowns first
+      document.querySelectorAll('.team-dropdown-content, .competition-dropdown-content').forEach(dropdown => {
+        if (dropdown !== dropdownContent) {
           dropdown.classList.remove("active");
+          // Add closing animation
+          dropdown.style.animation = 'fadeOut 0.3s ease-out forwards';
+          setTimeout(() => {
+            dropdown.style.animation = '';
+          }, 300);
         }
       });
-      teamDropdownContent.classList.toggle("active");
+      
+      // Remove active class from all dropdown buttons
+      document.querySelectorAll('.team-dropdown .nav-link, .competition-dropdown .nav-link').forEach(btn => {
+        btn.classList.remove("active");
+      });
+      
+      const isActive = dropdownContent.classList.contains("active");
+      
+      if (isActive) {
+        // Closing dropdown
+        dropdownContent.style.animation = 'fadeOut 0.3s ease-out forwards';
+        setTimeout(() => {
+          dropdownContent.classList.remove("active");
+          dropdownContent.style.animation = '';
+        }, 300);
+        dropdownBtn.classList.remove("active");
+      } else {
+        // Opening dropdown
+        dropdownContent.classList.add("active");
+        dropdownContent.style.animation = 'slideDownMobile 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards';
+        dropdownBtn.classList.add("active");
+        
+        // Scroll dropdown into view if needed
+        setTimeout(() => {
+          dropdownContent.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'nearest' 
+          });
+        }, 100);
+      }
     }
   }
 
@@ -78,9 +131,17 @@ document.addEventListener("DOMContentLoaded", function() {
   ensureEventsLink();
 
   // Event listeners
-  menuIcon.addEventListener("click", () => toggleMobileMenu(true));
-  closeIcon.addEventListener("click", () => toggleMobileMenu(false));
+  menuIcon.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleMobileMenu(true);
+  });
   
+  closeIcon.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleMobileMenu(false);
+  });
+  
+  // Close menu when clicking outside
   document.addEventListener("click", function(e) {
     if (navLinks.classList.contains("active") && 
         !navLinks.contains(e.target) && 
@@ -88,17 +149,41 @@ document.addEventListener("DOMContentLoaded", function() {
       toggleMobileMenu(false);
     }
   });
+  
+  // Close menu when pressing escape key
+  document.addEventListener("keydown", function(e) {
+    if (e.key === 'Escape' && navLinks.classList.contains("active")) {
+      toggleMobileMenu(false);
+    }
+  });
+  
+  // Prevent body scroll when menu is open
+  document.addEventListener("touchmove", function(e) {
+    if (navLinks.classList.contains("active")) {
+      e.preventDefault();
+    }
+  }, { passive: false });
 
+  // Team dropdown event listeners
   if (teamDropdownBtn && teamDropdownContent) {
     teamDropdownBtn.addEventListener("click", function (e) {
-      if (window.innerWidth <= 970) {
-        e.preventDefault();
-        e.stopPropagation();
-        teamDropdownContent.classList.toggle("active");
-      }
+      handleDropdownClick(e, teamDropdownContent, teamDropdownBtn);
     });
 
     teamDropdownContent.addEventListener("click", function (e) {
+      if (window.innerWidth <= 970) {
+        e.stopPropagation();
+      }
+    });
+  }
+
+  // Competition dropdown event listeners
+  if (competitionDropdownBtn && competitionDropdownContent) {
+    competitionDropdownBtn.addEventListener("click", function (e) {
+      handleDropdownClick(e, competitionDropdownContent, competitionDropdownBtn);
+    });
+
+    competitionDropdownContent.addEventListener("click", function (e) {
       if (window.innerWidth <= 970) {
         e.stopPropagation();
       }
@@ -110,9 +195,14 @@ document.addEventListener("DOMContentLoaded", function() {
     ensureEventsLink();
     if (window.innerWidth > MOBILE_BREAKPOINT) {
       toggleMobileMenu(false);
-      if (teamDropdownContent) {
-        teamDropdownContent.classList.remove("active");
-      }
+      // Close all dropdowns when switching to desktop
+      document.querySelectorAll('.team-dropdown-content, .competition-dropdown-content').forEach(dropdown => {
+        dropdown.classList.remove("active");
+      });
+      // Remove active class from all dropdown buttons
+      document.querySelectorAll('.team-dropdown .nav-link, .competition-dropdown .nav-link').forEach(btn => {
+        btn.classList.remove("active");
+      });
     }
   });
 });
