@@ -2,6 +2,10 @@ document.addEventListener("DOMContentLoaded", function() {
   const menuIcon = document.getElementById("menuIcon");
   const navLinks = document.getElementById("navLinks");
   const closeIcon = document.getElementById("closeIcon");
+  const teamDropdownBtn = document.getElementById("teamDropdownBtn");
+  const teamDropdownContent = document.querySelector(".team-dropdown-content");
+  const competitionDropdownBtn = document.getElementById("competitionDropdownBtn");
+  const competitionDropdownContent = document.querySelector(".competition-dropdown-content");
   const sponsorBtn = document.querySelector(".sponsor-btn");
   const MOBILE_BREAKPOINT = 970;
 
@@ -59,10 +63,72 @@ document.addEventListener("DOMContentLoaded", function() {
         navLinks.style.animation = '';
         menuIcon.classList.remove("hide");
         document.body.classList.remove("no-scroll");
+        
+        // Close all dropdowns when closing menu
+        document.querySelectorAll('.team-dropdown-content, .competition-dropdown-content').forEach(dropdown => {
+          dropdown.classList.remove("active");
+          dropdown.style.animation = '';
+        });
+        
+        // Remove active class from all dropdown buttons
+        document.querySelectorAll('.team-dropdown .nav-link, .competition-dropdown .nav-link').forEach(btn => {
+          btn.classList.remove("active");
+        });
       }, 250);
     }
   }
 
+  // Handle dropdown click (both team and competition)
+  function handleDropdownClick(e, dropdownContent, dropdownBtn) {
+    if (window.innerWidth <= MOBILE_BREAKPOINT) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      // Close all other dropdowns first
+      document.querySelectorAll('.team-dropdown-content, .competition-dropdown-content').forEach(dropdown => {
+        if (dropdown !== dropdownContent) {
+          dropdown.classList.remove("active");
+          // Add smooth closing animation
+          dropdown.style.animation = 'fadeOut 0.25s cubic-bezier(0.55, 0.06, 0.68, 0.19) forwards';
+          setTimeout(() => {
+            dropdown.style.animation = '';
+          }, 250);
+        }
+      });
+      
+      // Remove active class from all dropdown buttons
+      document.querySelectorAll('.team-dropdown .nav-link, .competition-dropdown .nav-link').forEach(btn => {
+        btn.classList.remove("active");
+      });
+      
+      const isActive = dropdownContent.classList.contains("active");
+      
+      if (isActive) {
+        // Closing dropdown with smooth animation
+        dropdownContent.style.animation = 'fadeOut 0.25s cubic-bezier(0.55, 0.06, 0.68, 0.19) forwards';
+        setTimeout(() => {
+          dropdownContent.classList.remove("active");
+          dropdownContent.style.animation = '';
+        }, 250);
+        dropdownBtn.classList.remove("active");
+      } else {
+        // Opening dropdown with smooth animation
+        dropdownContent.classList.add("active");
+        requestAnimationFrame(() => {
+          dropdownContent.style.animation = 'slideDownMobile 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards';
+        });
+        dropdownBtn.classList.add("active");
+        
+        // Scroll dropdown into view if needed
+        setTimeout(() => {
+          dropdownContent.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'nearest' 
+          });
+        }, 50);
+      }
+    }
+  }
 
   // Initialize
   adjustSponsorButton();
@@ -111,9 +177,43 @@ document.addEventListener("DOMContentLoaded", function() {
       ensureEventsLink();
       if (window.innerWidth > MOBILE_BREAKPOINT) {
         toggleMobileMenu(false);
+        // Close all dropdowns when switching to desktop
+        document.querySelectorAll('.team-dropdown-content, .competition-dropdown-content').forEach(dropdown => {
+          dropdown.classList.remove("active");
+          dropdown.style.animation = '';
+        });
+        // Remove active class from all dropdown buttons
+        document.querySelectorAll('.team-dropdown .nav-link, .competition-dropdown .nav-link').forEach(btn => {
+          btn.classList.remove("active");
+        });
       }
     }, 100);
   });
 
+  // Team dropdown event listeners
+  if (teamDropdownBtn && teamDropdownContent) {
+    teamDropdownBtn.addEventListener("click", function (e) {
+      handleDropdownClick(e, teamDropdownContent, teamDropdownBtn);
+    });
+
+    teamDropdownContent.addEventListener("click", function (e) {
+      if (window.innerWidth <= 970) {
+        e.stopPropagation();
+      }
+    });
+  }
+
+  // Competition dropdown event listeners
+  if (competitionDropdownBtn && competitionDropdownContent) {
+    competitionDropdownBtn.addEventListener("click", function (e) {
+      handleDropdownClick(e, competitionDropdownContent, competitionDropdownBtn);
+    });
+
+    competitionDropdownContent.addEventListener("click", function (e) {
+      if (window.innerWidth <= 970) {
+        e.stopPropagation();
+      }
+    });
+  }
 
 });
