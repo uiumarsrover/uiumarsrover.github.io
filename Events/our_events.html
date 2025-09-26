@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events - UMRT</title>
+  <link rel="icon" href="../images/umrt_logo.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../css/navbar.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+  <style>
+    :root { --accent1: #ff6b35; --accent2: #f7931e; }
+    body { font-family: Montserrat, sans-serif; background: #0b0b0c; color: #eaecef; }
+    .events-page { max-width: 1100px; margin: 0 auto; padding: 24px; }
+    .page-title { font-family: "AkiraExpanded", sans-serif; text-align: center; margin: 16px 0 28px; color: #fff; }
+    .page-title:after { content: ""; display: block; width: 120px; height: 3px; margin: 10px auto 0; background: linear-gradient(90deg, var(--accent1), var(--accent2)); border-radius: 2px; opacity: .85; }
+    .event-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,153,0,0.18); border-radius: 16px; padding: 24px; margin: 24px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.35); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+    .event-card:hover { transform: translateY(-3px); box-shadow: 0 16px 36px rgba(0,0,0,0.45); border-color: rgba(255,153,0,0.32); }
+    .event-title { margin: 0 0 16px; font-size: 22px; color: #fff; letter-spacing: .2px; }
+    .event-content { display: grid; grid-template-columns: 320px 1fr; gap: 24px; align-items: start; }
+    .event-media { width: 100%; }
+    .event-image { width: 100%; height: 316px; object-fit: cover; border-radius: 12px; box-shadow: 0 8px 18px rgba(0,0,0,0.4); transition: transform .25s ease, box-shadow .25s ease; }
+    .event-media:hover .event-image { transform: scale(1.02); box-shadow: 0 12px 22px rgba(0,0,0,0.5); }
+    .event-body { width: 100%; }
+    .event-text { margin: 0 0 12px; line-height: 1.75; color: #e6e9f0; }
+    .event-body .event-text:last-child { margin-bottom: 0; }
+    /* Alternating layout for visual rhythm */
+    .events-page .event-card:nth-child(even) .event-content { direction: rtl; }
+    .events-page .event-card:nth-child(even) .event-media,
+    .events-page .event-card:nth-child(even) .event-body { direction: ltr; }
+    /* Reveal animation */
+    .reveal { opacity: 0; transform: translateY(24px); }
+    .reveal.show { opacity: 1; transform: translateY(0); transition: opacity .7s ease, transform .7s ease; }
+    .event-card.reveal.show { transition-delay: .05s; }
+    /* Responsive */
+    @media (max-width: 1024px) { .event-content { grid-template-columns: 280px 1fr; gap: 20px; } }
+    @media (max-width: 768px) { .event-content { grid-template-columns: 1fr; } }
+    @media (max-width: 480px) { .events-page { padding: 16px; } .event-title { font-size: 20px; } }
+  </style>
+</head>
+<body>
+  <nav class="navbar montserrat">
+    <div class="logo-container">
+      <div class="logo"></div>
+      <div class="text"><a href="../index.html" class="nav-link akira">UMRT</a></div>
+    </div>
+    <div class="menu-icon" id="menuIcon"><i class="fas fa-bars"></i></div>
+    <div class="nav-links" id="navLinks">
+      <div class="close-icon" id="closeIcon"><i class="fas fa-times"></i></div>
+      <a href="../index.html" class="nav-link nav-home-mobile">Home</a>
+      <a href="../projects/projects.html" class="nav-link">Projects</a>
+      <a href="../achievements/achievements.html" class="nav-link">Achievements</a>
+      <a href="../video/videos.html" class="nav-link">Videos</a>
+      <a href="../our_mission/our_mission.html" class="nav-link">Our Mission</a>
+      <div class="team-dropdown">
+        <a href="javascript:void(0);" class="nav-link" id="teamDropdownBtn">Team ▼</a>
+        <div class="team-dropdown-content">
+          <a href="../advisors/advisors.html" class="dropdown-link">Advisors</a>
+          <a href="../director/director.html" class="dropdown-link">Director</a>
+          <a href="../team/member.html" class="dropdown-link">Members</a>
+          <a href="../team/leadership.html" class="dropdown-link">Leadership</a>
+          <a href="../team/join_us.html" class="dropdown-link">Join Us</a>
+        </div>
+      </div>
+      <a href="../sponsor/sponsor.html" class="sponsor-btn">Become Sponsor!</a>
+    </div>
+  </nav>
+
+  <main class="events-page">
+    <h1 class="page-title">Events</h1>
+
+    <section class="event-card reveal">
+      <h2 class="event-title">Space Innovation Camp Bangladesh</h2>
+      <div class="event-content">
+        <div class="event-media">
+          <img src="../Events/Space Innovation Camp Bangladesh..jpg" alt="Space Innovation Camp Bangladesh" class="event-image" />
+        </div>
+        <div class="event-body">
+          <p class="event-text">The UIU Mars Rover Team had the joy of hosting the Astro Robotics Team from Space Innovation Camp Bangladesh. We were honored to have with us Prof. Emeritus Dr. M. Rezwan Khan, Director of the Institute for Advanced Research, Dr. Hasan Sarwar, Dean of the School of Science and Engineering, and Mr. Ariful Hasan Opu, President of Space Innovation Camp Bangladesh, who inspired the young participants with their valuable words.</p>
+          <p class="event-text">The Astro Robotics Team explored our lab, learned about our journey in building world-class rovers, and engaged in an exciting Q&amp;A session. Our mentor, Md Abid Hossain, shared the story of our team along with other members, encouraging the students to dream bigger in robotics and space exploration.</p>
+          <p class="event-text">Their curiosity, energy, and passion for innovation reminded us why the future of space exploration in Bangladesh is so promising. We are proud to share our story with the next generation of innovators and look forward to seeing where their journey takes them!</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="event-card reveal">
+      <h2 class="event-title">ArcaNoca 251 Workshop</h2>
+      <div class="event-content">
+        <div class="event-media">
+          <img src="../Events/ArcaNoca.jpg" alt="ArcaNoca 251 Workshop" class="event-image" />
+        </div>
+        <div class="event-body">
+          <p class="event-text">UIU Robotics &amp; UIU Mars Rover Team collaborated for an engaging and exciting IoT &amp; Robotics Workshop "ArcaNoca 251" for all the student members of UIU Robotics. This workshop's goal was to kickstart students' journey into robotics and IoT hardware, and we were excited to demonstrate our rover AXIOS at the workshop. It was a fun and exciting day. Here are some glimpses from the event.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="event-card reveal">
+      <h2 class="event-title">Bangladesh Space Olympiad 2025 – Final Round at AIUB</h2>
+      <div class="event-content">
+        <div class="event-media">
+          <img src="../Events/Bangladesh Space Olympiad 2025.jpg" alt="Bangladesh Space Olympiad 2025" class="event-image" />
+        </div>
+        <div class="event-body">
+          <p class="event-text">The Final Round of the Bangladesh Space Olympiad 2025 at AIUB was not just about competition, but about connection. Members of GUB Mars Rover Team, BRACU Mongol Tori, MIST Mongol Barota, and UIU Mars Rover Team came together for a group photo that symbolizes something greater — a growing community of passionate innovators dedicated to advancing space exploration in Bangladesh.</p>
+          <p class="event-text">Together, we are not just building rovers; we are building a community driven by knowledge, collaboration, and a shared vision for the future.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="event-card reveal">
+      <h2 class="event-title">Meet the Champions – UIU</h2>
+      <div class="event-content">
+        <div class="event-media">
+          <img src="../Events/Meet the Champions.jpg" alt="Meet the Champions" class="event-image" />
+        </div>
+        <div class="event-body">
+          <p class="event-text">United International University (UIU) celebrated its globally acclaimed student teams on 9 August 2025 with a vibrant event titled “Meet the Champions,” organised by the UIU APP Forum and supported by the Directorate of Career Counselling and Student Affairs (DCCSA). Photos: Courtesy.</p>
+          <p class="event-text">Link in comment.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="event-card reveal">
+      <h2 class="event-title">Bangladesh Space Olympiad 2025 – Selection Round at SAGC</h2>
+      <div class="event-content">
+        <div class="event-media">
+          <img src="../Events/Bangladesh Space Olympiad 2025 .jpg" alt="Bangladesh Space Olympiad 2025 Selection Round" class="event-image" />
+        </div>
+        <div class="event-body">
+          <p class="event-text">What an incredible day with the bright young minds of Shaheed Bir Uttam Lt. Anwar Girls’ School &amp; College! The Selection Round of the Bangladesh Space Olympiad 2025 — organized by the Bangladesh Space Research Society — was filled with curiosity, energy, and inspiration for the future of space exploration. Thanks to the SAGC Photography Club for these amazing photos.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div id="footer-earth-container"></div>
+    <div class="footer-content">
+      <div class="footer-logo"></div>
+      <div class="footer-main">
+        <div class="about">
+          <h3>About UMRT</h3>
+          <p>The UIU Mars Rover Team (UMRT) is a group of passionate students dedicated to designing and building the next generation of Mars and Lunar rovers. We aim to push the boundaries of space exploration and innovation.</p>
+        </div>
+        <div class="contact-info">
+          <h3>Contact with us</h3>
+          <a href="tel:+8801796992356" class="contact-item"><i class="fas fa-phone"></i> +880 1796-992356</a>
+          <a href="mailto:marsrover@uiu.ac.bd" class="contact-item"><i class="fas fa-envelope"></i> marsrover@uiu.ac.bd</a>
+          <div class="social-links">
+            <a href="https://www.facebook.com/UIUMRT" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.linkedin.com/company/uiu-mars-rover-team-umrt/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.youtube.com/@uiumarsrover" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://x.com/uiumarsrover" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/uiumarsrover/" target="_blank"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <a href="../projects/projects.html" class="footer-link">Projects</a>
+          <a href="../achievements/achievements.html" class="footer-link">Achievements</a>
+          <a href="../our_mission/our_mission.html" class="footer-link">Our Mission</a>
+          <a href="../advisors/advisors.html" class="footer-link">Advisors</a>
+          <a href="../director/director.html" class="footer-link">Director</a>
+          <a href="../team/member.html" class="footer-link">Members</a>
+          <a href="../team/leadership.html" class="footer-link">Leadership</a>
+          <a href="../video/videos.html" class="footer-link">Videos</a>
+          <a href="../team/join_us.html" class="footer-link">Join Us</a>
+          <a href="../sponsor/sponsor.html" class="footer-link">Become Sponsor!</a>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="webmaster-link-container">
+        <a href="../webmaster.html" class="webmaster-link"><i class="fas fa-code"></i><span>Meet Our Webmasters</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r120/three.min.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/141228/OrbitControls.js"></script>
+  <script src="../scripts/earthFooter.js"></script>
+  <script src="../scripts/navbar.js"></script>
+  <script>
+    // Intersection Observer for reveal animations
+    (function() {
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      reveals.forEach(el => observer.observe(el));
+    })();
+  </script>
+</body>
+</html>
+
+

@@ -1,0 +1,625 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+@font-face {
+    font-family: "AkiraExpanded";
+    src: url("../font/Akira\ Expanded\ Demo.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "mars";
+    src: url(../font/Mars.woff) format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.montserrat {
+    font-family: "Montserrat", sans-serif;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 20, 20, 0.98) 50%, rgba(0, 0, 0, 0.95) 100%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 153, 0, 0.2);
+    box-shadow: 0 2px 20px rgba(255, 153, 0, 0.1);
+    position: relative;
+    z-index: 1000;
+}
+
+/* Add subtle Mars-themed overlay */
+nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 80% 30%, rgba(255, 107, 53, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 20% 70%, rgba(247, 147, 30, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.logo-container:hover {
+    transform: scale(1.05);
+}
+
+.logo {
+    width: 3.25rem;
+    height: 3.25rem;
+    background-image: url("../images/umrt_logo.png");
+    background-size: cover;
+    margin-right: 5px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0 0 0 2px transparent;
+}
+
+.logo:hover {
+    box-shadow: 0 0 0 2px rgba(255, 153, 0, 0.4), 0 0 20px rgba(255, 153, 0, 0.2);
+    filter: brightness(1.1);
+}
+
+/* Add glowing effect to logo */
+.logo::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ff6b35, #f7931e, #ff9900);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.logo:hover::after {
+    opacity: 0.3;
+}
+
+.akira {
+    font-family: "AkiraExpanded", sans-serif;
+}
+
+.text {
+    font-size: 2.25rem;
+    font-family: "AkiraExpanded", sans-serif;
+    font-weight: bold;
+    position: relative;
+}
+
+.text a {
+    background: linear-gradient(45deg, #ff7e5f, #feb47b, #ff9900);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 3s ease-in-out infinite;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+.text a:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 20px rgba(255, 153, 0, 0.3);
+}
+
+/* Gradient animation for UMRT text */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-family: "Montserrat", sans-serif;
+}
+
+/* Hide Home on desktop, show on mobile */
+.nav-home-mobile {
+    display: none;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover {
+    color: #ff9900;
+    background: rgba(255, 153, 0, 0.1);
+    transform: translateY(-2px);
+    text-shadow: 0 0 10px rgba(255, 153, 0, 0.3);
+}
+
+.nav-link:hover::before {
+    width: 80%;
+}
+
+.competition-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.team-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.competition-dropdown-content {
+    display: none;
+    position: absolute;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 20, 20, 0.98) 100%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    min-width: 180px;
+    border: 1px solid rgba(255, 153, 0, 0.3);
+    border-radius: 12px;
+    padding: 0.5rem 0;
+    z-index: 2;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 4px 15px rgba(255, 153, 0, 0.1);
+    top: 100%;
+    left: 0;
+    margin-top: 0.5rem;
+    animation: slideDown 0.3s ease-out;
+}
+
+.team-dropdown-content {
+    display: none;
+    position: absolute;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 20, 20, 0.98) 100%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    min-width: 180px;
+    border: 1px solid rgba(255, 153, 0, 0.3);
+    border-radius: 12px;
+    padding: 0.5rem 0;
+    z-index: 2;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 4px 15px rgba(255, 153, 0, 0.1);
+    top: 100%;
+    left: 0;
+    margin-top: 0.5rem;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.competition-dropdown:hover .competition-dropdown-content {
+    display: block;
+}
+
+.team-dropdown:hover .team-dropdown-content {
+    display: block;
+}
+
+.dropdown-link {
+    display: block;
+    padding: 0.75rem 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+}
+
+.dropdown-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, #ff6b35, #f7931e);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.dropdown-link:hover {
+    background: rgba(255, 153, 0, 0.15);
+    color: #ff9900;
+    transform: translateX(5px);
+    text-shadow: 0 0 8px rgba(255, 153, 0, 0.3);
+}
+
+.dropdown-link:hover::before {
+    transform: scaleY(1);
+}
+
+.sponsor-btn {
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+.sponsor-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.sponsor-btn:hover {
+    background: linear-gradient(45deg, #ff5722, #ff9800);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+}
+
+.sponsor-btn:hover::before {
+    left: 100%;
+}
+
+.sponsor-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(255, 107, 53, 0.3);
+}
+
+/* Hamburger menu styles */
+.menu-icon {
+    display: none;
+    font-size: 2rem;
+    color: #ff9900;
+    cursor: pointer;
+    z-index: 3;
+    transition: all 0.3s ease;
+    padding: 0.5rem;
+    border-radius: 8px;
+    background: rgba(255, 153, 0, 0.1);
+    border: 1px solid rgba(255, 153, 0, 0.3);
+}
+
+.menu-icon:hover {
+    color: #ff6b35;
+    background: rgba(255, 153, 0, 0.2);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 153, 0, 0.3);
+}
+
+.close-icon {
+    display: none;
+    font-size: 2rem;
+    color: #ff9900;
+    cursor: pointer;
+    position: absolute;
+    top: 1.2rem;
+    right: 1.5rem;
+    z-index: 4;
+    transition: all 0.3s ease;
+    padding: 0.5rem;
+    border-radius: 50%;
+    background: rgba(255, 153, 0, 0.1);
+    border: 1px solid rgba(255, 153, 0, 0.3);
+}
+
+.close-icon:hover {
+    color: #ff6b35;
+    background: rgba(255, 153, 0, 0.2);
+    transform: scale(1.1) rotate(90deg);
+    box-shadow: 0 0 15px rgba(255, 153, 0, 0.3);
+}
+
+.menu-icon.hide {
+    display: none !important;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    .nav-links {
+        gap: 1.5rem;
+    }
+    .text {
+        font-size: 2.2rem;
+    }
+    .logo {
+        width: 3rem;
+        height: 3rem;
+    }
+}
+
+/* Show dropdown on hover for desktop */
+@media (min-width: 971px) {
+    .competition-dropdown-content {
+        display: none;
+        position: absolute;
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 20, 20, 0.98) 100%);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        min-width: 180px;
+        border: 1px solid rgba(255, 153, 0, 0.3);
+        border-radius: 12px;
+        padding: 0.5rem 0;
+        z-index: 6;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 4px 15px rgba(255, 153, 0, 0.1);
+        top: 100%;
+        left: 0;
+        margin-top: 0.5rem;
+        animation: slideDown 0.3s ease-out;
+    }
+
+    .competition-dropdown:hover .competition-dropdown-content {
+        display: block;
+    }
+
+    .team-dropdown-content {
+        display: none;
+        position: absolute;
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 20, 20, 0.98) 100%);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        min-width: 180px;
+        border: 1px solid rgba(255, 153, 0, 0.3);
+        border-radius: 12px;
+        padding: 0.5rem 0;
+        z-index: 6;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 4px 15px rgba(255, 153, 0, 0.1);
+        top: 100%;
+        left: 0;
+        margin-top: 0.5rem;
+        animation: slideDown 0.3s ease-out;
+    }
+
+    .team-dropdown:hover .team-dropdown-content {
+        display: block;
+    }
+}
+
+@media (max-width: 970px) {
+    nav {
+        position: relative;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-top: 4rem;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70vw;
+        max-width: 320px;
+        height: 100vh;
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.98) 0%, rgba(20, 20, 20, 0.95) 50%, rgba(10, 10, 10, 0.98) 100%);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-left: 1px solid rgba(255, 153, 0, 0.2);
+        gap: 1.5rem;
+        transition: right 0.4s ease-in-out;
+        box-shadow: -8px 0 25px rgba(0, 0, 0, 0.3), -4px 0 15px rgba(255, 153, 0, 0.1);
+        z-index: 5;
+        padding: 2.5rem 2rem 2rem 2rem;
+    }
+    
+    /* Add subtle Mars-themed overlay for mobile menu */
+    .nav-links::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 70% 30%, rgba(255, 107, 53, 0.08) 0%, transparent 50%),
+                    radial-gradient(circle at 30% 70%, rgba(247, 147, 30, 0.05) 0%, transparent 50%);
+        pointer-events: none;
+        z-index: -1;
+    }
+    .nav-links.open {
+        right: 0;
+    }
+
+    .nav-home-mobile {
+        display: block;
+    }
+
+    .close-icon {
+        display: block;
+    }
+
+    .nav-links .nav-link,
+    .nav-links .competition-dropdown,
+    .nav-links .team-dropdown,
+    .nav-links .sponsor-btn {
+        width: 100%;
+    }
+
+    .logo-container {
+        flex: 1;
+    }
+    .text {
+        font-size: 2rem;
+    }
+    .logo {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    
+    /* Ensure mobile menu items have proper spacing */
+    .nav-links .nav-link {
+        padding: 0.75rem 1rem;
+        margin: 0.25rem 0;
+        border-radius: 8px;
+        width: 100%;
+    }
+
+    .sponsor-btn {
+        order: 1;
+        margin-top: auto;
+        margin-bottom: 2rem;
+        width: calc(100% - 2rem);
+        text-align: center;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        border-radius: 30px;
+        background: linear-gradient(45deg, #ff6b35, #f7931e);
+        box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+        transition: all 0.3s ease;
+    }
+    
+    .sponsor-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(255, 107, 53, 0.5);
+    }
+
+    .competition-dropdown-content {
+        display: none !important;
+        position: static;
+        background: rgba(255, 153, 0, 0.1);
+        border: 1px solid rgba(255, 153, 0, 0.2);
+        border-radius: 8px;
+        box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        padding: 0.5rem 0;
+        margin-top: 0.5rem;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+    .team-dropdown-content {
+        display: none !important;
+        position: static;
+        background: rgba(255, 153, 0, 0.1);
+        border: 1px solid rgba(255, 153, 0, 0.2);
+        border-radius: 8px;
+        box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        padding: 0.5rem 0;
+        margin-top: 0.5rem;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+    .team-dropdown-content.mobile-open {
+        display: block !important;
+        animation: fadeIn .3s ease-in;
+    }
+
+    .competition-dropdown:hover .competition-dropdown-content {
+        display: none;
+    }
+
+    .team-dropdown:hover .team-dropdown-content {
+        display: none;
+    }
+
+    .menu-icon {
+        display: block;
+        position: absolute;
+        right: 2rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .dropdown-link {
+        padding: 0.75rem 1rem;
+    }
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 640px) {
+    nav {
+        padding: 1rem;
+    }
+
+    .menu-icon {
+        right: 1rem;
+    }
+}
+
+::selection {
+    background: rgba(250, 100, 0, 0.5);
+    color: #fff;
+    /* White text for contrast */
+}
+
+/* For Firefox */
+::-moz-selection {
+    background: rgba(250, 100, 0, 0.5);
+    color: #fff;
+}
+
+/* Disable scrolling when the menu is open */
+.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+    position: fixed;
+    width: 100%;
+}
