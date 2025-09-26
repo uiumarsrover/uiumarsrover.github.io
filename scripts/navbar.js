@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-<<<<<<< HEAD
   // Ensure Team -> Assets link exists with correct relative path
   function ensureAssetsLink() {
     if (!teamDropdownContent) return;
@@ -61,9 +60,6 @@ document.addEventListener("DOMContentLoaded", function() {
     assetsLink.textContent = 'Assets';
     teamDropdownContent.appendChild(assetsLink);
   }
-
-=======
->>>>>>> 6069f583503ef92705630473d88d6d3d6d18e07e
   // Move sponsor button to bottom in mobile view
   function adjustSponsorButton() {
     if (window.innerWidth <= MOBILE_BREAKPOINT) {
@@ -110,10 +106,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // Initialize
   adjustSponsorButton();
   ensureEventsLink();
-<<<<<<< HEAD
   ensureAssetsLink();
-=======
->>>>>>> 6069f583503ef92705630473d88d6d3d6d18e07e
 
   // Event listeners
   menuIcon.addEventListener("click", () => toggleMobileMenu(true));
@@ -146,10 +139,7 @@ document.addEventListener("DOMContentLoaded", function() {
   window.addEventListener("resize", function() {
     adjustSponsorButton();
     ensureEventsLink();
-<<<<<<< HEAD
     ensureAssetsLink();
-=======
->>>>>>> 6069f583503ef92705630473d88d6d3d6d18e07e
     if (window.innerWidth > MOBILE_BREAKPOINT) {
       toggleMobileMenu(false);
       if (teamDropdownContent) {
