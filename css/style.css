@@ -1090,6 +1090,38 @@ main {
   transform: scale(0.9);
 }
 
+/* Media Link Button Styles */
+.media-link {
+  display: inline-block;
+  padding: 1.2em 2.5em;
+  background: linear-gradient(45deg, #ff6b35, #f7931e);
+  color: #000;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+  border: none;
+  cursor: pointer;
+  margin: 2rem 0;
+  letter-spacing: 0.5px;
+}
+
+.media-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.6);
+  background: linear-gradient(45deg, #f7931e, #ff6b35);
+  color: #000;
+  text-decoration: none;
+}
+
+.media-link:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.5);
+}
+
 /* Responsive Styles */
 @media (max-width: 1200px) {
   .competition-cards-container {
