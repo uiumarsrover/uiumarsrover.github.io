@@ -60,6 +60,85 @@ document.addEventListener("DOMContentLoaded", function() {
     assetsLink.textContent = 'Assets';
     teamDropdownContent.appendChild(assetsLink);
   }
+
+  // Create consolidated "Others" dropdown for mobile
+  function createMobileOthersDropdown() {
+    if (window.innerWidth > MOBILE_BREAKPOINT) return;
+    
+    const existingOthers = document.querySelector('.others-dropdown');
+    if (existingOthers) return;
+
+    // Create Others dropdown container
+    const othersDropdown = document.createElement('div');
+    othersDropdown.className = 'others-dropdown';
+    
+    const othersButton = document.createElement('a');
+    othersButton.href = 'javascript:void(0);';
+    othersButton.className = 'nav-link';
+    othersButton.id = 'othersDropdownBtn';
+    othersButton.innerHTML = 'Others ▼';
+    
+    const othersContent = document.createElement('div');
+    othersContent.className = 'others-dropdown-content';
+    
+    // Add all dropdown links to Others
+    const competitionLinks = document.querySelectorAll('.competition-dropdown-content .dropdown-link');
+    const teamLinks = document.querySelectorAll('.team-dropdown-content .dropdown-link');
+    
+    // Add Competition links
+    competitionLinks.forEach(link => {
+      const clonedLink = link.cloneNode(true);
+      clonedLink.className = 'dropdown-link';
+      othersContent.appendChild(clonedLink);
+    });
+    
+    // Add Team links
+    teamLinks.forEach(link => {
+      const clonedLink = link.cloneNode(true);
+      clonedLink.className = 'dropdown-link';
+      othersContent.appendChild(clonedLink);
+    });
+    
+    othersDropdown.appendChild(othersButton);
+    othersDropdown.appendChild(othersContent);
+    
+    // Insert before sponsor button
+    if (sponsorBtn && sponsorBtn.parentElement === navLinks) {
+      navLinks.insertBefore(othersDropdown, sponsorBtn);
+    } else {
+      navLinks.appendChild(othersDropdown);
+    }
+    
+    // Add click handler for Others dropdown
+    othersButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      othersContent.classList.toggle('mobile-open');
+    });
+  }
+
+  // Hide individual dropdowns on mobile and show Others
+  function adjustMobileDropdowns() {
+    const competitionDropdown = document.querySelector('.competition-dropdown');
+    const teamDropdown = document.querySelector('.team-dropdown');
+    
+    if (window.innerWidth <= MOBILE_BREAKPOINT) {
+      // Hide individual dropdowns on mobile
+      if (competitionDropdown) competitionDropdown.style.display = 'none';
+      if (teamDropdown) teamDropdown.style.display = 'none';
+      
+      // Create Others dropdown
+      createMobileOthersDropdown();
+    } else {
+      // Show individual dropdowns on desktop
+      if (competitionDropdown) competitionDropdown.style.display = 'inline-block';
+      if (teamDropdown) teamDropdown.style.display = 'inline-block';
+      
+      // Remove Others dropdown
+      const othersDropdown = document.querySelector('.others-dropdown');
+      if (othersDropdown) othersDropdown.remove();
+    }
+  }
   // Move sponsor button to bottom in mobile view
   function adjustSponsorButton() {
     if (window.innerWidth <= MOBILE_BREAKPOINT) {
@@ -107,6 +186,7 @@ document.addEventListener("DOMContentLoaded", function() {
   adjustSponsorButton();
   ensureEventsLink();
   ensureAssetsLink();
+  adjustMobileDropdowns();
 
   // Event listeners
   menuIcon.addEventListener("click", () => toggleMobileMenu(true));
@@ -140,6 +220,7 @@ document.addEventListener("DOMContentLoaded", function() {
     adjustSponsorButton();
     ensureEventsLink();
     ensureAssetsLink();
+    adjustMobileDropdowns();
     if (window.innerWidth > MOBILE_BREAKPOINT) {
       toggleMobileMenu(false);
       if (teamDropdownContent) {
