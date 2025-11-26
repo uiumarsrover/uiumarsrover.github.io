@@ -42,7 +42,7 @@ nav::before {
     right: 0;
     bottom: 0;
     background: radial-gradient(circle at 80% 30%, rgba(255, 107, 53, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 20% 70%, rgba(247, 147, 30, 0.03) 0%, transparent 50%);
+        radial-gradient(circle at 20% 70%, rgba(247, 147, 30, 0.03) 0%, transparent 50%);
     pointer-events: none;
     z-index: -1;
 }
@@ -127,9 +127,11 @@ nav::before {
     0% {
         background-position: 0% 50%;
     }
+
     50% {
         background-position: 100% 50%;
     }
+
     100% {
         background-position: 0% 50%;
     }
@@ -232,6 +234,7 @@ nav::before {
         opacity: 0;
         transform: translateY(-10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -375,9 +378,11 @@ nav::before {
     .nav-links {
         gap: 1.5rem;
     }
+
     .text {
         font-size: 2.2rem;
     }
+
     .logo {
         width: 3rem;
         height: 3rem;
@@ -458,7 +463,7 @@ nav::before {
         z-index: 5;
         padding: 2.5rem 2rem 2rem 2rem;
     }
-    
+
     /* Add subtle Mars-themed overlay for mobile menu */
     .nav-links::before {
         content: '';
@@ -468,10 +473,11 @@ nav::before {
         right: 0;
         bottom: 0;
         background: radial-gradient(circle at 70% 30%, rgba(255, 107, 53, 0.08) 0%, transparent 50%),
-                    radial-gradient(circle at 30% 70%, rgba(247, 147, 30, 0.05) 0%, transparent 50%);
+            radial-gradient(circle at 30% 70%, rgba(247, 147, 30, 0.05) 0%, transparent 50%);
         pointer-events: none;
         z-index: -1;
     }
+
     .nav-links.open {
         right: 0;
     }
@@ -494,20 +500,41 @@ nav::before {
     .logo-container {
         flex: 1;
     }
+
     .text {
         font-size: 2rem;
     }
+
     .logo {
         width: 2.5rem;
         height: 2.5rem;
     }
-    
+
     /* Ensure mobile menu items have proper spacing */
     .nav-links .nav-link {
         padding: 0.75rem 1rem;
         margin: 0.25rem 0;
         border-radius: 8px;
         width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Add chevron icon via CSS */
+    .competition-dropdown .nav-link::after,
+    .team-dropdown .nav-link::after {
+        content: '\f078';
+        /* FontAwesome chevron-down */
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        font-size: 0.8rem;
+        transition: transform 0.3s ease;
+    }
+
+    /* Rotate chevron when active */
+    .nav-link.active::after {
+        transform: rotate(180deg);
     }
 
     .sponsor-btn {
@@ -523,70 +550,46 @@ nav::before {
         box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
         transition: all 0.3s ease;
     }
-    
+
     .sponsor-btn:hover {
         transform: translateY(-3px);
         box-shadow: 0 8px 25px rgba(255, 107, 53, 0.5);
     }
 
-    .competition-dropdown-content {
-        display: none !important;
-        position: static;
-        background: rgba(255, 153, 0, 0.1);
-        border: 1px solid rgba(255, 153, 0, 0.2);
-        border-radius: 8px;
-        box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.2);
-        width: 100%;
-        padding: 0.5rem 0;
-        margin-top: 0.5rem;
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-    }
-
+    .competition-dropdown-content,
     .team-dropdown-content {
-        display: none !important;
-        position: static;
-        background: rgba(255, 153, 0, 0.1);
-        border: 1px solid rgba(255, 153, 0, 0.2);
-        border-radius: 8px;
-        box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.2);
-        width: 100%;
-        padding: 0.5rem 0;
-        margin-top: 0.5rem;
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-    }
-
-    .team-dropdown-content.mobile-open {
-        display: block !important;
-        animation: fadeIn .3s ease-in;
-    }
-
-    .others-dropdown-content {
-        display: none !important;
-        position: static;
-        background: rgba(255, 153, 0, 0.1);
-        border: 1px solid rgba(255, 153, 0, 0.2);
-        border-radius: 8px;
-        box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.2);
-        width: 100%;
-        padding: 0.5rem 0;
-        margin-top: 0.5rem;
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-    }
-
-    .others-dropdown-content.mobile-open {
-        display: block !important;
-        animation: fadeIn .3s ease-in;
-    }
-
-    .competition-dropdown:hover .competition-dropdown-content {
         display: none;
+        position: static;
+        background: rgba(0, 0, 0, 0.3);
+        /* Darker background for depth */
+        border-left: 2px solid rgba(255, 153, 0, 0.3);
+        /* Left border highlight */
+        border-radius: 0 8px 8px 0;
+        width: 95%;
+        margin: 0.2rem 0 0.5rem 1rem;
+        /* Indented */
+        padding: 0.5rem 0;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
     }
 
+    .competition-dropdown-content.mobile-open,
+    .team-dropdown-content.mobile-open {
+        display: block;
+        animation: slideDownMobile 0.3s ease-out;
+    }
+
+    .competition-dropdown:hover .competition-dropdown-content,
     .team-dropdown:hover .team-dropdown-content {
         display: none;
+        /* Disable hover on mobile */
+    }
+
+    /* Show content when mobile-open class is present */
+    .competition-dropdown-content.mobile-open,
+    .team-dropdown-content.mobile-open {
+        display: block !important;
     }
 
     .menu-icon {
@@ -598,9 +601,29 @@ nav::before {
     }
 
     .dropdown-link {
-        padding: 0.75rem 1rem;
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .dropdown-link:last-child {
+        border-bottom: none;
     }
 }
+
+@keyframes slideDownMobile {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 @keyframes fadeIn {
     from {
         opacity: 0;

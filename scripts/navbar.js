@@ -1,9 +1,11 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   const menuIcon = document.getElementById("menuIcon");
   const navLinks = document.getElementById("navLinks");
   const closeIcon = document.getElementById("closeIcon");
   const teamDropdownBtn = document.getElementById("teamDropdownBtn");
   const teamDropdownContent = document.querySelector(".team-dropdown-content");
+  const competitionDropdownBtn = document.getElementById("competitionDropdownBtn");
+  const competitionDropdownContent = document.querySelector(".competition-dropdown-content");
   const sponsorBtn = document.querySelector(".sponsor-btn");
   const MOBILE_BREAKPOINT = 970;
 
@@ -61,84 +63,6 @@ document.addEventListener("DOMContentLoaded", function() {
     teamDropdownContent.appendChild(assetsLink);
   }
 
-  // Create consolidated "Others" dropdown for mobile
-  function createMobileOthersDropdown() {
-    if (window.innerWidth > MOBILE_BREAKPOINT) return;
-    
-    const existingOthers = document.querySelector('.others-dropdown');
-    if (existingOthers) return;
-
-    // Create Others dropdown container
-    const othersDropdown = document.createElement('div');
-    othersDropdown.className = 'others-dropdown';
-    
-    const othersButton = document.createElement('a');
-    othersButton.href = 'javascript:void(0);';
-    othersButton.className = 'nav-link';
-    othersButton.id = 'othersDropdownBtn';
-    othersButton.innerHTML = 'Others ▼';
-    
-    const othersContent = document.createElement('div');
-    othersContent.className = 'others-dropdown-content';
-    
-    // Add all dropdown links to Others
-    const competitionLinks = document.querySelectorAll('.competition-dropdown-content .dropdown-link');
-    const teamLinks = document.querySelectorAll('.team-dropdown-content .dropdown-link');
-    
-    // Add Competition links
-    competitionLinks.forEach(link => {
-      const clonedLink = link.cloneNode(true);
-      clonedLink.className = 'dropdown-link';
-      othersContent.appendChild(clonedLink);
-    });
-    
-    // Add Team links
-    teamLinks.forEach(link => {
-      const clonedLink = link.cloneNode(true);
-      clonedLink.className = 'dropdown-link';
-      othersContent.appendChild(clonedLink);
-    });
-    
-    othersDropdown.appendChild(othersButton);
-    othersDropdown.appendChild(othersContent);
-    
-    // Insert before sponsor button
-    if (sponsorBtn && sponsorBtn.parentElement === navLinks) {
-      navLinks.insertBefore(othersDropdown, sponsorBtn);
-    } else {
-      navLinks.appendChild(othersDropdown);
-    }
-    
-    // Add click handler for Others dropdown
-    othersButton.addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      othersContent.classList.toggle('mobile-open');
-    });
-  }
-
-  // Hide individual dropdowns on mobile and show Others
-  function adjustMobileDropdowns() {
-    const competitionDropdown = document.querySelector('.competition-dropdown');
-    const teamDropdown = document.querySelector('.team-dropdown');
-    
-    if (window.innerWidth <= MOBILE_BREAKPOINT) {
-      // Hide individual dropdowns on mobile
-      if (competitionDropdown) competitionDropdown.style.display = 'none';
-      if (teamDropdown) teamDropdown.style.display = 'none';
-      
-      // Create Others dropdown
-      createMobileOthersDropdown();
-    } else {
-      // Show individual dropdowns on desktop
-      if (competitionDropdown) competitionDropdown.style.display = 'inline-block';
-      if (teamDropdown) teamDropdown.style.display = 'inline-block';
-      
-      // Remove Others dropdown
-      const othersDropdown = document.querySelector('.others-dropdown');
-      if (othersDropdown) othersDropdown.remove();
-    }
-  }
   // Move sponsor button to bottom in mobile view
   function adjustSponsorButton() {
     if (window.innerWidth <= MOBILE_BREAKPOINT) {
@@ -156,29 +80,18 @@ document.addEventListener("DOMContentLoaded", function() {
       navLinks.classList.add("active");
       menuIcon.classList.add("hide");
       document.body.classList.add("no-scroll");
+      // Add open class for CSS transition
+      navLinks.classList.add("open");
     } else {
       navLinks.classList.remove("active");
       menuIcon.classList.remove("hide");
       document.body.classList.remove("no-scroll");
-      // Close dropdown when closing menu
-      if (teamDropdownContent) {
-        teamDropdownContent.classList.remove("active");
-      }
-    }
-  }
+      navLinks.classList.remove("open");
 
-  // Handle team dropdown click
-  function handleTeamDropdownClick(e) {
-    if (window.innerWidth <= MOBILE_BREAKPOINT) {
-      e.preventDefault();
-      e.stopPropagation();
-      // Close all other dropdowns first if needed
-      document.querySelectorAll('.dropdown-content').forEach(dropdown => {
-        if (dropdown !== teamDropdownContent) {
-          dropdown.classList.remove("active");
-        }
+      // Close all dropdowns when closing menu
+      document.querySelectorAll('.dropdown-content, .team-dropdown-content, .competition-dropdown-content').forEach(content => {
+        content.classList.remove("mobile-open");
       });
-      teamDropdownContent.classList.toggle("active");
     }
   }
 
@@ -186,46 +99,64 @@ document.addEventListener("DOMContentLoaded", function() {
   adjustSponsorButton();
   ensureEventsLink();
   ensureAssetsLink();
-  adjustMobileDropdowns();
 
   // Event listeners
   menuIcon.addEventListener("click", () => toggleMobileMenu(true));
   closeIcon.addEventListener("click", () => toggleMobileMenu(false));
-  
-  document.addEventListener("click", function(e) {
-    if (navLinks.classList.contains("active") && 
-        !navLinks.contains(e.target) && 
-        !menuIcon.contains(e.target)) {
+
+  document.addEventListener("click", function (e) {
+    if (navLinks.classList.contains("active") &&
+      !navLinks.contains(e.target) &&
+      !menuIcon.contains(e.target)) {
       toggleMobileMenu(false);
     }
   });
 
-  if (teamDropdownBtn && teamDropdownContent) {
-    teamDropdownBtn.addEventListener("click", function (e) {
-      if (window.innerWidth <= 970) {
+  // Mobile Dropdown Logic
+  function setupMobileDropdown(btn, content) {
+    if (!btn || !content) return;
+
+    btn.addEventListener("click", function (e) {
+      if (window.innerWidth <= MOBILE_BREAKPOINT) {
         e.preventDefault();
         e.stopPropagation();
-        teamDropdownContent.classList.toggle("active");
+
+        // Close other dropdowns
+        const allContents = document.querySelectorAll('.team-dropdown-content, .competition-dropdown-content');
+        const allBtns = document.querySelectorAll('#teamDropdownBtn, #competitionDropdownBtn');
+
+        allContents.forEach(c => {
+          if (c !== content) c.classList.remove("mobile-open");
+        });
+
+        allBtns.forEach(b => {
+          if (b !== btn) b.classList.remove("active");
+        });
+
+        content.classList.toggle("mobile-open");
+        btn.classList.toggle("active");
       }
     });
 
-    teamDropdownContent.addEventListener("click", function (e) {
-      if (window.innerWidth <= 970) {
+    content.addEventListener("click", function (e) {
+      if (window.innerWidth <= MOBILE_BREAKPOINT) {
         e.stopPropagation();
       }
     });
   }
 
-  window.addEventListener("resize", function() {
+  setupMobileDropdown(teamDropdownBtn, teamDropdownContent);
+  setupMobileDropdown(competitionDropdownBtn, competitionDropdownContent);
+
+  window.addEventListener("resize", function () {
     adjustSponsorButton();
     ensureEventsLink();
     ensureAssetsLink();
-    adjustMobileDropdowns();
+
     if (window.innerWidth > MOBILE_BREAKPOINT) {
       toggleMobileMenu(false);
-      if (teamDropdownContent) {
-        teamDropdownContent.classList.remove("active");
-      }
+      // Remove mobile specific classes
+      document.querySelectorAll('.mobile-open').forEach(el => el.classList.remove('mobile-open'));
     }
   });
 });
