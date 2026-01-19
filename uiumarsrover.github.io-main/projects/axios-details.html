@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D50Y94CB7B">
+  </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-D50Y94CB7B");
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects</title>
+  <link rel="icon" href="../images/umrt_logo.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../css/navbar.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+  <link rel="stylesheet" href="../css/project-single.css" />
+</head>
+
+<body>
+  <!-- Navigation bar -->
+  <nav class="navbar montserrat">
+    <div class="logo-container">
+      <div class="logo"></div>
+      <div class="text">
+        <a href="../index.html" class="nav-link akira">UMRT</a>
+      </div>
+    </div>
+
+    <!-- Hamburger menu icon for mobile -->
+    <div class="menu-icon" id="menuIcon">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <div class="nav-links" id="navLinks">
+      <div class="close-icon" id="closeIcon">
+        <i class="fas fa-times"></i>
+      </div>
+      <a href="../index.html" class="nav-link nav-home-mobile">Home</a>
+      <a href="../projects/projects.html" class="nav-link">Projects</a>
+      <a href="../achievements/achievements.html" class="nav-link">Achievements</a>
+      <a href="../video/videos.html" class="nav-link">Videos</a>
+      <a href="../our_mission/our_mission.html" class="nav-link">Our Mission</a>
+
+      <div class="team-dropdown">
+        <a href="javascript:void(0);" class="nav-link" id="teamDropdownBtn">Team ▼</a>
+        <div class="team-dropdown-content">
+          <a href="../advisors/advisors.html" class="dropdown-link">Advisors</a>
+          <a href="../director/director.html" class="dropdown-link">Director</a>
+          <a href="../team/member.html" class="dropdown-link">Members</a>
+          <a href="../team/leadership.html" class="dropdown-link">Leadership</a>
+          <a href="../team/join_us.html" class="dropdown-link">Join Us</a>
+        </div>
+      </div>
+
+      <a href="../sponsor/sponsor.html" class="sponsor-btn">Become Sponsor!</a>
+    </div>
+  </nav>
+  <style>
+    body {
+      background-color: black;
+    }
+
+    .title-page {
+      color: white;
+      padding: 22px 0px;
+      text-align: center;
+      background-color: black;
+      font-size: 12em;
+      background-image: url(../images/axios.jpg);
+      background-size: cover;
+      background-position-x: -3px;
+      background-position-y: -592px;
+      height: 280px;
+      text-shadow: 9px 11px 0px #00000038;
+    }
+  </style>
+  <h1 class="akira title-page">AXIOS</h1>
+
+  <div class="main-container">
+    <div class="rover-section">
+      <div class="image-container">
+        <img src="../images/axios.jpg" alt="UIU Mars Rover AXIOS" style="border-radius: 12px" width="600" />
+
+        <div class="marker" style="top: 82%; left: 38%" data-part="motors">
+          <div class="marker-dot"></div>
+        </div>
+
+        <div class="marker" style="top: 68%; left: 35%" data-part="steering">
+          <div class="marker-dot"></div>
+        </div>
+        <div class="marker" style="top: 85%; left: 70%" data-part="wheels">
+          <div class="marker-dot"></div>
+        </div>
+        <div class="marker" style="top: 33%; left: 63%" data-part="manipulator">
+          <div class="marker-dot"></div>
+        </div>
+        <div class="marker" style="top: 61%; left: 44%" data-part="chassis">
+          <div class="marker-dot"></div>
+        </div>
+        <div class="marker" style="top: 35%; left: 40%" data-part="communication">
+          <div class="marker-dot"></div>
+        </div>
+        <div class="marker" style="top: 20%; left: 49%" data-part="video-transmission">
+          <div class="marker-dot"></div>
+        </div>
+      </div>
+      
+      <!-- Side Card for Part Descriptions -->
+      <div class="part-description-card">
+        <div class="card-content">
+          <h3 class="part-title">Hover over a part to learn more</h3>
+          <p class="part-description">Click on any highlighted part of the rover to see detailed information about its functionality and specifications.</p>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div class="detail-container">
+      <img src="../images/axios_logo.png" style="
+            width: 63%; /* margin-left: 20%; */ /* margin-right: 20%; */
+            margin-bottom: 30px;
+          " />
+      <h3 class="akira">The worthy of all</h3>
+      <br />
+      <p class="montserrat">
+        AXIOS is our 4th Generation Mars Rover Prototype. The upgraded carbon
+        fiber chassis, paired with newly optimized 3D-printed wheels, delivers
+        optimal suspension and traction, enabling AXIOS to navigate demanding
+        terrain with precision and reliability.
+      </p>
+      <button id="watchVideoBtn" class="watch-video-btn">Watch Video</button>
+    </div>
+  </div>
+  <br />
+  <div class="main-container">
+    <div class="detail-container">
+      <h3 class="akira">Autonomous Sub-system</h3>
+      <br />
+      <p class="montserrat">
+        The rover navigates autonomously using an advanced system that clears
+        obstacles, replans paths, and recovers from challenges. It combines
+        data from a depth camera, GPS, and motion sensors for precise
+        movement. With LiDAR and cameras, it detects and avoids obstacles in
+        real time, including potholes. A smart object detection system
+        identifies items from up to 16 meters away, while another system
+        tracks special markers for navigation. A dashboard at the base station
+        displays key mission updates, and all processing runs on a powerful
+        Jetson AGX Orin, ensuring smooth and reliable performance in tough
+        environments.
+      </p>
+    </div>
+
+    <div class="rover-section">
+      <div class="image-container">
+        <img src="../images/axios_auto.jpg" alt="UIU Mars Rover AXIOS" style="border-radius: 12px" width="600" />
+
+        <div class="marker" style="top: 62%; left: 52%" data-part="system-enclosure">
+          <div class="marker-dot"></div>
+        </div>
+        <div class="marker" style="top: 60%; left: 43%" data-part="depth-camera">
+          <div class="marker-dot"></div>
+        </div>
+        <div class="marker" style="top: 53%; left: 45%" data-part="dash-camera">
+          <div class="marker-dot"></div>
+        </div>
+        <div class="marker" style="top: 48%; left: 45%" data-part="lidar">
+          <div class="marker-dot"></div>
+        </div>
+        <div class="marker" style="top: 41%; left: 48%" data-part="signal-mast">
+          <div class="marker-dot"></div>
+        </div>
+        <div class="marker" style="top: 25%; left: 48%" data-part="rtk-antenna">
+          <div class="marker-dot"></div>
+        </div>
+      </div>
+      
+      <!-- Side Card for Part Descriptions -->
+      <div class="part-description-card">
+        <div class="card-content">
+          <h3 class="part-title">Hover over a part to learn more</h3>
+          <p class="part-description">Click on any highlighted part of the rover to see detailed information about its functionality and specifications.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="main-container">
+    <div class="rover-section">
+      <div class="image-container">
+        <img src="../images/axios_science.png" alt="UIU Mars Rover AXIOS" style="border-radius: 12px" width="600" />
+        <div class="marker" style="top: 40%; left: 80%" data-part="scooper">
+          <div class="marker-dot"></div>
+        </div>
+        <div class="marker" style="top: 27%; left: 76%" data-part="soil-sensor">
+          <div class="marker-dot"></div>
+        </div>
+        <div class="marker" style="top: 77%; left: 56%" data-part="regolith-collector">
+          <div class="marker-dot"></div>
+        </div>
+        <div class="marker" style="top: 55%; left: 49%" data-part="sensor-fusion">
+          <div class="marker-dot"></div>
+        </div>
+        <div class="marker" style="top: 32%; left: 68%" data-part="science-manipulator">
+          <div class="marker-dot"></div>
+        </div>
+        <div class="marker" style="top: 53%; left: 41%" data-part="bifrost">
+          <div class="marker-dot"></div>
+        </div>
+        <div class="marker" style="top: 15%; left: 34%" data-part="panorama-camera">
+          <div class="marker-dot"></div>
+        </div>
+      </div>
+      
+      <!-- Side Card for Part Descriptions -->
+      <div class="part-description-card">
+        <div class="card-content">
+          <h3 class="part-title">Hover over a part to learn more</h3>
+          <p class="part-description">Click on any highlighted part of the rover to see detailed information about its functionality and specifications.</p>
+        </div>
+      </div>
+    </div>
+    <div class="detail-container">
+      <h3 class="akira">Science Sub-system</h3>
+      <br />
+      <p class="montserrat">
+        The system analyzes soil and atmospheric conditions to identify
+        habitable sites. A Raman spectrometer selects the top two locations.
+        The wet lab detects key biomolecules, while the science wrist enables
+        contamination-free sampling. Soil sensors assess habitability, and a
+        regolith collector gathers samples. A panorama camera surveys terrain,
+        with all data integrated into a central dashboard for real-time
+        monitoring.
+      </p>
+    </div>
+  </div>
+
+  <!-- Lightbox for Video -->
+  <div id="lightbox" class="lightbox">
+    <div class="lightbox-content">
+      <span id="closeBtn" class="close-btn">&times;</span>
+      <iframe id="videoFrame" width="560" height="315" frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <script>
+    // Youtube Lightbox
+    // Get elements
+    const watchVideoBtn = document.getElementById("watchVideoBtn");
+    const lightbox = document.getElementById("lightbox");
+    const closeBtn = document.getElementById("closeBtn");
+    const videoFrame = document.getElementById("videoFrame");
+
+    // YouTube video URL (replace with your video ID)
+    const videoUrl = "https://www.youtube.com/embed/xgVbjqFUdvA";
+
+    // Open Lightbox and Play Video
+    watchVideoBtn.addEventListener("click", () => {
+      lightbox.style.display = "flex";
+      videoFrame.src = videoUrl;
+    });
+
+    // Close Lightbox and Stop Video
+    closeBtn.addEventListener("click", () => {
+      lightbox.style.display = "none";
+      videoFrame.src = ""; // Stop the video when lightbox is closed
+    });
+
+    // Close lightbox if user clicks outside the video area
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = "none";
+        videoFrame.src = "";
+      }
+    });
+  </script>
+
+  <!-- Footer -->
+  <footer>
+    <div id="footer-earth-container"></div>
+    <div class="footer-content">
+      <!-- Logo at the top center -->
+      <div class="footer-logo"></div>
+
+      <!-- About and Links Container -->
+      <div class="footer-main">
+        <!-- About Section -->
+        <div class="about">
+          <h3>About UMRT</h3>
+          <p>
+            The UIU Mars Rover Team (UMRT) is a group of passionate students
+            dedicated to designing and building the next generation of Mars
+            and Lunar rovers. We aim to push the boundaries of space
+            exploration and innovation.
+          </p>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="contact-info">
+          <h3>Contact with us</h3>
+
+          <a href="tel:+8801796992356" class="contact-item">
+            <i class="fas fa-phone"></i> +880 1796-992356
+          </a>
+
+          <a href="mailto:marsrover@uiu.ac.bd" class="contact-item">
+            <i class="fas fa-envelope"></i> marsrover@uiu.ac.bd
+          </a>
+
+          <div class="social-links">
+            <a href="https://www.facebook.com/UIUMRT" target="_blank">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/uiu-mars-rover-team-umrt/" target="_blank">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.youtube.com/@uiumarsrover" target="_blank">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://x.com/uiumarsrover" target="_blank">
+              <i class="fab fa-x-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/uiumarsrover/" target="_blank">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Existing Links -->
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <a href="../projects/projects.html" class="footer-link">Projects</a>
+          <a href="../achievements/achievements.html" class="footer-link">Achievements</a>
+          <a href="../our_mission/our_mission.html" class="footer-link">Our Mission</a>
+          <a href="../advisors/advisors.html" class="footer-link">Advisors</a>
+          <a href="../director/director.html" class="footer-link">Director</a>
+          <a href="../team/member.html" class="footer-link">Members</a>
+          <a href="../team/leadership.html" class="footer-link">Leadership</a>
+          <a href="../video/videos.html" class="footer-link">Videos</a>
+          <a href="../team/join_us.html" class="footer-link">Join Us</a>
+          <a href="../sponsor/sponsor.html" class="footer-link">Become Sponsor!</a>
+        </div>
+      </div>
+
+      <!-- Horizontal Line -->
+      <div class="footer-divider"></div>
+            
+      <!-- Webmaster Link -->
+      <div class="webmaster-link-container">
+          <a href="../webmaster.html" class="webmaster-link">
+              <i class="fas fa-code"></i>
+              <span>Meet Our Webmasters</span>
+          </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r120/three.min.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/141228/OrbitControls.js"></script>
+
+  <script src="../scripts/earthFooter.js"></script>
+  <script src="../scripts/navbar.js"></script>
+
+  <script>
+    // Rover Part Descriptions Data
+    const partDescriptions = {
+      // Main Rover Parts
+      'motors': {
+        title: 'Motors',
+        description: 'Brushless Geared Motors powers AXIOS to drive through extreme challenges.'
+      },
+      'steering': {
+        title: 'Steering Mechanism',
+        description: 'High Torque BLDC Motor Driven Actuators with weight distribution techniques made the steering mechanism of AXIOS better then before.'
+      },
+      'wheels': {
+        title: 'Wheels',
+        description: '3D Printed Custom Design wheels enables AXIOS to manuever over extreme terrains.'
+      },
+      'manipulator': {
+        title: 'Primary Manipulator Arm',
+        description: 'Handles payload upto 15 kg and can perform precision tasks. Operated by burshless motor driven cycloidal actuators with a parallel sliding end-effector.'
+      },
+      'chassis': {
+        title: 'Chassis',
+        description: 'Made out of Carbon-fiber, made AXIOS rigid and stable yet lightweight to withstand extreme conditions.'
+      },
+      'communication': {
+        title: 'Rover Communication Link',
+        description: 'Long Range 915Mhz Communication System enables telemetry and remote control over 2.5 KM.'
+      },
+      'video-transmission': {
+        title: 'Video Transmission Link',
+        description: 'High Power 5.8 Ghz Video Transmission Link allows AXIOS to transmit encrypted low-latency uninturrupted video feed to over 2.5 KM.'
+      },
+      
+      // Autonomous System Parts
+      'system-enclosure': {
+        title: 'System Enclosure',
+        description: 'The system enclousure ensures ideal cooling and power for high-performance computing system of AXIOS'
+      },
+      'depth-camera': {
+        title: 'Depth Camera',
+        description: 'The ZED 2i depth camera provides 3D vision, enabling precise obstacle detection and navigation.'
+      },
+      'dash-camera': {
+        title: 'Dash Camera',
+        description: 'The Main Dash Camera provides vision to the rover for object detection and loaclizaion.'
+      },
+      'lidar': {
+        title: 'LiDAR',
+        description: 'The 2D LiDAR enhances obstacle detection and mapping for safe and efficient navigation.'
+      },
+      'signal-mast': {
+        title: 'Signal Mast',
+        description: 'The signal mast serves as a navigation light and an LED indicator, showing whether the rover is in autonomous or manual mode.'
+      },
+      'rtk-antenna': {
+        title: 'RTK Antenna',
+        description: 'The RTK module provides high-precision GPS for accurate rover navigation and positioning.'
+      },
+      
+      // Science System Parts
+      'scooper': {
+        title: 'Scooper Mechanism',
+        description: 'Over engineered sooping mechanism allows AXIOS to collect contamination free soil sample for evaluation.'
+      },
+      'soil-sensor': {
+        title: 'Soil Nutrition Sensor',
+        description: '7 in 1 soil sensor collects soil nutrition data.'
+      },
+      'regolith-collector': {
+        title: 'Regolith Collector',
+        description: 'The driller mechanism allows AXIOS to collect sub-surface samples from upto 10cm depth'
+      },
+      'sensor-fusion': {
+        title: 'Sensor Fusion System',
+        description: 'Advanced sensor fusion system analyses environmental factors to evaluate the havitability of the designated area.'
+      },
+      'science-manipulator': {
+        title: 'Science Manipulator Arm',
+        description: 'This manipulator arm capable of collecting soil samples and gather soil nutrition and environmental data.'
+      },
+      'bifrost': {
+        title: 'Bifrost',
+        description: 'Enhaned wet lab allows performing advanced chemical tests on the rover remotely without any direct human interaction.'
+      },
+      'panorama-camera': {
+        title: 'Panorama Camera',
+        description: 'The 140 degree wide angle camera provides visibility to the controller and allows base station to evaluate optimal havitable sites.'
+      }
+    };
+
+    // Initialize hover functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const markers = document.querySelectorAll('.marker[data-part]');
+      const cards = document.querySelectorAll('.part-description-card');
+      
+      markers.forEach(marker => {
+        const partId = marker.getAttribute('data-part');
+        const card = marker.closest('.rover-section').querySelector('.part-description-card');
+        const titleElement = card.querySelector('.part-title');
+        const descriptionElement = card.querySelector('.part-description');
+        
+        marker.addEventListener('mouseenter', function() {
+          if (partDescriptions[partId]) {
+            titleElement.textContent = partDescriptions[partId].title;
+            descriptionElement.textContent = partDescriptions[partId].description;
+            card.classList.add('active');
+          }
+        });
+        
+        marker.addEventListener('mouseleave', function() {
+          card.classList.remove('active');
+          // Reset to default message after a short delay
+          setTimeout(() => {
+            if (!card.classList.contains('active')) {
+              titleElement.textContent = 'Hover over a part to learn more';
+              descriptionElement.textContent = 'Click on any highlighted part of the rover to see detailed information about its functionality and specifications.';
+            }
+          }, 300);
+        });
+      });
+    });
+  </script>
+
+</body>
+
+</html>
