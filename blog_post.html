@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D50Y94CB7B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-D50Y94CB7B");
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
+  <link rel="icon" href="images/umrt_logo.ico" type="image/x-icon" />
+  <!-- link to lode for icon in footer section -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <title>UMRT - UIU Mars Rover Team</title>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link rel="stylesheet" href="css/video-fade.css" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <style>
+    /* Featured Sections Styles */
+    .featured-sections {
+      padding: 6rem 2rem;
+      background: linear-gradient(180deg, #000 0%, #0a0a0a 50%, #000 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .featured-sections::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 20%, rgba(255, 153, 0, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(255, 107, 53, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .section-title {
+      color: #fff;
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 2;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #ff9900, transparent);
+      border-radius: 2px;
+    }
+
+    .featured-card {
+      width: 90%;
+      max-width: 1200px;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(20, 20, 20, 0.95) 100%);
+      border: 1px solid rgba(255, 153, 0, 0.2);
+      border-radius: 25px;
+      overflow: hidden;
+      display: flex;
+      margin: 1rem auto;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(255, 153, 0, 0.1);
+      transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .featured-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 153, 0, 0.1), transparent);
+      transition: left 0.8s ease;
+      z-index: 1;
+    }
+
+    .featured-card:hover {
+      transform: translateY(-15px) scale(1.02);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 12px 40px rgba(255, 153, 0, 0.2);
+      border-color: rgba(255, 153, 0, 0.4);
+    }
+
+    .featured-card:hover::before {
+      left: 100%;
+    }
+
+    .card-image {
+      flex: 1;
+      min-height: 350px;
+      overflow: hidden;
+      position: relative;
+      z-index: 2;
+    }
+
+    .card-image::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(0, 0, 0, 0.3) 0%, transparent 50%);
+      z-index: 1;
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      filter: brightness(0.9);
+    }
+
+    .featured-card:hover .card-image img {
+      transform: scale(1.1) rotate(2deg);
+      filter: brightness(1.1);
+    }
+
+    .card-content {
+      flex: 1;
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: linear-gradient(145deg, rgba(0, 0, 0, 0.9), rgba(20, 20, 20, 0.98));
+      position: relative;
+      z-index: 2;
+    }
+
+    .card-content h3 {
+      color: #ff9900;
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 20px rgba(255, 153, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .featured-card:hover .card-content h3 {
+      color: #ffaa33;
+      text-shadow: 0 0 30px rgba(255, 153, 0, 0.5);
+    }
+
+    .card-content p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .featured-card:hover .card-content p {
+      color: #fff;
+    }
+
+    .card-btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: linear-gradient(45deg, #ff9900, #ff6b35);
+      color: #000;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: bold;
+      text-transform: uppercase;
+      align-self: flex-start;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
+    }
+
+    .card-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .card-btn:hover {
+      background: linear-gradient(45deg, #ffaa33, #ff7a4a);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255, 153, 0, 0.4);
+    }
+
+    .card-btn:hover::before {
+      left: 100%;
+    }
+
+    /* Card entrance animations */
+    .featured-card:nth-child(2) {
+      animation: slideInFromRight 0.8s ease-out 0.2s both;
+    }
+
+    .featured-card:nth-child(3) {
+      animation: slideInFromLeft 0.8s ease-out 0.4s both;
+    }
+
+    .featured-card:nth-child(4) {
+      animation: slideInFromBottom 0.8s ease-out 0.6s both;
+    }
+
+    /* Floating animation for cards */
+    .featured-card {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .featured-card:nth-child(2) {
+      animation: float 6s ease-in-out infinite, slideInFromRight 0.8s ease-out 0.2s both;
+      animation-delay: 0s, 0.2s;
+    }
+
+    .featured-card:nth-child(3) {
+      animation: float 6s ease-in-out infinite, slideInFromLeft 0.8s ease-out 0.4s both;
+      animation-delay: 0.5s, 0.4s;
+    }
+
+    .featured-card:nth-child(4) {
+      animation: float 6s ease-in-out infinite, slideInFromBottom 0.8s ease-out 0.6s both;
+      animation-delay: 1s, 0.6s;
+    }
+
+    @keyframes slideInFromRight {
+      from {
+        opacity: 0;
+        transform: translateX(100px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInFromLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-100px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInFromBottom {
+      from {
+        opacity: 0;
+        transform: translateY(100px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    /* Enhanced hover effects */
+    .featured-card:hover {
+      animation-play-state: paused;
+    }
+
+    /* Home Events Section */
+    .home-events {
+      padding: 4rem 2rem;
+      background: linear-gradient(180deg, #000 0%, #0a0a0a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .home-events::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 30%, rgba(255, 107, 53, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(247, 147, 30, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .home-events .section-title {
+      margin-bottom: 2rem;
+    }
+
+    .home-events-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .home-event-card {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.06) 0%, rgba(20, 20, 20, 0.95) 100%);
+      border: 1px solid rgba(255, 153, 0, 0.18);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+    }
+
+    .home-event-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+      border-color: rgba(255, 153, 0, 0.35);
+    }
+
+    .home-event-media {
+      height: 180px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .home-event-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(.95);
+      transition: transform .5s ease, filter .35s ease;
+    }
+
+    .home-event-card:hover .home-event-media img {
+      transform: scale(1.06);
+      filter: brightness(1.05);
+    }
+
+    .home-event-body {
+      padding: 16px;
+    }
+
+    .home-event-title {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+      color: #ff9900;
+      text-shadow: 0 0 14px rgba(255, 153, 0, .25);
+    }
+
+    .home-event-text {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.6;
+      font-size: .98rem;
+    }
+
+    .home-events-cta {
+      text-align: center;
+      margin-top: 24px;
+    }
+
+    .home-events-cta .card-btn {
+      align-self: center;
+    }
+
+    @media (max-width: 1024px) {
+      .home-events-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .home-event-media {
+        height: 160px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .home-events {
+        padding: 3rem 1rem;
+      }
+
+      .home-events-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .home-event-media {
+        height: 200px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .featured-sections {
+        padding: 4rem 1rem;
+        gap: 3rem;
+      }
+
+      .section-title {
+        font-size: 2.2rem;
+      }
+
+      .featured-card {
+        flex-direction: column;
+        width: 95%;
+      }
+
+      .card-image {
+        min-height: 250px;
+      }
+
+      .card-content {
+        padding: 2rem;
+      }
+
+      .card-content h3 {
+        font-size: 1.8rem;
+      }
+
+      .card-content p {
+        font-size: 1rem;
+      }
+
+      .card-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .card-content {
+        padding: 1.5rem;
+      }
+
+      .card-content h3 {
+        font-size: 1.5rem;
+      }
+
+      .card-content p {
+        font-size: 0.95rem;
+      }
+    }
+
+    /* Video responsiveness improvements */
+    @media (max-width: 1024px) {
+      .video-section {
+        height: 90vh !important;
+      }
+
+      .video-text .title {
+        font-size: 2.2rem;
+      }
+
+      .video-text .subtitle {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .video-section {
+        height: 85vh !important;
+      }
+
+      .video-text {
+        padding: 0 20px;
+      }
+
+      .video-text .title {
+        font-size: 1.8rem;
+        line-height: 1.3;
+      }
+
+      .video-text .subtitle {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .video-section {
+        height: 80vh !important;
+      }
+
+      .video-text {
+        padding: 0 15px;
+      }
+
+      .video-text .title {
+        font-size: 1.5rem;
+        line-height: 1.2;
+      }
+
+      .video-text .subtitle {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .video-section {
+        height: 75vh !important;
+      }
+
+      .video-text .title {
+        font-size: 1.3rem;
+      }
+
+      .video-text .subtitle {
+        font-size: 0.8rem;
+      }
+    }
+
+    /* Enhanced Mobile Responsive Styles */
+    @media (max-width: 768px) {
+
+      /* Navigation improvements */
+      .navbar {
+        padding: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        width: 100%;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(15px);
+        padding: 2rem 1rem;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+      }
+
+      .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .nav-link {
+        padding: 0.8rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        text-align: center;
+      }
+
+      .dropdown-content {
+        position: static;
+        background: transparent;
+        box-shadow: none;
+        padding: 0.5rem 0 0 1rem;
+        display: none;
+      }
+
+      .dropdown-content.active {
+        display: block;
+      }
+
+      /* Video section improvements */
+      .video-section {
+        height: 100vh !important;
+        min-height: 100vh;
+      }
+
+      .video-text {
+        padding: 0 1.5rem;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .video-text .title {
+        font-size: 2rem;
+        line-height: 1.3;
+        margin-bottom: 1rem;
+      }
+
+      .video-text .subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      /* Featured sections improvements */
+      .featured-sections {
+        padding: 3rem 1rem;
+        gap: 2rem;
+      }
+
+      .featured-card {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+      }
+
+      .featured-card h3 {
+        font-size: 1.5rem;
+      }
+
+      .featured-card p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+
+      /* Sponsors section improvements */
+      .sponsors {
+        padding: 2rem 1rem;
+      }
+
+      .sponsors-container {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+      }
+
+      .sponsor {
+        width: 100%;
+        max-width: 200px;
+      }
+
+      .sponsor img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Announcement banner improvements */
+      .announcement-banner {
+        padding: 1.5rem 1rem;
+      }
+
+      .announcement-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+
+      .announcement-text {
+        font-size: 1.2rem;
+      }
+
+      .announcement-logos {
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .announcement-label {
+        font-size: 1.8rem;
+      }
+
+      .uiu-logo {
+        height: 60px;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      /* Extra small mobile improvements */
+      .navbar {
+        padding: 0.8rem;
+      }
+
+      .logo-container .text {
+        font-size: 1.8rem;
+      }
+
+      .logo {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+
+      .video-text .title {
+        font-size: 1.6rem;
+        line-height: 1.2;
+      }
+
+      .video-text .subtitle {
+        font-size: 1rem;
+      }
+
+      .featured-sections {
+        padding: 2rem 0.8rem;
+        gap: 1.5rem;
+      }
+
+      .featured-card {
+        padding: 1.5rem;
+      }
+
+      .featured-card h3 {
+        font-size: 1.3rem;
+      }
+
+      .featured-card p {
+        font-size: 0.85rem;
+      }
+
+      .sponsors {
+        padding: 1.5rem 0.8rem;
+      }
+
+      .sponsor-titel {
+        font-size: 1.2rem;
+      }
+
+      .announcement-banner {
+        padding: 1rem 0.8rem;
+      }
+
+      .announcement-text {
+        font-size: 1rem;
+      }
+
+      .announcement-label {
+        font-size: 1.5rem;
+      }
+
+      .uiu-logo {
+        height: 50px;
+      }
+
+      /* Button improvements */
+      .card-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+      }
+
+      .btn,
+      .button-5 {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+
+      /* Very small screens */
+      .video-text .title {
+        font-size: 1.4rem;
+      }
+
+      .video-text .subtitle {
+        font-size: 0.9rem;
+      }
+
+      .featured-card h3 {
+        font-size: 1.2rem;
+      }
+
+      .featured-card p {
+        font-size: 0.8rem;
+      }
+
+      .announcement-label {
+        font-size: 1.3rem;
+      }
+
+      .uiu-logo {
+        height: 45px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/blog.css" />
+  <link rel="preload" as="image" href="scripts/Asset/background.jpg" />
+  <link rel="preload" as="image" href="scripts/Asset/bump_map.png" />
+  <link rel="preload" as="image" href="scripts/Asset/cloud_map.png" />
+  <link rel="preload" as="image" href="scripts/Asset/map.jpg" />
+  <link rel="preload" as="image" href="scripts/Asset/rgb_sketchmap.jpg" />
+
+  </style>
+</head>
+
+<body>
+  <div id="mainContent">
+    <div class="content">
+
+      <!-- Navigation bar -->
+      <nav class="navbar montserrat" data-aos="fade-down" data-aos-duration="800">
+        <div class="logo-container">
+          <div class="logo" data-aos="zoom-in" data-aos-delay="400"></div>
+          <div class="text">
+            <a href="index.html" class="nav-link akira" data-aos="fade-right" data-aos-delay="600">UMRT</a>
+          </div>
+        </div>
+
+        <!-- Hamburger menu icon for mobile -->
+        <div class="menu-icon" id="menuIcon">
+          <i class="fas fa-bars"></i>
+        </div>
+
+        <!-- Navigation links -->
+        <div class="nav-links" id="navLinks">
+          <!-- Close icon inside nav-links for mobile -->
+          <div class="close-icon" id="closeIcon">
+            <i class="fas fa-times"></i>
+          </div>
+
+          <a href="index.html" class="nav-link nav-home-mobile">Home</a>
+          <!-- <a href="index.html" class="nav-link">Home</a> -->
+          <a href="projects/projects.html" class="nav-link">Projects</a>
+          <a href="achievements/achievements.html" class="nav-link">Achievements</a>
+          <a href="video/videos.html" class="nav-link">Videos</a>
+          <a href="our_mission/our_mission.html" class="nav-link">Our Mission</a>
+          <a href="media.html" class="nav-link">Media</a>
+          <a href="blogs.html" class="nav-link">Blog</a>
+
+          <div class="competition-dropdown">
+            <a href="javascript:void(0);" class="nav-link" id="competitionDropdownBtn">Competition</a>
+            <div class="competition-dropdown-content">
+              <a href="competition/urc.html" class="dropdown-link">URC</a>
+              <a href="competition/arc.html" class="dropdown-link">ARC</a>
+              <a href="competition/erc.html" class="dropdown-link">ERC</a>
+            </div>
+          </div>
+
+          <div class="team-dropdown">
+            <a href="javascript:void(0);" class="nav-link" id="teamDropdownBtn">Team</a>
+            <div class="team-dropdown-content">
+              <a href="advisors/advisors.html" class="dropdown-link">Advisors</a>
+              <a href="director/director.html" class="dropdown-link">Director</a>
+              <a href="team/member.html" class="dropdown-link">Members</a>
+              <a href="team/leadership.html" class="dropdown-link">Leadership</a>
+              <a href="team/join_us.html" class="dropdown-link">Join Us</a>
+            </div>
+          </div>
+
+          <a href="sponsor/sponsor.html" class="sponsor-btn">Become Sponsor!</a>
+        </div>
+      </nav>
+
+      <!-- Page Header -->
+      <div class="page-header" style="padding-top: 120px; padding-bottom: 40px; text-align: center; background: #000;">
+        <h1 class="section-title akira" data-aos="fade-down">Our Blogs</h1>
+      </div>
+
+
+
+
+
+      <!-- Footer -->
+      <!-- Blog Section -->
+      <section class="blog-section" data-aos="fade-up">
+        <div class="blog-post-container">
+          <a href="blogs.html" class="back-to-blogs"><i class="fas fa-arrow-left"></i> Back to Blogs</a>
+
+          <div class="blog-post-header">
+            <span class="blog-post-date">November 28, 2025</span>
+            <h1 class="blog-post-title akira">The Evolution of Mars Rovers</h1>
+          </div>
+
+          <div class="blog-post-image">
+            <img src="images/rover_2023_1.jpg" alt="Mars Rover on terrain">
+          </div>
+
+          <div class="blog-post-content">
+            <p>Mars exploration has come a long way since the first successful landing. From the small, microwave-sized
+              Sojourner to the car-sized Perseverance, each rover has paved the way for the next generation of
+              explorers. The UIU Mars Rover Team is proud to be part of this legacy, designing and building rovers that
+              push the boundaries of what is possible in student robotics.</p>
+
+            <h2>The Journey Begins</h2>
+            <p>Our journey started with a simple goal: to build a rover capable of traversing the rugged Martian
+              terrain. Over the years, we have refined our designs, incorporating advanced suspension systems,
+              autonomous navigation, and sophisticated scientific analysis tools. The evolution of our rovers mirrors
+              the advancements in space exploration technology, with each iteration becoming more capable and resilient.
+            </p>
+
+            <h2>Technological Breakthroughs</h2>
+            <p>One of the key areas of focus for our team has been autonomous navigation. By leveraging computer vision
+              and machine learning algorithms, our rovers can now navigate complex environments without human
+              intervention. This capability is crucial for future Mars missions, where communication delays make
+              real-time control impossible.</p>
+
+            <ul>
+              <li><strong>Autonomous Navigation:</strong> Advanced path planning and obstacle avoidance.</li>
+              <li><strong>Scientific Analysis:</strong> Onboard laboratory for soil and rock analysis.</li>
+              <li><strong>Robotic Arm:</strong> High-precision arm for sample collection and maintenance tasks.</li>
+            </ul>
+
+            <h2>Looking Ahead</h2>
+            <p>As we look to the future, we remain committed to innovation and excellence. Our team is constantly
+              exploring new technologies and methodologies to improve our rovers' performance. We believe that
+              student-led initiatives like ours play a vital role in inspiring the next generation of engineers and
+              scientists who will one day lead humanity's expansion into the cosmos.</p>
+          </div>
+        </div>
+      </section>
+
+      <footer data-aos="fade-up">
+        <div id="footer-earth-container" data-aos="zoom-in"></div>
+        <div class="footer-content">
+          <!-- Logo at the top center -->
+          <div class="footer-logo" data-aos="zoom-in" data-aos-delay="200"></div>
+
+          <!-- About and Links Container -->
+          <div class="footer-main" data-aos="fade-up" data-aos-delay="400">
+            <!-- About Section -->
+            <div class="about">
+              <h3>About UMRT</h3>
+              <p>
+                The UIU Mars Rover Team (UMRT) is a group of passionate students
+                dedicated to designing and building the next generation of Mars
+                and Lunar rovers. We aim to push the boundaries of space
+                exploration and innovation.
+              </p>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="contact-info">
+              <h3>Contact with us</h3>
+
+              <a href="tel:+8801796992356" class="contact-item">
+                <i class="fas fa-phone"></i> +880 1796-992356
+              </a>
+
+              <a href="mailto:marsrover@uiu.ac.bd" class="contact-item">
+                <i class="fas fa-envelope"></i> marsrover@uiu.ac.bd
+              </a>
+
+              <div class="social-links">
+                <a href="https://www.facebook.com/UIUMRT" target="_blank">
+                  <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/uiu-mars-rover-team-umrt/" target="_blank"><i
+                    class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://www.youtube.com/@uiumarsrover" target="_blank">
+                  <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://x.com/uiumarsrover" target="_blank">
+                  <i class="fab fa-x-twitter"></i>
+                </a>
+                <a href="https://www.instagram.com/uiumarsrover/" target="_blank">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Existing Links -->
+            <div class="footer-links">
+              <h3>Quick Links</h3>
+              <a href="projects/projects.html" class="footer-link">Projects</a>
+              <a href="achievements/achievements.html" class="footer-link">Achievements</a>
+              <a href="our_mission/our_mission.html" class="footer-link">Our Mission</a>
+              <a href="advisors/advisors.html" class="footer-link">Advisors</a>
+              <a href="director/director.html" class="footer-link">Director</a>
+              <a href="team/member.html" class="footer-link">Members</a>
+              <a href="team/leadership.html" class="footer-link">Leadership</a>
+              <a href="video/videos.html" class="footer-link">Videos</a>
+              <a href="team/join_us.html" class="footer-link">Join Us</a>
+              <a href="sponsor/sponsor.html" class="footer-link">Become Sponsor!</a>
+            </div>
+          </div>
+
+          <!-- Horizontal Line -->
+          <div class="footer-divider"></div>
+
+          <!-- Webmaster Link -->
+          <div class="webmaster-link-container">
+            <a href="webmaster.html" class="webmaster-link">
+              <i class="fas fa-code"></i>
+              <span>Meet Our Webmasters</span>
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+
+    <script src="scripts/navbar.js"></script>
+    <script src="scripts/congratsAnimation.js"></script>
+    <script src="scripts/earthFooter.js"></script>
+
+
+
+    <script>
+      AOS.init({
+        duration: 800,
+        once: false,
+        offset: 100,
+        easing: 'ease-in-out',
+        delay: 100,
+        mirror: true,
+        anchorPlacement: 'top-bottom'
+      });
+    </script>
+
+</body>
+
+</html>
