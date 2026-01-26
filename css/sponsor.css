@@ -1618,25 +1618,87 @@ td ul li {
 @media (max-width: 480px) {
 
     .why-sponsor-section h1,
-    .team-impact-section h1 {
-        font-size: 2rem;
+    .team-impact-section h1,
+    .contact-details h1,
+    .featured-in-section h2 {
+        font-size: 1.8rem;
+        /* Smaller font size for mobile */
+        margin-bottom: 30px;
     }
 
-    .benefit-card {
+    .title {
+        font-size: 2.2rem;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+    }
+
+    /* Force grids to single column */
+    .partner-grid,
+    .contact-grid,
+    .success-grid,
+    .sponsor-benefits-grid,
+    .media-highlights,
+    .custom-packages-grid,
+    .impact-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Compact Cards */
+    .partner-card,
+    .contact-card,
+    .benefit-card,
+    .success-item,
+    .impact-card,
+    .custom-package-card {
         padding: 20px;
     }
 
+    /* Adjust Logo Grid for Mobile */
+    .media-logo-grid {
+        gap: 20px;
+    }
+
+    .media-logo-grid img {
+        height: 35px;
+        /* Smaller logos */
+    }
+
+    /* Budget & Stats */
     .stat-number {
         font-size: 2rem;
     }
 
     .budget-amount {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 
-    .achievements-list li {
-        font-size: 0.95rem;
-        padding: 15px;
+    .total-budget-card {
+        padding: 20px;
+    }
+
+    /* Table adjustments */
+    table {
+        min-width: 400px;
+        font-size: 0.8rem;
+    }
+
+    th,
+    td {
+        padding: 6px 4px;
+    }
+
+    #packages table {
+        min-width: 100%;
+        display: block;
+        overflow-x: auto;
+    }
+
+    .budget-container {
+        margin: 15px 5px;
+        padding: 10px;
     }
 }
 
