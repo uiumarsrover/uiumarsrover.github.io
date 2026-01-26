@@ -1593,25 +1593,69 @@ td ul li {
 }
 
 /* Responsive adjustments for new sections */
-@media (max-width: 768px) {
-    .sponsor-benefits-grid {
-        grid-template-columns: 1fr;
+/* Tablet Landscape / Small Laptop (max-width: 1024px) */
+@media (max-width: 1024px) {
+
+    .contact-details,
+    .why-sponsor-section,
+    .team-impact-section,
+    .achievements-list {
+        max-width: 90%;
     }
 
+    .success-grid,
+    .partner-grid,
+    .contact-grid,
+    .custom-packages-grid,
+    .impact-grid,
+    .sponsor-benefits-grid {
+        /* Ensure 3 columns on landscape tablets/small laptops if space permits */
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Tablet Portrait (max-width: 768px) */
+@media (max-width: 768px) {
+
+    .why-sponsor-section h1,
+    .team-impact-section h1,
+    .contact-details h1 {
+        font-size: 2.2rem;
+    }
+
+    /* Force 2 columns for better readability on tablets */
+    .partner-grid,
+    .contact-grid,
+    .success-grid,
+    .sponsor-benefits-grid,
+    .media-highlights,
+    .custom-packages-grid,
+    .impact-grid,
     .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    /* Adjust specific elements */
+    .umrt-logo-container {
+        display: none;
+        /* Hide center logo on tablets to simplify grid */
+    }
+
+    .media-photo {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .budget-amount {
-        font-size: 2.5rem;
+    .hero-content {
+        padding: 0 40px;
     }
 
-    .impact-grid {
-        grid-template-columns: 1fr;
+    .budget-amount {
+        font-size: 3rem;
     }
 
     .custom-packages-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -1627,11 +1671,51 @@ td ul li {
     }
 
     .title {
-        font-size: 2.2rem;
+        font-size: 2rem;
+        line-height: 1.2;
     }
 
     .subtitle {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    /* Hero Section Mobile */
+    .hero-content {
+        padding: 20px 10px;
+        margin-top: 60px;
+    }
+
+    .hero-badge {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+        margin-bottom: 15px;
+    }
+
+    .title span {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    /* About Us Mobile */
+    .vision-content-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .vision-image-slider {
+        order: -1;
+        /* Show slider before text on mobile */
+        margin-bottom: 20px;
+    }
+
+    .vision-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .stat-card {
+        padding: 15px;
     }
 
     /* Force grids to single column */
