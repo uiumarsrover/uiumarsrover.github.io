@@ -1765,7 +1765,9 @@ td ul li {
 
     /* Table adjustments */
     table {
-        min-width: 400px;
+        min-width: 100%;
+        display: block;
+        overflow-x: auto;
         font-size: 0.8rem;
     }
 
