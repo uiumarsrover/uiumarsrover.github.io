@@ -1,0 +1,343 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@font-face{
+    font-family:"AkiraExpanded";
+    src:url("../font/Akira\ Expanded\ Demo.otf") format("opentype");
+    font-weight:normal;
+    font-style:normal;
+}
+.montserrat{
+    font-family:"Montserrat",sans-serif;
+}
+.akira{
+    font-family:"AkiraExpanded",sans-serif;
+}
+body{
+    font-family:"Montserrat",sans-serif;
+    background-color:#000;
+    color:white;
+    line-height:1.6;
+    overflow-x:hidden;
+}
+.container{
+    max-width:1400px;
+    margin:0 auto;
+    padding:0 2rem;
+}
+.hero-section{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:linear-gradient(135deg,#000 0%,#0a0a0a 50%,#000 100%);
+    overflow:hidden;
+}
+.hero-background{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:radial-gradient(circle at 30% 20%,rgba(255,153,0,0.1) 0%,transparent 50%),
+                radial-gradient(circle at 70% 80%,rgba(255,107,53,0.1) 0%,transparent 50%);
+}
+.hero-overlay{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.4);
+}
+.floating-particles{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px,rgba(255,153,0,0.3),transparent),
+        radial-gradient(2px 2px at 40px 70px,rgba(255,107,53,0.3),transparent),
+        radial-gradient(1px 1px at 90px 40px,rgba(255,153,0,0.3),transparent),
+        radial-gradient(1px 1px at 130px 80px,rgba(255,107,53,0.3),transparent);
+    background-repeat:repeat;
+    background-size:200px 200px;
+    animation:float 20s linear infinite;
+}
+@keyframes float{
+    0%{transform:translateY(0px);}
+    100%{transform:translateY(-200px);}
+}
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:800px;
+    padding:2rem;
+}
+.hero-title{
+    font-size:clamp(3rem,8vw,6rem);
+    color:#fff;
+    margin-bottom:1rem;
+    text-shadow:0 0 30px rgba(255,153,0,0.5);
+    animation:glow 2s ease-in-out infinite alternate;
+}
+@keyframes glow{
+    from{text-shadow:0 0 30px rgba(255,153,0,0.5);}
+    to{text-shadow:0 0 40px rgba(255,153,0,0.8),0 0 60px rgba(255,153,0,0.3);}
+}
+.hero-subtitle{
+    font-size:clamp(1.2rem,3vw,1.8rem);
+    color:rgba(255,255,255,0.9);
+    margin-bottom:3rem;
+    font-weight:300;
+}
+.hero-stats{
+    display:flex;
+    justify-content:center;
+    gap:3rem;
+    flex-wrap:wrap;
+}
+.stat-item{
+    text-align:center;
+    padding:1.5rem;
+    background:rgba(255,255,255,0.05);
+    border-radius:20px;
+    border:1px solid rgba(255,153,0,0.2);
+    backdrop-filter:blur(10px);
+    transition:all 0.3s ease;
+}
+.stat-item:hover{
+    transform:translateY(-5px);
+    border-color:rgba(255,153,0,0.5);
+    background:rgba(255,255,255,0.1);
+}
+.stat-number{
+    font-size:3rem;
+    font-weight:bold;
+    color:#ff9900;
+    margin-bottom:0.5rem;
+}
+.stat-label{
+    font-size:1rem;
+    color:rgba(255,255,255,0.8);
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+.team-years-section{
+    padding:6rem 0;
+    background:linear-gradient(180deg,#000 0%,#0a0a0a 100%);
+}
+.section-header{
+    text-align:center;
+    margin-bottom:4rem;
+}
+.section-title{
+    font-size:clamp(2.5rem,5vw,4rem);
+    color:#fff;
+    margin-bottom:1rem;
+    text-transform:uppercase;
+}
+.section-description{
+    font-size:1.2rem;
+    color:rgba(255,255,255,0.8);
+    max-width:600px;
+    margin:0 auto;
+}
+.team-years-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:2rem;
+}
+.team-year-card{
+    background:linear-gradient(145deg,rgba(255,255,255,0.05) 0%,rgba(20,20,20,0.9) 100%);
+    border-radius:25px;
+    overflow:hidden;
+    border:1px solid rgba(255,153,0,0.2);
+    transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+    backdrop-filter:blur(20px);
+    position:relative;
+}
+.team-year-card::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,153,0,0.1),transparent);
+    transition:left 0.6s ease;
+    z-index:1;
+}
+.team-year-card:hover::before{
+    left:100%;
+}
+.team-year-card:hover{
+    transform:translateY(-10px) scale(1.02);
+    border-color:rgba(255,153,0,0.6);
+    box-shadow:0 20px 40px rgba(0,0,0,0.4),0 10px 20px rgba(255,153,0,0.2);
+}
+.team-year-card.featured{
+    border-color:rgba(255,153,0,0.4);
+    box-shadow:0 15px 30px rgba(255,153,0,0.1);
+}
+.card-image{
+    position:relative;
+    height:250px;
+    overflow:hidden;
+}
+.card-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform 0.4s ease;
+}
+.team-year-card:hover .card-image img{
+    transform:scale(1.1);
+}
+.card-overlay{
+    position:absolute;
+    top:1rem;
+    right:1rem;
+    display:flex;
+    flex-direction:column;
+    gap:0.5rem;
+    z-index:2;
+}
+.year-badge{
+    background:linear-gradient(135deg,#ff9900,#ff6600);
+    color:#000;
+    padding:0.4rem 0.8rem;
+    border-radius:15px;
+    font-size:0.8rem;
+    font-weight:bold;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+}
+.status-badge{
+    background:rgba(0,0,0,0.8);
+    color:#fff;
+    padding:0.4rem 0.8rem;
+    border-radius:15px;
+    font-size:0.8rem;
+    font-weight:bold;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+}
+.card-content{
+    padding:2rem;
+    position:relative;
+    z-index:2;
+}
+.team-year-title{
+    font-size:1.8rem;
+    color:#ff9900;
+    margin-bottom:1rem;
+    text-transform:uppercase;
+}
+.team-year-description{
+    color:rgba(255,255,255,0.9);
+    margin-bottom:1.5rem;
+    line-height:1.6;
+}
+.achievement-highlights{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.5rem;
+    margin-bottom:1.5rem;
+}
+.achievement-tag{
+    background:rgba(255,153,0,0.1);
+    color:#ff9900;
+    padding:0.3rem 0.8rem;
+    border-radius:20px;
+    font-size:0.8rem;
+    border:1px solid rgba(255,153,0,0.3);
+}
+.card-actions{
+    text-align:center;
+}
+.view-team-btn{
+    display:inline-block;
+    background:linear-gradient(135deg,#ff9900,#ff6600);
+    color:#000;
+    padding:0.8rem 1.5rem;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:0.9rem;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    transition:all 0.3s ease;
+    box-shadow:0 4px 15px rgba(255,153,0,0.3);
+}
+.view-team-btn:hover{
+    background:linear-gradient(135deg,#ff6600,#ff9900);
+    transform:translateY(-2px);
+    box-shadow:0 6px 20px rgba(255,153,0,0.4);
+}
+@media (max-width:1200px){
+    .container{
+        padding:0 1.5rem;
+}
+    .team-years-grid{
+        grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+        gap:1.5rem;
+}
+}
+@media (max-width:768px){
+    .hero-stats{
+        gap:2rem;
+}
+    .stat-item{
+        padding:1rem;
+}
+    .stat-number{
+        font-size:2.5rem;
+}
+    .team-years-grid{
+        grid-template-columns:1fr;
+        gap:1.5rem;
+}
+    .card-content{
+        padding:1.5rem;
+}
+    .team-year-title{
+        font-size:1.5rem;
+}
+}
+@media (max-width:480px){
+    .hero-content{
+        padding:1rem;
+}
+    .hero-stats{
+        gap:1rem;
+}
+    .stat-item{
+        padding:0.8rem;
+}
+    .stat-number{
+        font-size:2rem;
+}
+    .stat-label{
+        font-size:0.9rem;
+}
+    .container{
+        padding:0 1rem;
+}
+    .card-content{
+        padding:1rem;
+}
+    .team-year-title{
+        font-size:1.3rem;
+}
+    .achievement-tag{
+        font-size:0.75rem;
+        padding:0.3rem 0.6rem;
+}
+}

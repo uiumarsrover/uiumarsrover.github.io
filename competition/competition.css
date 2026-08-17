@@ -1,0 +1,1255 @@
+/* Competition Page Styles - Mars/Space Theme */
+
+/* Import fonts */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+@font-face {
+  font-family: "AkiraExpanded";
+  src: url("../font/Akira\ Expanded\ Demo.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  background-color: black;
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+}
+
+.akira {
+  font-family: "AkiraExpanded", sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Hero Section */
+.competition-hero {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(20, 20, 20, 0.9) 100%);
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.competition-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 70% 70%, rgba(247, 147, 30, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(45deg, #ff7e5f, #feb47b, #ff9900);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 3s ease-in-out infinite;
+  letter-spacing: 3px;
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Competitions Section */
+.competitions-section {
+  padding: 5rem 0;
+  background: linear-gradient(180deg, #000 0%, #0a0a0a 50%, #000 100%);
+}
+
+.competition-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(20, 20, 20, 0.95) 100%);
+  border: 1px solid rgba(255, 153, 0, 0.2);
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin-bottom: 3rem;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 4px 15px rgba(255, 153, 0, 0.1);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.competition-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 153, 0, 0.05), transparent);
+  transition: left 0.6s;
+}
+
+.competition-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 8px 25px rgba(255, 153, 0, 0.2);
+  border-color: rgba(255, 153, 0, 0.4);
+}
+
+.competition-card:hover::before {
+  left: 100%;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1.5rem;
+}
+
+.competition-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  filter: brightness(1.1);
+}
+
+.arc-logo {
+  width: 100px;
+  height: 100px;
+}
+
+.competition-name {
+  font-size: 2.2rem;
+  color: #ff9900;
+  text-shadow: 0 0 20px rgba(255, 153, 0, 0.3);
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+}
+
+.competition-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+}
+
+.achievement-highlight {
+  background: linear-gradient(135deg, rgba(255, 153, 0, 0.1) 0%, rgba(255, 107, 53, 0.1) 100%);
+  border: 1px solid rgba(255, 153, 0, 0.3);
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.achievement-highlight h3 {
+  font-size: 1.5rem;
+  color: #ff9900;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.achievement-highlight p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+}
+
+.learn-more-btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: linear-gradient(45deg, #ff6b35, #f7931e);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+.learn-more-btn:hover {
+  background: linear-gradient(45deg, #ff5722, #ff9800);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+}
+
+/* Stats Section */
+.stats-section {
+  padding: 5rem 0;
+  background: linear-gradient(180deg, #0a0a0a 0%, #000 100%);
+  position: relative;
+}
+
+.stats-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 40%, rgba(255, 107, 53, 0.05) 0%, transparent 50%),
+              radial-gradient(circle at 80% 60%, rgba(247, 147, 30, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.stats-title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  background: linear-gradient(45deg, #ff7e5f, #feb47b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  z-index: 2;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 153, 0, 0.2);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 153, 0, 0.4);
+  box-shadow: 0 8px 25px rgba(255, 153, 0, 0.1);
+}
+
+.stat-number {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #ff9900;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 20px rgba(255, 153, 0, 0.3);
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+/* Call to Action Section */
+.cta-section {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #000 0%, #0a0a0a 50%, #000 100%);
+  text-align: center;
+  position: relative;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 153, 0, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta-title {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(45deg, #ff7e5f, #feb47b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  z-index: 2;
+}
+
+.cta-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+}
+
+.cta-btn {
+  display: inline-block;
+  padding: 1.2rem 2.5rem;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.cta-btn.primary {
+  background: linear-gradient(45deg, #ff6b35, #f7931e);
+  color: white;
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+}
+
+.cta-btn.primary:hover {
+  background: linear-gradient(45deg, #ff5722, #ff9800);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+}
+
+.cta-btn.secondary {
+  background: transparent;
+  color: #ff9900;
+  border: 2px solid #ff9900;
+}
+
+.cta-btn.secondary:hover {
+  background: rgba(255, 153, 0, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 153, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .hero-title {
+    font-size: 3.5rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .stat-number {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.8rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .competition-card {
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .card-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .competition-name {
+    font-size: 1.8rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+  }
+  
+  .cta-title {
+    font-size: 2.5rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-btn {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .competition-card {
+    padding: 1.5rem;
+  }
+  
+  .competition-name {
+    font-size: 1.5rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stat-number {
+    font-size: 2.2rem;
+  }
+  
+  .cta-title {
+    font-size: 2rem;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+/* URC Page Specific Styles */
+.hero-logo {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 2rem;
+  filter: brightness(1.1);
+}
+
+.urc-content {
+  padding: 5rem 0;
+  background: linear-gradient(180deg, #000 0%, #0a0a0a 50%, #000 100%);
+}
+
+.urc-section {
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #ff9900;
+  margin-bottom: 2rem;
+  text-align: center;
+  text-shadow: 0 0 20px rgba(255, 153, 0, 0.3);
+}
+
+.section-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.achievement-item {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 153, 0, 0.2);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.achievement-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 153, 0, 0.4);
+  box-shadow: 0 8px 25px rgba(255, 153, 0, 0.1);
+}
+
+.achievement-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.achievement-item h3 {
+  font-size: 1.3rem;
+  color: #ff9900;
+  margin-bottom: 0.5rem;
+}
+
+.achievement-item p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+}
+
+.tasks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.task-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(20, 20, 20, 0.95) 100%);
+  border: 1px solid rgba(255, 153, 0, 0.2);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 153, 0, 0.4);
+  box-shadow: 0 8px 25px rgba(255, 153, 0, 0.1);
+}
+
+.task-card h3 {
+  font-size: 1.4rem;
+  color: #ff9900;
+  margin-bottom: 1rem;
+}
+
+.task-card p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+}
+
+.back-section {
+  padding: 3rem 0;
+  background: linear-gradient(135deg, #000 0%, #0a0a0a 100%);
+  text-align: center;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(45deg, #ff6b35, #f7931e);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+.back-btn:hover {
+  background: linear-gradient(45deg, #ff5722, #ff9800);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+}
+
+/* Responsive adjustments for URC page */
+@media (max-width: 768px) {
+  .hero-logo {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .section-text {
+    font-size: 1.1rem;
+  }
+  
+  .achievements-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .tasks-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .achievement-item,
+  .task-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-logo {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .section-text {
+    font-size: 1rem;
+  }
+}
+
+/* ARC Page Specific Styles */
+.arc-content {
+  padding: 5rem 0;
+  background: linear-gradient(180deg, #000 0%, #0a0a0a 50%, #000 100%);
+}
+
+.arc-section {
+  margin-bottom: 5rem;
+}
+
+.arc-highlight {
+  background: linear-gradient(135deg, rgba(255, 153, 0, 0.15) 0%, rgba(255, 107, 53, 0.1) 100%);
+  border: 1px solid rgba(255, 153, 0, 0.4);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-top: 2rem;
+  text-align: center;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+.arc-highlight h3 {
+  font-size: 1.8rem;
+  color: #ff9900;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 20px rgba(255, 153, 0, 0.3);
+}
+
+.arc-highlight p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+/* Team Information Grid */
+.team-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.team-info-card {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 153, 0, 0.2);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.team-info-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 153, 0, 0.4);
+  box-shadow: 0 8px 25px rgba(255, 153, 0, 0.1);
+}
+
+.info-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.team-info-card h3 {
+  font-size: 1.3rem;
+  color: #ff9900;
+  margin-bottom: 0.5rem;
+}
+
+.team-info-card p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* Achievements Timeline */
+.achievements-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.achievement-year {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(20, 20, 20, 0.95) 100%);
+  border: 1px solid rgba(255, 153, 0, 0.2);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  transition: all 0.3s ease;
+}
+
+.achievement-year:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 153, 0, 0.4);
+  box-shadow: 0 8px 25px rgba(255, 153, 0, 0.1);
+}
+
+.year-badge {
+  background: linear-gradient(45deg, #ff6b35, #f7931e);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  min-width: 80px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+.achievement-details {
+  flex: 1;
+}
+
+.achievement-details h3 {
+  font-size: 1.6rem;
+  color: #ff9900;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 15px rgba(255, 153, 0, 0.3);
+}
+
+.rover-name {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.awards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.award {
+  background: rgba(255, 153, 0, 0.2);
+  color: #ff9900;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 153, 0, 0.3);
+}
+
+.achievement-description {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Mission Categories Grid */
+.missions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.mission-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(20, 20, 20, 0.95) 100%);
+  border: 1px solid rgba(255, 153, 0, 0.2);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.mission-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 153, 0, 0.4);
+  box-shadow: 0 8px 25px rgba(255, 153, 0, 0.1);
+}
+
+.mission-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.mission-card h3 {
+  font-size: 1.4rem;
+  color: #ff9900;
+  margin-bottom: 1rem;
+}
+
+.mission-card p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Impact Section */
+.impact-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.impact-text h3 {
+  font-size: 1.8rem;
+  color: #ff9900;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 15px rgba(255, 153, 0, 0.3);
+}
+
+.impact-text p {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.impact-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.impact-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.impact-stats .stat-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 153, 0, 0.2);
+  border-radius: 15px;
+  padding: 1.5rem;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.impact-stats .stat-item:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 153, 0, 0.4);
+  box-shadow: 0 6px 20px rgba(255, 153, 0, 0.1);
+}
+
+.impact-stats .stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ff9900;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 15px rgba(255, 153, 0, 0.3);
+}
+
+.impact-stats .stat-label {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+/* Responsive Design for ARC Page */
+@media (max-width: 768px) {
+  .achievement-year {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  
+  .year-badge {
+    align-self: center;
+  }
+  
+  .awards {
+    justify-content: center;
+  }
+  
+  .impact-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .missions-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .team-info-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .arc-highlight {
+    padding: 1.5rem;
+  }
+  
+  .arc-highlight h3 {
+    font-size: 1.5rem;
+  }
+  
+  .achievement-year {
+    padding: 1.5rem;
+  }
+  
+  .achievement-details h3 {
+    font-size: 1.4rem;
+  }
+  
+  .award {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .mission-card {
+    padding: 1.5rem;
+  }
+  
+  .impact-text h3 {
+    font-size: 1.6rem;
+  }
+  
+  .impact-text p {
+    font-size: 1rem;
+  }
+}
+
+/* ERC Page Specific Styles */
+.erc-content {
+  padding: 5rem 0;
+  background: linear-gradient(180deg, #000 0%, #0a0a0a 50%, #000 100%);
+}
+
+.erc-section {
+  margin-bottom: 5rem;
+}
+
+.erc-highlight {
+  background: linear-gradient(135deg, rgba(255, 153, 0, 0.15) 0%, rgba(255, 107, 53, 0.1) 100%);
+  border: 1px solid rgba(255, 153, 0, 0.4);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-top: 2rem;
+  text-align: center;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+.erc-highlight h3 {
+  font-size: 1.8rem;
+  color: #ff9900;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 20px rgba(255, 153, 0, 0.3);
+}
+
+.erc-highlight p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+/* Rover Fleet Grid */
+.rovers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.rover-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(20, 20, 20, 0.95) 100%);
+  border: 1px solid rgba(255, 153, 0, 0.2);
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-align: center;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.rover-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 153, 0, 0.05), transparent);
+  transition: left 0.6s;
+}
+
+.rover-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 153, 0, 0.4);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 8px 25px rgba(255, 153, 0, 0.2);
+}
+
+.rover-card:hover::before {
+  left: 100%;
+}
+
+.rover-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.rover-card h3 {
+  font-size: 1.8rem;
+  color: #ff9900;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 15px rgba(255, 153, 0, 0.3);
+}
+
+.rover-card p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+/* Competition Context Section */
+.context-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.context-text h3 {
+  font-size: 1.8rem;
+  color: #ff9900;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 15px rgba(255, 153, 0, 0.3);
+}
+
+.context-text p {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.context-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.context-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.context-stats .stat-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 153, 0, 0.2);
+  border-radius: 15px;
+  padding: 1.5rem;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.context-stats .stat-item:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 153, 0, 0.4);
+  box-shadow: 0 6px 20px rgba(255, 153, 0, 0.1);
+}
+
+.context-stats .stat-number {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.context-stats .stat-label {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+/* Future Prospects Section */
+.future-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.future-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(20, 20, 20, 0.95) 100%);
+  border: 1px solid rgba(255, 153, 0, 0.2);
+  border-radius: 20px;
+  padding: 2.5rem;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.future-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 153, 0, 0.05), transparent);
+  transition: left 0.6s;
+}
+
+.future-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 153, 0, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(255, 153, 0, 0.1);
+}
+
+.future-card:hover::before {
+  left: 100%;
+}
+
+.future-card h3 {
+  font-size: 1.5rem;
+  color: #ff9900;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 15px rgba(255, 153, 0, 0.3);
+}
+
+.future-card p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+/* Responsive Design for ERC Page */
+@media (max-width: 768px) {
+  .context-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .rovers-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .future-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .rover-card,
+  .future-card {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .erc-highlight {
+    padding: 1.5rem;
+  }
+  
+  .erc-highlight h3 {
+    font-size: 1.5rem;
+  }
+  
+  .rover-card,
+  .future-card {
+    padding: 1.5rem;
+  }
+  
+  .rover-icon {
+    font-size: 3rem;
+  }
+  
+  .rover-card h3 {
+    font-size: 1.5rem;
+  }
+  
+  .context-text h3 {
+    font-size: 1.6rem;
+  }
+  
+  .context-text p {
+    font-size: 1rem;
+  }
+  
+  .future-card h3 {
+    font-size: 1.3rem;
+  }
+  
+  .future-card p {
+    font-size: 1rem;
+  }
+}
