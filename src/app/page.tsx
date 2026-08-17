@@ -8,7 +8,7 @@ import {
   ExternalLink, Calendar, Newspaper, Rocket, Tv, Radio, Flame, Eye, Maximize2, ShieldCheck, Zap, Activity, Navigation, Crosshair, Building2
 } from 'lucide-react';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 60;
 
 export default async function HomePage() {
   let rovers: any[] = [];

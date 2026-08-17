@@ -1,7 +1,7 @@
 import { sql } from '@/lib/db';
 import TeamRoster from './TeamRoster';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 60;
 
 export default async function TeamPage() {
   let members: any[] = [];

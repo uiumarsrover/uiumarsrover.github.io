@@ -5,7 +5,21 @@ import { notFound } from 'next/navigation';
 import { sql } from '@/lib/db';
 import { ArrowLeft, Cpu, ShieldCheck, Zap, Radio, Target, Wrench, Microscope, Compass } from 'lucide-react';
 
-export const revalidate = 60;
+export async function generateStaticParams() {
+  try {
+    const result = await sql`SELECT slug FROM rovers;`;
+    if (result && result.length > 0) {
+      return result.map((r: any) => ({ slug: r.slug }));
+    }
+  } catch (err) {}
+  return [
+    { slug: 'aurion' },
+    { slug: 'maven' },
+    { slug: 'telos' },
+    { slug: 'yggdrasil' },
+    { slug: 'axios' },
+  ];
+}
 
 export default async function RoverDetailPage({ params }: { params: { slug: string } }) {
   let rover: any = null;

@@ -2,7 +2,7 @@ import React from 'react';
 import { sql } from '@/lib/db';
 import { ShieldCheck, Users, Cpu, Award, Mail, Calendar, FileText, Database } from 'lucide-react';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 60;
 
 export default async function AdminDashboardPage() {
   let applications: any[] = [];

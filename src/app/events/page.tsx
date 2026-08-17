@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { sql } from '@/lib/db';
 import { Calendar, MapPin, Sparkles, Users, ArrowRight } from 'lucide-react';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 60;
 
 export default async function EventsPage() {
   let events: any[] = [];
