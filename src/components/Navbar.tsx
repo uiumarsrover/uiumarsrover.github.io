@@ -80,6 +80,15 @@ export default function Navbar() {
           {/* Right Action CTAs */}
           <div className="hidden md:flex items-center gap-3">
             <Link
+              href="/admin"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-mono text-gray-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 transition group"
+              title="Admin Mission Control"
+            >
+              <ShieldCheck className="w-3.5 h-3.5 text-mars-400" />
+              <span>Admin</span>
+            </Link>
+
+            <Link
               href="/team/join"
               className="relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-white bg-gradient-to-r from-mars-600 to-mars-500 hover:from-mars-500 hover:to-mars-400 transition-all shadow-lg shadow-mars-500/25 border border-mars-400/30 group"
             >
@@ -124,6 +133,13 @@ export default function Navbar() {
             })}
           </div>
           <div className="pt-3 border-t border-white/10 flex flex-col gap-2">
+            <Link
+              href="/admin"
+              onClick={() => setIsOpen(false)}
+              className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-xs font-mono font-semibold text-gray-300 bg-white/5 hover:bg-white/10 border border-white/10 transition"
+            >
+              <ShieldCheck className="w-4 h-4 text-mars-400" /> Admin Mission Control
+            </Link>
             <Link
               href="/team/join"
               onClick={() => setIsOpen(false)}

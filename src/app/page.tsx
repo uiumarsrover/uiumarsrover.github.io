@@ -16,13 +16,24 @@ export default async function HomePage() {
   let events: any[] = [];
   let media: any[] = [];
   let sponsors: any[] = [];
+  let siteContent: Record<string, string> = {};
 
   try {
-    rovers = await sql`SELECT * FROM rovers ORDER BY year DESC LIMIT 5;`;
-    achievements = await sql`SELECT * FROM achievements WHERE is_featured = true ORDER BY year DESC LIMIT 4;`;
-    events = await sql`SELECT * FROM events ORDER BY id ASC LIMIT 3;`;
-    media = await sql`SELECT * FROM media_articles ORDER BY id ASC LIMIT 8;`;
-    sponsors = await sql`SELECT * FROM sponsors ORDER BY id ASC;`;
+    const [rRes, aRes, eRes, mRes, sRes, cRes] = await Promise.all([
+      sql`SELECT * FROM rovers ORDER BY year DESC LIMIT 5;`,
+      sql`SELECT * FROM achievements WHERE is_featured = true ORDER BY year DESC LIMIT 4;`,
+      sql`SELECT * FROM events ORDER BY id ASC LIMIT 3;`,
+      sql`SELECT * FROM media_articles ORDER BY id ASC LIMIT 8;`,
+      sql`SELECT * FROM sponsors ORDER BY id ASC;`,
+      sql`SELECT * FROM site_content;`,
+    ]);
+
+    rovers = rRes;
+    achievements = aRes;
+    events = eRes;
+    media = mRes;
+    sponsors = sRes;
+    siteContent = Object.fromEntries(cRes.map((c: any) => [c.key, c.value]));
   } catch (error) {
     console.error('Database query error on Home Page:', error);
   }
@@ -81,15 +92,13 @@ export default async function HomePage() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-mars-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-mars-500"></span>
             </span>
-            <span className="text-mars-400 font-bold">5TH GEN FLAGSHIP</span>
-            <span className="text-gray-500">•</span>
-            <span className="text-gray-200">AURION ROVER</span>
+            <span className="text-mars-400 font-bold">{siteContent['hero_badge'] || '5TH GEN FLAGSHIP • AURION ROVER'}</span>
           </div>
 
           {/* World Record Indicator */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-amber-400/50 bg-black/70 text-amber-300 text-xs font-mono font-bold backdrop-blur-xl shadow-lg shadow-amber-500/15">
             <Trophy className="w-4 h-4 text-amber-400" />
-            <span>3RD PLACE WORLDWIDE • URC 2026</span>
+            <span>{siteContent['stat_1_val'] ? `${siteContent['stat_1_val'].toUpperCase()} • ${siteContent['stat_1_label']?.toUpperCase()}` : '3RD PLACE WORLDWIDE • URC 2026'}</span>
           </div>
         </div>
 
@@ -106,15 +115,19 @@ export default async function HomePage() {
                 </div>
 
                 <h1 className="text-5xl sm:text-7xl lg:text-8xl font-display font-extrabold text-white tracking-tight leading-[1.02] drop-shadow-[0_15px_30px_rgba(0,0,0,0.9)]">
-                  AU<span className="text-gradient-mars">RI</span>ON
+                  {siteContent['hero_headline_1'] ? (
+                    siteContent['hero_headline_1']
+                  ) : (
+                    <>AU<span className="text-gradient-mars">RI</span>ON</>
+                  )}
                 </h1>
 
                 <p className="text-lg sm:text-2xl font-display font-bold text-gray-100 drop-shadow-lg">
-                  UIU 5th Generation Autonomous Mars Rover
+                  {siteContent['hero_headline_2'] || 'UIU 5th Generation Autonomous Mars Rover'}
                 </p>
                 
                 <p className="text-sm sm:text-base text-gray-200 max-w-2xl leading-relaxed drop-shadow-md bg-black/40 p-3 rounded-2xl border border-white/10 backdrop-blur-md">
-                  Engineered with 3D-printed flexible tires, high-torque carbon-fiber manipulator, dual RealSense stereo vision, and in-situ bio-detection assays.
+                  {siteContent['hero_subtitle'] || 'Engineered with 3D-printed flexible tires, high-torque carbon-fiber manipulator, dual RealSense stereo vision, and in-situ bio-detection assays.'}
                 </p>
               </div>
 
