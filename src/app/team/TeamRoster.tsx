@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Users, Mail, Linkedin, Github, Shield, Sparkles, Filter, ChevronRight, Rocket, Search, Crown, Award, Cpu } from 'lucide-react';
+import { Users, Mail, Linkedin, Github, Shield, Sparkles, Filter, ChevronRight, Rocket, Search, Crown, Award, Cpu, RefreshCw } from 'lucide-react';
+import { clientSql } from '@/lib/clientDb';
 
 interface Member {
   id: number;
@@ -20,16 +21,28 @@ interface Member {
 }
 
 export default function TeamRoster({ initialMembers }: { initialMembers: Member[] }) {
+  const [members, setMembers] = useState<Member[]>(initialMembers || []);
   const [selectedYear, setSelectedYear] = useState<number>(2026);
   const [selectedSubteam, setSelectedSubteam] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedMember, setSelectedMember] = useState<Member | null>(null);
 
+  // Sync real-time updates directly from Neon Database
+  useEffect(() => {
+    clientSql`SELECT * FROM members ORDER BY is_lead DESC, id ASC;`
+      .then((res: any) => {
+        if (res && Array.isArray(res) && res.length > 0) {
+          setMembers(res);
+        }
+      })
+      .catch((err: any) => console.error('Real-time team sync error:', err));
+  }, []);
+
   const years = [2026, 2025, 2024, 2023, 2022];
   const subteams = ['All', 'Management', 'Software', 'Mechanical', 'Electrical', 'Science', 'Media & Outreach'];
 
   // Filter members by Year, Subteam, and Search
-  const currentYearMembers = initialMembers.filter((m) => m.year === selectedYear);
+  const currentYearMembers = members.filter((m) => m.year === selectedYear);
 
   const filteredMembers = currentYearMembers.filter((m) => {
     const matchesSubteam = selectedSubteam === 'All' || m.subteam.toLowerCase() === selectedSubteam.toLowerCase();

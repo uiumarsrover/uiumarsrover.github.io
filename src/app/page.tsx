@@ -1,42 +1,46 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { sql } from '@/lib/db';
+import { clientSql } from '@/lib/clientDb';
 import StatsCounter from '@/components/StatsCounter';
 import { 
   ArrowRight, Trophy, Sparkles, ChevronRight, Award, Compass, Cpu, 
   ExternalLink, Calendar, Newspaper, Rocket, Tv, Radio, Flame, Eye, Maximize2, ShieldCheck, Zap, Activity, Navigation, Crosshair, Building2
 } from 'lucide-react';
 
-export const revalidate = 60;
+export default function HomePage() {
+  const [rovers, setRovers] = useState<any[]>([]);
+  const [achievements, setAchievements] = useState<any[]>([]);
+  const [events, setEvents] = useState<any[]>([]);
+  const [media, setMedia] = useState<any[]>([]);
+  const [sponsors, setSponsors] = useState<any[]>([]);
+  const [siteContent, setSiteContent] = useState<Record<string, string>>({});
 
-export default async function HomePage() {
-  let rovers: any[] = [];
-  let achievements: any[] = [];
-  let events: any[] = [];
-  let media: any[] = [];
-  let sponsors: any[] = [];
-  let siteContent: Record<string, string> = {};
-
-  try {
-    const [rRes, aRes, eRes, mRes, sRes, cRes] = await Promise.all([
-      sql`SELECT * FROM rovers ORDER BY year DESC LIMIT 5;`,
-      sql`SELECT * FROM achievements WHERE is_featured = true ORDER BY year DESC LIMIT 4;`,
-      sql`SELECT * FROM events ORDER BY id ASC LIMIT 3;`,
-      sql`SELECT * FROM media_articles ORDER BY id ASC LIMIT 8;`,
-      sql`SELECT * FROM sponsors ORDER BY id ASC;`,
-      sql`SELECT * FROM site_content;`,
-    ]);
-
-    rovers = rRes;
-    achievements = aRes;
-    events = eRes;
-    media = mRes;
-    sponsors = sRes;
-    siteContent = Object.fromEntries(cRes.map((c: any) => [c.key, c.value]));
-  } catch (error) {
-    console.error('Database query error on Home Page:', error);
-  }
+  useEffect(() => {
+    Promise.all([
+      clientSql`SELECT * FROM rovers ORDER BY year DESC LIMIT 5;`,
+      clientSql`SELECT * FROM achievements WHERE is_featured = true ORDER BY year DESC LIMIT 4;`,
+      clientSql`SELECT * FROM events ORDER BY id ASC LIMIT 3;`,
+      clientSql`SELECT * FROM media_articles ORDER BY id ASC LIMIT 8;`,
+      clientSql`SELECT * FROM sponsors ORDER BY id ASC;`,
+      clientSql`SELECT * FROM site_content;`,
+    ])
+      .then(([rRes, aRes, eRes, mRes, sRes, cRes]) => {
+        if (rRes && rRes.length) setRovers(rRes);
+        if (aRes && aRes.length) setAchievements(aRes);
+        if (eRes && eRes.length) setEvents(eRes);
+        if (mRes && mRes.length) setMedia(mRes);
+        if (sRes && sRes.length) setSponsors(sRes);
+        if (cRes && cRes.length) {
+          const map: Record<string, string> = {};
+          cRes.forEach((item: any) => { map[item.key] = item.value; });
+          setSiteContent(map);
+        }
+      })
+      .catch((err) => console.error('Real-time home sync error:', err));
+  }, []);
 
   const heroSponsors = [
     { name: 'United International University', logo: '/images/UIU-logo.png' },
@@ -62,10 +66,10 @@ export default async function HomePage() {
       {/* 🚀 1. AWARD-WINNING CINEMATIC HERO SECTION */}
       <section className="relative min-h-[92vh] flex flex-col justify-between pt-4 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
         
-        {/* Background Image: Vivid, High-Def AURION Rover Photo */}
+        {/* Background Image: Dynamic or Default AURION Rover Photo */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/aurion.jpg"
+            src={siteContent['hero_bg_image'] || '/images/aurion.jpg'}
             alt="AURION 5th Generation Mars Rover"
             fill
             priority

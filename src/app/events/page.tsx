@@ -1,17 +1,22 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { sql } from '@/lib/db';
+import { clientSql } from '@/lib/clientDb';
 import { Calendar, MapPin, Sparkles, Users, ArrowRight } from 'lucide-react';
 
-export const revalidate = 60;
+export default function EventsPage() {
+  const [events, setEvents] = useState<any[]>([]);
 
-export default async function EventsPage() {
-  let events: any[] = [];
-  try {
-    events = await sql`SELECT * FROM events ORDER BY id ASC;`;
-  } catch (err) {
-    console.error('Error fetching events:', err);
-  }
+  useEffect(() => {
+    clientSql`SELECT * FROM events ORDER BY id ASC;`
+      .then((res: any) => {
+        if (res && Array.isArray(res) && res.length > 0) {
+          setEvents(res);
+        }
+      })
+      .catch((err: any) => console.error('Real-time events sync error:', err));
+  }, []);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">

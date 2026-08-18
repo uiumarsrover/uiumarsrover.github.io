@@ -1,18 +1,23 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { sql } from '@/lib/db';
+import { clientSql } from '@/lib/clientDb';
 import { HeartHandshake, Check, Download, Mail, ExternalLink, ShieldCheck, Zap, Globe, Sparkles } from 'lucide-react';
 
-export const revalidate = 60;
+export default function SponsorPage() {
+  const [sponsors, setSponsors] = useState<any[]>([]);
 
-export default async function SponsorPage() {
-  let sponsors: any[] = [];
-  try {
-    sponsors = await sql`SELECT * FROM sponsors ORDER BY id ASC;`;
-  } catch (err) {
-    console.error('Error fetching sponsors:', err);
-  }
+  useEffect(() => {
+    clientSql`SELECT * FROM sponsors ORDER BY id ASC;`
+      .then((res: any) => {
+        if (res && Array.isArray(res) && res.length > 0) {
+          setSponsors(res);
+        }
+      })
+      .catch((err: any) => console.error('Real-time sponsors sync error:', err));
+  }, []);
 
   const tiers = [
     {

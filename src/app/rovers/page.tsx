@@ -1,18 +1,23 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { sql } from '@/lib/db';
+import { clientSql } from '@/lib/clientDb';
 import { Cpu, ArrowRight, ShieldCheck, Gauge, Wrench, Radio } from 'lucide-react';
 
-export const revalidate = 60;
+export default function RoversPage() {
+  const [rovers, setRovers] = useState<any[]>([]);
 
-export default async function RoversPage() {
-  let rovers: any[] = [];
-  try {
-    rovers = await sql`SELECT * FROM rovers ORDER BY year DESC;`;
-  } catch (err) {
-    console.error('Error fetching rovers:', err);
-  }
+  useEffect(() => {
+    clientSql`SELECT * FROM rovers ORDER BY year DESC;`
+      .then((res: any) => {
+        if (res && Array.isArray(res) && res.length > 0) {
+          setRovers(res);
+        }
+      })
+      .catch((err: any) => console.error('Real-time rovers sync error:', err));
+  }, []);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">

@@ -1,17 +1,22 @@
-import React from 'react';
-import { sql } from '@/lib/db';
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import { clientSql } from '@/lib/clientDb';
 import MediaLightbox from '@/components/MediaLightbox';
 import { Newspaper, Tv, Globe } from 'lucide-react';
 
-export const revalidate = 60;
+export default function MediaPage() {
+  const [mediaArticles, setMediaArticles] = useState<any[]>([]);
 
-export default async function MediaPage() {
-  let mediaArticles: any[] = [];
-  try {
-    mediaArticles = await sql`SELECT * FROM media_articles ORDER BY id ASC;`;
-  } catch (err) {
-    console.error('Error fetching media:', err);
-  }
+  useEffect(() => {
+    clientSql`SELECT * FROM media_articles ORDER BY id ASC;`
+      .then((res: any) => {
+        if (res && Array.isArray(res) && res.length > 0) {
+          setMediaArticles(res);
+        }
+      })
+      .catch((err: any) => console.error('Real-time media sync error:', err));
+  }, []);
 
   // Also include the rest of the newspaper press clippings from the repository
   const extraMedia = [

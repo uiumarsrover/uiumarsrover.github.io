@@ -1,17 +1,22 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { sql } from '@/lib/db';
+import { clientSql } from '@/lib/clientDb';
 import { Trophy, Award, MapPin, Calendar, Star, Sparkles } from 'lucide-react';
 
-export const revalidate = 60;
+export default function AchievementsPage() {
+  const [achievements, setAchievements] = useState<any[]>([]);
 
-export default async function AchievementsPage() {
-  let achievements: any[] = [];
-  try {
-    achievements = await sql`SELECT * FROM achievements ORDER BY year DESC, id ASC;`;
-  } catch (err) {
-    console.error('Error fetching achievements:', err);
-  }
+  useEffect(() => {
+    clientSql`SELECT * FROM achievements ORDER BY year DESC, id ASC;`
+      .then((res: any) => {
+        if (res && Array.isArray(res) && res.length > 0) {
+          setAchievements(res);
+        }
+      })
+      .catch((err: any) => console.error('Real-time achievements sync error:', err));
+  }, []);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
