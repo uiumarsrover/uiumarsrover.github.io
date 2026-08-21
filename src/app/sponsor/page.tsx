@@ -3,17 +3,18 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { clientSql } from '@/lib/clientDb';
+import { clientSql, getLocalCache, setLocalCache } from '@/lib/clientDb';
 import { HeartHandshake, Check, Download, Mail, ExternalLink, ShieldCheck, Zap, Globe, Sparkles } from 'lucide-react';
 
 export default function SponsorPage() {
-  const [sponsors, setSponsors] = useState<any[]>([]);
+  const [sponsors, setSponsors] = useState<any[]>(() => getLocalCache('sponsors_list', []));
 
   useEffect(() => {
     clientSql`SELECT * FROM sponsors ORDER BY id ASC;`
       .then((res: any) => {
         if (res && Array.isArray(res) && res.length > 0) {
           setSponsors(res);
+          setLocalCache('sponsors_list', res);
         }
       })
       .catch((err: any) => console.error('Real-time sponsors sync error:', err));

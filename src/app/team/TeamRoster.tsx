@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Users, Mail, Linkedin, Github, Shield, Sparkles, Filter, ChevronRight, Rocket, Search, Crown, Award, Cpu, RefreshCw } from 'lucide-react';
-import { clientSql } from '@/lib/clientDb';
+import { clientSql, getLocalCache, setLocalCache } from '@/lib/clientDb';
 
 interface Member {
   id: number;
@@ -21,7 +21,7 @@ interface Member {
 }
 
 export default function TeamRoster({ initialMembers }: { initialMembers: Member[] }) {
-  const [members, setMembers] = useState<Member[]>(initialMembers || []);
+  const [members, setMembers] = useState<Member[]>(() => getLocalCache('team_members', initialMembers || []));
   const [selectedYear, setSelectedYear] = useState<number>(2026);
   const [selectedSubteam, setSelectedSubteam] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -33,6 +33,7 @@ export default function TeamRoster({ initialMembers }: { initialMembers: Member[
       .then((res: any) => {
         if (res && Array.isArray(res) && res.length > 0) {
           setMembers(res);
+          setLocalCache('team_members', res);
         }
       })
       .catch((err: any) => console.error('Real-time team sync error:', err));

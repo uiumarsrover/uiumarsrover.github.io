@@ -2,17 +2,23 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { clientSql } from '@/lib/clientDb';
+import { clientSql, getLocalCache, setLocalCache } from '@/lib/clientDb';
 import { Calendar, MapPin, Sparkles, Users, ArrowRight } from 'lucide-react';
 
+const DEFAULT_EVENTS = [
+  { id: 1, title: 'National Rover Mechanics & ROS 2 Workshop', date: '2026-03-15', location: 'UIU Campus Auditorium, Dhaka', description: 'Hands-on training session on inverse kinematics, ROS 2 Nav2 stack, and embedded motor control for planetary rovers.', image_url: '/Hero.PNG' },
+  { id: 2, title: 'UIU Robotics & Space Exploration Bootcamp', date: '2025-11-20', location: 'Virtual & On-Campus Lab', description: 'Intensive 3-day bootcamp covering chassis FEA modeling, 3D printing flexible tires, and bio-detection payload design.', image_url: '/Hero.PNG' }
+];
+
 export default function EventsPage() {
-  const [events, setEvents] = useState<any[]>([]);
+  const [events, setEvents] = useState<any[]>(() => getLocalCache('events_list', DEFAULT_EVENTS));
 
   useEffect(() => {
     clientSql`SELECT * FROM events ORDER BY id ASC;`
       .then((res: any) => {
         if (res && Array.isArray(res) && res.length > 0) {
           setEvents(res);
+          setLocalCache('events_list', res);
         }
       })
       .catch((err: any) => console.error('Real-time events sync error:', err));

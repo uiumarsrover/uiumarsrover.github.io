@@ -6,9 +6,141 @@ import {
   Plus, Trash2, Edit3, Save, X, Image as ImageIcon, ExternalLink, 
   LogOut, Lock, CheckCircle2, AlertCircle, RefreshCw, Layers, Sparkles, Upload, Eye
 } from 'lucide-react';
-import { clientSql } from '@/lib/clientDb';
+import { clientSql, compressImageFile } from '@/lib/clientDb';
 
 type TabType = 'content' | 'rovers' | 'team' | 'events' | 'news' | 'achievements' | 'sponsors' | 'applications';
+
+interface ContentPreset {
+  key: string;
+  label: string;
+  section: 'hero' | 'stats' | 'about' | 'footer' | 'general';
+  type: 'text' | 'image' | 'html';
+  defaultValue: string;
+  description: string;
+}
+
+const CORE_CONTENT_PRESETS: ContentPreset[] = [
+  {
+    key: 'hero_bg_image',
+    label: 'Hero Background Image',
+    section: 'hero',
+    type: 'image',
+    defaultValue: '/Hero.PNG',
+    description: 'The large full-width background photo on the main homepage hero banner.'
+  },
+  {
+    key: 'hero_badge',
+    label: 'Hero Top Live Badge',
+    section: 'hero',
+    type: 'text',
+    defaultValue: '5TH GEN FLAGSHIP • AURION ROVER',
+    description: 'Pulsing indicator tag above the main hero title.'
+  },
+  {
+    key: 'hero_headline_1',
+    label: 'Hero Main Title (Line 1)',
+    section: 'hero',
+    type: 'text',
+    defaultValue: 'AURION',
+    description: 'The primary headline rover name on the homepage.'
+  },
+  {
+    key: 'hero_headline_2',
+    label: 'Hero Subtitle (Line 2)',
+    section: 'hero',
+    type: 'text',
+    defaultValue: 'UIU 5th Generation Autonomous Mars Rover',
+    description: 'Secondary bold title under the main name.'
+  },
+  {
+    key: 'hero_subtitle',
+    label: 'Hero Mission Overview Paragraph',
+    section: 'hero',
+    type: 'text',
+    defaultValue: 'Engineered with 3D-printed flexible tires, high-torque carbon-fiber manipulator, dual RealSense stereo vision, and in-situ bio-detection assays.',
+    description: 'Descriptive paragraph displayed inside the hero banner.'
+  },
+  {
+    key: 'stat_1_val',
+    label: 'Verified Stat 1 - Number / Rank',
+    section: 'stats',
+    type: 'text',
+    defaultValue: '3rd Place',
+    description: 'First milestone stat box large number.'
+  },
+  {
+    key: 'stat_1_label',
+    label: 'Verified Stat 1 - Title',
+    section: 'stats',
+    type: 'text',
+    defaultValue: 'World URC 2026 Record',
+    description: 'First milestone stat box label.'
+  },
+  {
+    key: 'stat_2_val',
+    label: 'Verified Stat 2 - Number / Rank',
+    section: 'stats',
+    type: 'text',
+    defaultValue: '1st in Asia',
+    description: 'Second milestone stat box large number.'
+  },
+  {
+    key: 'stat_2_label',
+    label: 'Verified Stat 2 - Title',
+    section: 'stats',
+    type: 'text',
+    defaultValue: 'URC 2022 Milestone',
+    description: 'Second milestone stat box label.'
+  },
+  {
+    key: 'stat_3_val',
+    label: 'Verified Stat 3 - Number / Rank',
+    section: 'stats',
+    type: 'text',
+    defaultValue: '5 Generations',
+    description: 'Third milestone stat box large number.'
+  },
+  {
+    key: 'stat_3_label',
+    label: 'Verified Stat 3 - Title',
+    section: 'stats',
+    type: 'text',
+    defaultValue: 'Planetary Rovers Built',
+    description: 'Third milestone stat box label.'
+  },
+  {
+    key: 'stat_4_val',
+    label: 'Verified Stat 4 - Number / Rank',
+    section: 'stats',
+    type: 'text',
+    defaultValue: '80+ Engineers',
+    description: 'Fourth milestone stat box large number.'
+  },
+  {
+    key: 'stat_4_label',
+    label: 'Verified Stat 4 - Title',
+    section: 'stats',
+    type: 'text',
+    defaultValue: 'Team Members & Alumni',
+    description: 'Fourth milestone stat box label.'
+  },
+  {
+    key: 'about_mission',
+    label: 'Team Mission Statement',
+    section: 'about',
+    type: 'text',
+    defaultValue: 'Our mission is to foster multidisciplinary engineering excellence in robotics, aerospace, embedded systems, and space sciences while competing at the highest global level.',
+    description: 'Mission and engineering vision paragraph.'
+  },
+  {
+    key: 'footer_tagline',
+    label: 'Footer Global Tagline',
+    section: 'footer',
+    type: 'text',
+    defaultValue: 'UIU Mars Rover Team • Pushing the boundaries of autonomous planetary exploration.',
+    description: 'Footer summary line rendered at the bottom of all pages.'
+  }
+];
 
 export default function AdminDashboard() {
   // Authentication State
@@ -21,6 +153,7 @@ export default function AdminDashboard() {
 
   // Dashboard Active Tab
   const [activeTab, setActiveTab] = useState<TabType>('content');
+  const [contentSectionFilter, setContentSectionFilter] = useState<string>('all');
   const [loading, setLoading] = useState(false);
   const [toastMessage, setToastMessage] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
 
@@ -153,8 +286,46 @@ export default function AdminDashboard() {
       setNews(nRes);
       setAchievements(aRes);
       setSponsors(sRes);
-      setSiteContent(cRes);
       setApplications(appRes);
+
+      // Ensure all CORE_CONTENT_PRESETS are always present and never disappear
+      const dbMap = new Map<string, any>();
+      (cRes || []).forEach((item: any) => {
+        dbMap.set(item.key, item);
+      });
+
+      const mergedContent: any[] = [];
+      // 1. Add all core presets (with DB values if present, or defaults)
+      CORE_CONTENT_PRESETS.forEach((preset) => {
+        const dbItem = dbMap.get(preset.key);
+        mergedContent.push({
+          key: preset.key,
+          value: dbItem ? dbItem.value : preset.defaultValue,
+          section: preset.section,
+          type: preset.type,
+          label: preset.label,
+          description: preset.description,
+          defaultValue: preset.defaultValue,
+          isPreset: true,
+          updated_at: dbItem?.updated_at || new Date().toISOString(),
+          isCustomized: Boolean(dbItem && dbItem.value !== preset.defaultValue),
+        });
+        dbMap.delete(preset.key);
+      });
+
+      // 2. Add any additional custom keys created by admin
+      dbMap.forEach((item, key) => {
+        mergedContent.push({
+          ...item,
+          label: key,
+          description: 'Custom key created by administrator',
+          defaultValue: '',
+          isPreset: false,
+          isCustomized: true,
+        });
+      });
+
+      setSiteContent(mergedContent);
     } catch (err: any) {
       console.error('Failed to load data:', err);
       showToast('Failed to sync with Neon Database: ' + err.message, 'error');
@@ -163,29 +334,27 @@ export default function AdminDashboard() {
     }
   };
 
-  // File Upload Helper (converts image file to Base64 data URL for direct Neon storage)
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>, targetField: string) => {
+  // File Upload Helper (compresses & converts image file to optimized data URL for fast Neon storage)
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>, targetField: string) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    if (file.size > 5 * 1024 * 1024) {
-      showToast('File size must be under 5MB', 'error');
+    if (file.size > 10 * 1024 * 1024) {
+      showToast('File size must be under 10MB', 'error');
       return;
     }
 
     setUploadingImage(true);
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      const base64 = event.target?.result as string;
-      setFormData((prev: any) => ({ ...prev, [targetField]: base64 }));
+    showToast('Optimizing & compressing image for fast loading...');
+    try {
+      const optimizedBase64 = await compressImageFile(file, 1600, 0.82);
+      setFormData((prev: any) => ({ ...prev, [targetField]: optimizedBase64 }));
+      showToast('Image optimized and ready to save!');
+    } catch (err: any) {
+      showToast('Failed to process image: ' + err.message, 'error');
+    } finally {
       setUploadingImage(false);
-      showToast('Image attached and ready to save!');
-    };
-    reader.onerror = () => {
-      setUploadingImage(false);
-      showToast('Failed to read image file', 'error');
-    };
-    reader.readAsDataURL(file);
+    }
   };
 
   // Save Item (Create or Update directly in Neon)
@@ -340,15 +509,62 @@ export default function AdminDashboard() {
     }
   };
 
+  // Direct Image upload for content cards (e.g. hero_bg_image)
+  const handleDirectContentImageUpload = async (e: React.ChangeEvent<HTMLInputElement>, key: string, section: string) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (file.size > 10 * 1024 * 1024) {
+      showToast('File size must be under 10MB', 'error');
+      return;
+    }
+
+    setLoading(true);
+    showToast('Compressing & saving image to Neon Database...');
+    try {
+      const optimizedBase64 = await compressImageFile(file, 1800, 0.85);
+      await clientSql`
+        INSERT INTO site_content (key, value, section, type, updated_at)
+        VALUES (${key}, ${optimizedBase64}, ${section || 'general'}, 'image', CURRENT_TIMESTAMP)
+        ON CONFLICT (key) DO UPDATE 
+        SET value = ${optimizedBase64}, type = 'image', updated_at = CURRENT_TIMESTAMP;
+      `;
+      showToast(`Image updated and saved to Database for ${key}!`);
+      loadAllData();
+    } catch (err: any) {
+      console.error('Failed to upload image:', err);
+      showToast(err.message || 'Failed to save image', 'error');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   // Delete Item directly from Neon
   const handleDeleteItem = async (resource: string, idOrKey: any, isKey = false) => {
-    if (!confirm('Are you sure you want to permanently delete this item?')) return;
+    const preset = CORE_CONTENT_PRESETS.find(p => p.key === idOrKey);
+    const confirmMessage = preset 
+      ? `Reset "${preset.label}" to default value? (This option will always remain available)`
+      : 'Are you sure you want to permanently delete this item?';
+
+    if (!confirm(confirmMessage)) return;
 
     setLoading(true);
     try {
       switch (resource) {
         case 'content':
-          await clientSql`DELETE FROM site_content WHERE key = ${idOrKey};`;
+          if (preset) {
+            // Reset to default value in database, preserving the key permanently
+            await clientSql`
+              INSERT INTO site_content (key, value, section, type, updated_at)
+              VALUES (${preset.key}, ${preset.defaultValue}, ${preset.section}, ${preset.type}, CURRENT_TIMESTAMP)
+              ON CONFLICT (key) DO UPDATE
+              SET value = ${preset.defaultValue}, updated_at = CURRENT_TIMESTAMP;
+            `;
+            showToast(`"${preset.label}" has been reset to default value!`);
+          } else {
+            await clientSql`DELETE FROM site_content WHERE key = ${idOrKey};`;
+            showToast('Custom key deleted successfully');
+          }
           break;
         case 'rovers':
           await clientSql`DELETE FROM rovers WHERE id = ${parseInt(idOrKey, 10)};`;
@@ -373,7 +589,9 @@ export default function AdminDashboard() {
           break;
       }
 
-      showToast('Item deleted successfully');
+      if (resource !== 'content') {
+        showToast('Item deleted successfully');
+      }
       loadAllData();
     } catch (err: any) {
       showToast(err.message || 'Error deleting item', 'error');
@@ -599,70 +817,168 @@ export default function AdminDashboard() {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <h2 className="text-xl font-display font-bold text-white flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-mars-400" /> Universal Site Content & Text / Image Editor
+                <Sparkles className="w-5 h-5 text-mars-400" /> Universal Site Content & Text / Image Customizer
               </h2>
               <p className="text-xs text-gray-400 font-mono mt-0.5">
-                Change any hero headline, badge, subtitle, background image, stat values, and mission text in real-time.
+                All hero banners, headlines, stats, and background photos are permanently available here to edit or upload anytime.
               </p>
             </div>
             <button
               onClick={() => openModal('content')}
               className="px-4 py-2.5 rounded-xl bg-mars-500 hover:bg-mars-400 text-white text-xs font-mono font-semibold flex items-center gap-2 shadow-lg shadow-mars-500/20 cursor-pointer"
             >
-              <Plus className="w-4 h-4" /> Add Custom Site Content Key
+              <Plus className="w-4 h-4" /> Add Custom Site Key
             </button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {siteContent.map((item) => (
-              <div key={item.key} className="glass-card p-5 rounded-2xl border border-white/10 space-y-3 relative group">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className="px-2 py-0.5 rounded text-[10px] font-mono uppercase bg-mars-500/20 text-mars-400 border border-mars-500/30">
-                      {item.section}
-                    </span>
-                    <span className="px-2 py-0.5 rounded text-[10px] font-mono uppercase bg-white/5 text-gray-400">
-                      {item.type}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition">
-                    <button
-                      onClick={() => openModal('content', item)}
-                      className="p-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white cursor-pointer"
-                      title="Edit"
-                    >
-                      <Edit3 className="w-3.5 h-3.5" />
-                    </button>
-                    <button
-                      onClick={() => handleDeleteItem('content', item.key, true)}
-                      className="p-1.5 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-400 cursor-pointer"
-                      title="Delete"
-                    >
-                      <Trash2 className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="text-[11px] font-mono text-gray-400 block mb-1">Key: <strong className="text-white">{item.key}</strong></label>
-                  {item.type === 'image' ? (
-                    <div className="flex items-center gap-3 mt-2">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={item.value} alt={item.key} className="w-16 h-16 rounded-xl object-cover border border-white/10 bg-space-950" />
-                      <span className="text-xs font-mono text-gray-300 break-all">{item.value}</span>
-                    </div>
-                  ) : (
-                    <p className="text-xs text-gray-200 bg-space-950/70 p-3 rounded-xl border border-white/5 font-mono line-clamp-3">
-                      {item.value}
-                    </p>
-                  )}
-                </div>
-
-                <div className="text-[10px] font-mono text-gray-500 pt-1">
-                  Updated: {new Date(item.updated_at).toLocaleString()}
-                </div>
-              </div>
+          {/* Section Filter Pills */}
+          <div className="flex flex-wrap items-center gap-2 pt-1 pb-2 border-b border-white/10">
+            {[
+              { id: 'all', label: 'All Content Keys' },
+              { id: 'hero', label: '🚀 Hero Banner & Photos' },
+              { id: 'stats', label: '🏆 Verified Stats' },
+              { id: 'about', label: '🛰️ Mission & About' },
+              { id: 'footer', label: '📌 Footer & Tagline' },
+            ].map((filter) => (
+              <button
+                key={filter.id}
+                onClick={() => setContentSectionFilter(filter.id)}
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-mono transition-all cursor-pointer ${
+                  contentSectionFilter === filter.id
+                    ? 'bg-white text-space-950 font-bold shadow-md'
+                    : 'bg-white/5 text-gray-400 hover:text-white hover:bg-white/10'
+                }`}
+              >
+                {filter.label}
+              </button>
             ))}
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {siteContent
+              .filter((item) => {
+                if (contentSectionFilter === 'all') return true;
+                return item.section === contentSectionFilter;
+              })
+              .map((item) => {
+                const isImage = item.type === 'image';
+                const isHeroBg = item.key === 'hero_bg_image';
+
+                return (
+                  <div
+                    key={item.key}
+                    className={`glass-card p-5 sm:p-6 rounded-3xl border space-y-4 relative group transition-all ${
+                      isHeroBg 
+                        ? 'border-mars-500/40 bg-gradient-to-br from-mars-500/10 via-space-card to-space-card md:col-span-2 shadow-xl shadow-mars-500/5' 
+                        : 'border-white/15'
+                    }`}
+                  >
+                    {/* Header Row */}
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="space-y-1">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase bg-mars-500/20 text-mars-300 border border-mars-500/40 font-bold">
+                            {item.section}
+                          </span>
+                          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase bg-white/10 text-gray-300">
+                            {item.type}
+                          </span>
+                          {item.isPreset ? (
+                            <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-semibold">
+                              Permanent Core Option
+                            </span>
+                          ) : (
+                            <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-purple-500/20 text-purple-300 border border-purple-500/30">
+                              Custom Key
+                            </span>
+                          )}
+                        </div>
+                        <h3 className="text-base font-display font-bold text-white pt-1">
+                          {item.label || item.key}
+                        </h3>
+                        <p className="text-xs text-gray-400 font-mono">
+                          {item.description || `Database Key: ${item.key}`}
+                        </p>
+                      </div>
+
+                      <div className="flex items-center gap-2 shrink-0">
+                        <button
+                          onClick={() => openModal('content', item)}
+                          className="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-mono font-medium transition flex items-center gap-1.5 cursor-pointer shadow"
+                          title="Edit Value / URL"
+                        >
+                          <Edit3 className="w-3.5 h-3.5 text-mars-400" /> Edit
+                        </button>
+                        <button
+                          onClick={() => handleDeleteItem('content', item.key, true)}
+                          className={`p-2 rounded-xl text-xs font-mono transition cursor-pointer ${
+                            item.isPreset
+                              ? 'bg-white/5 hover:bg-white/10 text-gray-400 hover:text-amber-300'
+                              : 'bg-red-500/10 hover:bg-red-500/20 text-red-400'
+                          }`}
+                          title={item.isPreset ? 'Reset to Default (Option stays permanently)' : 'Delete Custom Key'}
+                        >
+                          <Trash2 className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Content Display / Quick Action */}
+                    <div className="pt-1">
+                      {isImage ? (
+                        <div className="space-y-3">
+                          <div className="relative h-48 w-full rounded-2xl overflow-hidden border border-white/15 bg-space-950 flex items-center justify-center group/img">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                              src={item.value || '/Hero.PNG'}
+                              alt={item.label}
+                              className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-space-950/80 via-transparent to-transparent pointer-events-none" />
+                            <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs font-mono">
+                              <span className="text-gray-300 bg-black/70 px-2.5 py-1 rounded-lg backdrop-blur-md border border-white/10 truncate max-w-[70%]">
+                                {item.value || 'No custom image set (Using default)'}
+                              </span>
+                              <span className="text-emerald-400 font-bold bg-emerald-950/80 px-2 py-1 rounded-lg border border-emerald-500/30">
+                                Active Preview
+                              </span>
+                            </div>
+                          </div>
+
+                          <div className="flex flex-wrap items-center gap-3">
+                            <label className="px-4 py-2 rounded-xl bg-mars-500 hover:bg-mars-400 text-white text-xs font-mono font-bold transition flex items-center gap-2 cursor-pointer shadow-lg shadow-mars-500/25">
+                              <Upload className="w-3.5 h-3.5" /> Change / Upload New Photo
+                              <input
+                                type="file"
+                                accept="image/*"
+                                className="hidden"
+                                onChange={(e) => handleDirectContentImageUpload(e, item.key, item.section)}
+                              />
+                            </label>
+                            <span className="text-[11px] font-mono text-gray-400">
+                              Upload PNG, JPG, or WebP (under 5MB). Updates website immediately!
+                            </span>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="space-y-1.5">
+                          <label className="text-[11px] font-mono text-gray-400 block">
+                            Key ID: <code className="text-mars-400 font-bold">{item.key}</code>
+                          </label>
+                          <p className="text-xs text-gray-200 bg-space-950/80 p-3.5 rounded-2xl border border-white/10 font-mono leading-relaxed break-words whitespace-pre-wrap">
+                            {item.value || <span className="text-gray-500 italic">Empty / Not Set</span>}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="text-[10px] font-mono text-gray-500 flex items-center justify-between border-t border-white/5 pt-2">
+                      <span>Key: {item.key}</span>
+                      <span>Updated: {new Date(item.updated_at).toLocaleString()}</span>
+                    </div>
+                  </div>
+                );
+              })}
           </div>
         </div>
       )}

@@ -3,17 +3,26 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { clientSql } from '@/lib/clientDb';
+import { clientSql, getLocalCache, setLocalCache } from '@/lib/clientDb';
 import { Cpu, ArrowRight, ShieldCheck, Gauge, Wrench, Radio } from 'lucide-react';
 
+const DEFAULT_ROVERS = [
+  { id: 5, slug: 'aurion', name: 'AURION Rover (5th Gen)', year: 2026, competition: 'URC 2026 & ARC 2026', rank_achieved: '3rd Place in the World', cover_image: '/images/aurion.png', tagline: '5th Generation Martian Explorer', description: 'Engineered with 3D-printed flexible tires, high-torque carbon-fiber manipulator, dual RealSense stereo vision, and in-situ bio-detection assays.', specs: { weight: '47.5 kg', speed: '2.0 m/s', dof: '6-DOF', drive: '6-Wheel Rocker-Bogie' } },
+  { id: 4, slug: 'maven', name: 'MAVEN & MAVEN 2.0', year: 2025, competition: 'ARC 2025 & URC 2025', rank_achieved: 'Champion in Asia', cover_image: '/images/maven.jpg', tagline: 'Astrobiology & Autonomous Navigation', description: 'Advanced astrobiological sample collection with Raman spectrometry and high-bandwidth telemetry.', specs: { weight: '48.2 kg', speed: '1.8 m/s', dof: '6-DOF', drive: 'Custom Rocker Bogie' } },
+  { id: 3, slug: 'telos', name: 'TELOS Rover', year: 2024, competition: 'URC 2024', rank_achieved: 'World Finalist', cover_image: '/images/telos.jpg', tagline: 'Carbon-Fiber Manipulator & Raman Spectrometry', description: 'Precision robotic arm with closed-loop inverse kinematics and extreme terrain navigation.', specs: { weight: '49.0 kg', speed: '1.5 m/s', dof: '6-DOF', drive: 'Differential Rocker' } },
+  { id: 2, slug: 'yggdrasil', name: 'YGGDRASIL Rover', year: 2023, competition: 'URC 2023', rank_achieved: 'Global Finalist', cover_image: '/images/yggdrasil.jpg', tagline: 'Extreme Retrieval & Autonomous Traversals', description: 'Built for high torque payload delivery, equipment servicing, and harsh Martian terrain exploration.', specs: { weight: '49.5 kg', speed: '1.6 m/s', dof: '5-DOF', drive: 'Rocker-Bogie' } },
+  { id: 1, slug: 'axios', name: 'AXIOS Rover', year: 2022, competition: 'URC 2022', rank_achieved: '1st in Asia (10th in World)', cover_image: '/images/axios.jpg', tagline: 'First Historic Podium Finish', description: 'Historic flagship platform establishing UMRT on the global podium at the University Rover Challenge.', specs: { weight: '50.0 kg', speed: '1.4 m/s', dof: '5-DOF', drive: '6-Wheel Drive' } },
+];
+
 export default function RoversPage() {
-  const [rovers, setRovers] = useState<any[]>([]);
+  const [rovers, setRovers] = useState<any[]>(() => getLocalCache('rovers_list', DEFAULT_ROVERS));
 
   useEffect(() => {
     clientSql`SELECT * FROM rovers ORDER BY year DESC;`
       .then((res: any) => {
         if (res && Array.isArray(res) && res.length > 0) {
           setRovers(res);
+          setLocalCache('rovers_list', res);
         }
       })
       .catch((err: any) => console.error('Real-time rovers sync error:', err));

@@ -2,17 +2,18 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { clientSql } from '@/lib/clientDb';
+import { clientSql, getLocalCache, setLocalCache } from '@/lib/clientDb';
 import { Trophy, Award, MapPin, Calendar, Star, Sparkles } from 'lucide-react';
 
 export default function AchievementsPage() {
-  const [achievements, setAchievements] = useState<any[]>([]);
+  const [achievements, setAchievements] = useState<any[]>(() => getLocalCache('achievements_list', []));
 
   useEffect(() => {
     clientSql`SELECT * FROM achievements ORDER BY year DESC, id ASC;`
       .then((res: any) => {
         if (res && Array.isArray(res) && res.length > 0) {
           setAchievements(res);
+          setLocalCache('achievements_list', res);
         }
       })
       .catch((err: any) => console.error('Real-time achievements sync error:', err));

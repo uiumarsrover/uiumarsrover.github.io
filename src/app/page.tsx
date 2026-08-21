@@ -3,22 +3,46 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { clientSql } from '@/lib/clientDb';
+import { clientSql, getLocalCache, setLocalCache } from '@/lib/clientDb';
 import StatsCounter from '@/components/StatsCounter';
 import { 
   ArrowRight, Trophy, Sparkles, ChevronRight, Award, Compass, Cpu, 
   ExternalLink, Calendar, Newspaper, Rocket, Tv, Radio, Flame, Eye, Maximize2, ShieldCheck, Zap, Activity, Navigation, Crosshair, Building2
 } from 'lucide-react';
 
+const DEFAULT_ROVERS = [
+  { id: 5, slug: 'aurion', name: 'AURION Rover (5th Gen)', year: 2026, competition: 'URC 2026 & ARC 2026', rank_achieved: '3rd Place in the World', cover_image: '/images/aurion.png', tagline: '5th Generation Martian Explorer', specs: { weight: '47.5 kg', speed: '2.0 m/s', dof: '6-DOF' } },
+  { id: 4, slug: 'maven', name: 'MAVEN & MAVEN 2.0', year: 2025, competition: 'ARC 2025 & URC 2025', rank_achieved: 'Champion in Asia', cover_image: '/images/maven.jpg', tagline: 'Astrobiology & Autonomous Navigation', specs: { weight: '48.2 kg', speed: '1.8 m/s', dof: '6-DOF' } },
+  { id: 3, slug: 'telos', name: 'TELOS Rover', year: 2024, competition: 'URC 2024', rank_achieved: 'World Finalist', cover_image: '/images/telos.jpg', tagline: 'Carbon-Fiber Manipulator & Raman Spectrometry', specs: { weight: '49.0 kg', speed: '1.5 m/s', dof: '6-DOF' } },
+  { id: 2, slug: 'yggdrasil', name: 'YGGDRASIL Rover', year: 2023, competition: 'URC 2023', rank_achieved: 'Global Finalist', cover_image: '/images/yggdrasil.jpg', tagline: 'Extreme Retrieval & Autonomous Traversals', specs: { weight: '49.5 kg', speed: '1.6 m/s', dof: '5-DOF' } },
+];
+
+const DEFAULT_SITE_CONTENT: Record<string, string> = {
+  hero_bg_image: '/Hero.PNG',
+  hero_badge: '5TH GEN FLAGSHIP • AURION ROVER',
+  hero_headline_1: 'AURION',
+  hero_headline_2: 'UIU 5th Generation Autonomous Mars Rover',
+  hero_subtitle: 'Engineered with 3D-printed flexible tires, high-torque carbon-fiber manipulator, dual RealSense stereo vision, and in-situ bio-detection assays.',
+  stat_1_val: '3rd Place',
+  stat_1_label: 'World URC 2026 Record',
+  stat_2_val: '1st in Asia',
+  stat_2_label: 'URC 2022 Milestone',
+  stat_3_val: '5 Generations',
+  stat_3_label: 'Planetary Rovers Built',
+  stat_4_val: '80+ Engineers',
+  stat_4_label: 'Team Members & Alumni',
+};
+
 export default function HomePage() {
-  const [rovers, setRovers] = useState<any[]>([]);
-  const [achievements, setAchievements] = useState<any[]>([]);
-  const [events, setEvents] = useState<any[]>([]);
-  const [media, setMedia] = useState<any[]>([]);
-  const [sponsors, setSponsors] = useState<any[]>([]);
-  const [siteContent, setSiteContent] = useState<Record<string, string>>({});
+  const [rovers, setRovers] = useState<any[]>(() => getLocalCache('home_rovers', DEFAULT_ROVERS));
+  const [achievements, setAchievements] = useState<any[]>(() => getLocalCache('home_achievements', []));
+  const [events, setEvents] = useState<any[]>(() => getLocalCache('home_events', []));
+  const [media, setMedia] = useState<any[]>(() => getLocalCache('home_media', []));
+  const [sponsors, setSponsors] = useState<any[]>(() => getLocalCache('home_sponsors', []));
+  const [siteContent, setSiteContent] = useState<Record<string, string>>(() => getLocalCache('home_content', DEFAULT_SITE_CONTENT));
 
   useEffect(() => {
+    // Fast background query to sync latest database state without delaying page paint
     Promise.all([
       clientSql`SELECT * FROM rovers ORDER BY year DESC LIMIT 5;`,
       clientSql`SELECT * FROM achievements WHERE is_featured = true ORDER BY year DESC LIMIT 4;`,
@@ -28,18 +52,34 @@ export default function HomePage() {
       clientSql`SELECT * FROM site_content;`,
     ])
       .then(([rRes, aRes, eRes, mRes, sRes, cRes]) => {
-        if (rRes && rRes.length) setRovers(rRes);
-        if (aRes && aRes.length) setAchievements(aRes);
-        if (eRes && eRes.length) setEvents(eRes);
-        if (mRes && mRes.length) setMedia(mRes);
-        if (sRes && sRes.length) setSponsors(sRes);
+        if (rRes && rRes.length) {
+          setRovers(rRes);
+          setLocalCache('home_rovers', rRes);
+        }
+        if (aRes && aRes.length) {
+          setAchievements(aRes);
+          setLocalCache('home_achievements', aRes);
+        }
+        if (eRes && eRes.length) {
+          setEvents(eRes);
+          setLocalCache('home_events', eRes);
+        }
+        if (mRes && mRes.length) {
+          setMedia(mRes);
+          setLocalCache('home_media', mRes);
+        }
+        if (sRes && sRes.length) {
+          setSponsors(sRes);
+          setLocalCache('home_sponsors', sRes);
+        }
         if (cRes && cRes.length) {
-          const map: Record<string, string> = {};
+          const map: Record<string, string> = { ...DEFAULT_SITE_CONTENT };
           cRes.forEach((item: any) => { map[item.key] = item.value; });
           setSiteContent(map);
+          setLocalCache('home_content', map);
         }
       })
-      .catch((err) => console.error('Real-time home sync error:', err));
+      .catch((err) => console.error('Background home sync error:', err));
   }, []);
 
   const heroSponsors = [

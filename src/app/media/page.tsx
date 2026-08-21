@@ -1,18 +1,19 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { clientSql } from '@/lib/clientDb';
+import { clientSql, getLocalCache, setLocalCache } from '@/lib/clientDb';
 import MediaLightbox from '@/components/MediaLightbox';
 import { Newspaper, Tv, Globe } from 'lucide-react';
 
 export default function MediaPage() {
-  const [mediaArticles, setMediaArticles] = useState<any[]>([]);
+  const [mediaArticles, setMediaArticles] = useState<any[]>(() => getLocalCache('media_list', []));
 
   useEffect(() => {
     clientSql`SELECT * FROM media_articles ORDER BY id ASC;`
       .then((res: any) => {
         if (res && Array.isArray(res) && res.length > 0) {
           setMediaArticles(res);
+          setLocalCache('media_list', res);
         }
       })
       .catch((err: any) => console.error('Real-time media sync error:', err));
