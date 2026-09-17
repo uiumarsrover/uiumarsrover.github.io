@@ -184,4 +184,28 @@ export function compressImageFile(file: File, maxWidth = 1600, quality = 0.82): 
   });
 }
 
+export const ADMIN_AUTH_SALT = 'umrt_mars_rover_secret_salt_2026';
+
+/**
+ * Browser-compatible HMAC-SHA256 password hasher using Web Crypto API.
+ * Exactly matches Node.js crypto.createHmac('sha256', salt).update(pass).digest('hex').
+ */
+export async function hashPasswordClient(password: string): Promise<string> {
+  if (typeof window !== 'undefined' && window.crypto && window.crypto.subtle) {
+    const enc = new TextEncoder();
+    const key = await window.crypto.subtle.importKey(
+      'raw',
+      enc.encode(ADMIN_AUTH_SALT),
+      { name: 'HMAC', hash: 'SHA-256' },
+      false,
+      ['sign']
+    );
+    const sig = await window.crypto.subtle.sign('HMAC', key, enc.encode(password));
+    return Array.from(new Uint8Array(sig))
+      .map((b) => b.toString(16).padStart(2, '0'))
+      .join('');
+  }
+  return password;
+}
+
 export default clientSql;

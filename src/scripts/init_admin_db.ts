@@ -32,9 +32,9 @@ async function main() {
   console.log('admin_users table verified.');
 
   // Default superadmin credentials
-  const defaultEmail = 'admin@uiumarsrover.org';
-  const defaultUser = 'admin';
-  const defaultPass = 'MarsRover2026!';
+  const defaultEmail = 'abid@cse.uiu.ac.bd';
+  const defaultUser = 'abid';
+  const defaultPass = 'uiumarsroveradmin';
   const defaultPassHash = hashPassword(defaultPass);
 
   await sql`

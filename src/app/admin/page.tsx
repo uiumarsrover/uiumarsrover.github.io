@@ -4,9 +4,9 @@ import React, { useState, useEffect } from 'react';
 import { 
   ShieldCheck, Users, Cpu, Award, Mail, Calendar, FileText, Database, 
   Plus, Trash2, Edit3, Save, X, Image as ImageIcon, ExternalLink, 
-  LogOut, Lock, CheckCircle2, AlertCircle, RefreshCw, Layers, Sparkles, Upload, Eye
+  LogOut, Lock, CheckCircle2, AlertCircle, RefreshCw, Layers, Sparkles, Upload, Eye, Key, EyeOff
 } from 'lucide-react';
-import { clientSql, compressImageFile } from '@/lib/clientDb';
+import { clientSql, compressImageFile, hashPasswordClient } from '@/lib/clientDb';
 
 type TabType = 'content' | 'rovers' | 'team' | 'events' | 'news' | 'achievements' | 'sponsors' | 'applications';
 
@@ -177,6 +177,17 @@ export default function AdminDashboard() {
   const [formData, setFormData] = useState<any>({});
   const [uploadingImage, setUploadingImage] = useState(false);
 
+  // Change Password Modal States
+  const [showPasswordModal, setShowPasswordModal] = useState(false);
+  const [currentPassword, setCurrentPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [showCurrentPass, setShowCurrentPass] = useState(false);
+  const [showNewPass, setShowNewPass] = useState(false);
+  const [showConfirmPass, setShowConfirmPass] = useState(false);
+  const [passwordChangeLoading, setPasswordChangeLoading] = useState(false);
+  const [passwordChangeError, setPasswordChangeError] = useState('');
+
   // Show toast notification
   const showToast = (text: string, type: 'success' | 'error' = 'success') => {
     setToastMessage({ text, type });
@@ -205,15 +216,30 @@ export default function AdminDashboard() {
     setLoginLoading(true);
     setLoginError('');
 
+    const trimmedIdentifier = loginIdentifier.trim();
+
     try {
+      const hashedInput = await hashPasswordClient(loginPassword);
+
       // Query Neon PostgreSQL directly for admin credentials
       const users = await clientSql`
         SELECT * FROM admin_users 
-        WHERE email = ${loginIdentifier} OR username = ${loginIdentifier} 
+        WHERE email = ${trimmedIdentifier} OR username = ${trimmedIdentifier} 
         LIMIT 1;
       `;
 
       if (users.length === 0) {
+        // Offline / initial fallback credentials check for abid
+        if ((trimmedIdentifier === 'abid@cse.uiu.ac.bd' || trimmedIdentifier === 'abid') && loginPassword === 'uiumarsroveradmin') {
+          const fallbackUser = { id: 1, username: 'abid', email: 'abid@cse.uiu.ac.bd', role: 'SUPERADMIN' };
+          localStorage.setItem('umrt_admin_user', JSON.stringify(fallbackUser));
+          setIsAuthenticated(true);
+          setAdminUser(fallbackUser);
+          showToast('Welcome to Mission Control, Abid!');
+          loadAllData();
+          return;
+        }
+
         setLoginError('Invalid username/email or password');
         setLoginLoading(false);
         return;
@@ -221,8 +247,11 @@ export default function AdminDashboard() {
 
       const user = users[0];
       
-      // Allow standard password login or master password
-      if (loginPassword !== 'MarsRover2026!' && !user.password_hash) {
+      // Verify password match against database hash or master credential
+      const isPasswordMatch = (user.password_hash && user.password_hash === hashedInput) || 
+                              (loginPassword === 'uiumarsroveradmin' && (trimmedIdentifier === 'abid' || trimmedIdentifier === 'abid@cse.uiu.ac.bd'));
+
+      if (!isPasswordMatch) {
         setLoginError('Invalid username/email or password');
         setLoginLoading(false);
         return;
@@ -242,19 +271,87 @@ export default function AdminDashboard() {
       loadAllData();
     } catch (err: any) {
       console.error('Login error:', err);
-      // Fallback check for offline / initial master password
-      if (loginIdentifier === 'admin' && loginPassword === 'MarsRover2026!') {
-        const fallbackUser = { id: 1, username: 'admin', email: 'admin@uiumarsrover.org', role: 'SUPERADMIN' };
+      // Fallback check for offline / initial credentials
+      if ((trimmedIdentifier === 'abid@cse.uiu.ac.bd' || trimmedIdentifier === 'abid') && loginPassword === 'uiumarsroveradmin') {
+        const fallbackUser = { id: 1, username: 'abid', email: 'abid@cse.uiu.ac.bd', role: 'SUPERADMIN' };
         localStorage.setItem('umrt_admin_user', JSON.stringify(fallbackUser));
         setIsAuthenticated(true);
         setAdminUser(fallbackUser);
-        showToast('Authenticated via Master Key');
+        showToast('Authenticated as Superadmin');
         loadAllData();
       } else {
         setLoginError(err.message || 'Database connection error');
       }
     } finally {
       setLoginLoading(false);
+    }
+  };
+
+  const handleChangePassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setPasswordChangeError('');
+
+    if (!currentPassword) {
+      setPasswordChangeError('Please enter your current password.');
+      return;
+    }
+    if (newPassword.length < 6) {
+      setPasswordChangeError('New password must be at least 6 characters long.');
+      return;
+    }
+    if (newPassword !== confirmPassword) {
+      setPasswordChangeError('New password and confirmation do not match.');
+      return;
+    }
+
+    setPasswordChangeLoading(true);
+    try {
+      const currentHashed = await hashPasswordClient(currentPassword);
+
+      // Verify with database
+      const users = await clientSql`
+        SELECT id, username, email, password_hash FROM admin_users 
+        WHERE email = ${adminUser?.email || 'abid@cse.uiu.ac.bd'} 
+           OR id = ${adminUser?.id || 1}
+        LIMIT 1;
+      `;
+
+      if (users.length === 0) {
+        setPasswordChangeError('Admin user record not found in database.');
+        setPasswordChangeLoading(false);
+        return;
+      }
+
+      const user = users[0];
+      const matches = (user.password_hash === currentHashed) || 
+                      (currentPassword === 'uiumarsroveradmin' && (user.email === 'abid@cse.uiu.ac.bd' || user.username === 'abid'));
+
+      if (!matches) {
+        setPasswordChangeError('Current password is incorrect.');
+        setPasswordChangeLoading(false);
+        return;
+      }
+
+      const newHashed = await hashPasswordClient(newPassword);
+
+      // Update password directly in Neon PostgreSQL
+      await clientSql`
+        UPDATE admin_users 
+        SET password_hash = ${newHashed} 
+        WHERE id = ${user.id};
+      `;
+
+      showToast('Admin password updated successfully! Please use your new password next time.', 'success');
+      setShowPasswordModal(false);
+      setCurrentPassword('');
+      setNewPassword('');
+      setConfirmPassword('');
+      setPasswordChangeError('');
+    } catch (err: any) {
+      console.error('Password change error:', err);
+      setPasswordChangeError(err.message || 'Failed to update password in database.');
+    } finally {
+      setPasswordChangeLoading(false);
     }
   };
 
@@ -666,7 +763,7 @@ export default function AdminDashboard() {
                 required
                 value={loginIdentifier}
                 onChange={(e) => setLoginIdentifier(e.target.value)}
-                placeholder="admin@uiumarsrover.org"
+                placeholder="abid@cse.uiu.ac.bd"
                 className="w-full bg-space-900/90 border border-white/15 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-mars-500 transition font-mono"
               />
             </div>
@@ -704,7 +801,7 @@ export default function AdminDashboard() {
 
           <div className="mt-8 pt-6 border-t border-white/10 text-center">
             <p className="text-[11px] font-mono text-gray-500">
-              Default Superadmin: <span className="text-gray-400">admin@uiumarsrover.org</span>
+              Authorized Admin: <span className="text-gray-400">abid@cse.uiu.ac.bd</span>
             </p>
           </div>
         </div>
@@ -759,6 +856,21 @@ export default function AdminDashboard() {
           >
             <Eye className="w-3.5 h-3.5" /> Live Site <ExternalLink className="w-3 h-3" />
           </a>
+          <button
+            onClick={() => {
+              setPasswordChangeError('');
+              setCurrentPassword('');
+              setNewPassword('');
+              setConfirmPassword('');
+              setShowCurrentPass(false);
+              setShowNewPass(false);
+              setShowConfirmPass(false);
+              setShowPasswordModal(true);
+            }}
+            className="px-4 py-2.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-xs font-mono text-amber-300 hover:text-amber-200 transition flex items-center gap-1.5 cursor-pointer shadow-sm shadow-amber-500/10"
+          >
+            <Key className="w-3.5 h-3.5" /> Change Password
+          </button>
           <button
             onClick={loadAllData}
             disabled={loading}
@@ -2082,6 +2194,152 @@ export default function AdminDashboard() {
               </button>
             </div>
 
+          </div>
+        </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* CHANGE PASSWORD MODAL                                                    */}
+      {/* ========================================================================= */}
+      {showPasswordModal && (
+        <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+          <div className="w-full max-w-md bg-space-950/95 border border-amber-500/30 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+            <div className="absolute -top-20 -right-20 w-40 h-40 bg-amber-500/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-mars-500/10 rounded-full blur-3xl pointer-events-none" />
+
+            <button
+              onClick={() => setShowPasswordModal(false)}
+              className="absolute top-5 right-5 p-2 rounded-xl text-gray-400 hover:text-white bg-white/5 hover:bg-white/10 transition cursor-pointer"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            <div className="flex items-center gap-3.5 mb-6">
+              <div className="w-12 h-12 rounded-2xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 shrink-0">
+                <Key className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="text-lg font-display font-bold text-white">Change Admin Password</h3>
+                <p className="text-xs font-mono text-gray-400">
+                  Account: <span className="text-amber-400 font-semibold">{adminUser?.email || 'abid@cse.uiu.ac.bd'}</span>
+                </p>
+              </div>
+            </div>
+
+            {passwordChangeError && (
+              <div className="mb-5 p-3 rounded-xl bg-red-500/20 border border-red-500/30 text-red-300 text-xs font-mono flex items-center gap-2">
+                <AlertCircle className="w-4 h-4 shrink-0 text-red-400" />
+                <span>{passwordChangeError}</span>
+              </div>
+            )}
+
+            <form onSubmit={handleChangePassword} className="space-y-4">
+              <div>
+                <label className="block text-xs font-mono text-gray-300 uppercase mb-1.5 font-medium">
+                  Current Password
+                </label>
+                <div className="relative">
+                  <input
+                    type={showCurrentPass ? 'text' : 'password'}
+                    required
+                    value={currentPassword}
+                    onChange={(e) => setCurrentPassword(e.target.value)}
+                    placeholder="Enter your current password"
+                    className="w-full bg-space-900 border border-white/15 rounded-xl px-4 py-2.5 pr-11 text-sm text-white placeholder-gray-500 font-mono focus:outline-none focus:border-amber-500 transition"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowCurrentPass(!showCurrentPass)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition p-1"
+                  >
+                    {showCurrentPass ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-mono text-gray-300 uppercase mb-1.5 font-medium">
+                  New Password
+                </label>
+                <div className="relative">
+                  <input
+                    type={showNewPass ? 'text' : 'password'}
+                    required
+                    minLength={6}
+                    value={newPassword}
+                    onChange={(e) => setNewPassword(e.target.value)}
+                    placeholder="Minimum 6 characters"
+                    className="w-full bg-space-900 border border-white/15 rounded-xl px-4 py-2.5 pr-11 text-sm text-white placeholder-gray-500 font-mono focus:outline-none focus:border-amber-500 transition"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowNewPass(!showNewPass)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition p-1"
+                  >
+                    {showNewPass ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-mono text-gray-300 uppercase mb-1.5 font-medium">
+                  Confirm New Password
+                </label>
+                <div className="relative">
+                  <input
+                    type={showConfirmPass ? 'text' : 'password'}
+                    required
+                    minLength={6}
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    placeholder="Confirm new password"
+                    className="w-full bg-space-900 border border-white/15 rounded-xl px-4 py-2.5 pr-11 text-sm text-white placeholder-gray-500 font-mono focus:outline-none focus:border-amber-500 transition"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowConfirmPass(!showConfirmPass)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition p-1"
+                  >
+                    {showConfirmPass ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                  </button>
+                </div>
+                {confirmPassword && newPassword !== confirmPassword && (
+                  <p className="text-[11px] font-mono text-red-400 mt-1.5 flex items-center gap-1">
+                    <AlertCircle className="w-3 h-3" /> Passwords do not match
+                  </p>
+                )}
+                {confirmPassword && newPassword === confirmPassword && (
+                  <p className="text-[11px] font-mono text-emerald-400 mt-1.5 flex items-center gap-1">
+                    <CheckCircle2 className="w-3 h-3" /> Passwords match
+                  </p>
+                )}
+              </div>
+
+              <div className="pt-4 border-t border-white/10 flex items-center justify-end gap-3">
+                <button
+                  type="button"
+                  onClick={() => setShowPasswordModal(false)}
+                  className="px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 text-xs font-mono transition cursor-pointer"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={passwordChangeLoading || !currentPassword || !newPassword || newPassword !== confirmPassword}
+                  className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white text-xs font-mono font-bold flex items-center gap-1.5 shadow-lg shadow-amber-600/30 transition-all cursor-pointer disabled:opacity-50"
+                >
+                  {passwordChangeLoading ? (
+                    <>
+                      <RefreshCw className="w-3.5 h-3.5 animate-spin" /> Updating...
+                    </>
+                  ) : (
+                    <>
+                      <Save className="w-3.5 h-3.5" /> Save New Password
+                    </>
+                  )}
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       )}
