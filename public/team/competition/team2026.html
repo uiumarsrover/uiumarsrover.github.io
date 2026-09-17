@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D50Y94CB7B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-D50Y94CB7B");
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="../../images/umrt_logo.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../../css/navbar.css" />
+  <link rel="stylesheet" href="../../css/footer.css" />
+  <link rel="stylesheet" href="../../css/all_member.css" />
+  <title>2026 Team Members - UMRT</title>
+</head>
+
+<body>
+  <!-- Navigation bar -->
+  <nav class="navbar montserrat">
+    <div class="logo-container">
+      <div class="logo"></div>
+      <div class="text">
+        <a href="../../index.html" class="nav-link akira">UMRT</a>
+      </div>
+    </div>
+
+    <!-- Hamburger menu icon for mobile -->
+    <div class="menu-icon" id="menuIcon">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <div class="nav-links" id="navLinks">
+      <div class="close-icon" id="closeIcon">
+        <i class="fas fa-times"></i>
+      </div>
+      <a href="../../index.html" class="nav-link nav-home-mobile">Home</a>
+      <a href="../../projects/projects.html" class="nav-link">Projects</a>
+      <a href="../../achievements/achievements.html" class="nav-link">Achievements</a>
+      <a href="../../video/videos.html" class="nav-link">Videos</a>
+      <a href="../../our_mission/our_mission.html" class="nav-link">Our Mission</a>
+
+      <div class="team-dropdown">
+        <a href="javascript:void(0);" class="nav-link" id="teamDropdownBtn">Team ▼</a>
+        <div class="team-dropdown-content">
+          <a href="../../advisors/advisors.html" class="dropdown-link">Advisors</a>
+          <a href="../../director/director.html" class="dropdown-link">Director</a>
+          <a href="../../team/member.html" class="dropdown-link">Members</a>
+          <a href="../../team/leadership.html" class="dropdown-link">Leadership</a>
+          <a href="../../team/join_us.html" class="dropdown-link">Join Us</a>
+        </div>
+      </div>
+
+      <a href="../../sponsor/sponsor.html" class="sponsor-btn">Become Sponsor!</a>
+    </div>
+  </nav>
+
+  <main class="team-page">
+    <style>
+      .team-page a { text-decoration: none; color: inherit; }
+      .team-page a:hover { text-decoration: none; }
+      .leader-card, .sub-leader-card, .member-card { transition: transform 0.18s ease, box-shadow 0.18s ease; border-radius: 14px; }
+      .leader-card:hover, .sub-leader-card:hover, .member-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(20,20,43,0.08); }
+      .leader-photo, .sub-leader-photo, .member-photo { border-radius: 12px; box-shadow: 0 8px 18px rgba(20,20,43,0.08); }
+
+      /* Cover Image Banner */
+      .team-cover-banner {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto 2rem;
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(255, 153, 0, 0.2);
+      }
+      .team-cover-banner img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+      }
+    </style>
+    <!-- Team Member Navigation Bar -->
+    <nav class="team-member-nav">
+      <ul>
+        <li>
+          <a href="../competition/team2022.html" class="nav-link">2022</a>
+        </li>
+        <li>
+          <a href="../competition/team2023.html" class="nav-link">2023</a>
+        </li>
+        <li>
+          <a href="../competition/team2024.html" class="nav-link">2024</a>
+        </li>
+        <li>
+          <a href="../competition/team2025.html" class="nav-link">2025</a>
+        </li>
+        <li>
+          <a href="../competition/team2026.html" class="nav-link active">2026</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="title-page">
+      <h1 class="team-member-page-title">2026 Team Members</h1>
+    </div>
+
+    <!-- Cover Image Banner -->
+    <div class="team-cover-banner">
+      <img src="../../images/team_urc2026.jpg" alt="UIU Mars Rover Team - URC 2026 - Historic 3rd Place Worldwide" />
+    </div>
+
+    <!-- Team Leader Section -->
+    <section class="team-leader">
+      <h2>Team Leader</h2>
+      <div class="leader-container">
+      </div>
+    </section>
+
+    <!-- Sub Team Leaders Section -->
+    <section class="sub-team-leaders">
+      <h2>Sub Team Leaders</h2>
+      <div class="sub-leaders-grid">
+      </div>
+    </section>
+
+    <!-- Team Members Section -->
+    <section class="team-members">
+      <h2>Team Members</h2>
+      <div class="members-grid">
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div id="footer-earth-container"></div>
+    <div class="footer-content">
+      <!-- Logo at the top center -->
+      <div class="footer-logo"></div>
+
+      <!-- About and Links Container -->
+      <div class="footer-main">
+        <!-- About Section -->
+        <div class="about">
+          <h3>About UMRT</h3>
+          <p>
+            The UIU Mars Rover Team (UMRT) is a group of passionate students
+            dedicated to designing and building the next generation of Mars
+            and Lunar rovers. We aim to push the boundaries of space
+            exploration and innovation.
+          </p>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="contact-info">
+          <h3>Contact with us</h3>
+
+          <a href="tel:+8801796992356" class="contact-item">
+            <i class="fas fa-phone"></i> +880 1796-992356
+          </a>
+
+          <a href="mailto:marsrover@uiu.ac.bd" class="contact-item">
+            <i class="fas fa-envelope"></i> marsrover@uiu.ac.bd
+          </a>
+
+          <div class="social-links">
+            <a href="https://www.facebook.com/UIUMRT" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.linkedin.com/company/uiu-mars-rover-team-umrt/" target="_blank"><i
+                class="fab fa-linkedin"></i></a>
+            <a href="https://www.youtube.com/@uiumarsrover" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://x.com/uiumarsrover" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/uiumarsrover/" target="_blank"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <!-- Existing Links -->
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <a href="../../projects/projects.html" class="footer-link">Projects</a>
+          <a href="../../achievements/achievements.html" class="footer-link">Achievements</a>
+          <a href="../../our_mission/our_mission.html" class="footer-link">Our Mission</a>
+          <a href="../../advisors/advisors.html" class="footer-link">Advisors</a>
+          <a href="../../director/director.html" class="footer-link">Director</a>
+          <a href="../../team/member.html" class="footer-link">Members</a>
+          <a href="../../team/leadership.html" class="footer-link">Leadership</a>
+          <a href="../../video/videos.html" class="footer-link">Videos</a>
+          <a href="../../team/join_us.html" class="footer-link">Join Us</a>
+          <a href="../../sponsor/sponsor.html" class="footer-link">Become Sponsor!</a>
+        </div>
+      </div>
+
+      <!-- Horizontal Line -->
+      <div class="footer-divider"></div>
+
+      <!-- Webmaster Link -->
+      <div class="webmaster-link-container">
+        <a href="../../webmaster.html" class="webmaster-link">
+          <i class="fas fa-code"></i>
+          <span>Meet Our Webmasters</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Three.js scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r120/three.min.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/141228/OrbitControls.js"></script>
+
+  <script src="../../scripts/earthFooter.js"></script>
+  <script src="../../scripts/navbar.js"></script>
+  <script>
+    const team2026Members = [
+      { slug: 'sheikh-Shakib-hossain', name: 'Sheikh Shakib Hossain', role: 'Co-Team Leader', image: './img_team2026/3.png', group: 'leader', displayRole: 'Co-Team Leader' },
+      { slug: 'saif-al-saad', name: 'Saif Al Saad', role: 'Team Leader', image: './img_team2026/2.png', group: 'leader', displayRole: 'Team Leader' },
+      { slug: 'mosfiqur-rahman', name: 'Mosfiqur Rahman', role: 'Senior Lead', image: './img_team2026/4.png', group: 'leader', displayRole: 'Senior Lead' },
+
+      { slug: 'nadim-hossain', name: 'Nadim Hossain', role: 'Media and Branding Team', image: './img_team2026/5.png', group: 'sub-leader', displayRole: 'Sub-Team Lead' },
+      { slug: 'salman-kabir', name: 'Salman Kabir', role: 'Autonomous Team', image: './img_team2026/6.png', group: 'sub-leader', displayRole: 'Sub-Team Lead' },
+      { slug: 'sabbir-ahmed-aerial', name: 'Sabbir Ahmed', role: 'Aerial and Communication Team', image: './img_team2026/7.png', group: 'sub-leader', displayRole: 'Sub-Team Lead' },
+      { slug: 'ayesha-sayma', name: 'Ayesha Sayma', role: 'Science Team', image: './img_team2026/8.png', group: 'sub-leader', displayRole: 'Sub-Team Lead' },
+      { slug: 'siam-ibne-sarwar', name: 'Siam Ibne Sarwar', role: 'Mechanical Team', image: './img_team2026/9.png', group: 'sub-leader', displayRole: 'Sub-Team Lead' },
+
+      { slug: 'mahin-hasan-upol', name: 'Mahin Hasan Upol', role: 'Autonomous Team', image: './img_team2026/10.png', group: 'member' },
+      { slug: 'saba', name: 'Md Abir Al Saba', role: 'Autonomous Team', image: './img_team2026/30.png', group: 'member' },
+      { slug: 'TALHA JUBAYER', name: 'TALHA JUBAYER', role: 'Autonomous Team', image: './img_team2026/11.png', group: 'member' },
+      { slug: 'muhutasim-bin-sadik', name: 'Muhutasim Bin Sadik', role: 'Autonomous Team', image: './img_team2026/12.png', group: 'member' },
+      { slug: 'member-13', name: 'Shahriar Jaman Siyam', role: 'Autonomous Team', image: './img_team2026/13.png', group: 'member' },
+      { slug: 'member-14', name: 'Bakhtial Ahamed Fahim', role: 'Autonomous Team', image: './img_team2026/14.png', group: 'member' },
+      { slug: 'arman-hossain', name: 'Arman Hossain', role: 'Autonomous Team', image: './img_team2026/15.png', group: 'member' },
+      { slug: 'marina-montaz', name: 'Marina Montaz', role: 'Media and Branding Team', image: './img_team2026/16.png', group: 'member' },
+      { slug: 'zihad-shahriar', name: 'Zihad Shahriar', role: 'Media and Branding Team', image: './img_team2026/17.png', group: 'member' },
+      { slug: 'member-18', name: 'MD Riad Hossen', role: 'Mechanical Team', image: './img_team2026/18.png', group: 'member' },
+      { slug: 'nazmuz-hasan', name: 'Nazmuz Hasan', role: 'Mechanical Team', image: './img_team2026/19.png', group: 'member' },
+      { slug: 'member-20', name: 'Miraz Al Hyder', role: 'Mechanical Team', image: './img_team2026/20.png', group: 'member' },
+      { slug: 'member-21', name: 'Md Alif Nebir', role: 'Mechanical Team', image: './img_team2026/21.png', group: 'member' },
+      { slug: 'hemal', name: 'Md. Mimtiage Islam Hemal', role: 'Mechanical Team', image: './img_team2026/22.png', group: 'member' },
+      { slug: 'alif-nebir', name: 'Alif Nebir', role: 'Logistics Team', image: './img_team2026/23.png', group: 'member' },
+      { slug: 'shanjida-shopna', name: 'Shanjida Shopna', role: 'Science Team', image: './img_team2026/24.png', group: 'member' },
+      { slug: 'member-25', name: 'Nowshin Anjum Faria', role: 'Science Team', image: './img_team2026/25.png', group: 'member' },
+      { slug: 'member-26', name: 'Epshita Solaiman Sara', role: 'Science Team', image: './img_team2026/26.png', group: 'member' },
+      { slug: 'member-28', name: 'Md Sabik Hossain Sifat', role: 'Electrical Team', image: './img_team2026/28.png', group: 'member' },
+      { slug: 'abrar', name: 'Abrar Habib Adib', role: 'Media and Branding Team', image: './img_team2026/31.png', group: 'member' },
+      { slug: 'anindya-talukdar', name: 'Anindya Talukdar', role: 'Communication Team', image: './img_team2026/32.png', group: 'member' },
+      { slug: 'partha-podder', name: 'Partha Podder', role: 'Electrical Team', image: './img_team2026/29.png', group: 'member' },
+      { slug: 'syed-thuha', name: 'Syed Thuha', role: 'Electrical Team', image: './img_team2026/27.png', group: 'member' }
+    ];
+
+    const renderCard = (member, cardClass, infoClass) => `
+      <div class="${cardClass}">
+        <a href="./member2026.html?slug=${member.slug}">
+          <img loading="lazy" src="${member.image}" alt="${member.name}" class="${cardClass.replace('-card', '-photo')}" onerror="this.src='../../images/umrt_logo.png'" />
+          <div class="${infoClass}">
+            <h3>${member.name}</h3>
+            <p>${member.displayRole || member.role}</p>
+          </div>
+        </a>
+      </div>
+    `;
+
+    document.querySelector('.leader-container').innerHTML = team2026Members.filter((member) => member.group === 'leader').map((member) => renderCard(member, 'leader-card', 'leader-info')).join('');
+    document.querySelector('.sub-leaders-grid').innerHTML = team2026Members.filter((member) => member.group === 'sub-leader').map((member) => renderCard(member, 'sub-leader-card', 'sub-leader-info')).join('');
+    document.querySelector('.members-grid').innerHTML = team2026Members.filter((member) => member.group === 'member').map((member) => renderCard(member, 'member-card', 'member-info')).join('');
+  </script>
+
+</body>
+
+</html>
