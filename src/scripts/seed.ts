@@ -251,17 +251,11 @@ async function main() {
     INSERT INTO members (name, role, subteam, year, bio, image_url, is_lead)
     VALUES
     -- 2026 Leads & Core
-    ('Mosfiqur Rahman', 'Team Leader', 'Management', 2026, 'Leading the historic URC 2026 expedition and team strategy.', '/team/competition/img_team2025/Mosfiqur.jpg', true),
-    ('Tawsif Turabi', 'Co-Team Leader & Software Lead', 'Software', 2026, 'Architect of autonomous navigation and telemetry stack.', '/team/competition/img_team2025/Turabi.jpg', true),
-    ('Siam Ibne Sarwar', 'Mechanical Subteam Lead', 'Mechanical', 2026, 'Chassis optimization and robotic manipulator design.', '/team/competition/img_team2025/Siam.jpg', true),
-    ('Shoukhin Islam', 'Electrical Subteam Lead', 'Electrical', 2026, 'High-voltage power distribution and custom PCB design.', '/team/competition/img_team2025/Shoukhin.jpg', true),
-    ('Saif Uddin', 'Science Subteam Lead', 'Science', 2026, 'In-situ bio-signature detection and soil assay protocols.', '/team/competition/img_team2025/Saif.jpg', true),
-    ('Md Sheikh Sadi', 'Full-Stack & Embedded Engineer', 'Software', 2026, 'Webmaster and rover ROS2 communications engineer.', '/team/competition/img_team2025/Sadi.jpg', false),
-    ('Nazmul Hasan Athin', 'Mechanical & CAD Engineer', 'Mechanical', 2026, 'Rocker-bogie FEA simulation and CNC fabrication.', '/team/competition/img_team2025/Athin.jpg', false),
-    ('Adiba Habiba', 'Science & Research Specialist', 'Science', 2026, 'Spectrometry analysis and biochemical test bench.', '/team/competition/img_team2025/Adiba.jpg', false),
-    ('Abdullah Al Asif', 'Embedded Firmware Engineer', 'Electrical', 2026, 'Motor controller firmware and CAN bus integration.', '/team/competition/img_team2025/Asif.jpg', false),
-    ('Digonta Karmaker', 'Robotics Software Engineer', 'Software', 2026, 'Computer vision and obstacle avoidance algorithms.', '/team/competition/img_team2025/Digonta.jpg', false),
-    ('Hamim Mahmud', 'Mechanical Design Engineer', 'Mechanical', 2026, 'Suspension damping and robotic gripper prototyping.', '/team/competition/img_team2025/Hamim.jpg', false),
+    ('Saif Al Saad', 'Team Leader', 'Management', 2026, 'Leading the historic URC 2026 expedition and team strategy.', '/team/competition/img_team2026/2.png', true),
+    ('Ahmed Jebail Shoukhin', 'Co-Team Leader', 'Management', 2026, 'Co-leading the URC 2026 expedition.', '/team/competition/img_team2026/3.png', true),
+    ('Mosfiqur Rahman', 'Senior Lead', 'Management', 2026, 'Senior leadership and technical advisory.', '/team/competition/img_team2026/4.png', true),
+    ('Nadim Hossain', 'Sub-Team Lead, Media and Branding Team', 'Media', 2026, 'Leading team media and branding.', '/team/competition/img_team2026/5.png', true),
+    ('Adipta Shaha', 'Logistics Team', 'Management', 2026, 'Logistics and operations coordination.', '/team/competition/img_team2026/23.png', false),
 
     -- 2025 Team
     ('Mosfiqur Rahman', 'Team Leader', 'Management', 2025, 'Leading ARC & URC 2025 campaigns.', '/team/competition/img_team2025/Mosfiqur.jpg', true),
