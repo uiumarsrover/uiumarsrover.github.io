@@ -148,6 +148,19 @@ async function main() {
     INSERT INTO rovers (slug, name, year, competition, rank_achieved, cover_image, logo_image, tagline, description, specs, subsystems)
     VALUES
     (
+      'aurion',
+      'AURION Rover (5th Gen)',
+      2026,
+      'URC 2026 & ARC 2026',
+      '3rd Place Worldwide (Historic Record)',
+      '/Hero.PNG',
+      '/images/umrt_logo.png',
+      'UIU 5th Generation Flagship Martian Rover with Next-Gen Flexible Mesh Wheels & Autonomous Vision',
+      'AURION is the 5th generation flagship planetary rover built by UIU Mars Rover Team. Engineered with custom 3D-printed flexible tires, high-torque carbon-fiber manipulator, dual RealSense stereo cameras, and advanced biochemical assay chamber, securing 3rd place globally at URC 2026 in Hanksville, Utah.',
+      '{"weight": "47.5 kg", "speed": "2.0 m/s", "battery": "24V 35Ah LiFePO4", "dof": "6-DOF Carbon Manipulator", "payload": "15 kg max", "comms": "5.8GHz Ubiquiti Rocket + 2.4GHz backup", "sensors": "Velodyne LiDAR, Dual Intel RealSense D435i, RTK-GPS"}',
+      '{"mechanical": {"title": "5th Gen Hybrid Rocker-Bogie", "image": "/images/aurion.jpg", "desc": "Custom high-traction 3D printed mesh wheels paired with aerospace-grade 6061-T6 alloy suspension delivering unmatched stability over sand dunes and boulder fields."}, "autonomy": {"title": "Autonomous Nav2 & Sensor Fusion", "image": "/images/axios_auto.jpg", "desc": "ROS2 Nav2 autonomy pipeline with point cloud voxel filtering, RTK-GPS centimeter precision, and autonomous AR-tag tracking."}, "science": {"title": "Deep Subsurface Life Detection", "image": "/images/axios_science.png", "desc": "Automated sample carousel with UV-Vis spectroscopy, biochemical test bench, and soil humidity sensors."}}'
+    ),
+    (
       'axios',
       'AXIOS Rover',
       2025,

@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 
 const DEFAULT_ROVERS = [
-  { id: 5, slug: 'aurion', name: 'AURION Rover (5th Gen)', year: 2026, competition: 'URC 2026 & ARC 2026', rank_achieved: '3rd Place in the World', cover_image: '/images/aurion.png', tagline: '5th Generation Martian Explorer', specs: { weight: '47.5 kg', speed: '2.0 m/s', dof: '6-DOF' } },
+  { id: 5, slug: 'aurion', name: 'AURION Rover (5th Gen)', year: 2026, competition: 'URC 2026 & ARC 2026', rank_achieved: '3rd Place Worldwide (Historic Record)', cover_image: '/Hero.PNG', tagline: 'UIU 5th Generation Flagship Martian Rover with Next-Gen Flexible Mesh Wheels & Autonomous Vision', specs: { weight: '47.5 kg', speed: '2.0 m/s', dof: '6-DOF' } },
   { id: 4, slug: 'maven', name: 'MAVEN & MAVEN 2.0', year: 2025, competition: 'ARC 2025 & URC 2025', rank_achieved: 'Champion in Asia', cover_image: '/images/maven.jpg', tagline: 'Astrobiology & Autonomous Navigation', specs: { weight: '48.2 kg', speed: '1.8 m/s', dof: '6-DOF' } },
   { id: 3, slug: 'telos', name: 'TELOS Rover', year: 2024, competition: 'URC 2024', rank_achieved: 'World Finalist', cover_image: '/images/telos.jpg', tagline: 'Carbon-Fiber Manipulator & Raman Spectrometry', specs: { weight: '49.0 kg', speed: '1.5 m/s', dof: '6-DOF' } },
   { id: 2, slug: 'yggdrasil', name: 'YGGDRASIL Rover', year: 2023, competition: 'URC 2023', rank_achieved: 'Global Finalist', cover_image: '/images/yggdrasil.jpg', tagline: 'Extreme Retrieval & Autonomous Traversals', specs: { weight: '49.5 kg', speed: '1.6 m/s', dof: '5-DOF' } },
