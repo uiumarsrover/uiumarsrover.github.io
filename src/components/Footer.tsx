@@ -115,9 +115,6 @@ export default function Footer() {
                     Mahin Hasan Upol
                   </Link>
                 </h4>
-                <p className="text-xs text-gray-300 font-mono">
-                  Autonomous Team Engineer & Lead Web Developer
-                </p>
               </div>
             </div>
 
