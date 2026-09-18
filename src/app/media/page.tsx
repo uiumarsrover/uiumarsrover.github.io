@@ -91,11 +91,10 @@ export default function MediaPage() {
     },
     {
       id: 108,
-      publisher_name: 'Bangla Tribune',
-      headline: 'নাসার বিজ্ঞানীদের সামনে বাংলাদেশের রোভার পরীক্ষা',
+      publisher_name: 'Naya Diganta',
+      headline: 'নাসার বিজ্ঞানীদের সামনে ইউআইইউ রোভারের চমক',
       publish_date: 'June 2025',
-      category: 'Online Portal',
-      clipping_image: '/News Media/Screenshot 2025-09-22 at 12.09.26 PM.webp',
+      category: 'Newspaper',
     },
   ];
 

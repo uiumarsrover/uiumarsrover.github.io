@@ -307,7 +307,7 @@ async function main() {
     ('Daily Kalbela', 'বিশ্বমঞ্চে বাংলাদেশের লাল সবুজের গৌরব ইউআইইউ রোভার দল', '/images/Logo_Daily_Kalbela.webp', '/News Media/Screenshot 2025-09-22 at 12.05.02 PM.webp', 'July 2025', 'Newspaper'),
     ('Jamuna Television', 'আমেরিকায় বিশ্বসেরা বিশ্ববিদ্যালয়গুলোর সাথে লড়ছে বাংলাদেশি রোভার', '/images/Jamuna_TV_logo.svg.webp', '/News Media/Screenshot 2025-09-22 at 12.05.18 PM.webp', 'June 2025', 'Television'),
     ('NTV Bangladesh', 'বিশ্ব রোভার চ্যালেঞ্জে বাংলাদেশের নতুন রেকর্ড', '/images/NTV_(Bangladesh)_logo.svg.webp', '/News Media/Screenshot 2025-09-22 at 12.05.32 PM.webp', 'August 2025', 'Television'),
-    ('Naya Diganta', 'নাসার বিজ্ঞানীদের সামনে ইউআইইউ রোভারের চমক', '/images/Naya_Diganta.svg.webp', '/News Media/Screenshot 2025-09-22 at 12.07.11 PM.webp', 'June 2025', 'Newspaper'),
+    ('Naya Diganta', 'নাসার বিজ্ঞানীদের সামনে ইউআইইউ রোভারের চমক', '/images/Naya_Diganta.svg.webp', NULL, 'June 2025', 'Newspaper'),
     ('Ajker Patrika', 'তুরস্ক ও আমেরিকায় বাংলাদেশের রোভার বিপ্লব', '/images/AlokDia_logo.webp', '/images/AjkerPotrika-ARC25.webp', 'July 2025', 'Newspaper');
   `;
 
