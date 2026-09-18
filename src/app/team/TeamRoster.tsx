@@ -111,31 +111,31 @@ export default function TeamRoster({ initialMembers }: { initialMembers: Member[
     2026: {
       title: '2026 Delegation: Historic 3rd Worldwide Podium Finish',
       desc: 'The delegation that achieved an all-time record score with AURION at the University Rover Challenge in Hanksville, Utah, USA.',
-      banner: '/images/team_urc2026.jpg',
+      banner: '/images/team_urc2026.webp',
       stat: '🏆 3rd in the World (Historic Record)',
     },
     2025: {
       title: '2025 Campaign: AXIOS Dual Championship in Turkey & USA',
       desc: 'Pioneered next-generation autonomous navigation and biochemical soil assays with the AXIOS rover.',
-      banner: '/images/team_ARC25.jpg',
+      banner: '/images/team_ARC25.webp',
       stat: '🏆 ARC Championship & URC Finalist',
     },
     2024: {
       title: '2024 Campaign: YGGDRASIL Extreme Manipulation',
       desc: 'Engineered high-torque carbon harmonic drive arms and autonomous terrain mapping.',
-      banner: '/images/team_2024_1.jpg',
+      banner: '/images/team_2024_1.webp',
       stat: '🏆 Global Top Tier Finalist',
     },
     2023: {
       title: '2023 Campaign: TELOS Trans-Continental Expeditions',
       desc: 'Competed at both URC in the Utah Desert and ERC in Poland.',
-      banner: '/images/team_2023_1.jpg',
+      banner: '/images/team_2023_1.webp',
       stat: '🏆 Top Asian Team & Finalist',
     },
     2022: {
       title: '2022 Pioneers: 1st in Asia Debut at URC Utah',
       desc: 'The founding team that put Bangladesh on the global planetary exploration map with MAVEN.',
-      banner: '/images/team_2022_1.jpg',
+      banner: '/images/team_2022_1.webp',
       stat: '🏆 1st in Asia & Top 10 World',
     },
   };

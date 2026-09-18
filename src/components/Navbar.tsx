@@ -41,7 +41,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative w-10 h-10 md:w-12 md:h-12 overflow-hidden rounded-full border border-mars-500/40 p-1 bg-space-900 group-hover:border-mars-500 transition-all">
               <Image 
-                src="/images/umrt_logo.png" 
+                src="/images/umrt_logo.webp" 
                 alt="UMRT Logo" 
                 fill 
                 className="object-contain p-0.5"

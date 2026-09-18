@@ -63,7 +63,7 @@ export default function AchievementsPage() {
           <div className="lg:col-span-6">
             <div className="relative aspect-[16/10] rounded-2xl overflow-hidden border border-white/20 shadow-2xl">
               <Image
-                src="/images/team_urc2026.jpg"
+                src="/images/team_urc2026.webp"
                 alt="3rd Place Worldwide URC 2026"
                 fill
                 className="object-cover"

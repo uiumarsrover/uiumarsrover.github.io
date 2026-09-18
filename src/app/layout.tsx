@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   description: 'Official website of UIU Mars Rover Team. 3rd Place Worldwide in URC 2026, 1st in Asia in URC 2022. Engineering state-of-the-art Martian exploration rovers.',
   keywords: ['Mars Rover', 'UMRT', 'UIU', 'University Rover Challenge', 'URC 2026', 'Robotics Bangladesh', 'CAIR UIU'],
   icons: {
-    icon: '/images/umrt_logo.png',
+    icon: '/images/umrt_logo.webp',
   },
 };
 

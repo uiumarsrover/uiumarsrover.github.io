@@ -63,7 +63,7 @@ async function main() {
     { key: 'hero_headline_1', value: 'Pioneering The Future of', section: 'hero', type: 'text' },
     { key: 'hero_headline_2', value: 'Planetary Exploration', section: 'hero', type: 'text' },
     { key: 'hero_subtitle', value: 'UIU Mars Rover Team engineers next-generation autonomous rovers designed for extreme Martian terrains, subsurface astrobiology, and robotic manipulation.', section: 'hero', type: 'text' },
-    { key: 'hero_bg_image', value: '/Hero.PNG', section: 'hero', type: 'image' },
+    { key: 'hero_bg_image', value: '/Hero.webp', section: 'hero', type: 'image' },
     { key: 'stat_1_val', value: '3rd Place', section: 'stats', type: 'text' },
     { key: 'stat_1_label', value: 'World URC 2026 Record', section: 'stats', type: 'text' },
     { key: 'stat_2_val', value: '1st in Asia', section: 'stats', type: 'text' },

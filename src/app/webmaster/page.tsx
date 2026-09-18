@@ -37,7 +37,7 @@ export default function WebmasterPage() {
           {/* Photo */}
           <div className="relative w-40 h-48 sm:w-48 sm:h-56 rounded-2xl overflow-hidden border-2 border-mars-500/50 shadow-2xl bg-space-900 shrink-0 group">
             <Image
-              src="/images/webmaster.png"
+              src="/images/webmaster.webp"
               alt="Mahin Hasan Upol - Webmaster UMRT"
               fill
               priority

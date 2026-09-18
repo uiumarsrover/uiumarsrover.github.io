@@ -20,7 +20,7 @@ async function fixEventPhotos() {
       'Space Innovation Camp Bangladesh',
       'October 2025',
       'UIU Main Campus, Dhaka',
-      '/images/campaigns1.png',
+      '/images/campaigns1.webp',
       'The UIU Mars Rover Team hosted the Astro Robotics Team from Space Innovation Camp Bangladesh. Honored by Prof. Emeritus Dr. M. Rezwan Khan and Dr. Hasan Sarwar, inspiring young innovators in rover mechanics and space systems.',
       'Workshop & Outreach',
       'COMPLETED'
@@ -29,7 +29,7 @@ async function fixEventPhotos() {
       'ArcaNoca 251 Robotics & IoT Workshop',
       'August 2025',
       'CAIR Laboratory, UIU',
-      '/images/campaigns2.jpg',
+      '/images/campaigns2.webp',
       'UIU Robotics & UIU Mars Rover Team collaborated for an engaging IoT & Robotics Workshop. Demonstrated the rover AXIOS with live teleoperation and sensory feedback.',
       'Technical Workshop',
       'COMPLETED'
@@ -38,7 +38,7 @@ async function fixEventPhotos() {
       'Space Exploration Camp at Holy Cross College',
       'July 2025',
       'Holy Cross Girls College, Dhaka',
-      '/images/holy_cross1.jpg',
+      '/images/holy_cross1.webp',
       'Interactive workshop bringing Mars rover engineering, telemetry systems, and rocketry science directly to high school students and young women in STEM.',
       'STEM Outreach',
       'COMPLETED'
@@ -47,7 +47,7 @@ async function fixEventPhotos() {
       'Bangladesh Space Olympiad - National Finals',
       'June 2025',
       'United International University',
-      '/images/campaigns3.jpg',
+      '/images/campaigns3.webp',
       'Over 500 participants gathered for the national round of the Space Olympiad, celebrating robotics innovation and collegiate rover engineering.',
       'National Olympiad',
       'COMPLETED'
@@ -56,7 +56,7 @@ async function fixEventPhotos() {
       'BEAR Innovation Summit & Rover Keynote',
       'May 2025',
       'UIU Auditorium',
-      '/images/bearsummit2025.jpg',
+      '/images/bearsummit2025.webp',
       'Keynote presentation and live demonstration of rover autonomous obstacle avoidance and sample return mechanism.',
       'Keynote & Showcase',
       'COMPLETED'
@@ -65,7 +65,7 @@ async function fixEventPhotos() {
       'Google Tech Tour & AI Lab Exhibition',
       'March 2025',
       'CAIR Robotics Lab',
-      '/images/google_tour.jpg',
+      '/images/google_tour.webp',
       'Exhibition of rover autonomous computer vision, SLAM navigation, and 6-DOF robotic manipulator control.',
       'Exhibition',
       'COMPLETED'

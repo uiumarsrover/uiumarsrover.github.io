@@ -8,11 +8,11 @@ import { Cpu, ArrowRight, ShieldCheck, Gauge, Wrench, Radio } from 'lucide-react
 import { RoverCardSkeleton } from '@/components/Skeletons';
 
 const DEFAULT_ROVERS = [
-  { id: 5, slug: 'aurion', name: 'AURION Rover (5th Gen)', year: 2026, competition: 'URC 2026 & ARC 2026', rank_achieved: '3rd Place Worldwide (Historic Record)', cover_image: '/Hero.PNG', tagline: 'UIU 5th Generation Flagship Martian Rover with Next-Gen Flexible Mesh Wheels & Autonomous Vision', description: 'Engineered with 3D-printed flexible tires, high-torque carbon-fiber manipulator, dual RealSense stereo vision, and in-situ bio-detection assays.', specs: { weight: '47.5 kg', speed: '2.0 m/s', dof: '6-DOF', drive: '6-Wheel Rocker-Bogie' } },
-  { id: 4, slug: 'maven', name: 'MAVEN & MAVEN 2.0', year: 2025, competition: 'ARC 2025 & URC 2025', rank_achieved: 'Champion in Asia', cover_image: '/images/maven.jpg', tagline: 'Astrobiology & Autonomous Navigation', description: 'Advanced astrobiological sample collection with Raman spectrometry and high-bandwidth telemetry.', specs: { weight: '48.2 kg', speed: '1.8 m/s', dof: '6-DOF', drive: 'Custom Rocker Bogie' } },
-  { id: 3, slug: 'telos', name: 'TELOS Rover', year: 2024, competition: 'URC 2024', rank_achieved: 'World Finalist', cover_image: '/images/telos.jpg', tagline: 'Carbon-Fiber Manipulator & Raman Spectrometry', description: 'Precision robotic arm with closed-loop inverse kinematics and extreme terrain navigation.', specs: { weight: '49.0 kg', speed: '1.5 m/s', dof: '6-DOF', drive: 'Differential Rocker' } },
-  { id: 2, slug: 'yggdrasil', name: 'YGGDRASIL Rover', year: 2023, competition: 'URC 2023', rank_achieved: 'Global Finalist', cover_image: '/images/yggdrasil.jpg', tagline: 'Extreme Retrieval & Autonomous Traversals', description: 'Built for high torque payload delivery, equipment servicing, and harsh Martian terrain exploration.', specs: { weight: '49.5 kg', speed: '1.6 m/s', dof: '5-DOF', drive: 'Rocker-Bogie' } },
-  { id: 1, slug: 'axios', name: 'AXIOS Rover', year: 2022, competition: 'URC 2022', rank_achieved: '1st in Asia (10th in World)', cover_image: '/images/axios.jpg', tagline: 'First Historic Podium Finish', description: 'Historic flagship platform establishing UMRT on the global podium at the University Rover Challenge.', specs: { weight: '50.0 kg', speed: '1.4 m/s', dof: '5-DOF', drive: '6-Wheel Drive' } },
+  { id: 5, slug: 'aurion', name: 'AURION Rover (5th Gen)', year: 2026, competition: 'URC 2026 & ARC 2026', rank_achieved: '3rd Place Worldwide (Historic Record)', cover_image: '/Hero.webp', tagline: 'UIU 5th Generation Flagship Martian Rover with Next-Gen Flexible Mesh Wheels & Autonomous Vision', description: 'Engineered with 3D-printed flexible tires, high-torque carbon-fiber manipulator, dual RealSense stereo vision, and in-situ bio-detection assays.', specs: { weight: '47.5 kg', speed: '2.0 m/s', dof: '6-DOF', drive: '6-Wheel Rocker-Bogie' } },
+  { id: 4, slug: 'maven', name: 'MAVEN & MAVEN 2.0', year: 2025, competition: 'ARC 2025 & URC 2025', rank_achieved: 'Champion in Asia', cover_image: '/images/maven.webp', tagline: 'Astrobiology & Autonomous Navigation', description: 'Advanced astrobiological sample collection with Raman spectrometry and high-bandwidth telemetry.', specs: { weight: '48.2 kg', speed: '1.8 m/s', dof: '6-DOF', drive: 'Custom Rocker Bogie' } },
+  { id: 3, slug: 'telos', name: 'TELOS Rover', year: 2024, competition: 'URC 2024', rank_achieved: 'World Finalist', cover_image: '/images/telos.webp', tagline: 'Carbon-Fiber Manipulator & Raman Spectrometry', description: 'Precision robotic arm with closed-loop inverse kinematics and extreme terrain navigation.', specs: { weight: '49.0 kg', speed: '1.5 m/s', dof: '6-DOF', drive: 'Differential Rocker' } },
+  { id: 2, slug: 'yggdrasil', name: 'YGGDRASIL Rover', year: 2023, competition: 'URC 2023', rank_achieved: 'Global Finalist', cover_image: '/images/yggdrasil.webp', tagline: 'Extreme Retrieval & Autonomous Traversals', description: 'Built for high torque payload delivery, equipment servicing, and harsh Martian terrain exploration.', specs: { weight: '49.5 kg', speed: '1.6 m/s', dof: '5-DOF', drive: 'Rocker-Bogie' } },
+  { id: 1, slug: 'axios', name: 'AXIOS Rover', year: 2022, competition: 'URC 2022', rank_achieved: '1st in Asia (10th in World)', cover_image: '/images/axios.webp', tagline: 'First Historic Podium Finish', description: 'Historic flagship platform establishing UMRT on the global podium at the University Rover Challenge.', specs: { weight: '50.0 kg', speed: '1.4 m/s', dof: '5-DOF', drive: '6-Wheel Drive' } },
 ];
 
 export default function RoversPage() {
@@ -145,7 +145,7 @@ export default function RoversPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="glass-card p-6 rounded-2xl border border-white/10 flex flex-col sm:flex-row gap-6 items-center">
             <div className="relative w-full sm:w-48 aspect-square rounded-xl overflow-hidden bg-space-950 shrink-0">
-              <Image src="/images/MAARC.png" alt="MAARC UAV" fill className="object-cover" />
+              <Image src="/images/MAARC.webp" alt="MAARC UAV" fill className="object-cover" />
             </div>
             <div className="space-y-2">
               <span className="px-2.5 py-0.5 rounded text-[10px] font-mono bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">Autonomous Quadrotor</span>
@@ -158,7 +158,7 @@ export default function RoversPage() {
 
           <div className="glass-card p-6 rounded-2xl border border-white/10 flex flex-col sm:flex-row gap-6 items-center">
             <div className="relative w-full sm:w-48 aspect-square rounded-xl overflow-hidden bg-space-950 shrink-0">
-              <Image src="/images/ICARUS.png" alt="ICARUS UAV" fill className="object-cover" />
+              <Image src="/images/ICARUS.webp" alt="ICARUS UAV" fill className="object-cover" />
             </div>
             <div className="space-y-2">
               <span className="px-2.5 py-0.5 rounded text-[10px] font-mono bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">Hexacopter Scout</span>

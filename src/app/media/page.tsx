@@ -39,7 +39,7 @@ export default function MediaPage() {
       headline: 'রোভারের বিশ্বমঞ্চে লাল সবুজের সাফল্য - ইউআইইউ রোভার দল',
       publish_date: 'July 2025',
       category: 'Newspaper',
-      clipping_image: '/News Media/রোভারের বিশ্বমঞ্চে লাল সবুজের সাফল্য - eProtidiner Bangladesh-page-00001.jpg',
+      clipping_image: '/News Media/রোভারের বিশ্বমঞ্চে লাল সবুজের সাফল্য - eProtidiner Bangladesh-page-00001.webp',
     },
     {
       id: 102,
@@ -47,7 +47,7 @@ export default function MediaPage() {
       headline: 'আন্তর্জাতিক মার্স রোভার প্রতিযোগিতায় অভূতপূর্ব সাফল্য',
       publish_date: 'August 2025',
       category: 'Newspaper',
-      clipping_image: '/News Media/Screenshot 2025-09-22 at 12.07.48 PM.png',
+      clipping_image: '/News Media/Screenshot 2025-09-22 at 12.07.48 PM.webp',
     },
     {
       id: 103,
@@ -55,7 +55,7 @@ export default function MediaPage() {
       headline: 'Autonomous Rover Traversal by Bangladeshi University Engineers',
       publish_date: 'June 2025',
       category: 'Online Portal',
-      clipping_image: '/News Media/Screenshot 2025-09-22 at 12.08.05 PM.png',
+      clipping_image: '/News Media/Screenshot 2025-09-22 at 12.08.05 PM.webp',
     },
     {
       id: 104,
@@ -63,7 +63,7 @@ export default function MediaPage() {
       headline: 'UIU Mars Rover Team Wins Worldwide Acclaim in Utah',
       publish_date: 'June 2025',
       category: 'Newspaper',
-      clipping_image: '/News Media/Screenshot 2025-09-22 at 12.08.23 PM.png',
+      clipping_image: '/News Media/Screenshot 2025-09-22 at 12.08.23 PM.webp',
     },
     {
       id: 105,
@@ -71,7 +71,7 @@ export default function MediaPage() {
       headline: 'মঙ্গল জয়ের স্বপ্ন: বুয়েট ও ইউআইইউ রোভার দলের গল্প',
       publish_date: 'July 2025',
       category: 'Newspaper',
-      clipping_image: '/News Media/Screenshot 2025-09-22 at 12.08.39 PM.png',
+      clipping_image: '/News Media/Screenshot 2025-09-22 at 12.08.39 PM.webp',
     },
     {
       id: 106,
@@ -79,7 +79,7 @@ export default function MediaPage() {
       headline: 'বিশ্বমঞ্চে বাংলাদেশের শিক্ষার্থীদের অনন্য উদ্ভাবন',
       publish_date: 'July 2025',
       category: 'Newspaper',
-      clipping_image: '/News Media/Screenshot 2025-09-22 at 12.08.57 PM.png',
+      clipping_image: '/News Media/Screenshot 2025-09-22 at 12.08.57 PM.webp',
     },
     {
       id: 107,
@@ -87,7 +87,7 @@ export default function MediaPage() {
       headline: 'How UMRT Built an Aerospace-Grade Rover from Dhaka',
       publish_date: 'May 2025',
       category: 'Online Portal',
-      clipping_image: '/News Media/Screenshot 2025-09-22 at 12.09.11 PM.png',
+      clipping_image: '/News Media/Screenshot 2025-09-22 at 12.09.11 PM.webp',
     },
     {
       id: 108,
@@ -95,7 +95,7 @@ export default function MediaPage() {
       headline: 'নাসার বিজ্ঞানীদের সামনে বাংলাদেশের রোভার পরীক্ষা',
       publish_date: 'June 2025',
       category: 'Online Portal',
-      clipping_image: '/News Media/Screenshot 2025-09-22 at 12.09.26 PM.png',
+      clipping_image: '/News Media/Screenshot 2025-09-22 at 12.09.26 PM.webp',
     },
   ];
 

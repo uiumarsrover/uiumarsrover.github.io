@@ -25,7 +25,7 @@ const CORE_CONTENT_PRESETS: ContentPreset[] = [
     label: 'Hero Background Image',
     section: 'hero',
     type: 'image',
-    defaultValue: '/Hero.PNG',
+    defaultValue: '/Hero.webp',
     description: 'The large full-width background photo on the main homepage hero banner.'
   },
   {
@@ -1042,7 +1042,7 @@ export default function AdminDashboard() {
                           <div className="relative h-48 w-full rounded-2xl overflow-hidden border border-white/15 bg-space-950 flex items-center justify-center group/img">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
-                              src={item.value || '/Hero.PNG'}
+                              src={item.value || '/Hero.webp'}
                               alt={item.label}
                               className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700"
                             />
@@ -1239,7 +1239,7 @@ export default function AdminDashboard() {
                   <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-white/10 bg-space-950 mt-1 mb-2">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={member.image_url || '/images/default_avatar.png'}
+                      src={member.image_url || '/images/umrt_logo.webp'}
                       alt={member.name}
                       className="w-full h-full object-cover"
                     />
@@ -1751,7 +1751,7 @@ export default function AdminDashboard() {
                         type="text"
                         value={formData.cover_image || ''}
                         onChange={(e) => setFormData({ ...formData, cover_image: e.target.value })}
-                        placeholder="/images/aurion.png"
+                        placeholder="/images/aurion.webp"
                         className="flex-1 bg-space-900 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white font-mono"
                       />
                       <label className="px-3 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white text-xs font-mono cursor-pointer flex items-center gap-1">
@@ -1851,7 +1851,7 @@ export default function AdminDashboard() {
                         type="text"
                         value={formData.image_url || ''}
                         onChange={(e) => setFormData({ ...formData, image_url: e.target.value })}
-                        placeholder="/team/competition/img_team2026/1.png"
+                        placeholder="/team/competition/img_team2026/1.webp"
                         className="flex-1 bg-space-900 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white font-mono"
                       />
                       <label className="px-3 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white text-xs font-mono cursor-pointer flex items-center gap-1">
@@ -1949,7 +1949,7 @@ export default function AdminDashboard() {
                         type="text"
                         value={formData.image_url || ''}
                         onChange={(e) => setFormData({ ...formData, image_url: e.target.value })}
-                        placeholder="/Events/event1.jpg"
+                        placeholder="/Events/event1.webp"
                         className="flex-1 bg-space-900 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white font-mono"
                       />
                       <label className="px-3 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white text-xs font-mono cursor-pointer flex items-center gap-1">
@@ -2021,7 +2021,7 @@ export default function AdminDashboard() {
                         type="text"
                         value={formData.clipping_image || ''}
                         onChange={(e) => setFormData({ ...formData, clipping_image: e.target.value })}
-                        placeholder="/News Media/news1.png"
+                        placeholder="/News Media/news1.webp"
                         className="flex-1 bg-space-900 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white font-mono"
                       />
                       <label className="px-3 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white text-xs font-mono cursor-pointer flex items-center gap-1">
@@ -2157,7 +2157,7 @@ export default function AdminDashboard() {
                         type="text"
                         value={formData.logo_url || ''}
                         onChange={(e) => setFormData({ ...formData, logo_url: e.target.value })}
-                        placeholder="/images/sponsor_logo.png"
+                        placeholder="/images/sponsor_logo.webp"
                         className="flex-1 bg-space-900 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white font-mono"
                       />
                       <label className="px-3 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white text-xs font-mono cursor-pointer flex items-center gap-1">

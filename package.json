@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "seed": "node --loader tsx src/scripts/seed.ts",
-    "db:index": "node --loader tsx src/scripts/create_indexes.ts"
+    "seed": "tsx src/scripts/seed.ts",
+    "db:index": "tsx src/scripts/create_indexes.ts"
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.10.4",

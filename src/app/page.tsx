@@ -11,14 +11,14 @@ import {
 } from 'lucide-react';
 
 const DEFAULT_ROVERS = [
-  { id: 5, slug: 'aurion', name: 'AURION Rover (5th Gen)', year: 2026, competition: 'URC 2026 & ARC 2026', rank_achieved: '3rd Place Worldwide (Historic Record)', cover_image: '/Hero.PNG', tagline: 'UIU 5th Generation Flagship Martian Rover with Next-Gen Flexible Mesh Wheels & Autonomous Vision', specs: { weight: '47.5 kg', speed: '2.0 m/s', dof: '6-DOF' } },
-  { id: 4, slug: 'maven', name: 'MAVEN & MAVEN 2.0', year: 2025, competition: 'ARC 2025 & URC 2025', rank_achieved: 'Champion in Asia', cover_image: '/images/maven.jpg', tagline: 'Astrobiology & Autonomous Navigation', specs: { weight: '48.2 kg', speed: '1.8 m/s', dof: '6-DOF' } },
-  { id: 3, slug: 'telos', name: 'TELOS Rover', year: 2024, competition: 'URC 2024', rank_achieved: 'World Finalist', cover_image: '/images/telos.jpg', tagline: 'Carbon-Fiber Manipulator & Raman Spectrometry', specs: { weight: '49.0 kg', speed: '1.5 m/s', dof: '6-DOF' } },
-  { id: 2, slug: 'yggdrasil', name: 'YGGDRASIL Rover', year: 2023, competition: 'URC 2023', rank_achieved: 'Global Finalist', cover_image: '/images/yggdrasil.jpg', tagline: 'Extreme Retrieval & Autonomous Traversals', specs: { weight: '49.5 kg', speed: '1.6 m/s', dof: '5-DOF' } },
+  { id: 5, slug: 'aurion', name: 'AURION Rover (5th Gen)', year: 2026, competition: 'URC 2026 & ARC 2026', rank_achieved: '3rd Place Worldwide (Historic Record)', cover_image: '/Hero.webp', tagline: 'UIU 5th Generation Flagship Martian Rover with Next-Gen Flexible Mesh Wheels & Autonomous Vision', specs: { weight: '47.5 kg', speed: '2.0 m/s', dof: '6-DOF' } },
+  { id: 4, slug: 'maven', name: 'MAVEN & MAVEN 2.0', year: 2025, competition: 'ARC 2025 & URC 2025', rank_achieved: 'Champion in Asia', cover_image: '/images/maven.webp', tagline: 'Astrobiology & Autonomous Navigation', specs: { weight: '48.2 kg', speed: '1.8 m/s', dof: '6-DOF' } },
+  { id: 3, slug: 'telos', name: 'TELOS Rover', year: 2024, competition: 'URC 2024', rank_achieved: 'World Finalist', cover_image: '/images/telos.webp', tagline: 'Carbon-Fiber Manipulator & Raman Spectrometry', specs: { weight: '49.0 kg', speed: '1.5 m/s', dof: '6-DOF' } },
+  { id: 2, slug: 'yggdrasil', name: 'YGGDRASIL Rover', year: 2023, competition: 'URC 2023', rank_achieved: 'Global Finalist', cover_image: '/images/yggdrasil.webp', tagline: 'Extreme Retrieval & Autonomous Traversals', specs: { weight: '49.5 kg', speed: '1.6 m/s', dof: '5-DOF' } },
 ];
 
 const DEFAULT_SITE_CONTENT: Record<string, string> = {
-  hero_bg_image: '/Hero.PNG',
+  hero_bg_image: '/Hero.webp',
   hero_badge: '5TH GEN FLAGSHIP • AURION ROVER',
   hero_headline_1: 'AURION',
   hero_headline_2: 'UIU 5th Generation Autonomous Mars Rover',
@@ -68,21 +68,21 @@ export default function HomePage() {
   }, []);
 
   const heroSponsors = [
-    { name: 'United International University', logo: '/images/UIU-logo.png' },
+    { name: 'United International University', logo: '/images/UIU-logo.webp' },
     { name: 'CAIR - Center for Advanced Information Robotics', logo: '/images/CAIR_Logo.svg' },
-    { name: 'SolidWorks 3D CAD', logo: '/images/solidworks-logo.png' },
-    { name: 'Dassault Systèmes', logo: '/images/Dassauly-systemes-logo.png' },
-    { name: 'DFRobot', logo: '/images/DFRobot-logo.png' },
-    { name: 'Protospace', logo: '/images/protospace-logo.png' },
+    { name: 'SolidWorks 3D CAD', logo: '/images/solidworks-logo.webp' },
+    { name: 'Dassault Systèmes', logo: '/images/Dassauly-systemes-logo.webp' },
+    { name: 'DFRobot', logo: '/images/DFRobot-logo.webp' },
+    { name: 'Protospace', logo: '/images/protospace-logo.webp' },
   ];
 
   const heroMedia = [
-    { name: 'The Daily Star', logo: '/images/Logo_of_The_Daily_Star.svg_white.png' },
-    { name: 'Prothom Alo', logo: '/images/Prothom_Alo_logo.svg.png' },
+    { name: 'The Daily Star', logo: '/images/Logo_of_The_Daily_Star.svg_white.webp' },
+    { name: 'Prothom Alo', logo: '/images/Prothom_Alo_logo.svg.webp' },
     { name: 'The Business Standard', logo: '/images/The_Business_Standard_logo.svg' },
-    { name: 'Jamuna TV', logo: '/images/Jamuna_TV_logo.svg.png' },
-    { name: 'NTV', logo: '/images/NTV_(Bangladesh)_logo.svg.png' },
-    { name: 'Daily Kalbela', logo: '/images/Logo_Daily_Kalbela.png' },
+    { name: 'Jamuna TV', logo: '/images/Jamuna_TV_logo.svg.webp' },
+    { name: 'NTV', logo: '/images/NTV_(Bangladesh)_logo.svg.webp' },
+    { name: 'Daily Kalbela', logo: '/images/Logo_Daily_Kalbela.webp' },
   ];
 
   return (
@@ -94,7 +94,7 @@ export default function HomePage() {
         {/* Background Image: Dynamic or Default AURION Rover Photo */}
         <div className="absolute inset-0 z-0">
           <Image
-            src={siteContent['hero_bg_image'] || '/images/aurion.jpg'}
+            src={siteContent['hero_bg_image'] || '/images/aurion.webp'}
             alt="AURION 5th Generation Mars Rover"
             fill
             priority
@@ -341,7 +341,7 @@ export default function HomePage() {
             <div className="lg:col-span-7">
               <div className="relative aspect-[16/10] sm:aspect-[16/10] rounded-2xl overflow-hidden border-2 border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.8)] group">
                 <Image
-                  src="/images/team_urc2026.jpg"
+                  src="/images/team_urc2026.webp"
                   alt="UIU Mars Rover Team at URC 2026 in Hanksville Utah"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"

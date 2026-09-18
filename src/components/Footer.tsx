@@ -19,7 +19,7 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <div className="relative w-12 h-12 rounded-full border border-mars-500/50 p-1 bg-space-900">
                 <Image 
-                  src="/images/umrt_logo.png" 
+                  src="/images/umrt_logo.webp" 
                   alt="UMRT Logo" 
                   fill 
                   className="object-contain p-1"
@@ -98,9 +98,9 @@ export default function Footer() {
             <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
               <Link href="/webmaster" className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 border-mars-500/60 shadow-xl bg-space-900 shrink-0 group">
                 <Image
-                  src="/images/webmaster.png"
+                  src="/images/webmaster.webp"
                   alt="Mahin Hasan Upol"
-                  fill
+                  fill 
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-space-950/70 via-transparent to-transparent" />
