@@ -763,7 +763,7 @@ export default function AdminDashboard() {
                 required
                 value={loginIdentifier}
                 onChange={(e) => setLoginIdentifier(e.target.value)}
-                placeholder="abid@cse.uiu.ac.bd"
+                placeholder="example@gmail.com"
                 className="w-full bg-space-900/90 border border-white/15 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-mars-500 transition font-mono"
               />
             </div>
@@ -801,7 +801,7 @@ export default function AdminDashboard() {
 
           <div className="mt-8 pt-6 border-t border-white/10 text-center">
             <p className="text-[11px] font-mono text-gray-500">
-              Authorized Admin: <span className="text-gray-400">abid@cse.uiu.ac.bd</span>
+              Authorized Admin: <span className="text-gray-400">example@gmail.com</span>
             </p>
           </div>
         </div>

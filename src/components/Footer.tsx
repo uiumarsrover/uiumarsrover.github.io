@@ -84,7 +84,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <Globe className="w-4 h-4 text-mars-400 shrink-0" />
-                <span>uiumarsrover.github.io</span>
+                <a href="https://uiumarsrover.org" target="_blank" rel="noopener noreferrer" className="hover:text-mars-400 transition">uiumarsrover.org</a>
               </div>
             </div>
           </div>
